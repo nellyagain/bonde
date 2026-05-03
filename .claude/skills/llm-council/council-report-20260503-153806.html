@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Council Verdict — TVTX Monday Decision</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --border: #e2e2e2;
+    --accent: #2c5282;
+    --pass: #2f7a3a;
+    --wait: #b07b00;
+    --take: #c0392b;
+    --soft: #f7f7f5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    max-width: 880px;
+    margin: 32px auto;
+    padding: 0 24px 64px;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 28px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .question {
+    background: var(--soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 24px 0 32px;
+    font-size: 15px;
+  }
+  .question strong { display: block; margin-bottom: 6px; color: var(--accent); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+  h2 {
+    font-size: 17px;
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .verdict {
+    background: #fafaf7;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 18px 0 28px;
+  }
+  .verdict h2 { border: none; margin-top: 0; padding: 0; font-size: 18px; color: var(--accent); }
+  .verdict h3 { font-size: 14px; margin: 18px 0 6px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .verdict p { margin: 0 0 8px; }
+  .first-step {
+    background: #eef5ee;
+    border: 1px solid #c8e0c8;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-weight: 500;
+  }
+  .first-step .label { color: var(--pass); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin: 16px 0 28px;
+  }
+  .pos {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .pos .name { font-weight: 600; display: block; margin-bottom: 4px; }
+  .pos .vote { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+  .vote-pass { color: var(--pass); }
+  .vote-wait { color: var(--wait); }
+  .vote-take { color: var(--take); }
+  .pos-pass { background: #f3f8f3; }
+  .pos-wait { background: #faf6ec; }
+  .pos-take { background: #fbf1f0; }
+  .spectrum {
+    display: flex;
+    align-items: center;
+    margin: 12px 0 20px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .spectrum .bar {
+    flex: 1;
+    height: 8px;
+    background: linear-gradient(90deg, var(--pass) 0% 60%, var(--wait) 60% 80%, var(--take) 80% 100%);
+    margin: 0 10px;
+    border-radius: 4px;
+  }
+  details {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    background: #fdfdfc;
+  }
+  details summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    list-style: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "▸ "; color: var(--muted); }
+  details[open] summary::before { content: "▾ "; }
+  details .body {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    white-space: pre-wrap;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag-pass { background: #e3efe3; color: var(--pass); }
+  .tag-wait { background: #f7eecf; color: var(--wait); }
+  .tag-take { background: #f6dad7; color: var(--take); }
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Council Verdict — TVTX V5.8.6 Day-13 Reclaim</h1>
+  <div class="meta">5 advisors · 5 peer reviews · 1 chairman synthesis · 2026-05-03</div>
+</header>
+
+<div class="question">
+  <strong>Question</strong>
+  Should I take the Day-13 DELAYED_EP reclaim above $44.70 on Monday (despite extended-moderate geometry and sub-floor 1.14x volume), wait for Day-2 inside-day with vol ≥1.5x or pullback to 10EMA ~$41.70 / 21EMA ~$38.10, or pass entirely?
+  System: V5.8.6 graded as B (soft demote). Catalyst: Grade A FDA approval of FILSPARI for FSGS (April 13). Account: $100k, 1% risk = $1,000, zero positions held.
+</div>
+
+<h2>Council Position Map</h2>
+<div class="grid">
+  <div class="pos pos-pass"><span class="name">Contrarian</span><span class="vote vote-pass">Pass</span></div>
+  <div class="pos pos-pass"><span class="name">First Principles</span><span class="vote vote-pass">Pass + Backtest</span></div>
+  <div class="pos pos-pass"><span class="name">Outsider</span><span class="vote vote-pass">Pass</span></div>
+  <div class="pos pos-wait"><span class="name">Executor</span><span class="vote vote-wait">Wait Inside-Day</span></div>
+  <div class="pos pos-take"><span class="name">Expansionist</span><span class="vote vote-take">Take + Upsize 1.5x</span></div>
+</div>
+<div class="spectrum">
+  <span>Pass</span><span class="bar"></span><span>Take</span>
+</div>
+
+<div class="verdict">
+  <h2>Chairman's Verdict</h2>
+
+  <h3>Where the council agrees</h3>
+  <ul>
+    <li><strong>Don't take the $44.70 reclaim Monday.</strong> 4 of 5 advisors converged on this. The setup violates two volume floors (1.14x vs 1.5x default and 1.2x hard floor) and is geometrically extended (15.9% above 21EMA, 15 bars since 10EMA). Three advisors pinned the same psychological tell: zero positions + fresh $100k + a B-grade signal you're shopping to the council = boredom-driven override.</li>
+    <li><strong>The system already answered the question.</strong> V5.8.6 explicitly conditioned A2 on inside-day OR EMA pullback. Discretionary override of a quantified rule, on the same day it fires, is the canonical edge-destroyer.</li>
+    <li><strong>The Grade A catalyst is mostly priced in.</strong> The 35% gap on April 13 was the trade. Day-13 entries on a name that has closed above the 21EMA every day for 10 sessions are exhaustion geometry, not "early."</li>
+  </ul>
+
+  <h3>Where the council clashes</h3>
+  <ul>
+    <li><strong>Expansionist vs everyone else on the upsize.</strong> Expansionist argues 1.5x risk on the reclaim because the FSGS franchise is a once-per-decade re-rating. All 5 peer reviewers flagged this as the biggest blind spot in the council. Reasonable in isolation; reckless under a system that just demoted the signal to B.</li>
+    <li><strong>Executor vs Contrarian on the pullback path.</strong> Executor green-lights Option 2 inside-day-with-volume. Contrarian argues that on Day-13 extended names, the first pullback is usually the failed bounce, so even Option 2 is a trap. This is a genuine disagreement and you cannot resolve it without base-rate data.</li>
+  </ul>
+
+  <h3>Blind spots the peer round caught (no advisor flagged these solo)</h3>
+  <ul>
+    <li><strong>Base rate of the signal itself.</strong> No advisor cited V5.8.6's historical win rate on B-grade DELAYED_EP with sub-1.2x volume on Day 10+. Without that number, every position above is opinion.</li>
+    <li><strong>Position sizing under demotion.</strong> If the system soft-demoted to B, the correct risk is likely fractional (0.25–0.5%), not the full 1%. The Expansionist proposed the opposite.</li>
+    <li><strong>Opportunity cost across the watchlist.</strong> "Zero positions held" doesn't mean TVTX is the only candidate. None of the advisors asked what else is on the screen.</li>
+    <li><strong>XBI / biotech regime gate.</strong> Single-name biotech entries should be gated by sector regime regardless of the individual setup.</li>
+    <li><strong>Possible parameter gap in V5.8.6 itself.</strong> A DELAYED_EP RECLAIM firing at all on a name 15.9% extended with 15 bars since 10EMA suggests the scanner may need a max-extension filter. The durable fix is to the system, not to Monday's decision.</li>
+    <li><strong>Earnings proximity.</strong> Changes the trail logic Executor proposed; nobody addressed it.</li>
+    <li><strong>The meta-precedent.</strong> If overriding a B produces a win, system authority is permanently degraded for every future B. The trade isn't just the trade — it's the rule about when you're allowed to ask the council at all.</li>
+  </ul>
+</div>
+
+<h2>The Recommendation</h2>
+<div class="verdict">
+  <p><strong>Pass the $44.70 reclaim Monday.</strong> Don't take it long, don't size up on it, don't argue yourself into it. The system flagged it B for two volume reasons and one geometry reason; all three are still true Monday morning.</p>
+  <p><strong>For Option 2, only the inside-day-with-confirmed-volume variant is live.</strong> Skip the 10EMA pullback at $41.70 — Contrarian's point that first pullbacks on Day-13 extended names tend to be failed bounces is well-grounded enough that you should not trade it without base-rate evidence. The 21EMA pullback at $38.10 is a different setup (re-test of trend) and worth a separate alert, not a present plan.</p>
+  <p><strong>If you still want to take the inside-day, size at 0.5% risk ($500), not 1%.</strong> The system demoted to B; sizing should follow grade, not the trader's narrative. Multiple peer reviewers independently flagged that no advisor said this out loud.</p>
+  <p><strong>Then go fix the system.</strong> The fact that V5.8.6 fired a RECLAIM on a name 15.9% above its 21EMA is information about the scanner, not about TVTX. Add a max-extension or max-bars-since-10EMA filter to DELAYED_EP. That change compounds; Monday's TVTX decision does not.</p>
+</div>
+
+<div class="first-step">
+  <span class="label">The one thing to do first — this weekend, before Monday's open</span>
+  Pull your historical results for: B-grade DELAYED_EP setups, sub-1.2x volume, &gt;10 bars since 10EMA tag, &gt;13% above 21EMA. If you don't have enough samples, that's the answer — you don't have edge here, so you can't trade it. If the win rate is positive at acceptable expectancy, take only the inside-day-with-volume trigger at 0.5% risk. If negative, set a 21EMA-tag alert at $38.10 and walk away from this name until a real reset.
+</div>
+
+<h2>Advisor Responses</h2>
+
+<details>
+  <summary>The Contrarian <span class="tag tag-pass">Pass</span></summary>
+  <div class="body">This setup is a trap dressed up in Grade A clothing. Let me name the fatal flaws nobody's saying out loud.
+
+The catalyst is already priced in. FDA approval was April 13. The 35.28% gap that day WAS the trade. You are now 13 sessions late, sitting 15.9% above the 21EMA, on a stock that has closed above the 21EMA 100% of the last 10 sessions. That's not opportunity — that's exhaustion geometry. Every late chaser who saw the Guggenheim $56 target is already long.
+
+The volume tells the truth the price won't. 1.14x on a "reclaim" day after a +4.75% move? That fails BOTH the 1.5x default AND the 1.2x floor. This is not institutional accumulation — this is retail FOMO and short-covering on thin participation. Reclaims without volume are bull traps. Period.
+
+Your own system is screaming at you. V5.8.6 demoted this to B and explicitly said "A2 only on Day-2 inside-day or EMA pullback." Option (1) is overriding your system because the catalyst feels sexy. That's how accounts blow up — discretionary overrides of quantified rules during late-stage extensions.
+
+Option (2) is also a trap. Waiting for the 10EMA pullback to $41.7 sounds disciplined, but on a Day-13 extended name, the first pullback often becomes the failed bounce that triggers the real flush to the 21EMA or below. You'll be buying weakness in a topping pattern and calling it discipline.
+
+Take Option (3). Pass entirely. Zero positions held means zero pressure to act. The opportunity cost of skipping TVTX is nothing. The cost of a stop-out 15.9% above the 21EMA on a thin-volume reclaim is $1,000 plus the tilt that follows. There will be A-grade Day-1 setups next week. This isn't one.</div>
+</details>
+
+<details>
+  <summary>The First Principles Thinker <span class="tag tag-pass">Pass + Backtest</span></summary>
+  <div class="body">The user isn't actually asking "which of these three actions?" They're asking: "Please validate my system so I don't have to take responsibility for the decision."
+
+Strip the jargon. Here's what's actually true:
+
+A stock gapped 35% on a real catalyst three weeks ago. It's now 16% above its 21EMA, has run 13 days, and today's "reclaim" happened on 1.14x volume — meaning nobody with size was actually buying. The system itself demoted it to B. The system itself said "wait for pullback or inside day." The trader is now asking strangers on the internet whether to override the system that already gave them the answer.
+
+That's the real question: "Why don't I trust my own framework?"
+
+Rebuild from zero. What does a trader actually need to make money? An edge, repeated many times, with losses smaller than wins. Does chasing a Day-13 extended move on failing volume fit that description? No. Has it ever, statistically, across the trader's own backtest? They didn't say — which is suspicious, because that's the only number that matters here. Not Guggenheim's $56 target. Not "Confidence 85." Not the FDA approval from three weeks ago that's already priced in.
+
+The right question isn't (1), (2), or (3). The right question is: "What is my historical win rate on B-grade DELAYED_EP setups with sub-1.2x volume on Day 10+?" If they don't know, they shouldn't trade it. If they do know and it's negative-expectancy, the debate is over.
+
+Action: Pass on Monday's reclaim. Set alerts at $41.70 and $38.10. Spend the weekend pulling the backtest stats on this exact subtype. Stop asking the council to ratify what your system already told you.</div>
+</details>
+
+<details>
+  <summary>The Outsider <span class="tag tag-pass">Pass</span></summary>
+  <div class="body">Fresh eyes here. I don't know V5.8.6, I don't know what a "Gate" is, and I don't know why a B becomes tradeable when the rules apparently say it shouldn't. But here's what jumps out.
+
+You built a system. The system said no. You're now shopping the question to a council. That's the tell. You're not asking "is my system right?" — you're asking "can someone give me cover to override it?"
+
+Look at what you wrote: the catalyst is three weeks old. The 35% gap already happened. Analysts already raised targets. The stock is already 15.9% extended from its 21EMA and hasn't touched the 10EMA in 15 bars. Today's volume missed your own threshold — not by a hair, by a lot (1.14x vs a 1.5x target, barely above the 1.2 floor you call "hard"). Every piece of evidence you presented is something that happened to somebody else already. You're describing a party you weren't invited to and asking whether it's too late to show up.
+
+Option 1 is chasing. Option 2 is what your own system told you to do. Option 3 is also what your system told you to do. So really there's one option (your system's answer) and two flavors of overriding it.
+
+One more thing a stranger notices: you have zero positions and a fresh $100k. That's the actual variable here. Boredom and an empty book make B-grades look like A-grades. The trade you take to feel productive is usually the one that funds someone else's vacation.
+
+Trust the thing you built when you were calmer than you are now.</div>
+</details>
+
+<details>
+  <summary>The Executor <span class="tag tag-wait">Wait — Inside-Day Variant</span></summary>
+  <div class="body">Option 1 — Reclaim $44.70
+- Entry: stop-limit buy $44.72 / $44.85 (avoid chasing past $44.90).
+- Stop: $42.07 (under today_low). Risk/share = $2.65. Shares = $1,000 / $2.65 = 377.
+- Position notional = ~$16,860 (16.9% of account).
+- Targets: 1/3 at $48 (+$3.30, ~1.25R), 1/3 at $52, trail last 1/3 under rising 10EMA.
+- Pre-open checklist: gap &lt; +3% (else skip), pre-market volume &gt; 200k by 9:00, SPY/XBI not red &gt;0.5%, no overnight biotech tape-bomb.
+
+Option 2 — Wait
+- Inside-day trigger: break of Day-2 high with vol pace ≥1.5x 20-day avg by 10:30. Stop under inside-day low.
+- 10EMA pullback ~$41.70: entry on 5-min reversal bar, stop $40.95. Risk/share $0.75 → 1,333 shares, $55.6k notional. Cap at 25% = 449 shares.
+- 21EMA ~$38.10: entry on reclaim, stop $37.40. Risk/share $0.70 → 1,428 shares, capped.
+
+Option 3 — Pass: free, always available.
+
+Verdict: Take Option 2, specifically the inside-day-with-volume variant. Your system grade is B, volume today was 1.14x (below your 1.2 floor, well below 1.5x trigger), and you're 15.9% above 21EMA on bar 15. Option 1 forces you to pay up another 4.7% into extension on a setup your system already soft-demoted. That's how you get stopped at $42.07 on a normal pullback and lose $1,000 on a thesis that's still intact.
+
+Monday morning: set alerts at $44.70, $42.69 (inside-day pivot), $41.70, $38.10. Don't touch the keyboard otherwise.</div>
+</details>
+
+<details>
+  <summary>The Expansionist <span class="tag tag-take">Take + Upsize 1.5x</span></summary>
+  <div class="body">TVTX is a classic case of a system pattern-matching against generic "extension" rules while missing a once-per-decade fundamental inflection. FILSPARI just became the first-and-only approved drug for FSGS — a disease with zero competing approved therapies and ~30K addressable US patients sitting on top of an already-ramping IgAN franchise. That's not a "catalyst gap" to fade. That's a re-rating in progress.
+
+Here's what the system isn't pricing:
+
+The analyst wave is early. Guggenheim $56 and Citi flagging "upside catalyst watch" on April 24-29 — these are the first movers. When Q2 scripts print and Street models get rebuilt around dual-indication peak sales ($1.5B+), you get a second leg of estimate revisions. Day-13 isn't late; it's the quiet middle before institutions finish building positions.
+
+The "weak" 1.14x volume is bullish, not bearish. Holding 78% of range on declining volume after a 35% gap means no supply. Sellers are exhausted. The reclaim above $44.70 unlocks air to $50-56 with no overhead resistance.
+
+Asymmetric play: Take the reclaim entry Monday, but size it 1.5x normal ($1,500 risk) because the catalyst confidence is 85 and the setup is binary — either FILSPARI is a franchise drug and this goes $60+, or it isn't and your stop costs you 1.5R. Stop under $41.50 (below 10EMA). Target: scale 1/3 at $52, 1/3 at $58, let final third ride on a 21EMA trail through earnings.
+
+Waiting for the inside-day or 10EMA pullback means watching it gap to $48 on a script-tracker leak. The Day-2 setup people are looking at the same chart. Be early, be bold, take the reclaim.</div>
+</details>
+
+<h2>Peer Review Highlights</h2>
+<details>
+  <summary>What 5 reviewers converged on</summary>
+  <div class="body">Strongest response (4 of 5 picks): First Principles. The one dissenter picked Executor. Reasoning across reviewers: First Principles is the only one that converts a one-shot question into a falsifiable rule update (the backtest demand). Executor is praised for being the only response that respects the user's framework while doing real position-sizing math.
+
+Biggest blind spot (5 of 5 picks): Expansionist. Specifically the recommendation to upsize to 1.5x risk on a setup the system itself soft-demoted to B with two failed volume floors. Multiple reviewers called "low volume = no supply" an unfalsifiable post-hoc narrative. Conviction from fundamentals is supposed to be filtered by mechanical risk rules, not override them.
+
+What ALL responses missed (consolidated across reviewers):
+- Base-rate / backtest of B-grade DELAYED_EP with sub-1.2x volume on Day 10+ (gestured at by First Principles, not operationalized by anyone).
+- Position sizing under demotion — B-grade should warrant fractional risk (0.25-0.5%), not the default 1%.
+- Opportunity cost across the watchlist; zero positions ≠ TVTX is the only candidate.
+- XBI / biotech sector regime as a gating filter regardless of single-name setup.
+- The signal itself may be defective: a DELAYED_EP RECLAIM firing on a 15.9%-extended, 15-bar-since-10EMA name suggests V5.8.6 needs a max-extension parameter. The durable fix is to the system, not Monday's trade.
+- Earnings date proximity changes the trail logic Executor proposed.
+- The meta-precedent: each B-grade override degrades system authority for every future B.</div>
+</details>
+
+<footer>
+  Generated 2026-05-03 · 5 advisors (Contrarian, First Principles, Expansionist, Outsider, Executor) · 5 anonymized peer reviewers · 1 chairman synthesis. Counciled: TVTX V5.8.6 Day-13 DELAYED_EP RECLAIM decision for Monday 2026-05-04.
+</footer>
+
+</body>
+</html>
