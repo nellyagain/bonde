@@ -1,6 +1,6 @@
 ---
 name: llm-council
-description: Run any question, idea, or decision through a council of 5 AI advisors who independently analyze it, peer-review each other anonymously, and synthesize a final verdict. Based on Karpathy's LLM Council methodology. MANDATORY TRIGGERS: 'council this', 'run the council', 'war room this', 'pressure-test this', 'stress-test this', 'debate this'. STRONG TRIGGERS (use when combined with a real decision or tradeoff): 'should I X or Y', 'which option', 'what would you do', 'is this the right move', 'validate this', 'get multiple perspectives', 'I can't decide', 'I'm torn between'. Do NOT trigger on simple yes/no questions, factual lookups, or casual 'should I' without a meaningful tradeoff (e.g. 'should I use markdown' is not a council question). DO trigger when the user presents a genuine decision with stakes, multiple options, and context that suggests they want it pressure-tested from multiple angles.
+description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, and a chairman verdict. Use for prompts like 'council this', 'run the council', 'pressure-test this', or real tradeoffs with meaningful downside. Includes optional outcome/base-rate overlay: if performance reports, prior council logs, or trading-learning summaries are available, summarize them before voting and label verdicts as evidence-backed or playbook-only. Do not trigger for factual lookups or trivial yes/no questions.
 ---
 You ask one AI a question, you get one answer. That answer might be great. It might be mid. You have no way to tell because you only saw one perspective.
 The council fixes this. It runs your question through 5 independent advisors, each thinking from a fundamentally different angle. Then they review each other's work. Then a chairman synthesizes everything into a final recommendation that tells you where the advisors agree, where they clash, and what you should actually do.
@@ -49,17 +49,42 @@ Any files the user explicitly referenced or attached
 Recent council transcripts in this folder (to avoid re-counciling the same ground)
 Any other context files that seem relevant to the specific question (e.g., if they're asking about pricing, look for revenue data, past launch results, audience research)
 
+For Bonde/trading/B+ council questions, also look for outcome/base-rate context if available:
+
+skill_pack_performance_report_v410.md or similar
+weekly_learning_report_*.md
+reviewed_vs_unreviewed_summary*.csv
+bplus_council_outcome_summary*.csv
+council_queue_*.csv
+prior council-report-*.html or council-transcript-*.md
+skill_pack_ticker_outcomes_enriched*.csv or decision/outcome summaries
+
 Use Glob and quick Read calls to find these. Don't spend more than 30 seconds on this. You're looking for the 2-3 files that would give advisors the context they need to give specific, grounded advice instead of generic takes.
-B. Frame the question. Take the user's raw question AND the enriched context and reframe it as a clear, neutral prompt that all five advisors will receive. The framed question should include:
+
+B. Build outcome/base-rate context when relevant. Outcome data is optional, but if it exists it must be summarized before the advisors vote. For trading/Bonde/B+ questions, summarize:
+
+Outcome data available: yes/no
+Relevant setup-family base rate, if available
+Relevant B+ blocker type base rate, if available: C1 wide Day-1/R:R floor fail, C2 DTE/pre-earnings tactical setup, C3 mild-extension/Day-2 confirmation
+Prior council promote/defer/cancel outcomes, if available
++1D / +5D returns, MFE/MAE, trigger-hit rate, or conversion rate from B+ to valid A2, if available
+Whether prior cancellations saved money or missed winners, if available
+
+If no relevant outcome data is found, state exactly in the framed question: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."
+
+Outcome data is an overlay, not permission to violate hard rules. For Bonde/trading decisions, do not override hard rejects such as bag-holder, failed EP, DTE unknown, DTE hard reject, dilution/offering, deal-pinned/merger-arb, or severe extension without reset unless the main Bonde playbook has formally changed the rule.
+
+C. Frame the question. Take the user's raw question, the enriched context, and any outcome/base-rate context and reframe it as a clear, neutral prompt that all five advisors will receive. The framed question should include:
 
 The core decision or question
 Key context from the user's message
 Key context from workspace files (business stage, audience, constraints, past results, relevant numbers)
+Outcome/base-rate context, or the explicit note that none is available
 What's at stake (why this decision matters)
 
 Don't add your own opinion. Don't steer it. But DO make sure each advisor has enough context to give a specific, grounded answer rather than generic advice.
 If the question is too vague ("council this: my business"), ask one clarifying question. Just one. Then proceed.
-Save the framed question for the transcript.
+Save the framed question and outcome/base-rate context for the transcript.
 step 2: convene the council (5 sub-agents in parallel)
 Spawn all 5 advisors simultaneously as sub-agents. Each gets:
 
@@ -81,13 +106,16 @@ A user has brought this question to the council:
 
 ---
 
-[framed question]
+[framed question, including any outcome/base-rate context]
 
 ---
 
 
 Respond from your perspective. Be direct and specific. Don't hedge or try to be balanced. Lean fully into your assigned angle. The other advisors will cover the angles you're not covering.
 
+If outcome/base-rate context is available, use it explicitly. If it is unavailable, state that your view is playbook-only and should be logged for calibration. Do not use weak or immature outcome data to justify breaking hard rules.
+
+For Bonde/trading questions, include one of: promote / defer / cancel, plus confidence and whether the verdict is evidence-backed or playbook-only.
 
 Keep your response between 150-300 words. No preamble. Go straight into your analysis.
 step 3: peer review (5 sub-agents in parallel)
@@ -139,17 +167,19 @@ Here are their anonymized responses:
 [response]
 
 
-Answer these three questions. Be specific. Reference responses by letter.
+Answer these four questions. Be specific. Reference responses by letter.
 
 
 1. Which response is the strongest? Why?
 
 2. Which response has the biggest blind spot? What is it missing?
 
-3. What did ALL five responses miss that the council should consider?
+3. Did any response misuse, ignore, or overfit the outcome/base-rate context?
+
+4. What did ALL five responses miss that the council should consider?
 
 
-Keep your review under 200 words. Be direct.
+Keep your review under 220 words. Be direct.
 step 4: chairman synthesis
 This is the final step. One agent gets everything: the original question, all 5 advisor responses (now de-anonymized so you can see which advisor said what), and all 5 peer reviews.
 The chairman's job is to produce the final council output. It follows this structure:
@@ -211,6 +241,11 @@ PEER REVIEWS:
 Produce the council verdict using this exact structure:
 
 
+## Outcome/Base-Rate Context
+
+[State whether outcome data was available. Summarize relevant base rates, sample sizes, +1D/+5D, MFE/MAE, trigger-hit or conversion data if available. If unavailable, write: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."]
+
+
 ## Where the Council Agrees
 
 [Points multiple advisors converged on independently. These are high-confidence signals.]
@@ -228,12 +263,17 @@ Produce the council verdict using this exact structure:
 
 ## The Recommendation
 
-[A clear, direct recommendation. Not "it depends." A real answer with reasoning.]
+[A clear, direct recommendation. Not "it depends." A real answer with reasoning. For Bonde/trading candidates, state promote / defer / cancel, confidence, and whether the recommendation is evidence-backed or playbook-only.]
 
 
 ## The One Thing to Do First
 
 [A single concrete next step. Not a list. One thing.]
+
+
+## Council Calibration Log Row
+
+[For Bonde/trading/B+ questions only. Provide a comma-separated row with: signal_date,ticker,bplus_reason,council_verdict,confidence,base_rate_used,base_rate_sample_size,decision_reason. If not a trading/B+ question, write N/A.]
 
 
 Be direct. Don't hedge. The whole point of the council is to give the user clarity they couldn't get from a single perspective.
@@ -243,6 +283,7 @@ File: council-report-[timestamp].html
 The report should be a single self-contained HTML file with inline CSS. Clean design, easy to scan. It should contain:
 
 The question at the top
+The outcome/base-rate context prominently displayed when relevant
 The chairman's verdict prominently displayed (this is what most people will read)
 An agreement/disagreement visual — a simple visual showing which advisors aligned and which diverged. This could be a grid, a spectrum, or a simple breakdown showing advisor positions. Keep it clean and scannable.
 Collapsible sections for each advisor's full response (collapsed by default so the page isn't overwhelming, but available if the user wants to dig in)
@@ -256,6 +297,7 @@ Save the complete council transcript as council-transcript-[timestamp].md in the
 
 The original question
 The framed question
+The outcome/base-rate context used or the statement that no outcome data was available
 All 5 advisor responses
 All 5 peer reviews (with anonymization mapping revealed)
 The chairman's full synthesis
@@ -283,6 +325,32 @@ Where the council clashes: Price. The Contrarian says $297 is too high given com
 Blind spots caught: The Outsider's point that "Claude Code" means nothing to the target buyer is the single most important insight. Every advisor except the Outsider assumed the audience already knows what this is.
 Recommendation: Don't build the course yet. Validate with a lower-commitment offer first. But reframe entirely: sell the outcome (automate your business, get 10 hours back per week), not the tool.
 One thing to do first: Run a $97 live workshop called "How to automate your first business task with AI" to 50 people. Don't mention Claude Code in the title.
+
+Bonde / trading council addendum
+
+When the council is being used for Bonde/Stockbee trade candidates, B+ Day-2 council setups, or council_queue rows, apply these additional rules:
+
+B+ blocker types:
+
+C1 = wide Day-1 range / static EOD R:R floor fail
+C2 = DTE / pre-earnings tactical setup
+C3 = mild extension or Day-2 confirmation requirement
+
+Before advisors vote, state whether historical outcome data exists for the same setup_family, same B+ blocker type, or prior council verdict type. Use outcome data only if it is mature enough to be meaningful. Immature cohorts are monitoring-only.
+
+For every B+ candidate, the final verdict must include:
+
+blocker type: C1, C2, C3, or mixed
+historical sample size if available
+historical +1D / +5D expectancy if available
+prior council promote/defer/cancel outcome if available
+verdict: promote / defer / cancel
+confidence score
+whether the verdict is evidence-backed or playbook-only
+
+Hard rule: outcome data is an overlay, not a loophole. The council cannot use outcome data to override bag-holder, failed EP, DTE unknown, DTE hard reject, dilution/offering, deal-pinned/merger-arb, or severe extension without reset unless the main Bonde actionability skill has formally changed that rule.
+
+If outcome data is unavailable, the council must say: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."
 
 important notes
 
