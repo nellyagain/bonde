@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Council Report — 6-Ticker Batch (2026-05-07)</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --rule: #e5e5e0;
+    --accent: #2b5d3a;
+    --warn: #a8551c;
+    --danger: #8b2c2c;
+    --ok: #2b5d3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    padding: 32px 24px 80px;
+    line-height: 1.55;
+    font-size: 15px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .question { font-size: 14px; }
+  .question .row { padding: 4px 0; border-bottom: 1px dashed var(--rule); }
+  .question .row:last-child { border-bottom: 0; }
+  .pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pill.promote { background: #e2efe7; color: var(--ok); }
+  .pill.defer   { background: #fbeed4; color: var(--warn); }
+  .pill.cancel  { background: #f4dadc; color: var(--danger); }
+  .pill.haircut { background: #e6e8f4; color: #2b3d8b; }
+  .verdict-banner {
+    background: #fff;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-bottom: 24px;
+  }
+  .verdict-banner h2 {
+    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .verdict-banner .first {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  td.ticker { font-weight: 700; font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+  td.conf { text-align: center; color: var(--muted); }
+  details { margin: 6px 0; border: 1px solid var(--rule); border-radius: 8px; padding: 0; background: #fff; }
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::before {
+    content: "▸ ";
+    color: var(--muted);
+  }
+  details[open] > summary::before { content: "▾ "; }
+  details > div { padding: 0 18px 16px; font-size: 14px; color: #2a2a2a; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    font-size: 12px;
+  }
+  .grid .h { text-align: center; font-weight: 600; color: var(--muted); padding: 4px 0; border-bottom: 1px solid var(--rule); }
+  .grid .ticker-col { font-weight: 700; font-family: ui-monospace, monospace; padding: 6px 4px; }
+  .grid .cell {
+    padding: 6px 4px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .grid .cell.p { background: #e2efe7; color: var(--ok); }
+  .grid .cell.d { background: #fbeed4; color: var(--warn); }
+  .grid .cell.c { background: #f4dadc; color: var(--danger); }
+  .grid .cell.ph { background: #e6e8f4; color: #2b3d8b; }
+  .footer { color: var(--muted); font-size: 12px; margin-top: 32px; text-align: center; }
+  blockquote { border-left: 3px solid var(--rule); margin: 8px 0; padding: 4px 14px; color: #333; }
+  ul { margin: 6px 0 6px 20px; padding: 0; }
+  li { margin-bottom: 6px; }
+  code { font-family: ui-monospace, monospace; font-size: 12px; background: #f0efea; padding: 1px 5px; border-radius: 3px; }
+  .legend { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .legend span { margin-right: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Council Report — 6-Ticker Next-Session Batch</h1>
+  <div class="sub">Date: 2026-05-07 · Decision: next session (Monday open) · System: Bonde V5.x · Account: $100K, 1% risk, regime Risk-On · <strong>Outcome data UNAVAILABLE — playbook-only</strong></div>
+
+  <div class="card">
+    <h2>The Question</h2>
+    <div class="question">
+      <div class="row"><strong>IMSR</strong> · B+ Day-2 (C2 pre-earnings tactical) · trig 8.755 / inv 7.62 / DTE 5d · R:R 3.30R</div>
+      <div class="row"><strong>TKR</strong> · B+ Day-2 (C1 wide Day-1 / R:R floor fail) · trig 123.77 / inv 113.43 / DTE 90d · R:R 0.60R FAIL</div>
+      <div class="row"><strong>TIC</strong> · B+ Day-2 (C3 Day-2 confirmation / chase) · trig 10.575 / inv 9.75 · DTE 90d · R:R 2.33R · CPR 77.2%, vol 2.27x</div>
+      <div class="row"><strong>CVS</strong> · A2 promoted (MB+9M) · trig 88.73 / inv 85.22 / DTE 84d · R:R 3.21R · CPR 48.1%, vol 1.96x</div>
+      <div class="row"><strong>ZGN</strong> · B+ Day-2 (C1 wide Day-1 / R:R floor fail) · trig 13.17 / inv 12.445 / DTE 86d · R:R 1.83R FAIL</div>
+      <div class="row"><strong>IFF</strong> · A2 promoted (EP, Grade A) · trig 83.99 / inv 78.28 / DTE 90d · R:R 2.10R · CPR 82.9%, vol 2.97x</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left: 4px solid var(--warn);">
+    <h2>Outcome / Base-Rate Context</h2>
+    <p><strong>Outcome data unavailable; verdict is playbook-only and should be logged for future calibration.</strong></p>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 0;">No <code>skill_pack_performance_report</code>, no <code>weekly_learning_report</code>, no <code>bplus_council_outcome_summary</code>, no enriched ticker outcomes found in workspace. Single prior council precedent — TVTX 2026-05-03 (PASS on Day-13 extended reclaim) — supports gate-respecting discipline but is sample of one. All confidence integers below are structural anchors, not calibrated probabilities.</p>
+  </div>
+
+  <div class="verdict-banner">
+    <h2>The Recommendation</h2>
+    <ul>
+      <li><span class="pill promote">Promote</span> <strong>CVS</strong> — anchor trade; unanimous council pass.</li>
+      <li><span class="pill haircut">Promote w/ haircut</span> <strong>IFF</strong> — A2 cleared but correlated to CVS (Q1-beat factor) and CPR 82.9 is extended. Size 0.7R OR stagger: only fire IFF after CVS triggers and tape confirms.</li>
+      <li><span class="pill defer">Defer</span> <strong>TKR, TIC</strong> — alert only; revisit Tuesday on inside-day or EMA pullback that fixes R:R.</li>
+      <li><span class="pill cancel">Cancel</span> <strong>IMSR, ZGN</strong> — IMSR belongs to a separate tactical book (DTE 3-7 swing block); ZGN's R:R floor fail against a stale reference is thin edge.</li>
+    </ul>
+    <div class="first">→ The one thing to do first: place CVS working buy-stop $88.73 / stop $85.22 / 285 shares, GTC. Hold IFF until CVS triggers and tape confirms regime.</div>
+  </div>
+
+  <div class="card">
+    <h2>Per-Ticker Verdict Grid</h2>
+    <div class="grid">
+      <div class="h"></div>
+      <div class="h">Contrarian</div>
+      <div class="h">First Princ.</div>
+      <div class="h">Expansionist</div>
+      <div class="h">Outsider</div>
+      <div class="h">Executor</div>
+
+      <div class="ticker-col">IMSR</div>
+      <div class="cell c">Cancel · 4</div>
+      <div class="cell d">Defer · 4</div>
+      <div class="cell p">Promote · 4</div>
+      <div class="cell c">Cancel · 5</div>
+      <div class="cell c">Cancel · H</div>
+
+      <div class="ticker-col">TKR</div>
+      <div class="cell d">Defer · 5</div>
+      <div class="cell c">Cancel · 4</div>
+      <div class="cell p">Promote* · 3</div>
+      <div class="cell c">Cancel · 5</div>
+      <div class="cell d">Defer · H</div>
+
+      <div class="ticker-col">TIC</div>
+      <div class="cell d">Defer · 4</div>
+      <div class="cell d">Defer · 4</div>
+      <div class="cell p">Promote · 4</div>
+      <div class="cell d">Defer · 4</div>
+      <div class="cell d">Defer · M-H</div>
+
+      <div class="ticker-col">CVS</div>
+      <div class="cell p">Promote · 3</div>
+      <div class="cell p">Promote · 5</div>
+      <div class="cell p">Promote · 5</div>
+      <div class="cell p">Promote · 4</div>
+      <div class="cell p">Promote · H</div>
+
+      <div class="ticker-col">ZGN</div>
+      <div class="cell c">Cancel · 3</div>
+      <div class="cell c">Cancel · 4</div>
+      <div class="cell p">Promote-sm · 3</div>
+      <div class="cell c">Cancel · 4</div>
+      <div class="cell c">Cancel · H</div>
+
+      <div class="ticker-col">IFF</div>
+      <div class="cell d">Defer · 4</div>
+      <div class="cell p">Promote · 5</div>
+      <div class="cell p">Promote · 5</div>
+      <div class="cell p">Promote · 3</div>
+      <div class="cell p">Promote · H</div>
+    </div>
+    <div class="legend">
+      <span><span class="pill promote">P</span> Promote</span>
+      <span><span class="pill defer">D</span> Defer</span>
+      <span><span class="pill cancel">C</span> Cancel</span>
+      <span>* = w/ tighter invalidation. Confidence: 1-5 or H/M/L. Outcome data unavailable — anchors not calibrated.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Where the Council Agrees</h2>
+    <ul>
+      <li><strong>CVS = PROMOTE.</strong> All five advisors. Cleanest stop (3.95%), longest runway, A2 promotion, vol 1.96x, CPR 48.1%, R:R 3.21R. The anchor.</li>
+      <li><strong>TKR = NOT a Day-1 trade.</strong> 4 of 5. R:R 0.60R against a 2.0 floor is a hard fail; "wait for inside-day or EMA pullback" is the system's own answer.</li>
+      <li><strong>ZGN = NOT a Day-1 trade.</strong> 4 of 5 cancel. MB-only setup + R:R 1.83R fail + stale 2024 reference target = thin edge.</li>
+      <li><strong>TIC = DEFER for Day-2.</strong> 4 of 5 defer. CPR 77.2% + vol 2.27x = chase profile; C3 blocker is doing its job.</li>
+      <li><strong>The screen is correlated.</strong> 5 of 6 catalysts are Q1 earnings beats / continuations — one macro bet expressed five ways.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Where the Council Clashes</h2>
+    <p><strong>IFF: 4 PROMOTE vs 1 DEFER.</strong> Outsider, Executor, First Principles, and Expansionist all promote (A2 already cleared, vol 2.97x, Grade A, R:R 2.10R clears the floor). Contrarian dissents on CPR 82.9% (severe extension) and wants a reset bar. The Contrarian's caution is real but is overridden by the A2 promotion gate already passing — IFF isn't a B+ blocker case, it cleared. <strong>Promote — but apply the correlation haircut from the peer-review blind spots.</strong></p>
+    <p><strong>IMSR: 3 CANCEL vs 1 DEFER vs 1 PROMOTE.</strong> First Principles makes the cleanest call: this isn't a swing decision at all. DTE=5 with a plan to exit by DTE-1 is a tactical flat — a different product class. V5.2.3's DTE 3-7 bucket explicitly blocks it from the swing book. Expansionist's "asymmetric gamma" framing is real for a tactical book but conflates instruments. <strong>For the swing council: CANCEL. If you keep a separate tactical/event book, evaluate it there — not co-mingled with $1K swing risk.</strong></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid var(--accent);">
+    <h2>Blind Spots the Council Caught (peer review only)</h2>
+    <ol>
+      <li><strong>Correlation haircut.</strong> All 5 advisors and 4 of 5 reviewers flagged this. CVS and IFF are <em>both</em> Q1-beat continuations. At $1K each they aren't 2R of independent risk — effective book risk is closer to 1.4–1.6R on a single factor. No individual advisor sized for it.</li>
+      <li><strong>Selection bias in the screen.</strong> Every name passed <em>because</em> of the Q1 beat — that's the screen's filter, not forward edge. Pressing all 5 Q1-beat names because "5/6 are Q1-beats" is reasoning backward from a known sample.</li>
+      <li><strong>Pseudo-precision in confidence integers.</strong> CANCEL5 / PROMOTE3 imply calibration that does not exist when outcome data is unavailable.</li>
+      <li><strong>Sequencing was nobody's job.</strong> Which order fires first Monday open? What if CVS fills and the tape rolls intraday before IFF triggers? Operational risk the per-ticker frame hid.</li>
+    </ol>
+  </div>
+
+  <details>
+    <summary>The Contrarian — full response</summary>
+    <div>
+      <blockquote>
+        <p>Playbook-only view. No outcome data consulted.</p>
+        <p><strong>IMSR — CANCEL, conf 4.</strong> DTE=5 pre-earnings is a gamble dressed as tactical flat. V5.2.3 blocks DTE 3-7 for a reason; carving an exception because R:R looks pretty is exactly how the rule gets eroded. 13% stop is ugly.</p>
+        <p><strong>TKR — DEFER, conf 5.</strong> 0.60R vs 2.0 floor isn't borderline, it's a hard fail. "Tomorrow may produce R:R" is hopium.</p>
+        <p><strong>TIC — DEFER, conf 4.</strong> CPR 77 + Day-1 chase is the textbook B+ trap. Day-2 confirmation exists because Day-1 entries on extended bars bleed.</p>
+        <p><strong>CVS — PROMOTE, conf 3.</strong> Cleanest of the lot. Contrarian flag: it's the only one without obvious flaws — temptation to oversize. Don't. Standard 1R.</p>
+        <p><strong>ZGN — CANCEL, conf 3.</strong> 1.83R fails the floor; $14.50 leans on a stale 2024 range.</p>
+        <p><strong>IFF — DEFER, conf 4.</strong> CPR 82.9% on a primary EP is severe extension territory. 2.10R is a thin cushion. Want a reset bar.</p>
+        <p><strong>Portfolio:</strong> 4 of 6 are Q1 earnings-beat continuations — one macro bet, not six trades. <strong>CVS only.</strong></p>
+      </blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>The First Principles Thinker — full response</summary>
+    <div>
+      <blockquote>
+        <p>The trader thinks they're deciding "which of 6." That's the wrong question. With $1K risk per slot and 6 candidates all flagged ACTIVE_BURST in a Risk-On regime, the real decision is <strong>portfolio construction under correlated catalyst exposure</strong>. Five of six are Q1 earnings — one macro bet expressed 5 ways, plus one DTE lottery (IMSR).</p>
+        <p>The V5.x system already encoded its answer. C1 (TKR, ZGN) failed the R:R floor — the floor exists because sub-2R doesn't survive variance. C3 (TIC) means Day-1 is chase. C2 (IMSR) is a different instrument entirely (tactical flat ≠ swing).</p>
+        <p>Take the two A2 promotions, let the system gates kill the rest, stop re-litigating B+.</p>
+        <ul>
+          <li>IMSR — DEFER 4 (separate tactical book)</li>
+          <li>TKR — CANCEL 4</li>
+          <li>TIC — DEFER 4</li>
+          <li>CVS — PROMOTE 5</li>
+          <li>IFF — PROMOTE 5</li>
+          <li>ZGN — CANCEL 4</li>
+        </ul>
+      </blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>The Expansionist — full response</summary>
+    <div>
+      <blockquote>
+        <p><strong>IMSR — PROMOTE 4/5.</strong> Pre-earnings spike + 5 DTE + 3.30R = asymmetric gamma. Tactical flat captures the move swing rule forbids.</p>
+        <p><strong>TKR — PROMOTE w/ tighter inv 3/5.</strong> Static 0.60R is a target failure, not opportunity failure. MB+EP / 90 DTE / Q1 earnings continuation. Half-position against inside-day low → 2R+ runner.</p>
+        <p><strong>TIC — PROMOTE 4/5.</strong> Vol 2.27x, CPR 77.2%, post-beat continuation, 90 DTE runway. "Day-1 chase risk" is the system flinching. 2.33R is the floor not the ceiling.</p>
+        <p><strong>CVS — PROMOTE 5/5.</strong> Multi-quarter re-rate. Anchor.</p>
+        <p><strong>ZGN — PROMOTE small 3/5.</strong> Quarter size against tightened invalidation flips R:R to 2.5R+.</p>
+        <p><strong>IFF — PROMOTE 5/5.</strong> Grade A, vol 2.97x — tape-leader signature. 2.10R laughably conservative. Full size, trail wide, 4R.</p>
+        <p>5/6 Q1-beats clustering in Risk-On = one thematic bet with six expressions. <strong>Press.</strong></p>
+      </blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>The Outsider — full response</summary>
+    <div>
+      <blockquote>
+        <p>6 names but only $1K risk per. Even if all fired = $6K (6%) in correlated "stuff that broke out yesterday." Two pre-approved (CVS, IFF), four borderline. Volume of candidates trying to earn a borderline a pass.</p>
+        <p>IMSR — CANCEL 5/5: buying 5 days before earnings with -13% stop is gambling on a window.<br>
+        TKR — CANCEL 5/5: $1 to make $0.60 needs 63%+ win rate just to break even.<br>
+        TIC — DEFER 4/5: your own system says you'd be chasing.<br>
+        CVS — PROMOTE 4/5: tightest stop, longest runway, pre-approved. Cleanest name on the page.<br>
+        ZGN — CANCEL 4/5: same R:R problem as TKR.<br>
+        IFF — PROMOTE 3/5: strong vol/close, pre-approved. Lower confidence because -6.8% stop on $84 makes share-size math tight against $1K limit.</p>
+        <p>Take the 2 the system already blessed. Other 4 are noise dressed as opportunity.</p>
+      </blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>The Executor — full response</summary>
+    <div>
+      <blockquote>
+        <p><strong>IMSR — CANCEL.</strong> Babysitting an exit timer, not trading a thesis. Wed close forces MOC exit. Don't even alert.</p>
+        <p><strong>TKR — DEFER.</strong> Set alert $123.77, do nothing Monday. Re-rack Tuesday only on inside-day or 5/10-EMA pullback.</p>
+        <p><strong>TIC — DEFER.</strong> Alert only. Tuesday inside-day break or pullback or pass.</p>
+        <p><strong>CVS — PROMOTE.</strong> Working buy-stop $88.73, stop $85.22, 285 shares, GTC. Press the button.</p>
+        <p><strong>ZGN — CANCEL.</strong> 1.83R fails floor; no obvious tighten-up. $18K for sub-2R isn't an order, it's a tax on attention.</p>
+        <p><strong>IFF — PROMOTE.</strong> Working buy-stop $83.99, stop $78.28, 175 shares, GTC.</p>
+        <p>Monday morning = exactly TWO orders, CVS and IFF. ~$40K combined exposure, 2R risk, well under 4-5 position cap with dry powder for Tuesday's re-rack on TKR/TIC.</p>
+      </blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>Peer-review highlights</summary>
+    <div>
+      <ul>
+        <li><strong>Strongest response:</strong> 3 reviewers picked First Principles (best reframing — "this is portfolio construction, not 6 independent decisions; IMSR is a different book"). 2 reviewers picked Executor (only one shipping executable Monday orders).</li>
+        <li><strong>Biggest blind spot:</strong> 5 of 5 reviewers flagged the Expansionist. "Press everything" overrides system gates with narrative; treats screen-selection (5/6 Q1-beats) as forward edge.</li>
+        <li><strong>Outcome-data misuse:</strong> Most clearly the Expansionist ("historically extends 2-3x," "static R:R undermodels continuation" — these invoke base rates that don't exist). Contrarian's CPR 82.9 framing also cited. All advisors using confidence integers in a no-base-rate context = pseudo-precision.</li>
+        <li><strong>What ALL five missed:</strong> correlation sizing at the book level. CVS + IFF both Q1-beat continuations under Risk-On = one factor, not two independent R. Effective risk &asymp; $1K × √(n·ρ), not $1K × n. None addressed sequencing if both trigger simultaneously Monday open.</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="footer">
+    Generated 2026-05-07 02:32 · /home/user/bonde/.claude/skills/llm-council/council-report-20260507-023222.html<br>
+    Council on: IMSR / TKR / TIC / CVS / ZGN / IFF · Bonde V5.x next-session batch · playbook-only
+  </div>
+
+</div>
+</body>
+</html>
