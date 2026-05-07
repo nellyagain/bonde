@@ -1,0 +1,463 @@
+ticker,candidate_signal_date,candidate_pack_date,decision_log_date,decision_log_signal_date_if_present,decision_log_review_date_if_present,matched_on_signal_date,same_ticker_exists_with_different_date,pack_date_match_exists,join_status,join_failure_reason
+DAWN,2026-04-24,2026-05-04,2026-04-24,2026-04-24,2026-05-06,True,False,False,MATCHED_SIGNAL_DATE,
+ACLX,2026-04-29,2026-05-04,2026-04-29,2026-04-29,2026-05-06,True,False,False,MATCHED_SIGNAL_DATE,
+CGEH,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CLNN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+GBTG,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+JLHL,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+RLYB,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ADVB,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ASRT,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+BAFN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CELC,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CXDO,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+DRTS,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+EBAY,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+FSTR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HTCO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ICHR,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+INSG,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+MDV,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+MRDN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+OUST,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SSM,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+APGE,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+GRPN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SKYQ,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+UTHR,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ABEO,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+AGRO,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+AURA,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+AXSM,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CECO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CMPS,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CRCL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CRNC,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+EAF,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ETON,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+FIVN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+FMCC,2026-05-04,2026-05-04,2026-05-04,2026-05-04,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GFS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HNGE,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+LEGN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+LFUS,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+LIFE,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+MANE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MKSI,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+MYRG,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+NBIS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NRC,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+NUTX,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ORKA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+QUIK,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+REAL,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SCLX,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SHAZ,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SMMT,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SYNA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+THR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+TRDA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+UNCY,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+BKR,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CHRD,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ELV,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SEIC,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+VOYA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CXW,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+EHAB,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+GSAT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+IBTA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+TALK,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+TERN,2026-05-04,2026-05-04,2026-05-04,2026-05-04,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+APLS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ASTH,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+AVNS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+BLBD,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+BORR,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CARG,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CNTA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CODI,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+DDI,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+EPSN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+GL,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+INFU,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+MIAX,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+NAT,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+NDAQ,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+OGN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SFL,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SILA,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SLNO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+TBRG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+VLY,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+VTOL,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+WSR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+XPRO,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+YSS,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ZVRA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+AAL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+AAOI,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+AAPL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ABT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ACHR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ADT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+AGNC,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+AMD,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+APLD,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ASAN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+ASTS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+AVGO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+BAC,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+BE,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+BMY,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+BSX,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+C,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CAG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CCL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CDE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CIFR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CLF,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CLSK,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CMCSA,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CMG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CNH,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+COMP,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CPNG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CRBG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CRML,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+CRWV,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+CSX,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+DKNG,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+DOC,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+DVN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+EOSE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ET,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+F,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+FCX,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+FE,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+GME,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+GOOG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HBAN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HIMS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HPE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+HPQ,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+INTC,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+IONQ,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+JOBY,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+KEY,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+KHC,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+KMI,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+KO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+KVUE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+LWLG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+LYFT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MARA,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MDT,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+META,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MRVL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MSFT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+MU,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NCLH,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NFLX,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NIO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NKE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NOW,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+NU,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NVDA,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+NVTS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ON,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ONDS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ORCL,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+OXY,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PATH,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PCG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PFE,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PG,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+PINS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+POET,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PSKY,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PUMP,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+PYPL,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+QCOM,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+QS,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+QXO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+RBLX,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+RDW,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+RIG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+RIVN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+RKLB,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+RKT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SHOP,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SLB,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+SMCI,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SMR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SOFI,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+SOUN,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+T,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+TEAM,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+TOST,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+TSCO,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+TTD,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+UAMY,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+UBER,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+UPS,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+USAR,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+UUUU,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+VG,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+VICI,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+VISN,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+VTRS,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+VZ,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+WDC,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+WFC,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+WMT,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+WULF,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+XOM,2026-05-04,2026-05-04,2026-05-05,2026-05-05,2026-05-06,False,True,False,UNMATCHED_DATE_MISMATCH,decision-log date does not match candidate signal_date or pack_date
+ZETA,2026-05-04,2026-05-04,,,,False,False,False,UNMATCHED_NO_DECISION_ROW,ticker not present in decision log
+BDSX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CIFR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+DOCN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EVER,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EWTX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FSEA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+IART,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MED,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NTHI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+POET,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+STRL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VRDN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CGEH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CYRX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CYTK,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ECG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FLY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FTRE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GPK,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PAY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PENG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PINS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PLOW,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ROK,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RYTM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SEAT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SHLS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SILC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VTIX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WAT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WOLF,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NTGR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SYRE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TXN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WST,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AESI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ALAB,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ALMU,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AMKR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AURA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BAFN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BAND,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BLSH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CECO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CGNX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CLYM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CPRX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CRTO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CTRI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+DY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FCEL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FLEX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FSTR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GFS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GILT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GNK,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HOG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+IIPR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+INTC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LEGN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LINC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LWLG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MANE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MATW,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MATX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MNTN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MSBI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MU,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NET,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NMM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NRXS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NWPX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+OOMA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+OPLN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ORN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+POWL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PRCH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PRIM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PURR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+QCOM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+QMCO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+QNST,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RMR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SHIP,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SIMO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SPCB,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+STX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SWKS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+THR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+UCTT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ULS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+USAR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VAC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VPG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VSH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+YOU,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CHRD,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ELV,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MCRI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SEIC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SNX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EHAB,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GSAT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TALK,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TBPH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VRE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WSR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ACDC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+APLS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AVNS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EPSN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HLX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HTCO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+JAN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KALV,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PAA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PHVS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PSFE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SILA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SLNO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SNDA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TBRG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VRNS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AAL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AAPL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ABT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ACHR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ADT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AGNC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AMD,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ANET,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+APH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+APLD,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+APTV,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ASTS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+AVGO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BAC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BEN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BMY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BRBR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+BSX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+C,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CAG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CCC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CCL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CDE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CHYM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CLSK,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CMCSA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CMG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CNH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+COIN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+COMP,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CPNG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CRBG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CRCL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+CRML,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+DIS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+DVN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EMBC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EOSE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EQH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ET,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+EXC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+F,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FCX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FIG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FISV,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+FSLY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GLW,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GME,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+GOOG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HBAN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HIMS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HPE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+HPQ,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+IONQ,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+JOBY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KEY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KHC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KMI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+KVUE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LCID,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LRCX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LUMN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LUNR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+LYFT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MARA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+META,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MRVL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+MSFT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NBIS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NCLH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NFLX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NIO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NKE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NU,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NVDA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+NVTS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ON,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+ONDS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+OXY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PATH,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PCG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PFE,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PLTR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PSKY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PUMP,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+PYPL,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+QS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+QXO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RBLX,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RCAT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RDW,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RIG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RIVN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RKLB,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+RKT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SHOP,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SMCI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SMR,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SOFI,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+SOUN,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+T,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TOST,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TSCO,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TSLA,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+TTD,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+UAMY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+UBER,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VG,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+VZ,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WBD,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WDC,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WGS,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WMT,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+WULF,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+XOM,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
+XRAY,2026-05-05,2026-05-05,2026-05-05,2026-05-05,2026-05-06,True,False,True,MATCHED_SIGNAL_DATE,
