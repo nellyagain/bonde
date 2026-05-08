@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LLM Council — Pre-Open Batch — 2026-05-08</title>
+<style>
+  :root { --bg:#fafafa; --card:#fff; --ink:#1a1a1a; --muted:#6b7280; --rule:#e5e7eb;
+          --accent:#0f5132; --warn:#92400e; --bad:#991b1b; --info:#1e3a8a; --soft:#f3f4f6; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+         background: var(--bg); color: var(--ink); margin: 0; padding: 32px 24px; line-height: 1.55; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px;
+          background: #fef3c7; color: var(--warn); border: 1px solid #fde68a; margin-right: 6px;}
+  .pill.regime { background: #dcfce7; color: var(--accent); border-color: #bbf7d0;}
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+          padding: 18px 20px; margin-bottom: 18px; }
+  .card h2 { margin: 0 0 12px; font-size: 18px; }
+  table.summary { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.summary th, table.summary td { text-align: left; padding: 10px 8px;
+                  border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.summary th { background: var(--soft); font-weight: 600; color: var(--muted); font-size: 11.5px;
+                    text-transform: uppercase; letter-spacing: 0.5px; }
+  td.ticker { font-weight: 700; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .v-half { color: var(--warn); font-weight: 600; }
+  .v-defer { color: var(--info); font-weight: 600; }
+  .v-promote { color: var(--accent); font-weight: 600; }
+  details { margin-top: 10px; border: 1px solid var(--rule); border-radius: 6px;
+            background: #fff; }
+  details > summary { padding: 12px 16px; cursor: pointer; font-weight: 600; user-select: none; }
+  details > summary:hover { background: var(--soft); }
+  details[open] > summary { border-bottom: 1px solid var(--rule); background: var(--soft); }
+  details .body { padding: 16px 20px; }
+  details details { margin-top: 8px; background: #fcfcfc; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 4px; }
+  .verdict-box { padding: 14px 16px; background: #f0fdf4; border: 1px solid #bbf7d0;
+                 border-left: 4px solid var(--accent); border-radius: 6px; margin: 10px 0 16px; }
+  .verdict-box.warn { background: #fffbeb; border-color: #fde68a; border-left-color: var(--warn); }
+  .verdict-box.info { background: #eff6ff; border-color: #bfdbfe; border-left-color: var(--info); }
+  .verdict-box.bad { background: #fef2f2; border-color: #fecaca; border-left-color: var(--bad); }
+  .agreement-grid { display: grid; grid-template-columns: 120px repeat(5, 1fr); gap: 4px;
+                    font-size: 12px; margin: 8px 0 16px; }
+  .agreement-grid .hdr { padding: 6px 8px; font-weight: 600; background: var(--soft); border-radius: 4px; text-align: center; }
+  .agreement-grid .row-label { padding: 6px 8px; background: var(--soft); border-radius: 4px; font-weight: 600; }
+  .agreement-grid .cell { padding: 6px 8px; border-radius: 4px; text-align: center; font-weight: 600; }
+  .c-take { background: #dcfce7; color: #14532d; }
+  .c-half { background: #fef3c7; color: #78350f; }
+  .c-defer { background: #dbeafe; color: #1e3a8a; }
+  .c-skip { background: #fee2e2; color: #7f1d1d; }
+  .c-cond { background: #f3f4f6; color: #374151; }
+  ul, ol { padding-left: 22px; }
+  ul li, ol li { margin-bottom: 4px; }
+  .small { font-size: 12px; color: var(--muted); }
+  pre { background: #0f172a; color: #f1f5f9; padding: 14px; border-radius: 6px;
+        overflow-x: auto; font-size: 11.5px; line-height: 1.45; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .footer { color: var(--muted); font-size: 12px; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .kw { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: var(--soft); padding: 1px 5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LLM Council — Pre-Open Batch (6 tickers)</h1>
+<div class="meta">
+  Signal date 2026-05-06 · Report 2026-05-08 ·
+  <span class="pill">Cohort age -3d · PARTIAL_OUTCOME · playbook-only</span>
+  <span class="pill regime">Regime Risk-On 10/10</span>
+  Account $100K · 1% per position · 0 positions held
+</div>
+
+<div class="card">
+  <h2>Verdict Summary</h2>
+  <table class="summary">
+    <thead><tr>
+      <th>Ticker</th><th>Trigger</th><th>Verdict</th><th>Conf</th><th>Risk</th><th>First action</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">IBEX</td>
+        <td>A2 / EP_ACTIVE / today_open</td>
+        <td class="v-half">HALF ($500)</td>
+        <td>medium</td>
+        <td>$500</td>
+        <td>Buy-stop limit $33.58 / lim $33.75, 118 sh, GTC stop $29.37. Cancel if no trigger by 11:00 ET on weak vol.</td>
+      </tr>
+      <tr>
+        <td class="ticker">ORA</td>
+        <td>A2 / EP_ACTIVE / today_open</td>
+        <td class="v-half">HALF ($500)</td>
+        <td>65%</td>
+        <td>$500</td>
+        <td>Stop-buy $127.23, 62 sh, stop $119.28. Re-eval sizing only on upper-40% close.</td>
+      </tr>
+      <tr>
+        <td class="ticker">SNEX</td>
+        <td>B+ Day-2 / ACTIVE_BURST / monitor</td>
+        <td class="v-promote">PROMOTE-on-trigger (full)</td>
+        <td>med-high</td>
+        <td>$1,000 IF</td>
+        <td>Set hard alerts $124.20 (trigger) + $117.99 (kill). Pre-stage ticket with stop = MAX(Day-2 LOD, $118).</td>
+      </tr>
+      <tr>
+        <td class="ticker">LAMR</td>
+        <td>B+ Day-2 / ACTIVE_BURST / monitor (REIT)</td>
+        <td class="v-defer">DEFER → PROMOTE-half</td>
+        <td>55%</td>
+        <td>$500 IF</td>
+        <td>Pull IYR/VNQ vs SPY 5-day + macro/rate calendar before any size. Skip if hawkish-risk print in window.</td>
+      </tr>
+      <tr>
+        <td class="ticker">XPER</td>
+        <td>B+ Day-2 / ACTIVE_BURST / monitor (thin)</td>
+        <td class="v-defer">DEFER → conditional half</td>
+        <td>55%</td>
+        <td>$500 cap</td>
+        <td>Re-verify DTE + check live bid/ask spread + L2 depth at $7.93. Skip if spread >0.3% or depth <$25K.</td>
+      </tr>
+      <tr>
+        <td class="ticker">APP</td>
+        <td>CONFLICT_A,D / ACTIVE_BURST / today_intraday</td>
+        <td class="v-defer">DEFER → OVERRIDE-HALF (conditional)</td>
+        <td>6/10</td>
+        <td>0.5% IF</td>
+        <td>Write override condition in journal tonight: $498.87 close + 1.5x vol + hold $483.55, stop $483.55, half. If you can't pre-commit, don't take.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-top:14px;">
+    No advisor in any session supported FULL size today. Trigger discipline is the binding edge across all 6.
+    Empty book + Risk-On 10/10 is not a reason to deploy. Outcome data is monitoring-only at cohort age -3 — every verdict here is playbook-only.
+  </p>
+</div>
+
+<div class="card">
+  <h2>Advisor Position Grid</h2>
+  <p class="small">How each of the 5 advisors landed per ticker. <span class="kw">TAKE</span> = full size, <span class="kw">HALF</span> = half size, <span class="kw">DEFER</span> = wait for confirmation, <span class="kw">SKIP</span> = no position, <span class="kw">COND</span> = conditional.</p>
+  <div class="agreement-grid">
+    <div class="hdr"></div>
+    <div class="hdr">Contrarian</div>
+    <div class="hdr">First Principles</div>
+    <div class="hdr">Expansionist</div>
+    <div class="hdr">Outsider</div>
+    <div class="hdr">Executor</div>
+
+    <div class="row-label">IBEX</div>
+    <div class="cell c-skip">SKIP→HALF</div>
+    <div class="cell c-half">HALF</div>
+    <div class="cell c-half">HALF (lean FULL)</div>
+    <div class="cell c-skip">SKIP→HALF</div>
+    <div class="cell c-half">HALF</div>
+
+    <div class="row-label">ORA</div>
+    <div class="cell c-half">HALF</div>
+    <div class="cell c-half">HALF</div>
+    <div class="cell c-take">FULL</div>
+    <div class="cell c-skip">SKIP/HALF</div>
+    <div class="cell c-half">HALF (cond. add-on)</div>
+
+    <div class="row-label">SNEX</div>
+    <div class="cell c-defer">DEFER</div>
+    <div class="cell c-cond">PROMOTE-cond</div>
+    <div class="cell c-take">PROMOTE FULL</div>
+    <div class="cell c-defer">DEFER</div>
+    <div class="cell c-cond">PROMOTE-cond</div>
+
+    <div class="row-label">LAMR</div>
+    <div class="cell c-defer">DEFER (lean SKIP)</div>
+    <div class="cell c-cond">DEFER→half</div>
+    <div class="cell c-cond">PROMOTE-half</div>
+    <div class="cell c-defer">DEFER</div>
+    <div class="cell c-cond">PROMOTE-half</div>
+
+    <div class="row-label">XPER</div>
+    <div class="cell c-skip">CANCEL</div>
+    <div class="cell c-defer">DEFER</div>
+    <div class="cell c-cond">PROMOTE-half</div>
+    <div class="cell c-cond">PROMOTE-half</div>
+    <div class="cell c-defer">DEFER→cond half</div>
+
+    <div class="row-label">APP</div>
+    <div class="cell c-skip">RESPECT-WATCH</div>
+    <div class="cell c-cond">OVERRIDE-HALF cond</div>
+    <div class="cell c-cond">OVERRIDE-HALF</div>
+    <div class="cell c-skip">RESPECT-WATCH</div>
+    <div class="cell c-defer">DEFER→cond half</div>
+  </div>
+  <p class="small">Pattern: Expansionist is consistently the most aggressive; Contrarian + Outsider consistently most conservative. Convergence is highest on B+ Day-2 setups (everyone defers to trigger) and lowest on ORA (mid-range close splits the council).</p>
+</div>
+
+<!-- =========== TICKER 1: IBEX =========== -->
+<div class="card">
+  <h2>1. IBEX — A2 / EP_ACTIVE / today_open</h2>
+  <div class="verdict-box warn">
+    <div class="label">Recommendation</div>
+    <div><strong>HALF ($500), confidence MEDIUM, playbook-only.</strong> Two governors flashing (composite 3.75 < 5+ A2 band; R:R exactly at 2.00R floor) typically resolve as HALF or skip — never FULL. Catalyst grade A keeps it from PASS but does not earn FULL. Realized targets at prior 252d highs historically clip at 1.6–1.8R → expected R:R is functionally sub-floor.</div>
+    <div class="label" style="margin-top:10px;">First action</div>
+    <div>Buy-stop limit $33.58 (limit $33.75) for HALF size = 118 shares ($500 risk to $29.37 stop), GTC. No market orders. If trigger doesn't fire on >1.5x avg volume in the first 90 minutes, cancel.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="label">Council Agrees</div>
+      <ul>
+        <li>Valid trade, not a PASS — gates clean, hard rules clear, catalyst real.</li>
+        <li>R:R at exactly 2.00R is the binding constraint; no cushion.</li>
+        <li>Composite 3.75 < 5 A2 conviction band is a real demerit.</li>
+        <li>Rank 11 = TAKE, not FEATURED.</li>
+        <li>Early in move (consec_up=1, bars_since_10ema=1) is the structural gift.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Council Clashes / Blind Spots</div>
+      <ul>
+        <li>HALF vs PASS: Contrarian/Outsider lean PASS; First Principles/Expansionist/Executor land HALF.</li>
+        <li>Catalyst weight: already priced into the 16.54% gap?</li>
+        <li>Gap-fill risk: 9.07% ep_gap with cpr 0.804 → half-fill takes price under stop.</li>
+        <li>252d-high target ($42) is a magnet AND a wall — historically 1.6–1.8R, not 2.0R.</li>
+        <li>Pre-trigger liquidity at $33.58 unmodeled.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Advisor snapshots & full responses</summary><div class="body">
+    <ul>
+      <li><strong>Contrarian:</strong> Leans PASS. R:R at floor + composite below band + 9.07% ep_gap = priced-in news, no margin. HALF max if forced.</li>
+      <li><strong>First Principles:</strong> HALF. One clean (catalyst), one borderline (R:R), one sub-band (composite). Two-of-three at-floor-or-below = half-conviction.</li>
+      <li><strong>Expansionist:</strong> HALF leaning FULL. 3rd consecutive beat-raise + Sierra/AI = multi-quarter re-rating story.</li>
+      <li><strong>Outsider:</strong> Skeptical, leans PASS or HALF. Rank 11 + composite below band = system is hedging; you should too.</li>
+      <li><strong>Executor:</strong> HALF. Buy-stop limit $33.58/$33.75, 118 sh, $500 risk. Trail to BE at +1R. Cancel if no trigger by 11:00 ET on weak volume.</li>
+    </ul>
+    <p class="small">Even Expansionist conceded HALF as floor; even Contrarian conceded HALF over PASS. The HALF answer survived all five cross-examinations.</p>
+  </div></details>
+</div>
+
+<!-- =========== TICKER 2: ORA =========== -->
+<div class="card">
+  <h2>2. ORA — A2 / EP_ACTIVE / today_open</h2>
+  <div class="verdict-box warn">
+    <div class="label">Recommendation</div>
+    <div><strong>HALF ($500), 65% confidence, playbook-only.</strong> Catalyst and gates justify participation; mid-range cpr (40.8%), EP_SPIKE non-fire, and 0.24R cushion argue against full size. Half preserves edge on the highest-grade catalyst of the day. Upgrade to full only on entry-day close >60% of range.</div>
+    <div class="label" style="margin-top:10px;">First action</div>
+    <div>Stop-buy at $127.23 for HALF size (62 shares, $500 risk to $119.28 stop). No discretionary chase. Re-evaluate sizing only if entry day closes in the upper 40% of range.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="label">Council Agrees</div>
+      <ul>
+        <li>Catalyst exceptional: rev +75.8% YoY, EPS +42.9% beat, Energy Storage +153%, FY26 reiterated. Grade A, conf 90.</li>
+        <li>Structurally not extended: ext_run False, consec_up 1, dist_21ema 7.6%.</li>
+        <li>R:R 2.24 above floor but $7.94 risk window is tight relative to $127.22 trigger.</li>
+        <li>cpr 40.8% — above 30% floor, below 60% strong-close band.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Council Clashes / Blind Spots</div>
+      <ul>
+        <li>FULL camp (Expansionist, Executor) vs HALF camp (Contrarian, First Principles) vs PASS (Outsider).</li>
+        <li>EP_SPIKE non-fire on a grade-A blowout — yellow flag the gate sheet obscures.</li>
+        <li>2.24R is computed to +13.5% target ATH; trim to realistic +10% → effective R:R ~1.6R.</li>
+        <li>0 positions + Risk-On 10/10 creates deployment-pressure bias.</li>
+        <li>Next earnings ~Aug-2026: 3+ months runway, no near-term catalyst risk.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Advisor snapshots & full responses</summary><div class="body">
+    <ul>
+      <li><strong>Contrarian:</strong> HALF — cpr 40.8% + EP_SPIKE non-fire = sellers showed up; don't full-size into ambiguity.</li>
+      <li><strong>First Principles:</strong> HALF — 2.24R is operationally thin; size to weakest signal, not strongest.</li>
+      <li><strong>Expansionist:</strong> FULL — best catalyst of the day, Risk-On 10/10, clean gates, 0 positions.</li>
+      <li><strong>Outsider:</strong> PASS or HALF — mid-range close on a 75% rev beat is a tell; market is unimpressed.</li>
+      <li><strong>Executor:</strong> HALF on trigger with mechanical add-on rule contingent on close-strength confirmation.</li>
+    </ul>
+  </div></details>
+</div>
+
+<!-- =========== TICKER 3: SNEX =========== -->
+<div class="card">
+  <h2>3. SNEX — B+ Day-2 / ACTIVE_BURST / monitor</h2>
+  <div class="verdict-box info">
+    <div class="label">Recommendation</div>
+    <div><strong>PROMOTE-on-trigger.</strong> Full 1% size IF AND ONLY IF: (1) Day-2 prints true inside day and breaks $124.19 on volume pacing ≥ Day-1's profile with close above trigger, (2) recomputed R:R ≥ 2.0 vs ~$118 (or Day-2 LOD if higher), (3) DTE re-verifies. DEFER if any gate ambiguous; CANCEL if Day-2 closes <$118 OR no inside day OR DTE shrinks <8 days. <strong>No discretionary half-size pre-trigger.</strong> Confidence medium-high on plan, medium on trigger firing.</div>
+    <div class="label" style="margin-top:10px;">First action</div>
+    <div>Set hard alert at $124.20 with volume condition + kill alert at $117.99. Pre-stage order ticket with stop = MAX(Day-2 LOD, $118) so R:R recompute happens automatically at trigger.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="label">Council Agrees</div>
+      <ul>
+        <li>Day-1 chase is dead. R:R=0.92R fails 2.0 floor.</li>
+        <li>Quality real: composite 7.75, RS 98, A-grade earnings (record quarter, +70% rev, +54.5% EPS).</li>
+        <li>V5.9.3 inside-day plan is the correct mechanical resolution.</li>
+        <li>Moderate extension is a soft demote, not a reject.</li>
+        <li>Half-size discretionary entry NOW is rejected by 4 of 5 advisors.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Council Clashes / Blind Spots</div>
+      <ul>
+        <li>Contrarian/Outsider: bars_since_10ema=32 = late-stage continuation that fades more often.</li>
+        <li>Expansionist/Executor: RS 98 + A-catalyst is the right-tail profile.</li>
+        <li>"Inside day" must be real: Day-2 high must print < Day-1 high.</li>
+        <li>$118 invalidation collapses if Day-2 LOD prints below it → cancel, not adjust.</li>
+        <li>Composite 7.75 and RS 98 are lagging — reflect run already happened.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Advisor snapshots & full responses</summary><div class="body">
+    <ul>
+      <li><strong>Contrarian:</strong> DEFER-leaning. 32 bars off 10EMA on a 13.64% gap is late-cycle.</li>
+      <li><strong>First Principles:</strong> PROMOTE-on-trigger. Plan mechanically correct; gates binary.</li>
+      <li><strong>Expansionist:</strong> PROMOTE, full size. Right-tail profile of the family.</li>
+      <li><strong>Outsider:</strong> DEFER. Looks like a late-stage breakout that prints one more day then rolls.</li>
+      <li><strong>Executor:</strong> PROMOTE-on-trigger, full size, hard alerts, no discretion.</li>
+    </ul>
+  </div></details>
+</div>
+
+<!-- =========== TICKER 4: LAMR =========== -->
+<div class="card">
+  <h2>4. LAMR — B+ Day-2 / ACTIVE_BURST / monitor (REIT, rate-sensitive)</h2>
+  <div class="verdict-box info">
+    <div class="label">Recommendation</div>
+    <div><strong>DEFER → PROMOTE-half on confirmation, 55% confidence, playbook-only.</strong> Do NOT enter Day-1. Do NOT take discretionary half-size pre-A2. If Day-2 first hour holds above $151.36 AND R:R recomputes ≥ 2.0 AND DTE re-verifies AND no wide-range red bar → take half-size (0.5R, $500) on inside-day confirmation. Full size reserved for Day-3 continuation or 5/10 EMA pullback re-entry. Stop $146.60 hard. Cancel on Day-2 close <$146.60, >3% drop, REIT/IYR rotation reverse, or hawkish rate surprise.</div>
+    <div class="label" style="margin-top:10px;">First action</div>
+    <div>Before market open Day-2: pull IYR/VNQ relative strength vs SPY (5-day) and check macro calendar (CPI, FOMC speakers, 10Y auction) inside 5-day holding window. If IYR is rolling over OR a hawkish-risk print sits in window → downgrade to skip regardless of $151.36 hold.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="label">Council Agrees</div>
+      <ul>
+        <li>Day-1 chase at cpr=96.6% kiss-the-high is bad — no breathing room.</li>
+        <li>Catalyst real (AFFO +7.5%, raised guide) but already 6.24% gapped + +7.12% extended.</li>
+        <li>consec_up=2 + ext_run=True → Day-2 inside-day or 5/10 EMA pullback is structurally correct entry.</li>
+        <li>$146.60 invalidation non-negotiable.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Council Clashes / Blind Spots</div>
+      <ul>
+        <li>REIT rate sensitivity: rate calendar not checked → unmodeled macro risk.</li>
+        <li>No IYR/VNQ relative-strength check encoded — cancel rule is reactive, not predictive.</li>
+        <li>+7% Day-1 already priced the beat; mean-reversion odds elevated.</li>
+        <li>cpr=96.6% means any first-hour weakness Day-2 sees fast supply from Day-1 chasers.</li>
+        <li>0 positions + Risk-On 10/10 creates "must deploy" bias.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Advisor snapshots & full responses</summary><div class="body">
+    <ul>
+      <li><strong>Contrarian:</strong> DEFER, lean CANCEL. Three yellow flags. Wait for Day-3 or EMA pullback.</li>
+      <li><strong>First Principles:</strong> DEFER → PROMOTE-on-A2. Half-size on confirmed hold; full only on Day-3 or pullback.</li>
+      <li><strong>Expansionist:</strong> PROMOTE-on-trigger, half-size on inside-day. Real edge if entry disciplined.</li>
+      <li><strong>Outsider:</strong> DEFER. Check IYR and rate calendar before any size.</li>
+      <li><strong>Executor:</strong> PROMOTE-on-trigger, half-size, mechanical. Stop is the macro hedge.</li>
+    </ul>
+  </div></details>
+</div>
+
+<!-- =========== TICKER 5: XPER =========== -->
+<div class="card">
+  <h2>5. XPER — B+ Day-2 / ACTIVE_BURST / monitor (thin liquidity)</h2>
+  <div class="verdict-box info">
+    <div class="label">Recommendation</div>
+    <div><strong>DEFER → conditional PROMOTE-half, 55% confidence, playbook-only.</strong> Do not pre-commit. Place a working LIMIT at or just above $7.93 ONLY IF intraday tape shows: (a) volume pacing ≥1.5x by mid-session, (b) bid/ask ≤ 0.3% spread, (c) DTE re-verified, (d) no break of $7.24 intraday. Half-size cap ($500 risk) holds regardless. CANCEL if Day-2 closes <$7.24 or ADDV proxy drops <$1.5M. Slippage budget 0.15R round-trip → net edge ≈ 2.13R at 49.3% — positive but slim.</div>
+    <div class="label" style="margin-top:10px;">First action</div>
+    <div>Re-verify DTE and check live bid/ask spread + Level 2 depth at $7.93 area before placing the limit. If spread >0.3% or depth <$25K on the offer → downgrade to skip. Liquidity reality check is the gate, not the chart.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="label">Council Agrees</div>
+      <ul>
+        <li>Hard CANCEL not warranted: trigger structure intact, R:R 2.28R at C3 stop.</li>
+        <li>Half-size cap is non-negotiable. A2 promotion does not unlock full size on $2.6M ADDV.</li>
+        <li>bars_since_10ema=26 + ext_run=True = late-stage continuation; edge narrower than headline.</li>
+        <li>LIMIT-only execution mandatory.</li>
+        <li>Missing rs_3month is a debit, not neutral.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Council Clashes / Blind Spots</div>
+      <ul>
+        <li>Contrarian wants CANCEL; Expansionist wants PROMOTE-half on margin inflection narrative.</li>
+        <li>Slippage at half-size could eat 0.15–0.25R of the 2.28R edge — meaningful in R-units.</li>
+        <li>Next earnings Aug-2026 → no near-term catalyst refresh; trade works on momentum + re-rating alone.</li>
+        <li>cpr 0.701 mid-range Day-1 close is the actual reason Day-1 R:R failed — Day-2 inside-day pays for low-quality close with thinner margin.</li>
+        <li>All five flagged missing rs_3month as under-weighted in V5.9.3 plan.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Advisor snapshots & full responses</summary><div class="body">
+    <ul>
+      <li><strong>Contrarian:</strong> CANCEL — late-stage, missing RS, catalyst-B subset 25%/-0.20%, slippage tax.</li>
+      <li><strong>First Principles:</strong> DEFER — EV math is marginal post-slippage; need live confirmation.</li>
+      <li><strong>Expansionist:</strong> PROMOTE-half — margin inflection is a re-rating catalyst.</li>
+      <li><strong>Outsider:</strong> PROMOTE-half cautiously — EPS beat dominates; n=8 subset is noise.</li>
+      <li><strong>Executor:</strong> DEFER → conditional half — work the limit, walk if tape is sloppy.</li>
+    </ul>
+  </div></details>
+</div>
+
+<!-- =========== TICKER 6: APP =========== -->
+<div class="card">
+  <h2>6. APP — CONFLICT_A,D / ACTIVE_BURST / today_intraday</h2>
+  <div class="verdict-box bad">
+    <div class="label">Recommendation</div>
+    <div><strong>DEFER-FOR-CONFIRMATION today, with a pre-committed OVERRIDE-HALF trigger tomorrow. Confidence 6/10, playbook-only.</strong> No position at today's close. Pre-commit: if APP closes tomorrow above $498.87 on volume ≥ 1.5x 50-day, take HALF size A2 (0.5% account risk, NOT 1%). Invalidation: pause_high $483.55, mechanical, no discretion. If APP closes red tomorrow or fails to hold $483.55 intraday → row dead, WATCH tier vindicated. <strong>Do NOT take FULL A2.</strong> The recommendation is about preserving the WATCH-tier signal's integrity as much as it is about this specific trade.</div>
+    <div class="label" style="margin-top:10px;">First action</div>
+    <div>Write the override condition into the journal <em>tonight</em>: exact price ($498.87 close), exact volume threshold (1.5x 50-day), exact invalidation ($483.55), exact size (half A2 = 0.5% risk). <strong>If you cannot pre-commit it in writing tonight, you do not take it tomorrow.</strong> The discipline test is the trade.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="label">Council Agrees</div>
+      <ul>
+        <li>Price-action picture genuinely clean (gates 1-6 PASS, vol 2.75x, CPR 80.2%, dist_21ema 9.0%).</li>
+        <li>WATCH tier exists for exactly this scenario. QG=False AND spec=True together = two-flag fundamental rejection the framework was built to respect.</li>
+        <li>Risk-On 10/10 affects portfolio aggression, not whether you override a documented gating rule.</li>
+        <li>Calibration moment, not max-conviction moment.</li>
+        <li>If anything is taken: smaller than normal A2 with tighter, mechanical invalidation.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Council Clashes / Blind Spots</div>
+      <ul>
+        <li>Contrarian/Outsider want zero position; Expansionist wants OVERRIDE-HALF; First Principles Bayesian → reduced-size override only with mechanical invalidation; Executor: process > this trade.</li>
+        <li>ep_gap_pct -2.98% (gap-down then ramped) is not a clean breakout — it's a recovery day. Three advisors initially missed this.</li>
+        <li>consec_up=1 means today is the entire move; no confirmation bar.</li>
+        <li>Catalyst-A in this cohort is n=2 at -5.17% — "good catalyst saves it" intuition not supported.</li>
+        <li>The precedent matters more than the trade — the "lower tier wins" rule dies if overridden on case #1 without a documented confirmation rule.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Base-rate context (APP-specific)</summary><div class="body">
+    <ul>
+      <li><strong>ACTIVE_BURST × WATCH_ONLY × action_label B</strong> (APP's exact path): n=17, 64.7% triggered, T+1d -0.73%, win 45.5%.</li>
+      <li>WATCH_ONLY × C: n=28, -3.33% T+1d, win 40.0%.</li>
+      <li>REJECT × D (the system's "skip these" tier): n=36, +1.49% T+1d, win 58.8%.</li>
+      <li>Directional read: WATCH tier is doing real work in this dataset. Sample sizes small (n=17, n=28); soft prior, not law.</li>
+    </ul>
+  </div></details>
+  <details><summary>Advisor snapshots & full responses</summary><div class="body">
+    <ul>
+      <li><strong>Contrarian:</strong> RESPECT-WATCH. The rule exists for this row. Don't break it on case #1.</li>
+      <li><strong>First Principles:</strong> OVERRIDE-HALF, conditional. Bayesian: prior negative, evidence real, posterior neutral → smaller size with confirmation.</li>
+      <li><strong>Expansionist:</strong> OVERRIDE-HALF. $1B buyback + raise = different animal than the cohort average.</li>
+      <li><strong>Outsider:</strong> RESPECT-WATCH or DEFER. consec_up=1 on a gap-down-ramp is not a breakout you chase.</li>
+      <li><strong>Executor:</strong> DEFER-FOR-CONFIRMATION. Pre-commit the override condition in writing. Process integrity > this trade.</li>
+    </ul>
+    <p class="small">Convergence: DEFER today, OVERRIDE-HALF tomorrow if confirmation triggers, RESPECT-WATCH if not. <strong>No advisor defended FULL A2.</strong></p>
+  </div></details>
+</div>
+
+<!-- =========== CALIBRATION LOG =========== -->
+<div class="card">
+  <h2>Calibration Log Rows</h2>
+  <pre><code>signal_date,ticker,bplus_reason,council_verdict,confidence,base_rate_used,base_rate_sample_size,decision_reason
+2026-05-06,IBEX,N/A_A2_at_floor,HALF,medium,playbook_only,2_immature_monitoring_only,composite_3.75_below_A2_band+RR_at_2.0_floor_offset_by_grade_A_catalyst+rank_11_TAKE
+2026-05-06,ORA,N/A_A2_cpr_mid_range,HALF,65,playbook_only,0,cpr_40.8_below_strong_close_band+ep_spike_nonfire_offset_grade_A_catalyst+clean_gates
+2026-05-06,SNEX,C3+C1_wide_day1_range,PROMOTE-on-trigger,medium-high,ACTIVE_BURST_T+1_playbook-only,83,V5.9.3_inside_day_resolves_C1_via_tighter_stop+ext_moderate_soft_demote+full_size_on_clean_A2
+2026-05-06,LAMR,C3_kiss_the_high_consec_up_2,DEFER_PROMOTE_ON_TRIGGER,55,ACTIVE_BURST_T+1d_win_49.3%_avg_-0.72%,83,playbook_only_cpr_96.6_no_margin+wait_Day2_hold_above_151.36+half_size
+2026-05-06,XPER,C3+C1_thin_liquidity_data_gap,DEFER_conditional_PROMOTE_half,55,ACTIVE_BURST_T1d_playbook_only,83,Late-stage_bars26+rs3m_missing+thin_liq_2.6M+half_cap_mandatory+catalyst_B_subset_n8_too_small
+2026-05-06,APP,CONFLICT_A_D_QG_FAIL+SPEC_TRUE,DEFER-FOR-CONFIRMATION->OVERRIDE-HALF-CONDITIONAL,6,ACTIVE_BURST_x_WATCH_ONLY_x_B_T+1d_-0.73%_win_45.5%+catalyst-A_n2_-5.17%,17_primary_2_catalyst_A_83_cohort,Two-flag_fundamental_rejection_QG_False+spec_True+gap-down-ramp_consec_up_1+confirmation_bar_required_before_override</code></pre>
+</div>
+
+<div class="footer">
+  Generated 2026-05-08 · Skill: <code>llm-council</code> · Cohort age -3 days · Outcome data IMMATURE (PARTIAL_OUTCOME / IMMATURE_20D) — all verdicts <strong>playbook-only</strong>, log for T+5/T+20 calibration when cohort matures (~2026-05-15).<br>
+  Counciled: IBEX, ORA, SNEX, LAMR, XPER, APP. Full transcript: <code>council-transcript-20260508-batch.md</code>.
+</div>
+
+</div></body></html>
