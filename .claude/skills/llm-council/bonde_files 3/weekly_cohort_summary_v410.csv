@@ -1,0 +1,2 @@
+cohort_week,cohort_week_end,cohort_age_days,setup_family,n_rows,n_triggered,pct_triggered,mature_t5,n_evaluable_5d,avg_ret_5d_all,win_rate_5d_all,avg_ret_5d_trig,win_rate_5d_trig,mature_t10,n_evaluable_10d,avg_ret_10d_all,win_rate_10d_all,avg_ret_10d_trig,win_rate_10d_trig,mature_t20,n_evaluable_20d,avg_ret_20d_all,win_rate_20d_all,avg_ret_20d_trig,win_rate_20d_trig
+2026-W19,2026-05-10,-3,ACTIVE_BURST,83,76,91.56626506024097,False,,,,,,False,,,,,,False,,,,,
