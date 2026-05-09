@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LLM Council — Pre-Open Batch — 2026-05-09</title>
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --border:#e5e5e5; --accent:#3b6ea5; --good:#2f7a3e; --warn:#a25c00; --bad:#a02828; --soft:#f7f7f5; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; max-width: 940px; margin: 24px auto; padding: 0 18px; color: var(--fg); background: var(--bg); line-height: 1.5; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 14px; margin-bottom: 22px; }
+  h1 { font-size: 22px; margin: 0 0 6px 0; }
+  h2 { font-size: 17px; margin: 26px 0 10px 0; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+  h3 { font-size: 14px; margin: 18px 0 8px 0; color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; margin-left:6px; vertical-align: middle;}
+  .b-promote { background:#e7f3ea; color:var(--good); border:1px solid #b6d8be; }
+  .b-defer { background:#fdf2dc; color:var(--warn); border:1px solid #e7c995; }
+  .b-cancel { background:#fbe5e5; color:var(--bad); border:1px solid #e8a9a9; }
+  .verdict-box { background: var(--soft); border-left: 4px solid var(--accent); padding: 14px 16px; margin: 14px 0; border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; }
+  .grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 10px 0; font-size:12px; }
+  .grid .cell { padding:8px; border-radius:4px; border:1px solid var(--border); background: var(--soft); }
+  .grid .cell strong { display:block; margin-bottom:4px; font-size:11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .pos-pos { color: var(--good); font-weight:600; }
+  .pos-neg { color: var(--bad); font-weight:600; }
+  .pos-mid { color: var(--warn); font-weight:600; }
+  details { border: 1px solid var(--border); border-radius: 4px; padding: 10px 14px; margin: 8px 0; background: #fafafa; }
+  details[open] { background: #fff; }
+  details > summary { cursor: pointer; font-weight: 600; font-size: 13px; }
+  details > summary:hover { color: var(--accent); }
+  .advisor { margin-top: 10px; font-size: 13px; white-space: pre-wrap; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+  pre { background: var(--soft); padding: 10px; border-radius: 4px; overflow-x: auto; }
+  .footer { margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+  .one-thing { background:#eef4fb; border:1px solid #c2d8ee; padding:12px 14px; border-radius: 4px; margin: 10px 0; font-size:14px; }
+  .matrix { font-size: 12px; }
+  .matrix td { text-align: center; }
+  .matrix td.t { text-align: left; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>LLM Council — Pre-Open Batch — 6 tickers</h1>
+<div class="meta">
+  <strong>Review date:</strong> 2026-05-09 · <strong>Signal date:</strong> 2026-05-08 · <strong>Account:</strong> $100K · 1.0% risk/trade · 0 positions · Regime Risk-On 10/10 (Normal sizing)
+</div>
+</header>
+
+<h2>Outcome / Base-Rate Context</h2>
+<div class="verdict-box">
+<strong>Outcome data is IMMATURE_20D — verdicts are playbook-only and must be logged for future calibration.</strong>
+Cohort age -2 days. ACTIVE_BURST n=83 T+1d win 49.3% / avg -0.72% (monitoring-only); EP_ACTIVE family n=64 IMMATURE_20D; ACTIVE_BURST × catalyst-A intersection n=2 (too small). Outcome data cannot override hard rules. Three peer reviewers explicitly flagged that leaning on the n=83 prior either to promote or to cancel was overfitting backward — the prior is symmetric noise relative to the playbook at this maturation stage.
+</div>
+
+<h2>Verdict Summary</h2>
+<table>
+  <thead>
+    <tr><th>Ticker</th><th>Setup</th><th>Verdict</th><th>Confidence</th><th>Risk</th><th>First Action</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>BILL</strong></td><td>A2 / EP_ACTIVE / today_open</td><td><span class="badge b-promote">PROMOTE FULL ($1,000)</span></td><td>high</td><td>$1,000</td><td>BUY-STOP 234 sh @ $43.31 lim $43.45 DAY · OCO sell-stop $39.03 GTC · tier 1/3 @$48 / 1/3 @$52 / trail $56.31</td></tr>
+    <tr><td><strong>CALY</strong></td><td>B+ C1 / EP_ACTIVE</td><td><span class="badge b-defer">DEFER → Day-2 alert</span></td><td>medium</td><td>$0 today</td><td>Alerts $17.74 / $16.80 / $15.77 — promote only on trigger + R:R ≥ 2.0</td></tr>
+    <tr><td><strong>DBX</strong></td><td>B+ C1 / EP_ACTIVE</td><td><span class="badge b-cancel">CANCEL</span></td><td>high</td><td>$0</td><td>Remove from screen — NI -24% YoY, R:R 1.24R unfixable vs 52w cap</td></tr>
+    <tr><td><strong>CVSA</strong></td><td>B+ C1 / ACTIVE_BURST</td><td><span class="badge b-defer">DEFER → Day-2 alert</span></td><td>medium</td><td>$0 today</td><td>Alerts $133.79 / $130 / $121.40 — closest to 2.0R via Day-2 stop tighten</td></tr>
+    <tr><td><strong>CBL</strong></td><td>B+ C1 / ACTIVE_BURST</td><td><span class="badge b-defer">DEFER → Day-2 alert (low priority)</span></td><td>low-medium</td><td>$0 today</td><td>Alerts $47.99 / $47.00 / $44.82 — ADR 2.56% velocity-capped</td></tr>
+    <tr><td><strong>TXRH</strong></td><td>B+ C1 / EP_ACTIVE (V5.8.7 resurrection)</td><td><span class="badge b-cancel">CANCEL</span></td><td>high</td><td>$0</td><td>Remove from screen — resurrection + close_pct 51% + R:R 1.29R</td></tr>
+  </tbody>
+</table>
+
+<div class="one-thing">
+  <strong>The one thing to do first:</strong> Place the BILL BUY-STOP <strong>234 sh @ $43.31, DAY, limit $43.45</strong>, with OCO sell-stop <strong>$39.03 GTC</strong> before market open Monday. Pre-set tier-out (1/3 @$48, 1/3 @$52, trail toward $56.31). Set 3 alert triplets (CVSA $133.79/$130/$121.40 · CALY $17.74/$16.80/$15.77 · CBL $47.99/$47/$44.82). Remove DBX and TXRH from the screen. Pre-commit in the journal: <em>If SPY gaps &lt;-0.8% pre-open OR BILL prints below $40.41 before 9:35, cancel the ticket. If BILL stops out Monday, all Day-2 alerts auto-void Tuesday.</em>
+</div>
+
+<h2>Advisor Position Matrix</h2>
+<table class="matrix">
+  <thead>
+    <tr><th class="t">Advisor</th><th>BILL</th><th>CALY</th><th>DBX</th><th>CVSA</th><th>CBL</th><th>TXRH</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="t">Contrarian</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td><td class="pos-neg">CANCEL</td><td class="pos-mid">DEFER</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td></tr>
+    <tr><td class="t">First Principles</td><td class="pos-pos">PROMOTE</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td><td class="pos-mid">DEFER</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td></tr>
+    <tr><td class="t">Expansionist</td><td class="pos-pos">PROMOTE</td><td class="pos-pos">PROMOTE</td><td class="pos-neg">CANCEL</td><td class="pos-mid">DEFER</td><td class="pos-mid">DEFER</td><td class="pos-pos">PROMOTE</td></tr>
+    <tr><td class="t">Outsider</td><td class="pos-pos">PROMOTE</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td><td class="pos-mid">DEFER</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td></tr>
+    <tr><td class="t">Executor</td><td class="pos-pos">PROMOTE</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td><td class="pos-mid">DEFER</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td></tr>
+    <tr style="background: var(--soft); font-weight:600;"><td class="t">Chairman</td><td class="pos-pos">PROMOTE</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td><td class="pos-mid">DEFER</td><td class="pos-mid">DEFER</td><td class="pos-neg">CANCEL</td></tr>
+  </tbody>
+</table>
+
+<h2>Where the Council Agrees</h2>
+<ul>
+  <li><strong>BILL is a real trade</strong> — 4 of 5 advisors PROMOTE. Only the Contrarian dissents (half not pass).</li>
+  <li><strong>DBX is dead</strong> — 5 of 5 CANCEL. NI -24% YoY on raised guide is the trap; R:R 1.24R vs 52w cap unfixable.</li>
+  <li><strong>TXRH should be removed from the channel</strong> — 4 of 5 CANCEL. The V5.8.7 resurrection is the calibration leak the skill exists to prevent.</li>
+  <li><strong>CVSA + CBL = unanimous DEFER</strong> — Day-1 geometry blocks in-session promotion.</li>
+  <li><strong>The 2.0R floor is non-negotiable</strong>. Catalyst grade does not buy R:R relief.</li>
+</ul>
+
+<h2>Where the Council Clashes</h2>
+<ul>
+  <li><strong>BILL full vs half:</strong> Contrarian alone read close_pct 66.4% as distribution flavor; other four call full size. <em>Resolution:</em> close_pct 66.4% passes Gate 4; mid-upper close after +11% gap-and-run is consistent with continuation. Multi-catalyst stack + R:R 3.05R earns full.</li>
+  <li><strong>CALY PROMOTE vs CANCEL vs DEFER:</strong> Expansionist alone PROMOTE; Contrarian alone CANCEL; three centrists DEFER. <em>Resolution:</em> The same playbook that gates CALY into B+ also defines the promotion mechanism (Day-2 trigger + R:R recompute ≥ 2.0). DEFER respects both rules.</li>
+  <li><strong>TXRH PROMOTE vs CANCEL:</strong> Expansionist alone PROMOTE on comp-sales narrative; four CANCEL. <em>Resolution:</em> CANCEL — resurrection + barely-Gate-4 + worst-tier R:R is the exact rule-stacking pattern n=20 maturation will flag.</li>
+</ul>
+
+<h2>Blind Spots the Council Caught (Peer Review)</h2>
+<ul>
+  <li><strong>Expansionist used "right-tail understates target" twice to override the hard 2.0R rule</strong> — flagged by 5/5 peer reviewers.</li>
+  <li><strong>Contrarian over-leaned on the n=83 ACTIVE_BURST cohort prior</strong> as if mature — flagged by 3/5 reviewers (overfitting backward).</li>
+  <li><strong>No advisor stress-tested BILL's Monday gap-up risk</strong> — BUY-STOP $43.31 may itself break the 2.0R math if Monday gaps materially. Mitigated by SPY-gap kill rule and limit cap.</li>
+  <li><strong>Sector/correlation across the basket</strong> — clustered post-earnings vol expansion is one factor, not six independent signals.</li>
+  <li><strong>No "what if BILL stops out" rule for Tuesday's monitor list</strong> — added explicitly to the journal pre-commit above.</li>
+  <li><strong>Day-3 chase risk</strong> if all 3 deferrals trigger Day-2 — the chairman's hard cap of <em>at most 1 conversion Tuesday</em> addresses this.</li>
+  <li><strong>No paper-track logging plan</strong> — the <code>council_outcomes_2026-05-09.csv</code> is the artifact.</li>
+</ul>
+
+<h2>Council Calibration Log</h2>
+<pre>signal_date,ticker,bplus_reason,council_verdict,confidence,base_rate_used,base_rate_sample_size,decision_reason
+2026-05-08,BILL,N/A_A2_today_open,PROMOTE_FULL,high,playbook_only,IMMATURE_20D,A2_all_gates_clean_RR_3.05_multi-catalyst_4of5_PROMOTE
+2026-05-08,CALY,C1_wide_day1_range,DEFER_DAY2_ALERT,medium,playbook_only,IMMATURE_20D,Agrade_no_52w_cap_promote_only_on_RR>=2.0_recompute
+2026-05-08,DBX,C1_worst_RR_52w_cap,CANCEL,high,playbook_only,IMMATURE_20D,unanimous_NI-24pct_flat_YoY_RR1.24_unfixable
+2026-05-08,CVSA,C1_close_pct_99.9_extension,DEFER_DAY2_ALERT,medium,playbook_only,IMMATURE_20D,closest_to_2R_Bgrade_education_training
+2026-05-08,CBL,C1_low_ADR_2.56_caps_target,DEFER_DAY2_ALERT_LOW_PRIORITY,low-medium,playbook_only,IMMATURE_20D,Agrade_REIT_but_velocity_capped_ATH_overhead
+2026-05-08,TXRH,C1_resurrection_stacked_warnings,CANCEL,high,playbook_only,IMMATURE_20D,V5.8.7_resurrection_close_pct_51_barely_RR1.29_honor_filter</pre>
+
+<h2>Advisor Snapshots</h2>
+<div class="grid">
+  <div class="cell"><strong>Contrarian</strong>0 promotes today. BILL DEFER (mid-range close, 3.05R arithmetic not achievable). CALY/DBX/TXRH CANCEL. CVSA/CBL DEFER. Cash is a position.</div>
+  <div class="cell"><strong>First Principles</strong>PROMOTE BILL full. DEFER CALY/CVSA/CBL. CANCEL DBX/TXRH. Five failure modes converging on one floor = floor working. <em>Picked strongest by 5/5 reviewers.</em></div>
+  <div class="cell"><strong>Expansionist</strong>PROMOTE BILL/CALY/TXRH full. DEFER CVSA/CBL. CANCEL DBX. 3% portfolio risk; cash is the actual risk. <em>Flagged blind-spot by 5/5 reviewers.</em></div>
+  <div class="cell"><strong>Outsider</strong>PROMOTE BILL. DEFER CALY/CVSA/CBL. CANCEL DBX/TXRH. One clean A2 = a great day. Resurrection itself is reason to skip TXRH.</div>
+  <div class="cell"><strong>Executor</strong>PROMOTE BILL with full pre-market ticket. DEFER CALY/CVSA/CBL as alerts. CANCEL DBX/TXRH. Attention budget = 3 alerts + BILL. Walk away.</div>
+</div>
+
+<h2>Full Advisor Responses</h2>
+
+<details>
+<summary>The Contrarian — Response B</summary>
+<div class="advisor">Playbook-only. Outcomes are IMMATURE_20D and cannot justify any rule break.
+
+The prior cohort tape is ugly: ACTIVE_BURST n=83 printed 49.3% T+1 with avg -0.72%. That is a coin flip with negative expectancy. You are about to deploy into a regime where the most relevant base rate is bleeding. Risk-On 10/10 does not repeal that.
+
+BILL — DEFER (medium-high, playbook-only). close_pct 66.4% is mid-range, not a Day-2 gap-and-go closer; vol 3.57x with a mid-range close is distribution flavor. dist_21ema 8.42% passes but stacks on a Day-2 chase into a 52w-high target. The 3.05R is arithmetic, not achievable. Half size at most; my vote is wait for the inside day.
+
+CALY — CANCEL (high, playbook-only). 1.65R fails C1. dist_21ema 16.93% extended. close_pct 91.1% Day-1 = exhausted buyers, worst Day-2 entry geometry. A-catalyst does not buy R:R relief.
+
+DBX — CANCEL (high, playbook-only). NI down 24% YoY is an accounting mirage with raised guide on top. 1.24R unfixable vs 52w cap. Should not be in channel.
+
+CVSA — DEFER (medium, playbook-only). close_pct 99.9% is the literal high tick. Vol 1.80x barely qualifying. Closest-to-2R = least-bad.
+
+CBL — DEFER (medium, playbook-only). Cleanest gates but adr_20 2.56% means structurally capped. ATH overhead.
+
+TXRH — CANCEL (high, playbook-only). Resurrection + C1 + close_pct 51% + fresh reclaim + 1.29R. Five yellows stacked. Advisory ≠ trade.
+
+Net: 0 promotes today. Cash is a position. Re-rack tomorrow on inside-day setups.</div>
+</details>
+
+<details>
+<summary>The First Principles Thinker — Response D <em>(picked strongest 5/5)</em></summary>
+<div class="advisor">The wrong question is being asked. The user frames this as "where is my edge among 6 candidates?" That's a selection problem. But the actual problem is structural: you have a hard rule (R:R ≥ 2.0) and five candidates that fail it for five different reasons. When five independent failure modes converge on one floor, the floor is doing its job.
+
+The real question is: "Do I have one trade or zero trades tonight?" Not six. The B+ basket is a distraction generated by an empty book and a 10/10 regime making you itch. Regime quality does not manufacture setups; it amplifies the ones that already pass.
+
+BILL isn't competing with the B+ five. BILL is competing with cash. The B+ five compete for a slot that doesn't exist under your own rules.
+
+TXRH is a "V5.8.7 RESURRECTION" with close_pct 51% barely passing Gate 4. A resurrection mechanic that lifts a 4-warning name into advisory is the kind of rule-bending that, in aggregate, is exactly what cohort calibration will later flag as your leak.
+
+1. BILL — PROMOTE, full $1K risk. High confidence. Playbook-only. A2, today_open, all gates clean, R:R 3.05, multi-catalyst with structural (buyback + restructuring). This is what the playbook is built for.
+2. CALY — DEFER. Med-high. Playbook-only. C1 fails; pullback plan correct — wait for the trigger that fixes R:R.
+3. DBX — CANCEL. High. Playbook-only. NI -24% on a "beat" is a quality flag.
+4. CVSA — DEFER. Medium. Playbook-only. Closest 2.0 R:R but close_pct 99.9% extension risk.
+5. CBL — DEFER. Medium. Playbook-only. Cleanest Gate 6 but ADR 2.56% caps upside.
+6. TXRH — CANCEL. High. Playbook-only. Resurrection + barely-Gate-4 + 1.29R worst tier. The mechanism that put it on the list is the reason to remove it.
+
+One trade tonight: BILL. Cash on the other five is the edge.</div>
+</details>
+
+<details>
+<summary>The Expansionist — Response A <em>(flagged blind-spot 5/5)</em></summary>
+<div class="advisor">The asymmetry everyone's missing: 10/10 Risk-On regime with EMPTY BOOK and multiple A-grade capital-return catalysts on the same day. That's a coincidence the council is treating as ordinary. It isn't.
+
+BILL — PROMOTE, high (playbook-only). $1B buyback on $4-5B cap = 20%+ float reduction signaling floor. 30% AI restructuring = unmodeled margin expansion. R:R 3.05 understates right tail. Take full size.
+
+CALY — PROMOTE, high (playbook-only). The most underweighted name. No 52w cap, fresh base breakout, A-grade, EBITDA +40%. Target $21 is lazy round-number anchoring. R:R 1.65 understates the right tail.
+
+TXRH — PROMOTE, med-high (playbook-only). Comp +7.1% / traffic +4.5% is the rarest print in consumer disc. Resurrection is noise; tape is signal. 52w-high target conservative.
+
+CBL — DEFER, medium (playbook-only). A-grade real but ADR 2.56% structurally caps velocity. Right thesis, wrong vehicle.
+
+CVSA — DEFER, medium (playbook-only). close_pct 99.9% is extension into a capped target.
+
+DBX — CANCEL, high (playbook-only). Flat revenue, NI -24%, R:R 1.24. Opportunity-cost theft.
+
+Posture: deploy 3 full-size = 3% portfolio risk. Cash here is the actual risk.</div>
+</details>
+
+<details>
+<summary>The Outsider — Response E</summary>
+<div class="advisor">You have one trade. It's BILL. Everything else is a story about why almost-qualifying trades might qualify tomorrow.
+
+Five of six failed the same gate (2.0R floor) for the same reason (Day-1 ranges too wide). That's not six independent signals — it's one market condition (post-earnings vol expansion) producing five identical near-misses. Treating them as a "watchlist of six" makes you feel busy. It's noise dressed as focus.
+
+Sub-2R because the catalyst is pretty? No. The 2.0R rule isn't a suggestion you negotiate with when fundamentals look juicy; it's the thing that makes the math work. At 49% win and 1.65R you're roughly breakeven before fees. At 1.24R you're bleeding.
+
+The "resurrection" of TXRH is the loudest tell. A row got rejected for four warnings, then un-rejected because someone liked the story. If your playbook has a backdoor labeled "but the catalyst was strong," the playbook has a hole.
+
+Empty book + 10/10 doesn't mean "deploy." It means the filter did its job. One clean A2 = a great day.
+
+1. BILL — PROMOTE, high. Passes every gate. 3.05R, real catalyst (beat + guide + buyback + restructuring).
+2. CALY — DEFER, medium. Strongest B+ catalyst. Day-2 plan legitimate; tighter stop tomorrow could make 2R.
+3. DBX — CANCEL, high. Flat YoY rev + NI -24% is relief bounce. Stop looking.
+4. CVSA — DEFER, low. Closest 2R but B-grade single-digit rev. Only revisit if range tightens.
+5. CBL — DEFER, medium. Best fundamentals but 2.56% ADR = target weeks away.
+6. TXRH — CANCEL, high. The resurrection itself is the reason to skip. Honor your filters or stop having them.
+
+Take BILL. Watch CALY. Close the other four tabs.</div>
+</details>
+
+<details>
+<summary>The Executor — Response C</summary>
+<div class="advisor">MONDAY PRE-MARKET TICKET — 6 names
+
+1) BILL — PROMOTE. Confidence: High. Playbook-only.
+   - Order: BUY-STOP 234 sh @ $43.31, DAY, limit $43.45.
+   - OCO sell-stop $39.03 GTC.
+   - Tier: 1/3 @ $48 / 1/3 @ $52 / trail toward $56.31.
+   - Kill before fill: SPY gaps &lt;-0.8% pre-open OR BILL prints &lt;$40.41 before 9:35.
+   - Risk: $1,000. Full size.
+
+2-6) ALL B+ C1s — DEFER. No live orders. Alerts only. Attention budget: 3 alerts + BILL.
+
+CVSA — ALERT med. Closest R:R (1.67) + close_pct 99.9%. Alerts: $133.79 / $130 / $121.40.
+CALY — ALERT med. A-grade, R:R 1.65, vol 3.18x. Alerts: $17.74 / $16.80 / $15.77.
+CBL — ALERT low-med. A-grade REIT only reason. Alerts: $47.99 / $47.00 / $44.82.
+DBX — CANCEL high. Worst R:R 1.24, B-grade NI -24%. Dead.
+TXRH — CANCEL high. close_pct 51% barely, R:R 1.29, V5.8.7 resurrection adds noise. Dead.
+
+Rules:
+- BILL fills + +1R before 10:30 → do nothing else, no new tickets.
+- BILL stops out → close laptop until 12:00, no revenge entries.
+- 2 alerts same minute → take higher recomputed R:R, ignore the other.
+- SPY &lt; -1% intraday → all B+ alerts auto-void.
+- No discretionary entries. Ticket or nothing.
+
+Deployed Monday: $10,131 / $100K. Risk live: $1,000 / $1,000 budget. One trade. Walk away.</div>
+</details>
+
+<h2>Peer Review Highlights</h2>
+<details open>
+<summary>Reviewers' verdicts on the council itself</summary>
+<div class="advisor">All 5 reviewers independently picked Response D (First Principles) as strongest, citing the reframe from "select among six" to "one trade or zero," and the diagnosis that five independent failure modes converging on one floor means the floor is working.
+
+All 5 reviewers independently flagged Response A (Expansionist) as the biggest blind spot. Recurring critique: "right-tail understates target" is the narrative override the 2.0R floor exists to prevent. The 3-position full-size deployment ignores IMMATURE_20D and conflates regime quality with validated edge.
+
+3 of 5 reviewers flagged Response B (Contrarian) for over-leaning on the n=83 ACTIVE_BURST cohort prior — the prompt specified IMMATURE_20D, so that prior is symmetric noise; using it directionally to cancel BILL is the inverse error of using regime to promote it.
+
+What ALL five advisors missed:
+1. Sector / correlation concentration across the basket — clustered post-earnings vol expansion is one factor, not six independent signals.
+2. Execution-path risk on BILL itself — Day-1 A2 today_open into a Monday gap with no SPY-overnight stress test beyond the Executor's brief mention.
+3. "If BILL stops out" rule for Tuesday — does a BILL loss void or reweight the Day-2 alerts? (Chairman added explicitly.)
+4. Day-3 chase risk if all deferrals spike Day-2 — the deferral plan needs a hard conversion cap. (Chairman added: 1 max.)
+5. Paper-track logging to feed n=20 maturation — the council_outcomes CSV is the artifact.
+6. Half-size BILL pending cohort maturation as an explicit middle path — none of the four PROMOTE-BILL advisors considered it.</div>
+</details>
+
+<div class="footer">
+Generated 2026-05-09 · Files: <code>council-report-20260509-batch.html</code> · <code>council-transcript-20260509-batch.md</code> · <code>council_outcomes_2026-05-09.csv</code> · all in <code>/home/user/bonde/.claude/skills/llm-council/reports/</code>
+</div>
+
+</body>
+</html>
