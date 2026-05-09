@@ -1,7 +1,0 @@
-setup_family,summary_type,n_rows,n_evaluable_3d,n_evaluable_5d,avg_ret_1d,median_ret_1d,win_rate_1d,avg_ret_3d,median_ret_3d,win_rate_3d,avg_ret_5d,median_ret_5d,win_rate_5d,avg_ret_10d,median_ret_10d,win_rate_10d,avg_ret_20d,median_ret_20d,win_rate_20d,trigger_hit_5d_pct,pre_burst_triggered_5d_pct
-ACTIVE_BURST,setup_family,238,116,0,-0.012225425978237227,-0.5367645602029791,38.23529411764706,2.7425597147056324,0.7198171313496093,27.310924369747898,,,,,,,,,,78.125,
-EXCLUSION,setup_family,134,0,0,0.9079075414275767,0.3904116275352698,60.447761194029844,,,,,,,,,,,,,,
-EP9M,setup_family,32,0,0,1.5017969185346312,1.2967478457358128,71.875,,,,,,,,,,,,,,
-UNKNOWN,setup_family,28,0,0,,,,,,,,,,,,,,,,,
-FOCUS_LIST,setup_family,20,0,0,1.7599705947409714,0.2613023241011536,70.0,,,,,,,,,,,,,50.0,
-DELAYED_EP,setup_family,4,0,0,4.380350277564229,6.051143496811163,75.0,,,,,,,,,,,,,100.0,
