@@ -271,9 +271,9 @@ Produce the council verdict using this exact structure:
 [A single concrete next step. Not a list. One thing.]
 
 
-## Council Calibration Log Row
+## Council Outcome CSV Draft
 
-[For Bonde/trading/B+ questions only. Provide a comma-separated row with: signal_date,ticker,bplus_reason,council_verdict,confidence,base_rate_used,base_rate_sample_size,decision_reason. If not a trading/B+ question, write N/A.]
+[For Bonde/trading/B+ questions only, summarize the rows that will be written to council_outcomes_YYYY-MM-DD.csv using the Step 7 schema: signal_date,review_date,ticker,setup_family,action_label,bplus_blocker_type,council_verdict,confidence,decision_reason,report_path,transcript_path. Use council_verdict only as PROMOTE, DEFER, or CANCEL. If not a trading/B+ question, write N/A.]
 
 
 Be direct. Don't hedge. The whole point of the council is to give the user clarity they couldn't get from a single perspective.
@@ -321,26 +321,64 @@ signal_date,review_date,ticker,setup_family,action_label,bplus_blocker_type,coun
 
 Rules:
 - One row per ticker reviewed by council.
-- `council_verdict` must be exactly one of: PROMOTE, DEFER, CANCEL.
-- `bplus_blocker_type` must be exactly one of: C1, C2, C3, NOT_BPLUS, UNKNOWN.
-- Use C1 for wide Day-1 range / static EOD R:R floor fail.
-- Use C2 for DTE / pre-earnings tactical setup.
-- Use C3 for mild or moderate extension / Day-2 confirmation requirement.
-- Use NOT_BPLUS for A1/A2 or non-B+ rows reviewed by council.
-- Use UNKNOWN only when the source prompt does not identify the blocker and it cannot be inferred safely.
 - Quote every text field.
 - Do not use markdown table formatting for the CSV.
-- Keep `decision_reason` concise and machine-readable; avoid commas when possible, or quote the field correctly.
+- The CSV must parse cleanly with `pandas.read_csv()` — no stray markdown fences, no trailing commentary, no unescaped embedded quotes.
+- Keep `decision_reason` concise and machine-readable. Quoting handles commas; do not omit them at the cost of clarity.
 - Include the report and transcript paths actually written in this session.
+
+`council_verdict` must be exactly one of: PROMOTE, DEFER, CANCEL.
+
+Internal verdict language must be normalized to one of the three allowed values before writing the CSV. Use this exact mapping:
+
+- PROMOTE_FULL → PROMOTE
+- PROMOTE_HALF → PROMOTE
+- PROMOTE_ON_TRIGGER → PROMOTE
+- DEFER_DAY2_ALERT → DEFER
+- DEFER_DAY2_ALERT_LOW_PRIORITY → DEFER
+- DEFER_CONDITIONAL → DEFER
+- CANCEL → CANCEL
+
+Any other internal verdict string must be normalized to its closest match in {PROMOTE, DEFER, CANCEL} before writing. Never write the un-normalized variant into the CSV. Variant-level nuance (full vs half, on-trigger, day-2-alert) belongs in `decision_reason`, not in `council_verdict`.
+
+`bplus_blocker_type` must be exactly one of: C1, C2, C3, NOT_BPLUS, UNKNOWN.
+
+- C1 = wide Day-1 range / static EOD R:R floor fail
+- C2 = DTE / pre-earnings tactical setup
+- C3 = mild or moderate extension / Day-2 confirmation requirement
+- NOT_BPLUS = A1/A2 or any non-B+ row reviewed by council
+- UNKNOWN = source prompt does not identify the blocker and it cannot be inferred safely
+
+Rules for `bplus_blocker_type`:
+- A2/A1 rows use NOT_BPLUS.
+- B+ C1 rows use C1.
+- B+ C2 rows use C2.
+- B+ C3 rows use C3.
+- If the row is B+ but the blocker is not identifiable, use UNKNOWN. Never leave the field blank.
 
 Example CSV:
 ```csv
 "signal_date","review_date","ticker","setup_family","action_label","bplus_blocker_type","council_verdict","confidence","decision_reason","report_path","transcript_path"
-"2026-05-07","2026-05-08","IBEX","ACTIVE_BURST","A2","NOT_BPLUS","PROMOTE","medium","A2 confirmed but half-size only because R:R is near the floor.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260508-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260508-batch.md"
-"2026-05-07","2026-05-08","SNEX","EP_ACTIVE","B","C1","DEFER","medium-high","B+ C1. Defer until Day-2 trigger fires with recomputed R:R at or above 2.0.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260508-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260508-batch.md"
+"2026-05-08","2026-05-09","BILL","EP_ACTIVE","A2","NOT_BPLUS","PROMOTE","high","A2 all gates clean; R:R 3.05; multi-catalyst; 4/5 advisors promote.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260509-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260509-batch.md"
+"2026-05-08","2026-05-09","CALY","EP_ACTIVE","B","C1","DEFER","medium","B+ C1; R:R floor fail; Day-2 trigger plus recomputed R:R >= 2.0 required.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260509-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260509-batch.md"
+"2026-05-08","2026-05-09","DBX","EP_ACTIVE","B","C1","CANCEL","high","B+ C1 but NI -24% YoY and R:R 1.24 vs 52w cap; remove from screen.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260509-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260509-batch.md"
 ```
 
 If the council reviews multiple tickers in one batch, produce one consolidated CSV for the batch. If the council reviews one ticker, produce one CSV with one row.
+
+Acceptance tests (a Bonde trading council run is not complete until all of these pass):
+
+1. `council_outcomes_YYYY-MM-DD.csv` is written after the run, in the same reports folder as the HTML report and markdown transcript.
+2. CSV has exactly 11 columns in this order: signal_date, review_date, ticker, setup_family, action_label, bplus_blocker_type, council_verdict, confidence, decision_reason, report_path, transcript_path.
+3. `council_verdict` contains only PROMOTE, DEFER, or CANCEL — no PROMOTE_FULL/PROMOTE_HALF/PROMOTE_ON_TRIGGER/DEFER_DAY2_ALERT/DEFER_DAY2_ALERT_LOW_PRIORITY/DEFER_CONDITIONAL or any other variant.
+4. `bplus_blocker_type` contains only C1, C2, C3, NOT_BPLUS, or UNKNOWN — no blanks, no other strings.
+5. Every A2/A1 row has `bplus_blocker_type` = NOT_BPLUS.
+6. Every B+ row preserves its C1/C2/C3 blocker when known; if unknown, UNKNOWN.
+7. The CSV parses cleanly with `pandas.read_csv()` and yields one row per reviewed ticker with no parse errors.
+8. `report_path` and `transcript_path` point to the HTML and markdown files actually written in this same run.
+9. Existing HTML report generation (step 5) and markdown transcript generation (step 6) still work unchanged.
+
+If any acceptance test fails, fix it before reporting the run complete. Do not silently emit a malformed CSV.
 
 output format
 Every council session produces at least two files:
@@ -383,7 +421,7 @@ Before advisors vote, state whether historical outcome data exists for the same 
 
 For every B+ candidate, the final verdict must include:
 
-blocker type: C1, C2, C3, or mixed
+blocker type: C1, C2, C3, NOT_BPLUS, or UNKNOWN. Do not use mixed in the council_outcomes CSV; if multiple blockers appear and the source row is not safely classifiable, use UNKNOWN.
 historical sample size if available
 historical +1D / +5D expectancy if available
 prior council promote/defer/cancel outcome if available
