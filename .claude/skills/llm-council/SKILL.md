@@ -1,6 +1,6 @@
 ---
 name: llm-council
-description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, and a chairman verdict. Use for prompts like 'council this', 'run the council', 'pressure-test this', or real tradeoffs with meaningful downside. Includes optional outcome/base-rate overlay: if performance reports, prior council logs, or trading-learning summaries are available, summarize them before voting and label verdicts as evidence-backed or playbook-only. Do not trigger for factual lookups or trivial yes/no questions.
+description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, chairman verdict, optional Bonde outcome overlay, and structured trading council outcomes. Use for council this, run the council, pressure-test this, or meaningful tradeoffs. For Bonde trading councils, produce report, transcript, and council_outcomes CSV for learning-loop ingestion.
 ---
 You ask one AI a question, you get one answer. That answer might be great. It might be mid. You have no way to tell because you only saw one perspective.
 The council fixes this. It runs your question through 5 independent advisors, each thinking from a fundamentally different angle. Then they review each other's work. Then a chairman synthesizes everything into a final recommendation that tells you where the advisors agree, where they clash, and what you should actually do.
@@ -304,13 +304,56 @@ The chairman's full synthesis
 
 This transcript is the artifact. If the user wants to run the council again on the same question after making changes, having the previous transcript lets them (or a future agent) see how the thinking evolved.
 
+
+step 7: save structured Bonde council outcomes CSV
+For every Bonde/trading council run, generate a machine-readable CSV in addition to the HTML report and markdown transcript.
+
+File name:
+council_outcomes_YYYY-MM-DD.csv
+
+The date should be the review date in YYYY-MM-DD format. If the session covers multiple signal dates, still use the review date in the filename and keep the true signal date per row.
+
+Save the CSV next to the council report and transcript. If the workspace has a Bonde repo or cache folder, also copy or write the CSV to the current council queue folder when available:
+bonde_screener_cache/council_queues/
+
+Required schema, exact column order:
+signal_date,review_date,ticker,setup_family,action_label,bplus_blocker_type,council_verdict,confidence,decision_reason,report_path,transcript_path
+
+Rules:
+- One row per ticker reviewed by council.
+- `council_verdict` must be exactly one of: PROMOTE, DEFER, CANCEL.
+- `bplus_blocker_type` must be exactly one of: C1, C2, C3, NOT_BPLUS, UNKNOWN.
+- Use C1 for wide Day-1 range / static EOD R:R floor fail.
+- Use C2 for DTE / pre-earnings tactical setup.
+- Use C3 for mild or moderate extension / Day-2 confirmation requirement.
+- Use NOT_BPLUS for A1/A2 or non-B+ rows reviewed by council.
+- Use UNKNOWN only when the source prompt does not identify the blocker and it cannot be inferred safely.
+- Quote every text field.
+- Do not use markdown table formatting for the CSV.
+- Keep `decision_reason` concise and machine-readable; avoid commas when possible, or quote the field correctly.
+- Include the report and transcript paths actually written in this session.
+
+Example CSV:
+```csv
+"signal_date","review_date","ticker","setup_family","action_label","bplus_blocker_type","council_verdict","confidence","decision_reason","report_path","transcript_path"
+"2026-05-07","2026-05-08","IBEX","ACTIVE_BURST","A2","NOT_BPLUS","PROMOTE","medium","A2 confirmed but half-size only because R:R is near the floor.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260508-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260508-batch.md"
+"2026-05-07","2026-05-08","SNEX","EP_ACTIVE","B","C1","DEFER","medium-high","B+ C1. Defer until Day-2 trigger fires with recomputed R:R at or above 2.0.","/home/user/bonde/.claude/skills/llm-council/reports/council-report-20260508-batch.html","/home/user/bonde/.claude/skills/llm-council/reports/council-transcript-20260508-batch.md"
+```
+
+If the council reviews multiple tickers in one batch, produce one consolidated CSV for the batch. If the council reviews one ticker, produce one CSV with one row.
+
 output format
-Every council session produces two files:
+Every council session produces at least two files:
 
 council-report-[timestamp].html    # visual report for scanning
 
 council-transcript-[timestamp].md  # full transcript for reference
-The user sees the HTML report. The transcript is there if they want to dig deeper or reference specific advisor arguments later.
+
+For Bonde/trading council runs, every session also produces:
+
+council_outcomes_YYYY-MM-DD.csv    # machine-readable verdicts for the learning loop
+
+The user sees the HTML report. The transcript is there if they want to dig deeper or reference specific advisor arguments later. The council outcomes CSV is the artifact used by the Bonde learning loop; it must not be replaced by prose-only transcript parsing.
 
 example: counciling a product decision
 User: "Council this: I'm thinking of building a $297 course on Claude Code for beginners. My audience is mostly non-technical solopreneurs. Is this the right move?"
@@ -351,6 +394,14 @@ whether the verdict is evidence-backed or playbook-only
 Hard rule: outcome data is an overlay, not a loophole. The council cannot use outcome data to override bag-holder, failed EP, DTE unknown, DTE hard reject, dilution/offering, deal-pinned/merger-arb, or severe extension without reset unless the main Bonde actionability skill has formally changed that rule.
 
 If outcome data is unavailable, the council must say: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."
+
+
+For Bonde/trading council runs, the final response must explicitly list where the three artifacts were written:
+- council-report-[timestamp].html
+- council-transcript-[timestamp].md
+- council_outcomes_YYYY-MM-DD.csv
+
+The `council_outcomes_YYYY-MM-DD.csv` file is mandatory for Bonde trading council runs. If file writing fails, state that clearly and print the CSV content in a raw code block so the user can save it manually. Do not silently omit it.
 
 important notes
 
