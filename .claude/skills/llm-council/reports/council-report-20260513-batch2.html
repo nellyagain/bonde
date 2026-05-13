@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LLM Council — 2026-05-13 Batch 2 (ALKS, HALO, PANL, RLGT, ARMK)</title>
+<style>
+  :root {
+    --bg:#fafaf8; --fg:#1a1a1a; --muted:#666; --line:#e2e2dc;
+    --accent:#2a4d6e; --warn:#a8541f; --bad:#a32c2c; --ok:#2e6a3a;
+    --card:#ffffff; --softblue:#eef3f8; --softyellow:#fbf6ea; --softred:#fbeeee; --softgreen:#eef6f0;
+  }
+  html,body { background:var(--bg); color:var(--fg); font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin:0; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 28px 80px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  h2 { font-size: 17px; margin: 28px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  h3 { font-size: 15px; margin: 18px 0 6px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:16px 18px; margin: 12px 0; }
+  .verdict { background: var(--softblue); border:1px solid #c9d6e3; }
+  .verdict h2 { border:none; padding:0; margin: 0 0 8px; color: var(--accent); }
+  table.grid { width:100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+  table.grid th, table.grid td { border:1px solid var(--line); padding: 7px 9px; text-align:left; vertical-align: top; }
+  table.grid th { background:#f1efe9; font-weight:600; }
+  .pill { display:inline-block; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:600; }
+  .pill.defer { background:#fbf6ea; color:#7a5a14; border:1px solid #e6d49b; }
+  .pill.cancel { background:#fbeeee; color:#8c1f1f; border:1px solid #e8b8b8; }
+  .pill.promote { background:#eef6f0; color:#1f5e2c; border:1px solid #b7d8bf; }
+  details { background: var(--card); border:1px solid var(--line); border-radius:6px; margin: 8px 0; padding: 6px 14px; }
+  details summary { cursor:pointer; font-weight:600; padding: 8px 0; }
+  details[open] summary { border-bottom:1px solid var(--line); margin-bottom:8px; }
+  .advisor-contrarian summary { color: var(--bad); }
+  .advisor-firstprinc summary { color: #5a3b8b; }
+  .advisor-expansionist summary { color: var(--ok); }
+  .advisor-outsider summary { color: #2a6a7d; }
+  .advisor-executor summary { color: var(--accent); }
+  .matrix { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-top: 8px; font-size:13px; }
+  .matrix > div { background: #fff; padding: 7px 8px; text-align:center; }
+  .matrix .hdr { background:#f1efe9; font-weight:600; }
+  .m-promote { background: var(--softgreen); }
+  .m-defer { background: var(--softyellow); }
+  .m-cancel { background: var(--softred); }
+  blockquote { border-left:3px solid var(--line); margin:8px 0; padding:4px 12px; color:#333; background:#fdfdfb; }
+  .foot { color: var(--muted); font-size:12px; margin-top: 36px; border-top:1px solid var(--line); padding-top:10px; }
+  code { background:#f1efe9; padding:1px 5px; border-radius:3px; font-size:13px; }
+  ul.tight { margin: 4px 0 6px; padding-left: 20px; }
+  ul.tight li { margin-bottom: 3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LLM Council — 2026-05-13 Batch 2</h1>
+<div class="sub">Bonde/Stockbee pack review · signal 2026-05-12 · review 2026-05-13 · 5 tickers · re-council with full catalyst + Day-2 plan detail, plus new ARMK conflict-review row.</div>
+
+<div class="card">
+  <h3 style="margin-top:0">The Question</h3>
+  <blockquote>
+    Council five swing-trade candidates for tomorrow: <b>ALKS</b> (A2 half-size, NOT_BPLUS, Day-7 continuation), <b>HALO</b> (B+ C1, wide Day-1 + guide-light), <b>PANL</b> (B+ C1, grade-A catalyst + extreme Day-1 range), <b>RLGT</b> (B+ C1, mixed-quality catalyst), <b>ARMK</b> (B, NOT_BPLUS, A-catalyst conflict with Gate 3+4 fails). Promote / defer / cancel each with confidence + invalidation. Hard rules cannot be overridden by outcome data.
+  </blockquote>
+</div>
+
+<div class="card">
+  <h2 style="border:none; margin-top:0">Outcome / Base-Rate Context</h2>
+  <ul class="tight">
+    <li>All cohorts <b>PARTIAL_OUTCOME / IMMATURE_20D</b> — monitoring-only; cannot bend hard rules.</li>
+    <li><b>ACTIVE_BURST family (n=92):</b> avg +1D <b>−0.78%</b>, win ~48%; +3D −0.42%, 5D win 44% — chasing the burst bar has slightly negative short-term expectancy.</li>
+    <li><b>ACTIVE_BURST × catalyst A (n=4):</b> +1D −5.2%, +3D −7.4% (tiny). <b>× catalyst B (n=10):</b> +1D −0.80%.</li>
+    <li><b>ACTIVE_BURST A2 ACTIONABLE (n=2):</b> both negative. <b>WATCH_ONLY B (n=24):</b> +1D −1.7%, win 35%.</li>
+    <li>Reviewed candidates trigger less often than unreviewed (93.5% vs 99.3%) — review filters chases.</li>
+    <li><b>Prior council 2026-05-13 batch 1</b> deferred ALKS, RLGT, HALO, PANL on the same row set; ARMK new today.</li>
+  </ul>
+  <div style="color:var(--muted); font-size:13px;">Verdicts below are playbook-driven with a cautionary outcome tilt; all should be logged for calibration.</div>
+</div>
+
+<div class="card verdict">
+  <h2>Chairman's Verdict — Zero Promotes Tomorrow</h2>
+  <table class="grid">
+    <tr>
+      <th>Ticker</th><th>Setup</th><th>Source action</th><th>Verdict</th><th>Conf</th><th>Trigger condition</th>
+    </tr>
+    <tr>
+      <td><b>ARMK</b></td><td>EP / MB+EP</td><td>B (NOT_BPLUS, conflict)</td>
+      <td><span class="pill defer">DEFER (watch)</span></td><td>medium-high</td>
+      <td>Inside day AND reclaim <code>$48.41</code> on vol ≥1.5× by 11:00 ET; else drop to C/WATCH</td>
+    </tr>
+    <tr>
+      <td><b>RLGT</b></td><td>EP (MB+EP stack)</td><td>B (C1)</td>
+      <td><span class="pill defer">DEFER</span></td><td>medium</td>
+      <td>Day-2 inside-day, stop <i>above pause_high</i> <code>$8.45</code> → R:R ≥2.0; skip if gap-through <code>$8.80</code> without inside day</td>
+    </tr>
+    <tr>
+      <td><b>HALO</b></td><td>EP</td><td>B (C1)</td>
+      <td><span class="pill defer">DEFER</span></td><td>medium-high</td>
+      <td>Inside-day reclaim above <code>$73.89</code> on vol ≥1.5×, tighter stop ~<code>$70</code> clearing R:R ≥2.0</td>
+    </tr>
+    <tr>
+      <td><b>PANL</b></td><td>EP</td><td>B (C1)</td>
+      <td><span class="pill defer">DEFER</span></td><td>medium</td>
+      <td>Day-2 inside-day, tighter stop ~<code>$7.94</code> → R:R ~2.1; <i>use limit orders</i>, gappy small-cap</td>
+    </tr>
+    <tr>
+      <td><b>ALKS</b></td><td>MB</td><td>A2 (NOT_BPLUS)</td>
+      <td><span class="pill cancel">CANCEL</span></td><td>medium</td>
+      <td>Remove from screen; only re-enter on a clean pullback that resets the base</td>
+    </tr>
+  </table>
+  <p style="margin-top:14px">
+    <b>Bottom line:</b> Four of five fail their own R:R floor at Day-1 entries; the "Day-2 inside-day with tighter stop" plan is the trade, not the print bar. ARMK's grade-A catalyst is real but distribution into the close on the biggest-vol news day disqualifies a Day-1 buy and Gate 3+4 fails reject B+. ALKS escalates from yesterday's defer to cancel: a second consecutive defer with no improving data is a cancel with extra steps.
+  </p>
+</div>
+
+<h2>Agreement / Disagreement Matrix</h2>
+<div class="matrix">
+  <div class="hdr">Advisor</div>
+  <div class="hdr">ALKS</div><div class="hdr">HALO</div><div class="hdr">PANL</div><div class="hdr">RLGT</div><div class="hdr">ARMK</div>
+
+  <div>Contrarian</div>
+  <div class="m-defer">defer</div><div class="m-defer">defer</div><div class="m-cancel">cancel</div><div class="m-defer">defer</div><div class="m-cancel">cancel</div>
+
+  <div>First Principles</div>
+  <div class="m-defer">defer</div><div class="m-cancel">cancel</div><div class="m-defer">defer</div><div class="m-defer">defer</div><div class="m-cancel">cancel*</div>
+
+  <div>Expansionist</div>
+  <div class="m-promote">promote</div><div class="m-defer">defer</div><div class="m-promote">promote</div><div class="m-defer">defer</div><div class="m-promote">promote</div>
+
+  <div>Outsider</div>
+  <div class="m-defer">defer</div><div class="m-cancel">cancel</div><div class="m-cancel">cancel</div><div class="m-cancel">cancel</div><div class="m-defer">defer</div>
+
+  <div>Executor</div>
+  <div class="m-cancel">cancel</div><div class="m-defer">defer</div><div class="m-defer">defer</div><div class="m-defer">defer</div><div class="m-defer">defer</div>
+
+  <div class="hdr">Chairman</div>
+  <div class="m-cancel">CANCEL</div><div class="m-defer">DEFER</div><div class="m-defer">DEFER</div><div class="m-defer">DEFER</div><div class="m-defer">DEFER</div>
+</div>
+<div style="font-size:12px; color:var(--muted); margin-top:6px">*First Principles: cancel as B+, defer as pure watch-only.</div>
+
+<h2>Where the Council Agrees</h2>
+<ul class="tight">
+  <li>Four of five fail their R:R floor at Day-1 entries — the buyable trade is the conditional Day-2 setup, not the print bar.</li>
+  <li>ARMK's distribution-into-close on the biggest-vol news day is the most diagnostic tape signal in the pack; two gate fails ≠ single-blocker B+.</li>
+  <li>PANL has the strongest catalyst (320% beat, A/85) but cpr 97% on a 3.2x ADR bar is textbook chase territory.</li>
+  <li>HALO's guide-light caps upside even on a clean Day-2 reclaim.</li>
+  <li>RLGT's headline beat masks EBITDA −17% and flat revenue; sizing must be conservative if it triggers.</li>
+  <li>ALKS is the weakest Day-1 candidate: Day-7 stale, light vol, +25.7% over 200SMA, ~13% wide stop, already deferred once.</li>
+</ul>
+
+<h2>Where the Council Clashes</h2>
+<ul class="tight">
+  <li><b>ARMK: promote vs. cancel vs. defer-as-watch.</b> The Expansionist reads the 19.7% close as undigested re-rate; everyone else reads it as sellers using news as exit liquidity. Reasonable disagreement — the Nexus AI deal is genuinely structural, but the Day-1 tape says wait. Chairman sides with the structured-defer camp.</li>
+  <li><b>ALKS: defer vs. cancel.</b> Executor (+ reviewers 3/4 implicitly) reaches cancel; three others park at defer. The decisive fact: same row was deferred yesterday on substantially the same info, and nothing improved. Chairman escalates to cancel.</li>
+  <li><b>HALO / RLGT: cancel-as-tomorrow-buy vs. defer-with-Day-2-trigger.</b> Same downside in practice; the Executor's structured Day-2 path is the more disciplined version of the same view.</li>
+</ul>
+
+<h2>Blind Spots the Council Caught (via peer review)</h2>
+<ul class="tight">
+  <li><b>Portfolio concentration / correlation:</b> all five are small/mid-cap earnings-burst names firing the same week — one factor bet, not five ideas. (Flagged by 4 of 5 reviewers.)</li>
+  <li><b>Watchlist hygiene:</b> a second consecutive defer on the same row with no improving data should auto-degrade, not roll into a standing watchlist.</li>
+  <li><b>Generator selection bias:</b> if ACTIVE_BURST chasing is edge-negative in-sample, the candidate engine itself may be selecting late/exhausted moves.</li>
+  <li><b>ARMK timeframe mismatch:</b> a capital-light multi-year contract is a position-trade re-rate thesis, not a 1-day burst — wrong instrument for the swing book.</li>
+  <li><b>Regime context absent:</b> no advisor asked about SPY/QQQ/IWM trend & breadth, which is material for the small-caps (RLGT, PANL).</li>
+  <li><b>The 5.0 R:R on ARMK is a $0.72-stop artifact</b> — normal noise will violate it. Headline-bullish for the Expansionist, fragile for everyone else.</li>
+</ul>
+
+<h2>The One Thing to Do First</h2>
+<div class="card">
+  Before placing any orders tomorrow, set a single <b>11:00 ET watchlist alert</b> on <b>ARMK</b> for a reclaim of <code>$48.41</code> on volume rate <b>≥1.5×</b> with an <b>inside-day shape</b>. Everything else is conditional on a Day-2 print that may or may not arrive; this is the only trigger worth pre-staging. <b>No resting buy-stops on any of the five tonight.</b>
+</div>
+
+<h2>Advisor Responses (full)</h2>
+
+<details class="advisor-contrarian">
+  <summary>The Contrarian</summary>
+  <p>Five names, four flunking their own R:R floors, and the outcome proxy (ACTIVE_BURST: negative +1D, sub-50% win) says chasing these bars bleeds. The "Day-2 inside-day reclaim → magically better R:R" plan is the tell — you're not buying the setup in front of you, you're buying a hypothetical setup that may not exist at the open.</p>
+  <p><b>ARMK — cancel, 70%.</b> Gate 3 AND Gate 4 fail = distribution into the close on the biggest-volume day. Grade-A sold into = classic bull trap. 5.0 R:R fantasy built on a stop that won't survive a gap. The "Nexus AI" line marks a top. If it sets up clean Day-2, it'll still be there.</p>
+  <p><b>PANL — cancel, 65%.</b> cpr 97% on a 3.2x ADR bar in gappy small-cap dry-bulk. R:R 0.58 actual. Severe extension without reset territory.</p>
+  <p><b>HALO — defer, 60%.</b> B+ blocked, R:R 1.24 fail, guide-light. No edge until Day-2 confirms.</p>
+  <p><b>RLGT — defer, 55%.</b> Headline beat masking EBITDA −17%, flat rev, blank fundamentals, thin float. Council already deferred it. Nothing changed.</p>
+  <p><b>ALKS — defer, 50%.</b> Day-7 continuation, 13% wide stop, lagging-PT target, light volume. Top-of-range close is the one redeeming feature; not enough.</p>
+  <p>Net: zero promotes.</p>
+</details>
+
+<details class="advisor-firstprinc">
+  <summary>The First Principles Thinker</summary>
+  <p>You're asking the wrong question. You've built a machine that generates five candidates whether or not five good trades exist. ACTIVE_BURST chasing = negative expectancy, sub-50% win, reviewed names trigger less. The honest output is "zero promotes" and that should be a normal, frequent result.</p>
+  <p>Strip the assumption that a grade-A catalyst plus a clean story = tradeable setup. It doesn't. The setup is the entry geometry; four of five fail R:R on Day-1 — the move already happened. "Day-2 inside-day reclaim with tighter stop" is a different trade than the one in front of you; if it sets up tomorrow, evaluate it tomorrow.</p>
+  <p>On ARMK's "reconcile A-catalyst + Gate fails": you don't. The gates exist precisely because catalysts lie about follow-through. Distribution into the close on the best news day is the most bearish tell in the file. B+ requires single-blocker; ARMK has two structural blockers. It's not B+. Done.</p>
+  <ol class="tight">
+    <li>ALKS — defer, 0.75.</li>
+    <li>HALO — cancel, 0.7 (re-trigger fresh if Day-2 sets up).</li>
+    <li>PANL — defer, 0.6 (watch Day-2).</li>
+    <li>RLGT — defer, 0.65.</li>
+    <li>ARMK — cancel as B+; defer as watch-only, 0.8.</li>
+  </ol>
+</details>
+
+<details class="advisor-expansionist">
+  <summary>The Expansionist</summary>
+  <p>The asymmetry is being radically under-priced because everyone's fixated on "wide Day-1 bar = failure mode."</p>
+  <p><b>ARMK — promote, 70%.</b> "Aramark Nexus" hyperscale AI data center contract — capital-light, multi-year, potentially the largest deal in company history — landing the same day as a guide raise to the high end. The cpr 19.7% close is people who don't yet understand what they're holding. R:R 5.0 on a Day-2 reversal-and-go >$48.41 is the single best risk-adjusted setup in the pack.</p>
+  <p><b>PANL — promote, 75%.</b> 320% EPS beat, Q2 TCE already booked +23% above Q1 — forward visibility, not hope. Day-2 inside-day tightens R:R to ~2.1. Fat tails.</p>
+  <p><b>ALKS — promote, 60%.</b> Day-7 continuation to new 52w highs post-earnings, +25.7% over 200SMA with momentum intact, analyst PT $45.71 vs $43 target. Half-size already de-risks.</p>
+  <p><b>HALO — defer, 55%.</b> Guide-light is the genuine blemish.</p>
+  <p><b>RLGT — defer.</b> Adj EBITDA −17%, flat rev — headline-beat only. No expansion story underneath.</p>
+  <p>Don't let immature −0.78% averages from a noisy n=92 talk you out of two genuine grade-A catalysts.</p>
+</details>
+
+<details class="advisor-outsider">
+  <summary>The Outsider</summary>
+  <p>My view is necessarily playbook-naive — the one fact (n=92, −0.78%, 48% win) is doing a lot of work. You have a documented edge-negative pattern and four of five failed the math test you wrote.</p>
+  <ol class="tight">
+    <li><b>ALKS — defer</b>, high conf. R:R 2.17 rests on a lagging analyst target, 13% risk brutal, top-of-range on weak 1.66x volume, 25.7% extended, catalyst 7 days stale. The chase pattern wearing a passing grade.</li>
+    <li><b>HALO — cancel</b> as a tomorrow buy, high conf. Fails R:R; guidance below consensus undercuts the catalyst.</li>
+    <li><b>PANL — cancel</b>, very high conf. 0.58 R:R not close. Extreme range, tiny illiquid name.</li>
+    <li><b>RLGT — cancel</b>, high conf. Headline beat masks EBITDA −17%, blank fundamentals, thin float, fails R:R.</li>
+    <li><b>ARMK — defer</b>, medium-high. Best catalyst by far but selling into the close on company-best news is a red flag; two failed gates = no B+; 5.0 R:R is an artifact of a $0.72 stop noise will knife.</li>
+  </ol>
+  <p>Net: caution costs you ARMK at worst — acceptable.</p>
+</details>
+
+<details class="advisor-executor">
+  <summary>The Executor</summary>
+  <p>Order book reality: most have no clean entry tomorrow.</p>
+  <p><b>ARMK — DEFER, 75%.</b> Sellers used the news as exit liquidity. Tomorrow: only act on an inside day AND reclaim $48.41 on >1.5x rate by 11:00 ET. No trigger = no trade. Don't anticipate.</p>
+  <p><b>RLGT — DEFER, 70%.</b> Day-2 inside-day, stop above pause_high $8.45, R:R 2.7. Skip if it gaps through $8.80 without an inside day.</p>
+  <p><b>HALO — DEFER, 80%.</b> Inside-day reclaim above $73.89 on 1.5x, stop ~$70 clearing 2.0. Liquid large-cap so the plan is executable.</p>
+  <p><b>PANL — DEFER, 75%.</b> Best catalyst but +12.4% bar at cpr 97% is the chase. Day-2 inside-day, stop ~$7.94, R:R 2.1. Gappy small-cap — use limits, not market orders.</p>
+  <p><b>ALKS — CANCEL, 70%.</b> Day-7 continuation, vol only 1.66x, +25.7% over 200SMA, ~13% stop, NOT B+, deferred yesterday, severe extension. Dead.</p>
+  <p>Net: zero trades at the open unless Day-2 confirmations fire intraday.</p>
+</details>
+
+<h2>Peer Review Highlights</h2>
+<details open>
+  <summary>What the 5 reviewers converged on</summary>
+  <ul class="tight">
+    <li><b>Strongest response:</b> 3 of 5 reviewers chose the <b>Executor</b> (operationalized defer with exact triggers); 1 chose the <b>First Principles Thinker</b> (cleanest reframing); 1 chose the <b>Outsider</b> (named the chase pattern + the $0.72-stop artifact).</li>
+    <li><b>Biggest blind spot:</b> all 5 reviewers named the <b>Expansionist</b> — dismissing the n=92 / −0.78% / 48% base rate, promoting two names while four fail their own math, and rationalizing ARMK's distribution-into-close as "holders who don't yet understand."</li>
+    <li><b>Base-rate handling:</b> Expansionist underweights, Outsider arguably overweights (n=92 monitoring-only); Contrarian / First Principles / Executor use it as one input among several — correct posture.</li>
+    <li><b>All 5 missed:</b> portfolio-level correlation across these five names (one factor bet); watchlist aging-out rule; the generator/selection-bias question (if ACTIVE_BURST is edge-negative, the engine may be picking late moves); ARMK timeframe mismatch (capital-light multi-year contract is not a 1-day burst trade); regime context (SPY/QQQ/IWM breadth).</li>
+  </ul>
+</details>
+
+<div class="foot">
+  Council run: 2026-05-13 (batch 2). Artifacts:
+  <ul class="tight">
+    <li><code>council-report-20260513-batch2.html</code> (this file)</li>
+    <li><code>council-transcript-20260513-batch2.md</code></li>
+    <li><code>council_outcomes_2026-05-13.csv</code> (overwrites earlier batch-1 verdicts; batch-1 transcript preserved separately)</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>
