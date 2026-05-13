@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LLM Council — Bonde Trade Slate 2026-05-12</title>
+<style>
+:root{--bg:#fff;--ink:#1a1a1a;--mut:#666;--bd:#e3e3e3;--accent:#2b6cb0;--ok:#1f7a4d;--warn:#b7791f;--bad:#b03030;--card:#fafafa}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);max-width:920px;margin:0 auto;padding:32px 20px;line-height:1.55}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.2rem;margin:32px 0 10px;border-bottom:1px solid var(--bd);padding-bottom:5px}
+h3{font-size:1.02rem;margin:18px 0 6px}
+.sub{color:var(--mut);font-size:.9rem;margin-bottom:18px}
+.meta{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:12px 16px;font-size:.88rem;color:#333}
+.verdict{background:#f4f8fc;border:1px solid #cfe0f0;border-left:4px solid var(--accent);border-radius:8px;padding:16px 18px;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:10px 0}
+th,td{border:1px solid var(--bd);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--card)}
+.tag{display:inline-block;padding:1px 8px;border-radius:11px;font-size:.78rem;font-weight:600}
+.t-promote{background:#e3f4ea;color:var(--ok)}
+.t-defer{background:#fcf3e0;color:var(--warn)}
+.t-cancel{background:#f8e5e5;color:var(--bad)}
+details{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details[open]{padding-bottom:14px}
+.adv{font-size:.92rem}
+footer{margin-top:36px;border-top:1px solid var(--bd);padding-top:12px;color:var(--mut);font-size:.82rem}
+ul{margin:6px 0 6px 18px;padding:0}
+li{margin:3px 0}
+code{background:#eef1f4;padding:1px 5px;border-radius:4px;font-size:.85em}
+.spectrum td{text-align:center;font-size:.82rem}
+.al{text-align:left !important}
+</style>
+</head>
+<body>
+
+<h1>LLM Council — Bonde Trade Slate</h1>
+<div class="sub">Signal 2026-05-11 · Review 2026-05-12 · 6 candidates: LINC, KGS, NXPI, AAMI, STRZ, TH</div>
+
+<div class="meta">
+<strong>Account:</strong> $100K · 1% risk/position · Singapore-based (live first 3-4 hrs of US session) · Regime Risk-On 9/10 · VIX 18.4 · No open positions found in local logs.<br>
+<strong>Outcome / base-rate context:</strong> Data exists but is <em>immature</em> (<code>PARTIAL_OUTCOME</code>, only 1D/3D evaluable, tiny cohorts) — treat as monitoring-only, not decisive, cannot override hard rejects. ACTIVE_BURST n=92: avg 1D −0.78%, win 48%, trigger-hit-5d 73%. ACTIVE_BURST×grade-A: n=4, avg 1D −5.2% (noisy). A2 ACTIONABLE: n=2, both negative. Verdicts below are <strong>playbook-only</strong> and logged for calibration.
+</div>
+
+<h2>Chairman Verdict</h2>
+<div class="verdict">
+<strong>Promote 1, defer 4, cancel 1 — with a hard portfolio cap of ONE new ACTIVE_BURST/EP entry from this slate this session.</strong>
+<p>The slate is really <em>one</em> bet — six versions of "buy the post-earnings pop" firing on a single day, in one regime, on a factor the trader's own (immature) data shows slightly negative. If all of LINC + KGS + NXPI + AAMI triggered it would be ~$50K / ~50% of the account in correlated names. Three of six candidates only barely clear the 2.0 R:R floor (AAMI 2.00, KGS 2.04, LINC 2.03) — and LINC only clears it because its stop was placed at a structural midpoint rather than the signal-bar low. The two biggest planned positions (AAMI ~17.5%, LINC ~15%) sit on the <em>weakest</em> signals. So: take at most the cleanest one, small.</p>
+</div>
+
+<table>
+<tr><th>Ticker</th><th>Setup</th><th>Verdict</th><th>Conf.</th><th>Why</th></tr>
+<tr><td><strong>KGS</strong></td><td>ACTIVE_BURST / A2</td><td><span class="tag t-promote">PROMOTE</span></td><td>med</td><td>Cleanest structure of the cohort — RS 73, invalidation $71.78 = the breakout pivot itself, Gate 6 half-size cap already doing the risk work, ~$7.5K is the smallest line. Buy-stop above $76.78 as a <em>marketable limit</em> (funds=5, thin tape). This is the one allowed new entry.</td></tr>
+<tr><td><strong>LINC</strong></td><td>ACTIVE_BURST / A1</td><td><span class="tag t-defer">DEFER</span></td><td>med</td><td>Best business quality, but you're already ~+85% YTD in it (manage the existing position, don't add); $0.03 pause_high margin is noise; stop is a contrived 50%-retrace midpoint, not signal-low $44.75; trigger sits 4.3% above prior close → gap-over risk. Re-trigger on a pullback to $45–46, or only a clean intraday break at half size — and only if KGS wasn't taken.</td></tr>
+<tr><td><strong>NXPI</strong></td><td>DELAYED_EP / A2</td><td><span class="tag t-defer">DEFER</span></td><td>med</td><td>Stale 8-day reclaim on 1.51x vol (barely above floor), no IBD rating, weakest trend (37% above 200SMA), semis China/auto drag. Promote only if vol expands ≥2x on the trigger day <em>and</em> the slot is unused; otherwise cancel.</td></tr>
+<tr><td><strong>AAMI</strong></td><td>ACTIVE_BURST / A2</td><td><span class="tag t-defer">DEFER</span></td><td>med</td><td>Lowest vol of the cohort (1.62x) on a continuation bar 8 days post-catalyst, R:R exactly at floor, AUM-levered into an already-extended market, fattest planned size (17.5%) on the weakest signal. Downgrade to B; half size at most if ever taken.</td></tr>
+<tr><td><strong>STRZ</strong></td><td>EP_ACTIVE / B+ (C3)</td><td><span class="tag t-defer">DEFER</span></td><td>low</td><td>Pivot $22.81 not broken; "on/ahead of guidance" is a grade-B catalyst, not a beat-and-raise; no IBD coverage; 7% ADR. Keep the Day-2 alert but make the trigger intraday-executable (break $22.81 + intraday vol ≥1.5x) and <em>drop the close-in-upper-half filter</em> — it resolves after this trader's live window. Size quarter-to-half. Cancels below $19.93 or back under $22.81.</td></tr>
+<tr><td><strong>TH</strong></td><td>ACTIVE_BURST / C</td><td><span class="tag t-cancel">CANCEL</span></td><td>high</td><td>Severe extension (+56% over 50SMA, +103% over 200SMA) = hard non-promotion regardless of catalyst; mutex with B+/C3. Q1 missed both lines; +18% close at a 52w high on 4.31x vol is a one-day repricing. The $750M AI-infra contract is a strong multi-month <em>story</em> — the <em>trade</em> lives at a 50SMA pullback / multi-week base. No A-catalyst override, no quarter-size workaround. Watchlist only.</td></tr>
+</table>
+
+<p><strong>The one thing to do first:</strong> before the open, pick your single new-entry slot and pre-place exactly one resting buy-stop — KGS above $76.78, half size, as a marketable limit — and put nothing else live. If it doesn't trigger, you end the day flat on this slate; in a tape this hot that's fine.</p>
+
+<h2>Where the advisors landed</h2>
+<table class="spectrum">
+<tr><th class="al">Advisor</th><th>LINC</th><th>KGS</th><th>NXPI</th><th>AAMI</th><th>STRZ</th><th>TH</th></tr>
+<tr><td class="al">Contrarian</td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-cancel">cancel</span></td></tr>
+<tr><td class="al">First Principles</td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-defer">defer*</span></td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-cancel">cancel</span></td></tr>
+<tr><td class="al">Expansionist</td><td><span class="tag t-promote">promote</span></td><td><span class="tag t-promote">promote</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-promote">promote</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-cancel">cancel</span></td></tr>
+<tr><td class="al">Outsider</td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-defer">defer*</span></td><td><span class="tag t-cancel">cancel</span></td><td><span class="tag t-cancel">cancel</span></td></tr>
+<tr><td class="al">Executor</td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-promote">promote</span></td><td><span class="tag t-promote">promote</span></td><td><span class="tag t-promote">promote*</span></td><td><span class="tag t-defer">defer</span></td><td><span class="tag t-cancel">cancel</span></td></tr>
+<tr><td class="al"><strong>Chairman</strong></td><td><span class="tag t-defer">DEFER</span></td><td><span class="tag t-promote">PROMOTE</span></td><td><span class="tag t-defer">DEFER</span></td><td><span class="tag t-defer">DEFER</span></td><td><span class="tag t-defer">DEFER</span></td><td><span class="tag t-cancel">CANCEL</span></td></tr>
+</table>
+<div class="sub">* = leaning / conditional (cancel-lean, size-down, etc.). Consensus: TH cancel (5/5), STRZ defer-or-cancel (5/5), LINC not-promote (4/5), NXPI not-promote (4/5). Only KGS drew any promotes — and even its sceptics called it "the least-bad if forced."</div>
+
+<h2>Where the council clashes</h2>
+<ul>
+<li><strong>Promote anything at all?</strong> Expansionist (business-quality lens) vs. Contrarian/First-Principles (zero new correlated risk in a euphoric tape) vs. Executor (promote on clean executability alone). A values split: trade-the-system-as-written vs. trade-the-portfolio. Peer reviewers sided with the portfolio view.</li>
+<li><strong>KGS:</strong> "defer, but least-bad if forced" (3 advisors) vs. "promote, half size" (2). Nobody disliked it. The split is thin sponsorship (funds=5) — real but manageable, not a hard reject.</li>
+<li><strong>NXPI:</strong> Executor likes the fill; everyone else sees a stale reclaim on weak volume with no rating and the weakest trend.</li>
+</ul>
+
+<h2>Blind spots the peer review caught</h2>
+<ul>
+<li><strong>STRZ's Day-2 plan is partly un-executable</strong> for a trader offline at the US close — the "close in upper half of range" filter only resolves then. Act on the intraday break + volume instead, or skip.</li>
+<li><strong>No re-entry mechanics.</strong> Every advisor said defer/cancel; none specified what gets you <em>back</em> in (e.g. LINC pullback to $45–46 + fresh trigger). A defer without a re-trigger level is just a shrug.</li>
+<li><strong>"Half-size" provenance:</strong> confirm the Gate 6 moderate half-size cap is a sanctioned Bonde output, not an improvised hedge.</li>
+<li><strong>The base rate is too thin to be evidence either way</strong> — the decision rests on structure (correlation, R:R-floor selection, execution window, inverted sizing), not on n=2/n=4 noise. Don't let a tiny negative sample become "never trade the system."</li>
+</ul>
+
+<h2>Full advisor responses</h2>
+
+<details><summary>The Contrarian — DEFER LINC · DEFER KGS · CANCEL NXPI · DEFER AAMI · CANCEL STRZ · CANCEL TH</summary>
+<div class="adv">
+<p><strong>LINC — defer (med, evidence-backed).</strong> Pause_high margin $0.03 is noise not structure — a coin-flip gate, not a PASS. R:R 2.03 on a name +85% YTD at ATH after a +10.6% spike = you're the last buyer. The stop is the structural midpoint, not signal-low — the system already knows the "real" invalidation is ~7% lower and is hiding it to clear the floor. Grade-A ACTIVE_BURST base rate (n=4, 1D −5.2%) is tiny but directionally consistent with buying euphoria. Wait for $45–46 and re-trigger.</p>
+<p><strong>KGS — defer (med, playbook-only).</strong> funds=5 is the tell. Thin sponsorship + already-extended + floor R:R + energy-services macro = no edge. Half-size isn't conservative, it's the system flinching. If it's only worth half size, it's worth zero.</p>
+<p><strong>NXPI — cancel (high, evidence-backed).</strong> 1.51x vol on a $300 megacap reclaim 8 days post-gap is drift, not a burst. Reclaim setups want days 1–5, not day 8. 32 shares means slippage eats your edge. No comp_rating, semis fighting China/auto, only 37% above 200SMA (weakest trend). Momentum trade with no momentum.</p>
+<p><strong>AAMI — defer (med, evidence-backed).</strong> Lowest vol of the A2 cohort (1.62x), R:R exactly at floor (2.00), 8 days stale, AND an AUM-levered asset manager — P&L double-long the market. Full $17.5K size on the weakest signal in the batch is backwards. Downgrade to B.</p>
+<p><strong>STRZ — cancel (high).</strong> "On guidance" is not a beat. Pivot not broken. No coverage, no funds, ADR 7%, structurally dying sector. C3 blocker exists for exactly this. You're inventing a Day-2 plan to rescue a setup the rules already failed.</p>
+<p><strong>TH — cancel (high).</strong> Revenue AND EPS miss. +103% above 200SMA. The contract is real and exciting — precisely why everyone's already in and you're chasing +18% into a 52w high on a hard-reject extension. "A-catalyst override" is how blow-ups get rationalized. No quarter-size deviation. Wait for a multi-week base or a flush to the 50SMA.</p>
+<p><strong>Net: zero promotes.</strong> Risk-On 9/10 is exactly when this system bleeds you with floor-R:R chases. Make them come to you.</p>
+</div></details>
+
+<details><summary>The First Principles Thinker — DEFER LINC · DEFER→cancel-lean KGS · CANCEL NXPI · CANCEL AAMI · CANCEL STRZ · CANCEL TH</summary>
+<div class="adv">
+<p>What's actually being optimized? Not "which 6 trades" — it's "given a hot account (+85% YTD on one name) in Risk-On 9/10, how much new directional exposure do I add the day after earnings spikes, when my own data says EP bursts average negative 1D/3D?" You're being offered six versions of the same trade — "buy the post-earnings pop" — and your edge data says that pattern is currently underperforming. The council should be sizing <em>down</em> aggregate risk, not debating individual stop placements.</p>
+<p>A "stop at 50% retrace instead of signal low" (LINC) isn't a detail — it's the system silently widening risk to make a too-extended entry fit a 1% box. Same with AAMI's R:R landing exactly on 2.00 and KGS at 2.04 — when three of six kiss the minimum, the minimum is doing the deciding, which means there's no real edge margin.</p>
+<ul>
+<li><strong>LINC</strong> — defer (evidence-backed). The wrong question isn't "A1 or A2" — it's "why am I adding to a name I'm already +85% on via a non-standard stop." If anything, trim existing exposure.</li>
+<li><strong>KGS</strong> — defer, cancel-leaning (playbook-only). Thin funds (5), half-size, floor-ish R:R. Marginal on marginal.</li>
+<li><strong>NXPI</strong> — cancel (playbook-only). Vol barely clears floor, 8-day-old reclaim, 32 shares = slippage eats the 2.16R. "Almost" on every axis.</li>
+<li><strong>AAMI</strong> — cancel (evidence-leaning). Lowest vol on a <em>continuation</em> bar that needs conviction; 8d stale; R:R exactly 2.00. Full 17.5% size on the weakest signal is backwards.</li>
+<li><strong>STRZ</strong> — cancel. Pivot not broken means there is no trade yet — answer the question that exists, not the one that might.</li>
+<li><strong>TH</strong> — cancel (evidence-backed via hard rule). No A-catalyst override — the rule exists <em>because</em> AI-theme euphoria is when people invent overrides. Reset to wait for: a multi-week base or pullback to ~50SMA holding.</li>
+</ul>
+<p>Net: promote 0, defer 2 (LINC, KGS), cancel 4. The market handing you six easy "yeses" is the signal to say no.</p>
+</div></details>
+
+<details><summary>The Expansionist — PROMOTE LINC · PROMOTE KGS · PROMOTE AAMI · DEFER NXPI · DEFER STRZ · CANCEL TH (story on watchlist)</summary>
+<div class="adv">
+<p><strong>LINC — promote (high, evidence-backed).</strong> Undervalued <em>as a position-sizing problem</em>. comp_rating 98, RS rebuilding from a base, raised guide, ATH on 2x vol. The plan caps target at +13.3% — but a fresh-ATH small-cap with accelerating EPS and a new recurring-revenue vertical (corporate training) doesn't stop at one R-multiple. Potential multi-month leader. Take full size, trail it, don't anchor to $58.65.</p>
+<p><strong>KGS — promote (med-high, evidence-backed).</strong> Thin funds (5) is the bull case, not the bear case — institutions haven't found it yet. Nat-gas compression is a structural shortage story (LNG export ramp, data-center power demand). Half-size per the gate, but this is the kind of name that's a multi-bagger over a cycle. Add on the next base.</p>
+<p><strong>AAMI — promote (high, evidence-backed).</strong> AUM +61% YoY, EBITDA +76%, comp 98, clean gate, fresh continuation breakout. Asset managers compound — operating leverage on rising AUM is the most underrated model in this list. Full size. Target $81.55 is conservative; alt managers re-rate hard in Risk-On.</p>
+<p><strong>NXPI — defer (med, playbook-only).</strong> A $222B semi reclaim is real but it's a beta trade, not alpha — upside is "market times 1.3." Half-size if taken, but it's the least asymmetric thing here. Let it prove the reclaim holds a week.</p>
+<p><strong>STRZ — defer (med, evidence-backed).</strong> Pivot NOT broken — wait. But flag the upside: post-spin orphan, zero IBD coverage, streaming consolidation / M&A target. If $22.81 breaks on volume this could move violently because nobody owns it. Buy-stop above the pivot, then it's interesting.</p>
+<p><strong>TH — cancel as a system trade</strong> (severe extension — respect it). But this is the single most asymmetric <em>story</em> on the board: workforce-housing shell repositioning into AI-infra with $2B+ contracts and a credible path to ~4x revenue by 2027. The Q1 miss is noise; the backlog is the signal. Watchlist for the first real pullback to the 50SMA — that's where the actual trade lives, and it could be a multi-hundred-percent re-rating if the pivot is real.</p>
+</div></details>
+
+<details><summary>The Outsider — CANCEL LINC · DEFER KGS · DEFER NXPI · DEFER→cancel-lean AAMI · CANCEL STRZ · CANCEL TH</summary>
+<div class="adv">
+<p>I don't know your codes and won't pretend they carry weight — "Gate 6," "extension severity," "ACTIVE_BURST" sound precise but I can't verify any of it does anything, and your own tracking says these setups run slightly negative. Cross-cutting: you're buying breakouts above already-huge one-day pops, three days after broad strength. That's chasing. Several "buy above X" triggers are ~2–4% above current price — you only buy after it runs further, with a stop just below today's spike. Tight stop + extended entry = high chance of getting wicked out on noise.</p>
+<p><strong>LINC — cancel (70%).</strong> Up 85% YTD, at ATH, then add above $51.65 with a stop at $48.20 on a 15% position. A 7% gap-down (normal post-earnings) blows the stop — that's your 1%. Fundamentals great; entry late, position too big for the volatility.</p>
+<p><strong>KGS — defer (60%).</strong> "Only 5 institutional funds" is a red flag dressed as opportunity — thin sponsorship = thin liquidity from Singapore hours. Half-size is sensible. Wait for a real pullback, not a higher breakout.</p>
+<p><strong>NXPI — defer (65%).</strong> Volume "barely elevated" on the reclaim day is the tell — nobody showed up. A $222B chip name doesn't need you to front-run it 8 days post-gap on weak volume. Pass unless volume confirms.</p>
+<p><strong>AAMI — defer, leaning cancel (60%).</strong> 17.5% of account is a lot for a "modest volume" breakout. AUM +61% is likely a market-beta artifact, not skill inflows. If you take it, half-size only.</p>
+<p><strong>STRZ — cancel (75%).</strong> In-line quarter (not a blowout), no analyst coverage, 7% daily range, closed below the level it needs to break. Three strikes. A volatile micro-cap with a so-so catalyst is a coin flip.</p>
+<p><strong>TH — cancel (65%).</strong> Your own system says too extended; agreed. +18% on an earnings <em>miss</em> rescued by one big contract is a one-day repricing, not a trend — and it's now in the price. Watch for a base over the next few weeks.</p>
+<p>Net: this is a chase-the-gap basket in a bullish tape. KGS is the least-bad if forced. I'd promote none today.</p>
+</div></details>
+
+<details><summary>The Executor — DEFER LINC · PROMOTE KGS · PROMOTE NXPI · PROMOTE-but-size-down AAMI · DEFER STRZ (and not executable as written) · CANCEL TH · EXPOSURE FLAG</summary>
+<div class="adv">
+<p><strong>LINC — defer (lean cancel), med, playbook-only.</strong> Trigger $51.65 sits 4.3% above prior close on an ATH blow-off — real chance it gaps over the stop at the open. If it opens &gt;$52, don't take it; if it triggers intraday cleanly with room below $51.65, fine. 290 sh / $15K is your single biggest sizing risk and the stop ($48.20) isn't the structural low. Operationally messy. Watch, don't pre-load.</p>
+<p><strong>KGS — promote, med, playbook-only.</strong> Clean buy-stop above $76.78, half-size 100 sh ≈ $7.5K, invalidation on the actual pivot. Only issue: 5 funds, thin tape — use a marketable limit, not a naked market order. 100 sh should still fill within a few cents. Executable.</p>
+<p><strong>NXPI — promote, med-high, playbook-only.</strong> 32 shares of a $222B megacap is the cleanest fill on the board. Buy-stop $306.63, done. Only nag: 1.51x volume is barely a breakout — but operationally there's nothing to flag.</p>
+<p><strong>AAMI — promote (size it down), med.</strong> Continuation bar, 1.62x vol — fine setup, but 240 sh / $17.5K (17.5%) on a non-catalyst bar is too fat given everything else. Take it at half-ish or accept it's your largest line. Buy-stop $73.20, clean fill expected. Executable, just heavy.</p>
+<p><strong>STRZ — defer (correctly Day-2), low.</strong> The "close in upper half of range" condition resolves at the US close — past your live window. You cannot execute this rule live. Either drop the close-location filter and act on the $22.81 break + volume intraday, or skip it. As written, not executable for you.</p>
+<p><strong>TH — cancel today, high.</strong> +18% on 4.31x into a 52w high; "tight" stop is 13% away. That's not a stop, that's a prayer. Wait for the inside day / EMA reset. Nothing to do at the open.</p>
+<p><strong>Exposure flag:</strong> LINC + KGS + NXPI + AAMI all triggering = ~$50K, ~50% of account, in correlated risk-on momentum names on one day. Even at 1% risk each, that's 4% account heat plus gap exposure on illiquid KGS and oversized LINC/AAMI. Cap it: pick 2–3, or halve LINC and AAMI. Don't let four stops fire unmanaged.</p>
+</div></details>
+
+<h2>Peer review highlights</h2>
+<details><summary>Reviewer takeaways (3 reviewers; anonymization revealed: A=Expansionist, B=Contrarian, C=First Principles, D=Outsider, E=Executor)</summary>
+<div class="adv">
+<p><strong>Strongest:</strong> two reviewers picked the Executor (only one to catch the un-executable STRZ close-location filter; quantified the ~$50K/50% correlated exposure; marketable-limit-on-thin-tape is real edge), one picked First Principles (best reframe — the slate is one correlated bet; the 2.0 R:R floor is selecting the trades).</p>
+<p><strong>Biggest blind spot:</strong> unanimous — the Expansionist. Evaluates these as stories, not as a mechanical playbook; three full-size promotes with zero portfolio-level thinking; "thin funds = bull case" converts a liquidity risk into a thesis; flirts with the forbidden TH severe-extension override via a watchlist path.</p>
+<p><strong>Outcome-data handling:</strong> Expansionist overfit by ignoring it (waved it off to keep promoting). Contrarian leaned hardest ("Risk-On 9/10 is when this system bleeds you") — a strong causal claim from a tiny, immature sample. First Principles used it best — not as proof, but as a reason to size <em>down aggregate risk</em>. Executor treated it as monitoring-only correctly.</p>
+<p><strong>What all five missed:</strong> the obvious middle path — promote the 1–2 cleanest names at half size <em>with the existing book's correlation already counted</em> (a portfolio cap, not per-ticker verdicts); concrete re-entry mechanics for the deferred names; a portfolio-construction rule like "max 2 correlated Risk-On entries per week"; and overnight gap risk for a trader who can't manage the US cash close. The chairman's "one new-entry slot" recommendation is the response to this.</p>
+</div></details>
+
+<footer>
+Generated 2026-05-12 04:5x UTC · LLM Council (5 advisors + 3 peer reviewers + chairman) · Counciled: LINC, KGS, NXPI, AAMI, STRZ, TH (Bonde trade slate, signal 2026-05-11).<br>
+Artifacts: <code>council-report-20260512-batch.html</code> · <code>council-transcript-20260512-batch.md</code> · <code>council_outcomes_2026-05-12.csv</code>
+</footer>
+
+</body>
+</html>
