@@ -2,6 +2,15 @@
 name: llm-council
 description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, chairman verdict, optional Bonde outcome overlay, and structured trading council outcomes. Use for council this, run the council, pressure-test this, or meaningful tradeoffs. For Bonde trading councils, produce report, transcript, and council_outcomes CSV for learning-loop ingestion.
 ---
+**Version: V1.1** (2026-05-13)
+
+**Changelog**
+
+- **V1.1 (2026-05-13)** — Reasoning Path Framing + Disagreement Tracker + Self-Calibration Scaffold. Replaced advisor "vote" language with "Reasoning Paths Considered" framing throughout. Renamed report sections "Where the Council Agrees / Clashes" to "Reasoning Path Convergence / Divergence" to clarify that multi-perspective output from one model is not statistical corroboration. Added `council_disagreements_YYYY-MM-DD.csv` output (computes `actionability_council_disagreement` at council-run time; `user_council_disagreement` starts PENDING for learning-loop resolution). Added `council_self_calibration_summary_YYYY-MM-DD.csv` output with strict 30/10 thresholds — no reliability percentages reported below threshold. **No council verdict rule changes. No trading rule changes.** Outputs follow the existing path convention (workspace + `bonde_screener_cache/council_queues/` for Bonde councils). The disagreement tracker honors the no-manual-process constraint: Kevin logs nothing by hand.
+- **V1.0** — Initial skill: 5-advisor multi-perspective council, anonymous peer review, chairman verdict, optional Bonde outcome overlay, structured `council_outcomes_YYYY-MM-DD.csv` output.
+
+---
+
 You ask one AI a question, you get one answer. That answer might be great. It might be mid. You have no way to tell because you only saw one perspective.
 The council fixes this. It runs your question through 5 independent advisors, each thinking from a fundamentally different angle. Then they review each other's work. Then a chairman synthesizes everything into a final recommendation that tells you where the advisors agree, where they clash, and what you should actually do.
 This is adapted from Andrej Karpathy's LLM Council. He dispatches queries to multiple models, has them peer-review each other anonymously, then a chairman produces the final answer. We do the same thing inside Claude using sub-agents with different thinking lenses instead of different models.
@@ -61,7 +70,7 @@ skill_pack_ticker_outcomes_enriched*.csv or decision/outcome summaries
 
 Use Glob and quick Read calls to find these. Don't spend more than 30 seconds on this. You're looking for the 2-3 files that would give advisors the context they need to give specific, grounded advice instead of generic takes.
 
-B. Build outcome/base-rate context when relevant. Outcome data is optional, but if it exists it must be summarized before the advisors vote. For trading/Bonde/B+ questions, summarize:
+B. Build outcome/base-rate context when relevant. Outcome data is optional, but if it exists it must be summarized before the advisors evaluate the question. For trading/Bonde/B+ questions, summarize:
 
 Outcome data available: yes/no
 Relevant setup-family base rate, if available
@@ -241,29 +250,36 @@ PEER REVIEWS:
 Produce the council verdict using this exact structure:
 
 
+## Council self-calibration status
+
+[State the self-calibration status from the most recent `council_self_calibration_summary_YYYY-MM-DD.csv` if available. One of: `UNAVAILABLE` (no history file), `INSUFFICIENT_DATA` (fewer than 30 resolved disagreements), `BUILDING_SAMPLE` (≥30 total but slice thresholds not met), `CALIBRATED` (thresholds met). If CALIBRATED, state aggregate council accuracy with sample size. If not CALIBRATED, state "no reliability percentage reported." See step 7.7 for thresholds. Self-calibration is context only and does NOT change verdicts.]
+
+
 ## Outcome/Base-Rate Context
 
 [State whether outcome data was available. Summarize relevant base rates, sample sizes, +1D/+5D, MFE/MAE, trigger-hit or conversion data if available. If unavailable, write: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."]
 
 
-## Where the Council Agrees
+## Reasoning Paths Considered
 
-[Points multiple advisors converged on independently. These are high-confidence signals.]
+**Note:** The council uses multiple reasoning paths generated in one process. **These are not independent votes.** Convergence is useful as a reasoning check, not as statistical corroboration. Four perspectives reaching the same conclusion is one model exploring the same conclusion four times, not four independent verdicts. Use convergence to test whether a position survives different framings; do not treat it as evidence of statistical strength.
+
+### Reasoning Path Convergence
+
+[Points multiple reasoning paths converged on independently. These are positions that survived examination from different framings. Useful as a robustness check, NOT as a vote count. Do not use "4 of 5", "5 of 5", "X advisors voted", "majority", "consensus" or similar statistical-corroboration language. Use prose: "The Contrarian, First Principles, and Executor paths each arrived at X, by different routes — the Contrarian via risk framing, First Principles via problem reframing, Executor via execution feasibility."]
+
+### Reasoning Path Divergence
+
+[Genuine disagreements between reasoning paths. Present both sides. Explain why each path produced its conclusion. Frame as "The Expansionist path argued for X because Y; the Contrarian path rejected this because Z" — not as votes.]
+
+### Blind Spots the Reasoning Paths Caught
+
+[Things that only emerged through peer review. Things one reasoning path missed that another flagged. Frame as "The Outsider path caught X that the other paths missed because they assumed Y."]
 
 
-## Where the Council Clashes
+## Chairman Synthesis
 
-[Genuine disagreements. Present both sides. Explain why reasonable advisors disagree.]
-
-
-## Blind Spots the Council Caught
-
-[Things that only emerged through peer review. Things individual advisors missed that others flagged.]
-
-
-## The Recommendation
-
-[A clear, direct recommendation. Not "it depends." A real answer with reasoning. For Bonde/trading candidates, state promote / defer / cancel, confidence, and whether the recommendation is evidence-backed or playbook-only.]
+[The Chairman weighs the reasoning paths against each other and produces ONE verdict. The Chairman is not bound by which path "won" — a single dissenting path may carry the verdict if its reasoning is strongest. State explicitly which paths were weighted and why. Example: "The Chairman weighted the Contrarian path's risk framing against the Expansionist path's upside argument and concluded DEFER because the immediate execution geometry does not yet exist." For Bonde/trading candidates, state promote / defer / cancel, confidence, and whether the recommendation is evidence-backed or playbook-only.]
 
 
 ## The One Thing to Do First
@@ -277,6 +293,8 @@ Produce the council verdict using this exact structure:
 
 
 Be direct. Don't hedge. The whole point of the council is to give the user clarity they couldn't get from a single perspective.
+
+**Forbidden vote-count language anywhere in the report or transcript:** "4 of 5", "5 of 5", "3 of 5", "X advisors voted", "advisor consensus" used as statistical evidence, "majority of advisors", "agreement matrix" as a header. Acceptable: "reasoning paths converged on X", "the Contrarian and First Principles paths reached Y by different routes", "all five reasoning paths arrived at Z" (this is description, not vote-counting). The Chairman synthesis CAN reference which paths concluded what, as long as it does not frame this as votes.
 step 5: generate the council report
 After the chairman synthesis is complete, generate a visual HTML report and save it to the user's workspace.
 File: council-report-[timestamp].html
@@ -285,7 +303,7 @@ The report should be a single self-contained HTML file with inline CSS. Clean de
 The question at the top
 The outcome/base-rate context prominently displayed when relevant
 The chairman's verdict prominently displayed (this is what most people will read)
-An agreement/disagreement visual — a simple visual showing which advisors aligned and which diverged. This could be a grid, a spectrum, or a simple breakdown showing advisor positions. Keep it clean and scannable.
+A "Reasoning Paths Considered" visual — a clean breakdown showing how each reasoning path framed the question and what conclusion it reached. NOT a vote tally. NOT an "agreement matrix" as statistical corroboration. Frame as "Convergence and Divergence of Reasoning Paths" or similar. Include the explicit disclaimer near the visual: "These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration." Keep it clean and scannable. The visual MUST NOT use "vote", "4 of 5", or similar language anywhere in its labels or annotations.
 Collapsible sections for each advisor's full response (collapsed by default so the page isn't overwhelming, but available if the user wants to dig in)
 Collapsible section for the peer review highlights
 A footer showing the timestamp and what was counciled
@@ -380,6 +398,138 @@ Acceptance tests (a Bonde trading council run is not complete until all of these
 
 If any acceptance test fails, fix it before reporting the run complete. Do not silently emit a malformed CSV.
 
+
+step 7.5: write council disagreement tracker CSV (V1.1)
+
+For every Bonde/trading council run, in addition to council_outcomes_*.csv, write `council_disagreements_YYYY-MM-DD.csv` to the same location.
+
+**Always write the file.** If no disagreements exist, write a header-only CSV. Do not skip emission.
+
+**Definition of disagreement (V1.1):**
+
+Two distinct types, tracked separately:
+
+1. **`actionability_council_disagreement`** — the council verdict differs from the original actionability label on the same ticker. The council skill CAN determine this at run time because both inputs are visible (council_queue row's `action_label` from the actionability skill, and the council's own verdict).
+
+2. **`user_council_disagreement`** — the council verdict differs from Kevin's final actual decision. The council skill CANNOT determine this at run time because Kevin's final action happens AFTER the council session. This field starts as `UNKNOWN`/`PENDING` and is resolved later by the learning loop (out of scope for this skill patch).
+
+**No manual logging is required.** The council skill writes whatever it knows at run time. Outcome fields and user-decision fields are explicitly PENDING and are resolved downstream.
+
+**Required schema (V1.1, exact column order, 22 columns, header has 21 commas):**
+
+`run_date,review_date,signal_date,ticker,setup_family,primary_setup,action_label,planned_size,council_verdict,council_confidence,council_size_recommendation,user_final_decision,user_final_size,user_council_disagreement,actionability_council_disagreement,agreement_type,rationale_diverged_on,council_primary_reason,outcome_status,outcome_class,council_outcome_alignment,resolution_notes`
+
+**Note on schema design vs the V1.1 prompt:** The prompt originally specified a single `council_was_right` field. V1.1 implementation splits this into two unambiguous fields — `outcome_class` (what happened to the setup) and `council_outcome_alignment` (whether the verdict matched the outcome). This avoids the contingency ambiguity where DEFER + winner + user-also-defers can be scored "right" or "wrong" depending on interpretation. The two-field design makes every cell of the contingency table unambiguous.
+
+**Column semantics:**
+
+| Column | Allowed values | Source |
+|---|---|---|
+| `run_date` | YYYY-MM-DD | Today's date |
+| `review_date` | YYYY-MM-DD | From council_outcomes row |
+| `signal_date` | YYYY-MM-DD | From council_outcomes row |
+| `ticker` | string | From council_outcomes row |
+| `setup_family` | string | From council_outcomes row |
+| `primary_setup` | string | From council_queue / decision log |
+| `action_label` | `A1`/`A2`/`B`/`C`/`D` | From council_queue / decision log (actionability's verdict) |
+| `planned_size` | string | From council_queue / decision log |
+| `council_verdict` | `PROMOTE`/`DEFER`/`CANCEL` | From council_outcomes row |
+| `council_confidence` | `low`/`medium`/`medium-high`/`high` | From council_outcomes row |
+| `council_size_recommendation` | string or blank | If council suggested a specific size (`full`, `half`, `none`, etc.); blank otherwise |
+| `user_final_decision` | `TRADED`/`SKIPPED`/`DEFERRED`/`REDUCED_SIZE`/`INCREASED_SIZE`/`UNKNOWN` | **Always `UNKNOWN` at council-run time** — resolved later by learning loop |
+| `user_final_size` | string or `UNKNOWN` | **Always `UNKNOWN` at council-run time** |
+| `user_council_disagreement` | `TRUE`/`FALSE`/`UNKNOWN` | **Always `UNKNOWN` at council-run time** |
+| `actionability_council_disagreement` | `TRUE`/`FALSE` | **Computed at council-run time** by comparing `action_label` against `council_verdict`. See classification rules below. |
+| `agreement_type` | `FULL_AGREEMENT`/`USER_DISAGREED_WITH_COUNCIL`/`ACTIONABILITY_DISAGREED_WITH_COUNCIL`/`BOTH_DISAGREED`/`PENDING_USER_RESOLUTION` | Set to `ACTIONABILITY_DISAGREED_WITH_COUNCIL` if actionability_council_disagreement=TRUE; otherwise `PENDING_USER_RESOLUTION` (because user decision is still pending). Final value resolved later. |
+| `rationale_diverged_on` | string | If actionability_council_disagreement=TRUE, one-sentence reason. Blank otherwise. |
+| `council_primary_reason` | string | One-sentence council primary reason. Sourced from `decision_reason` in council_outcomes. |
+| `outcome_status` | `PENDING` always at write time | Resolved by learning loop |
+| `outcome_class` | `PENDING` always at write time | Resolved by learning loop. Allowed final values: `WINNER` (setup worked at T+5), `LOSER` (setup invalidated by stop or fade), `NEVER_TRIGGERED` (entry condition never fired), `AMBIGUOUS` (mixed T+5/T+20), `NOT_APPLICABLE`. |
+| `council_outcome_alignment` | `PENDING` always at write time | Resolved by learning loop. Allowed final values: `ALIGNED` (verdict matched outcome), `MISALIGNED` (verdict mismatched outcome), `NEUTRAL` (verdict-outcome combination doesn't carry a quality signal — e.g., DEFER+NEVER_TRIGGERED is neutral), `NOT_APPLICABLE`. |
+| `resolution_notes` | string or blank | Free text for downstream resolution context. Blank at write time. |
+
+**Classification rules for `actionability_council_disagreement` (computed at run time):**
+
+- If `action_label = A1` or `A2`, and `council_verdict = DEFER` or `CANCEL` → TRUE.
+- If `action_label = B` (any B+ subclass), and `council_verdict = PROMOTE` → TRUE.
+- If `action_label = C` or `D`, and `council_verdict = PROMOTE` → TRUE.
+- If `action_label = A1`/`A2`, and `council_verdict = PROMOTE` → FALSE (alignment).
+- If `action_label = B`, and `council_verdict = DEFER` or `CANCEL` → FALSE (alignment).
+- Edge cases (`UNKNOWN` action_label, `PENDING` verdict): default to FALSE, populate `rationale_diverged_on` with `"undetermined"`.
+
+**Row inclusion rule (V1.1):** Include a row for every ticker in council_outcomes, regardless of disagreement state. This differs from the original prompt's "only include rows with disagreement" — including all rows makes the file a faithful disagreement audit and enables future learning-loop joins. If `actionability_council_disagreement = FALSE` and `user_council_disagreement = UNKNOWN`, the row still writes with those values.
+
+**Final-response audit block (V1.1):**
+
+After writing the file, the final response MUST include:
+
+```
+Council disagreement audit:
+- council_rows: N
+- actionability_council_disagreements: N
+- user_council_disagreements: N (PENDING — resolved by learning loop)
+- file_path: /path/to/council_disagreements_YYYY-MM-DD.csv
+- pending_outcome_count: N (all rows pending at write time)
+```
+
+If `actionability_council_disagreements > 0`, list affected tickers and the divergence reason in the audit block.
+
+**Failure handling:** If `council_disagreements_YYYY-MM-DD.csv` cannot be written, state this clearly and print the CSV content in a raw code block. Do not silently omit.
+
+
+step 7.7: write self-calibration scaffold CSV (V1.1)
+
+For every Bonde/trading council run, after writing council_disagreements_*.csv, write `council_self_calibration_summary_YYYY-MM-DD.csv` to the same location.
+
+**Always write this file.** Insufficient-data state is the default; the file documents that state explicitly. Do not skip emission.
+
+**Inputs:**
+
+- All historical `council_disagreements_YYYY-MM-DD.csv` files in the same folder, OR a consolidated `council_disagreements_history.csv` if present.
+- A "resolved" row is one where `outcome_status != PENDING` AND `outcome_class != PENDING` AND `council_outcome_alignment != PENDING`.
+
+**Thresholds (V1.1, strict; mirrors bonde learning-loop lock discipline):**
+
+- `INSUFFICIENT_DATA`: fewer than 30 resolved disagreement rows total. No reliability percentages reported.
+- `BUILDING_SAMPLE`: ≥30 total resolved, but slice thresholds not met (per-verdict <10 or per-setup_family <10).
+- `CALIBRATED`: ≥30 total resolved AND per-verdict ≥10 resolved AND per-setup_family ≥10 resolved.
+- `UNAVAILABLE`: no historical disagreement files exist.
+
+**Required schema (V1.1, exact column order, 13 columns, header has 12 commas):**
+
+`run_date,calibration_status,resolved_disagreements_total,threshold_total,resolved_defer_disagreements,resolved_cancel_disagreements,resolved_promote_disagreements,resolved_by_setup_family,council_defer_accuracy,council_cancel_accuracy,council_promote_accuracy,user_override_success_rate,notes`
+
+**Column semantics:**
+
+| Column | Allowed values | Notes |
+|---|---|---|
+| `run_date` | YYYY-MM-DD | Today's date |
+| `calibration_status` | `UNAVAILABLE`/`INSUFFICIENT_DATA`/`BUILDING_SAMPLE`/`CALIBRATED` | Per thresholds above |
+| `resolved_disagreements_total` | integer | Count of rows where outcome_status != PENDING |
+| `threshold_total` | integer | 30 (hard-coded discipline threshold) |
+| `resolved_defer_disagreements` | integer | Resolved rows with council_verdict=DEFER |
+| `resolved_cancel_disagreements` | integer | Resolved rows with council_verdict=CANCEL |
+| `resolved_promote_disagreements` | integer | Resolved rows with council_verdict=PROMOTE |
+| `resolved_by_setup_family` | string | Pipe-delimited counts: `EP_ACTIVE:12\|EP9M:7\|...` |
+| `council_defer_accuracy` | float `0.0-1.0` or `INSUFFICIENT` | `ALIGNED count / resolved DEFER count`. Show only when `>=10` resolved DEFER. Otherwise `INSUFFICIENT`. |
+| `council_cancel_accuracy` | float or `INSUFFICIENT` | Same logic |
+| `council_promote_accuracy` | float or `INSUFFICIENT` | Same logic |
+| `user_override_success_rate` | float or `INSUFFICIENT` | Rate at which user-override decisions (when `agreement_type=USER_DISAGREED_WITH_COUNCIL`) led to `outcome_class=WINNER`. `>=10` resolved overrides required. |
+| `notes` | string | Free text, e.g., `"first run, no history available"` or `"calibration enabled 2026-06-15"`. |
+
+**No premature reporting rule:**
+
+Below threshold, the row writes with all accuracy fields = `INSUFFICIENT`. The skill's report section MUST NOT display fractional accuracy when total resolved is below 30. The report MUST say:
+
+`Self-calibration: INSUFFICIENT_DATA. Resolved disagreements: N/30. No reliability percentage reported.`
+
+Above threshold (CALIBRATED state) the report MAY say:
+
+`Self-calibration: CALIBRATED. Historical accuracy on DEFER verdicts: X% (n=N). Historical accuracy on CANCEL verdicts: Y% (n=N).`
+
+The calibration data is context only. **It MUST NOT change the council verdict.** Specifically, the chairman MUST NOT alter a DEFER to a PROMOTE because "historical DEFER accuracy is only 45%." The verdict logic is rule-based; calibration is meta-context that informs the user, not the verdict.
+
+
 output format
 Every council session produces at least two files:
 
@@ -389,9 +539,11 @@ council-transcript-[timestamp].md  # full transcript for reference
 
 For Bonde/trading council runs, every session also produces:
 
-council_outcomes_YYYY-MM-DD.csv    # machine-readable verdicts for the learning loop
+council_outcomes_YYYY-MM-DD.csv                  # machine-readable verdicts for the learning loop
+council_disagreements_YYYY-MM-DD.csv             # V1.1 — actionability/user/council disagreement audit
+council_self_calibration_summary_YYYY-MM-DD.csv  # V1.1 — calibration status (default: INSUFFICIENT_DATA)
 
-The user sees the HTML report. The transcript is there if they want to dig deeper or reference specific advisor arguments later. The council outcomes CSV is the artifact used by the Bonde learning loop; it must not be replaced by prose-only transcript parsing.
+The user sees the HTML report. The transcript is there if they want to dig deeper or reference specific advisor arguments later. The council outcomes CSV is the artifact used by the Bonde learning loop; it must not be replaced by prose-only transcript parsing. The V1.1 disagreement and calibration CSVs are emitted alongside; they are also durable artifacts for downstream analysis.
 
 example: counciling a product decision
 User: "Council this: I'm thinking of building a $297 course on Claude Code for beginners. My audience is mostly non-technical solopreneurs. Is this the right move?"
@@ -417,7 +569,7 @@ C1 = wide Day-1 range / static EOD R:R floor fail
 C2 = DTE / pre-earnings tactical setup
 C3 = mild extension or Day-2 confirmation requirement
 
-Before advisors vote, state whether historical outcome data exists for the same setup_family, same B+ blocker type, or prior council verdict type. Use outcome data only if it is mature enough to be meaningful. Immature cohorts are monitoring-only.
+Before the reasoning paths evaluate the candidates, state whether historical outcome data exists for the same setup_family, same B+ blocker type, or prior council verdict type. Use outcome data only if it is mature enough to be meaningful. Immature cohorts are monitoring-only.
 
 For every B+ candidate, the final verdict must include:
 
@@ -434,17 +586,72 @@ Hard rule: outcome data is an overlay, not a loophole. The council cannot use ou
 If outcome data is unavailable, the council must say: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."
 
 
-For Bonde/trading council runs, the final response must explicitly list where the three artifacts were written:
+For Bonde/trading council runs, the final response must explicitly list where the five artifacts were written:
 - council-report-[timestamp].html
 - council-transcript-[timestamp].md
 - council_outcomes_YYYY-MM-DD.csv
+- council_disagreements_YYYY-MM-DD.csv (V1.1)
+- council_self_calibration_summary_YYYY-MM-DD.csv (V1.1)
 
-The `council_outcomes_YYYY-MM-DD.csv` file is mandatory for Bonde trading council runs. If file writing fails, state that clearly and print the CSV content in a raw code block so the user can save it manually. Do not silently omit it.
+All five files are mandatory for Bonde trading council runs. If any file write fails, state that clearly and print the file content in a raw code block so the user can save it. Do not silently omit any of them.
+
+Final response must also include the Council disagreement audit block from Step 7.5 with `council_rows`, `actionability_council_disagreements`, `user_council_disagreements` (always PENDING at run time), `pending_outcome_count`, and the file path.
+
+
+
+acceptance tests (V1.1)
+
+The following tests apply to every Bonde/trading council run. Any failure must be fixed before reporting the run complete.
+
+**Reframing tests (Section 1 of V1.1):**
+
+1. The generated council report contains no "4 of 5", "5 of 5", "3 of 5", or similar vote-count phrasing except in historical quoted text (e.g., the user's prior transcript being referenced).
+2. The report contains the exact section header `Reasoning Paths Considered`.
+3. The report explicitly contains the disclaimer text: `These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration.`
+4. The detailed advisor/perspective reasoning is preserved (the five reasoning paths still appear in the transcript and in the report's expandable detail).
+5. The chairman synthesis produces one final verdict per ticker.
+
+**Disagreement tracker tests (Section 2 of V1.1):**
+
+6. `council_disagreements_YYYY-MM-DD.csv` is written for every Bonde council run.
+7. The CSV header has exactly 21 commas (22 columns) in the V1.1 canonical order.
+8. If actionability `action_label = A2` and `council_verdict = DEFER`, the row has `actionability_council_disagreement = TRUE`.
+9. If actionability `action_label = B` (B+ C1/C2/C3) and `council_verdict = DEFER` or `CANCEL`, the row has `actionability_council_disagreement = FALSE` (alignment).
+10. Every row has `user_council_disagreement = UNKNOWN` at council-run time (the council cannot know Kevin's final action).
+11. Every row has `outcome_status = PENDING`, `outcome_class = PENDING`, `council_outcome_alignment = PENDING` at council-run time.
+12. Header-only CSV writes if zero rows (degenerate case: no Bonde tickers in this council session).
+13. The CSV parses with `pandas.read_csv()`.
+
+**Self-calibration scaffold tests (Section 3 of V1.1):**
+
+14. `council_self_calibration_summary_YYYY-MM-DD.csv` is written for every Bonde council run.
+15. With no historical disagreement files present, `calibration_status = UNAVAILABLE`.
+16. With historical disagreement files but fewer than 30 resolved rows, `calibration_status = INSUFFICIENT_DATA` and all accuracy fields = `INSUFFICIENT`.
+17. With ≥30 resolved rows but per-verdict <10, `calibration_status = BUILDING_SAMPLE`.
+18. With ≥30 resolved rows AND per-verdict ≥10 AND per-setup_family ≥10, `calibration_status = CALIBRATED`.
+19. The council verdict for any ticker is NEVER changed because of calibration data. Calibration is context only; the verdict logic is rule-based.
+20. The report displays the calibration status. If `INSUFFICIENT_DATA`, the report says `"No reliability percentage reported"` and does NOT show fractional accuracy.
+
+**Report-structure grep tests (V1.1 addition beyond original prompt):**
+
+21. The HTML report contains the literal string `Reasoning Paths Considered` as a section header AND the literal disclaimer `These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration.` Both must appear; missing either fails the test.
+
+**Compatibility tests (Sections 4-5 of V1.1):**
+
+22. Existing `council_outcomes_YYYY-MM-DD.csv` still writes with unchanged 11-column schema.
+23. Existing `council-report-[timestamp].html` still writes.
+24. Existing `council-transcript-[timestamp].md` still writes.
+25. The chairman verdict schema (PROMOTE/DEFER/CANCEL) is unchanged.
+26. No actionability skill outputs are affected by this patch.
+27. The final response lists all five Bonde artifacts (report, transcript, outcomes, disagreements, calibration).
+
+If any test fails, fix it before reporting the run complete.
+
 
 important notes
 
 Always spawn all 5 advisors in parallel. Sequential spawning wastes time and lets earlier responses bleed into later ones.
 Always anonymize for peer review. If reviewers know which advisor said what, they'll defer to certain thinking styles instead of evaluating on merit.
-The chairman can disagree with the majority. If 4 out of 5 advisors say "do it" but the reasoning of the 1 dissenter is strongest, the chairman should side with the dissenter and explain why.
+The chairman is not bound by reasoning-path convergence. If four reasoning paths reach the same conclusion but the fifth path's argument is strongest, the chairman sides with the strongest argument and explains why. The reasoning paths are not votes; the chairman weighs argument quality, not path counts.
 Don't council trivial questions. If the user asks something with one right answer, just answer it. The council is for genuine uncertainty where multiple perspectives add value.
 The visual report matters. Most users will scan the report, not read the full transcript. Make the HTML output clean and scannable.
