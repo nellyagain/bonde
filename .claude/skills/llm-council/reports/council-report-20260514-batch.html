@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LLM Council Report — 2026-05-14 Batch</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #ffffff;
+    --soft: #fafafa;
+    --promote: #166534;
+    --promote-bg: #ecfdf5;
+    --defer: #92400e;
+    --defer-bg: #fef3c7;
+    --cancel: #991b1b;
+    --cancel-bg: #fee2e2;
+    --accent: #1e3a8a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink); background: var(--bg);
+    line-height: 1.55; margin: 0; padding: 32px 24px 80px;
+    max-width: 980px; margin-left: auto; margin-right: auto;
+  }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 15px; margin: 18px 0 8px; }
+  .subtle { color: var(--muted); font-size: 13px; }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .meta span { margin-right: 14px; }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.4px;
+  }
+  .b-promote { background: var(--promote-bg); color: var(--promote); }
+  .b-defer { background: var(--defer-bg); color: var(--defer); }
+  .b-cancel { background: var(--cancel-bg); color: var(--cancel); }
+  .callout {
+    background: var(--soft); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px; border-radius: 4px; margin: 14px 0;
+  }
+  .disclaimer {
+    background: #fffbeb; border: 1px solid #fbbf24;
+    padding: 10px 14px; border-radius: 4px;
+    font-size: 13px; color: #78350f; margin: 14px 0;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); }
+  td.ticker { font-weight: 700; }
+  details { margin: 8px 0; border: 1px solid var(--line); border-radius: 4px; padding: 0; }
+  details > summary { padding: 10px 14px; cursor: pointer; font-weight: 600; font-size: 14px; background: var(--soft); border-radius: 4px; list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::before { content: "▸ "; color: var(--muted); }
+  details[open] > summary::before { content: "▾ "; }
+  details > .body { padding: 14px 18px; font-size: 14px; line-height: 1.6; }
+  .verdict-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+  .verdict-row .tk { font-weight: 700; min-width: 60px; }
+  .verdict-row .why { color: var(--muted); font-size: 13px; }
+  .grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .pathbox { background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 10px 14px; font-size: 13px; }
+  .pathbox h4 { margin: 0 0 6px; font-size: 13px; color: var(--accent); }
+  footer { margin-top: 50px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); padding-top: 14px; }
+  code { background: var(--soft); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>LLM Council Report</h1>
+<div class="meta">
+  <span><strong>Review date:</strong> 2026-05-14</span>
+  <span><strong>Signal date:</strong> 2026-05-13</span>
+  <span><strong>Regime:</strong> Risk-On</span>
+  <span><strong>Tickers (7):</strong> ADTN, ARMK, AVT, FIVN, MRVL, PRM, SRRK</span>
+  <span><strong>Council version:</strong> V1.1</span>
+</div>
+
+<h2>The Question</h2>
+<p>For each of 7 candidates (5 A2, 2 B+), produce PROMOTE / DEFER / CANCEL for action on 2026-05-14 in a Risk-On regime. Hard rules (R:R 2.0 floor, DTE hard reject, severe extension, dilution, deal-pinned) are not overridable by narrative.</p>
+
+<h2>Council self-calibration status</h2>
+<div class="callout">
+<strong>UNAVAILABLE.</strong> No historical <code>council_disagreements_*.csv</code> files exist in the reports folder at council-run time. <strong>No reliability percentage reported.</strong> Self-calibration is context only and does not change verdicts.
+</div>
+
+<h2>Outcome / Base-Rate Context</h2>
+<div class="callout">
+<strong>Outcome data unavailable</strong> in this workspace. Verdict is playbook-only and should be logged for future calibration via the V1.1 disagreement tracker.
+</div>
+
+<h2>Chairman Verdict</h2>
+
+<table>
+  <thead>
+    <tr><th>Ticker</th><th>Label</th><th>Verdict</th><th>Confidence</th><th>One-line reason</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="ticker">ADTN</td><td>A2 ACTIVE_BURST</td><td><span class="badge b-defer">DEFER</span></td><td>medium-high</td><td>Closed $0.13 BELOW trigger on Day-7 with close_pct 60.8% — failed-breakout posture, not continuation.</td></tr>
+    <tr><td class="ticker">ARMK</td><td>A2 ACTIVE_BURST</td><td><span class="badge b-promote">PROMOTE</span></td><td>medium-high</td><td>Cleanest Day-1 tape on slate; staples regime hedge; full size.</td></tr>
+    <tr><td class="ticker">AVT</td><td>B+/C3 SLINGSHOT</td><td><span class="badge b-cancel">CANCEL</span></td><td>high</td><td>Contraction_quality 49.7 sub-50; no fresh catalyst; +50.9% extended; remove from screen.</td></tr>
+    <tr><td class="ticker">FIVN</td><td>A2 DELAYED_EP</td><td><span class="badge b-defer">DEFER</span></td><td>medium</td><td>Only +2.7% above 200SMA in Risk-On = structural weakness; Day-9 stale; widest stop.</td></tr>
+    <tr><td class="ticker">MRVL</td><td>B+/C1 EP9M+SLINGSHOT</td><td><span class="badge b-cancel">CANCEL</span></td><td>high</td><td>Three hard fails: R:R 1.72 &lt; 2.0 floor, DTE 9 hard reject, +93% above 200SMA severe extension.</td></tr>
+    <tr><td class="ticker">PRM</td><td>A2 ACTIVE_BURST</td><td><span class="badge b-promote">PROMOTE</span></td><td>high</td><td>Unanimous convergence; R:R 3.07; $500M DLA hard catalyst; full size. <em>What playbook is for.</em></td></tr>
+    <tr><td class="ticker">SRRK</td><td>A2 DELAYED_EP+SLINGSHOT</td><td><span class="badge b-promote">PROMOTE</span></td><td>medium</td><td>DEP vol gate passes; PDUFA OUTSIDE DTE-56 hold; vol 1.06x whisper-thin — <strong>half size</strong> or wait Day-2 vol &gt;1.5x.</td></tr>
+  </tbody>
+</table>
+
+<h3>Shootlist for 2026-05-14 open</h3>
+<ol>
+  <li><strong>PRM</strong> @ 34.21 buy-stop, stop 32.31 (full size) — first click.</li>
+  <li><strong>ARMK</strong> @ 51.06 buy-stop, stop 48.38 (full size, regime hedge).</li>
+  <li><strong>SRRK</strong> @ 50.61 buy-stop, stop 48.45 (half size pending Day-2 vol confirmation).</li>
+</ol>
+
+<h3>Slate correlation note</h3>
+<p>ADTN, ARMK, PRM are all ACTIVE_BURST in Risk-On — one correlated factor exposure. If trader takes ARMK + PRM (the two Chairman-promoted ACTIVE_BURSTs), size them as ~two-thirds of one full slot, not two full slots. SRRK is uncorrelated (biotech).</p>
+
+<h2>Reasoning Paths Considered</h2>
+
+<div class="disclaimer">
+<strong>These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration.</strong> Five perspectives reaching the same conclusion is one model exploring the same conclusion five times, not five independent verdicts.
+</div>
+
+<h3>Reasoning Path Convergence</h3>
+<ul>
+  <li><strong>PRM</strong> — every reasoning path arrived at PROMOTE: Contrarian via "strongest fundamental catalyst," First Principles via "highest edge density per slot," Expansionist via "$500M DLA re-rating event," Outsider via "every number agrees with label," Executor via "best R:R with cleanest entry geometry." Five framings, one conclusion.</li>
+  <li><strong>AVT</strong> — every reasoning path arrived at CANCEL: momentum chase, pass-gates-by-accident, nothing to leg into, label disagreeing with numbers, contraction quality broken. Cleanest reject on the slate.</li>
+  <li><strong>MRVL</strong> — four reasoning paths converged on CANCEL (R:R 1.72 fails 2.0 floor; DTE 9 hard reject; +93% above 200SMA severe extension). The Expansionist path dissented PROMOTE on "category leader" narrative — peer review unanimously rejected this as a hard-rule violation.</li>
+</ul>
+
+<h3>Reasoning Path Divergence</h3>
+<ul>
+  <li><strong>ADTN</strong> — most contested name. Outsider argued CANCEL (already-ran); First Principles argued PROMOTE (non-correlated edge); Contrarian and Expansionist argued DEFER (late-stage extension). The Executor caught the binding mechanical detail: closed $0.13 BELOW trigger with close_pct 60.8% on Day-7 — a failed-breakout posture. Divergence resolves on execution geometry once you see the trigger isn't being held.</li>
+  <li><strong>SRRK</strong> — Executor and Expansionist argued PROMOTE on tight stop and catalyst stack; Contrarian, First Principles, and Outsider argued DEFER on anemic vol_ratio 1.06x. Peer review added the geometry insight: PDUFA 9/30 is ~140 days out vs DTE 56 — binary is OUTSIDE the hold. SRRK is a pre-catalyst drift trade, not a binary play, defanging both bullish and bearish framings of the PDUFA.</li>
+  <li><strong>ARMK / FIVN</strong> — both A2s split. ARMK has the cleanest Day-1 tape on the slate (close_pct 94.8%, vol 2.32x) and is the only consumer-staples regime hedge. FIVN has solid DEP vol but only +2.7% above 200SMA in Risk-On, read as a structural-weakness tell by multiple paths.</li>
+</ul>
+
+<h3>Blind Spots the Reasoning Paths Caught</h3>
+<ul>
+  <li><strong>Hard-rule discipline.</strong> The Expansionist's MRVL PROMOTE attempted to override the R:R 2.0 floor via "category leader" narrative. Four peer reviewers independently flagged this as the canonical failure mode the council exists to catch. The Chairman rejects the override.</li>
+  <li><strong>Setup geometry beats narrative.</strong> The Executor caught that ADTN closed BELOW trigger with weak close on Day-7. None of the catalyst/edge-density arguments survived once the actual entry math was on the table.</li>
+  <li><strong>SRRK PDUFA geometry.</strong> Peer reviewer 5 caught that the PDUFA falls OUTSIDE the DTE-56 planned hold (~140 days out vs ~56-day exit), defanging the binary-distortion concern AND the upside-binary framing. SRRK becomes a clean pre-catalyst drift trade.</li>
+  <li><strong>Correlation across A2 ACTIVE_BURSTs.</strong> ADTN, ARMK, PRM are one correlated factor exposure in Risk-On, not three independent bets.</li>
+  <li><strong>vol_ratio 1.06x on SRRK.</strong> The DEP-specific vol gate (1.28x) passes, but overall daily vol is whisper-thin — argues for half size.</li>
+  <li><strong>ARMK regime hedge.</strong> Only non-momentum-growth name on the slate has portfolio-level value no advisor scored.</li>
+</ul>
+
+<h2>Chairman Synthesis</h2>
+<p>The Chairman weighted the Executor and Contrarian paths heavily for hard-rule discipline, the First Principles path for slot-scarcity and edge density, and the peer review round (which surfaced the SRRK-PDUFA geometry and rejected the Expansionist's MRVL override). Two clean PROMOTEs (PRM full, ARMK full), one half-size PROMOTE (SRRK), two DEFERs (ADTN, FIVN), two CANCELs (AVT, MRVL).</p>
+
+<h2>The One Thing to Do First</h2>
+<div class="callout">
+Place the <strong>PRM buy-stop at $34.21 with stop at $32.31</strong> before placing any of the other orders. PRM is the only candidate where every reasoning path converged and every numeric gate aligns. If the day is bad and you only get one click in, this is the click.
+</div>
+
+<h2>Advisor Detail (expandable)</h2>
+
+<details>
+<summary>The Contrarian — full response</summary>
+<div class="body">
+<p><strong>ADTN — DEFER.</strong> +52.8% above 200SMA on Day-7 is late-stage extension; "tight breakout" often masks a final push. Focus rank 19 is bottom-tier.</p>
+<p><strong>ARMK — PROMOTE (cautious).</strong> Day-2 EP, 94.8% close_pct, 2.32 vol is cleanest tape, but reaffirmed (not raised) guide is soft.</p>
+<p><strong>AVT — CANCEL.</strong> Size=none, contraction 49.7 V5.9.17 flag, no catalyst, fr 18, +50.9% extended. Momentum chase dressed as slingshot.</p>
+<p><strong>FIVN — DEFER.</strong> R:R 2.04 hair above floor; only 2.7% above 200SMA in Risk-On = structurally weak. A tell, not a feature.</p>
+<p><strong>MRVL — CANCEL.</strong> Three hard rejects stacked: R:R 1.72 fails, DTE 9, +93% extension. Analyst-PT-driven entries at +102% 90d are bag-holder bait.</p>
+<p><strong>PRM — PROMOTE (cautious).</strong> Strongest fundamental but fr 17 not council favored.</p>
+<p><strong>SRRK — DEFER.</strong> Vol 1.06 anemic — institutional sponsorship absent. PDUFA 9/30 binary will distort holding period.</p>
+<p><em>Most dangerous: MRVL (textbook trap) and AVT (silent killer).</em></p>
+</div>
+</details>
+
+<details>
+<summary>The First Principles Thinker — full response</summary>
+<div class="body">
+<p>The wrong question is "which of 7 pass." The right question: which 1-3 names compound edge density per dollar and per slot? <strong>Slots are scarcer than setups.</strong></p>
+<p><strong>PRM — PROMOTE.</strong> Highest edge density. R:R 3.07, $500M DLA contract (hard catalyst), Day-6 base, close_pct 92.5%. What playbook is FOR.</p>
+<p><strong>ADTN — PROMOTE.</strong> Day-7 EP off 5/5 beat, lower-priced cleaner sizing, non-correlated with PRM.</p>
+<p><strong>SRRK — DEFER.</strong> Beautiful catalyst stack but vol 1.06x whispering, not shouting.</p>
+<p><strong>ARMK — DEFER.</strong> close_pct 94.8% = buying top of range; entry math poor.</p>
+<p><strong>FIVN — CANCEL today.</strong> Only +2.7% above 200SMA in Risk-On = market already agrees stock is mediocre.</p>
+<p><strong>AVT — CANCEL.</strong> Pass gates by accident.</p>
+<p><strong>MRVL — CANCEL.</strong> Lottery ticket.</p>
+<p>Cleanest expressions: <strong>PRM + ADTN.</strong></p>
+</div>
+</details>
+
+<details>
+<summary>The Expansionist — full response (Chairman rejected MRVL override)</summary>
+<div class="body">
+<p><strong>SRRK — PROMOTE (TOP PICK).</strong> R:R 2.51 to $56 laughably small — real prize PDUFA 9/30. Positive SMA label = $80-120 stock. <em>Peer review noted PDUFA falls outside DTE-56 hold — Expansionist framing is mislabeled.</em></p>
+<p><strong>MRVL — PROMOTE despite R:R fail.</strong> 1.72R gate measuring wrong thing; AI infra category leader. <em>Chairman rejects: hard rules are pre-committed constraints; "category leader" is not an R:R waiver.</em></p>
+<p><strong>PRM — PROMOTE.</strong> $500M DLA re-rating event. 2-3x potential over 6 months.</p>
+<p><strong>ARMK — PROMOTE.</strong> Institutional accumulation pattern.</p>
+<p><strong>FIVN — PROMOTE.</strong> Early-innings sleeper.</p>
+<p><strong>ADTN — DEFER.</strong> Easy beta gone.</p>
+<p><strong>AVT — CANCEL.</strong></p>
+</div>
+</details>
+
+<details>
+<summary>The Outsider — full response</summary>
+<div class="body">
+<p><strong>ADTN — CANCEL.</strong> Small-cap telecom 53% above 200SMA = "already ran" to fresh eyes.</p>
+<p><strong>ARMK — DEFER.</strong> Numbers support label, but Risk-On usually chases tech, not catering.</p>
+<p><strong>AVT — CANCEL.</strong> Label says Slingshot but NO catalyst, contraction BELOW 50, fr 18. <em>Label disagreeing with numbers.</em></p>
+<p><strong>FIVN — DEFER.</strong> R:R 2.04 = system rounding up; only 2.7% above 200SMA = no trend. <em>Second label/numbers mismatch.</em></p>
+<p><strong>MRVL — CANCEL.</strong> R:R fails, +102% 90d, DTE 9. Why is this even on the sheet?</p>
+<p><strong>PRM — PROMOTE.</strong> Only one where every number agrees with label.</p>
+<p><strong>SRRK — DEFER.</strong> Story loud (FDA, JPM), tape quiet (vol 1.06x).</p>
+</div>
+</details>
+
+<details>
+<summary>The Executor — full response (shootlist)</summary>
+<div class="body">
+<p><strong>ADTN — DEFER.</strong> Closed $0.13 BELOW trigger on Day-7 with close_pct 60.8% = chasing into supply.</p>
+<p><strong>ARMK — PROMOTE.</strong> $0.30 from trigger, close_pct 94.8%, vol 2.32x, Day-2 EP. Cleanest setup.</p>
+<p><strong>AVT — CANCEL.</strong> Contraction broken, no catalyst, size=none.</p>
+<p><strong>FIVN — DEFER.</strong> Day-9 stale, mid-range close, 6.5% stop is widest. Risk budget killer.</p>
+<p><strong>MRVL — CANCEL.</strong> R:R 1.72 hard FAIL. Math says no.</p>
+<p><strong>PRM — PROMOTE.</strong> Best R:R 3.07, $0.29 from trigger, close_pct 92.5%. Full size.</p>
+<p><strong>SRRK — PROMOTE.</strong> Tightest 4.2% stop, fr 3 fresh, vol light but stop covers it.</p>
+<p><strong>SHOOTLIST:</strong> ARMK → PRM → SRRK. Three orders by 9:32.</p>
+</div>
+</details>
+
+<h2>Peer Review Highlights (expandable)</h2>
+
+<details>
+<summary>Peer review consolidated summary</summary>
+<div class="body">
+<p><strong>Strongest response:</strong> Reviewers split — 3 picked the Contrarian (E) for explicitly pricing binary/extension distortion and never violating R:R; 1 picked the Executor (C) for distance-from-trigger discipline; 1 picked the Outsider (A) for label-vs-numbers integrity checks.</p>
+<p><strong>Biggest blind spot:</strong> Unanimous — the Expansionist's MRVL PROMOTE. "Category leader" narrative overriding the R:R 2.0 hard floor is the canonical failure mode the council exists to catch.</p>
+<p><strong>Outcome-data misuse:</strong> None overfit (outcome data unavailable, correctly observed). The Expansionist came closest with un-base-rated "$80-120 stock" projections.</p>
+<p><strong>What all five missed:</strong></p>
+<ul>
+<li>Portfolio-level correlation across the 4 A2 momentum/growth names in Risk-On — one factor bet, not four.</li>
+<li>SRRK PDUFA geometry: catalyst falls ~140 days out vs DTE 56 exit ~7/8 — binary is OUTSIDE the hold. Both bullish and bearish PDUFA framings are mislabeled.</li>
+<li>vol_ratio 1.06x on SRRK is a setup-quality flag; the DEP-specific gate passes but overall tape is whisper-thin.</li>
+<li>ARMK regime-hedge value — only staples expression on slate deserves sizing premium.</li>
+<li>Position sizing math across multi-promote slates; PROMOTE counts ranged 1 to 5 with no sizing discipline applied.</li>
+<li>AVT/MRVL DEFER/CANCEL is alignment with actionability's B+ size=none flag, not independent council disagreement.</li>
+</ul>
+</div>
+</details>
+
+<footer>
+Council session 20260514-batch · Council version V1.1 · Outcome data: unavailable · Calibration status: UNAVAILABLE · Artifacts: council-report-20260514-batch.html, council-transcript-20260514-batch.md, council_outcomes_2026-05-14.csv, council_disagreements_2026-05-14.csv, council_self_calibration_summary_2026-05-14.csv
+</footer>
+
+</body>
+</html>
