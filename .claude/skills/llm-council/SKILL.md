@@ -8,6 +8,7 @@ description: Run high-stakes decisions through 5 independent AI advisors, anonym
 
 - **V1.2 (2026-05-15)** — Context Audit + V5.9.19 Bonde Compatibility + Execution-Safety Guardrails. Adds mandatory `Context Files Loaded` audit section for Bonde/trading council runs; explicitly treats `final_trade_status` as the executable field and `tier` as source/dashboard focus tier only; adds Friday/weekend order-duration guardrail; requires portfolio heat aggregation for promoted candidates; tightens sector-correlation hygiene by separating direct sector exposure from broad risk-appetite exposure; adds Day-2 pullback rescue/base-rate warning when entry is lowered mainly to satisfy R:R. **No changes to V1.1 artifact names, CSV schemas, PROMOTE/DEFER/CANCEL verdict schema, disagreement tracker schema, or self-calibration scaffold.**
 
+- **V1.2 path-compatibility note** — When a repo packet folder is named `bonde_files 3/`, treat it as equivalent to `bonde_files/` for current files, active context, learning context, and actionability playbook files.
 - **V1.1 (2026-05-13)** — Reasoning Path Framing + Disagreement Tracker + Self-Calibration Scaffold. Replaced advisor "vote" language with "Reasoning Paths Considered" framing throughout. Renamed report sections "Where the Council Agrees / Clashes" to "Reasoning Path Convergence / Divergence" to clarify that multi-perspective output from one model is not statistical corroboration. Added `council_disagreements_YYYY-MM-DD.csv` output (computes `actionability_council_disagreement` at council-run time; `user_council_disagreement` starts PENDING for learning-loop resolution). Added `council_self_calibration_summary_YYYY-MM-DD.csv` output with strict 30/10 thresholds — no reliability percentages reported below threshold. **No council verdict rule changes. No trading rule changes.** Outputs follow the existing path convention (workspace + `bonde_screener_cache/council_queues/` for Bonde councils). The disagreement tracker honors the no-manual-process constraint: Kevin logs nothing by hand.
 - **V1.0** — Initial skill: 5-advisor multi-perspective council, anonymous peer review, chairman verdict, optional Bonde outcome overlay, structured `council_outcomes_YYYY-MM-DD.csv` output.
 
@@ -69,7 +70,20 @@ bonde_files/current/bonde_skill_pack_*.csv
 bonde_files/active_context/council_context_manifest.md
 bonde_files/active_context/latest_candidate_context.md
 bonde_files/active_context/latest_learning_context.md
+bonde_files/active_context/latest_market_context.md, if present
 bonde_files/playbook/bonde_stockbee_actionability/SKILL.md
+
+If the repo uses a numbered Bonde packet folder, treat it as equivalent to `bonde_files/` and scan it too:
+
+bonde_files 3/current/council_queue_*.csv
+bonde_files 3/current/daily_decision_log_*.csv
+bonde_files 3/current/bonde_skill_pack_*.csv
+bonde_files 3/active_context/council_context_manifest.md
+bonde_files 3/active_context/latest_candidate_context.md
+bonde_files 3/active_context/latest_learning_context.md
+bonde_files 3/active_context/latest_market_context.md, if present
+bonde_files 3/learning/*.csv or *.md
+bonde_files 3/playbook/bonde_stockbee_actionability/SKILL.md
 skill_pack_performance_report_v410.md or similar
 weekly_learning_report_*.md
 reviewed_vs_unreviewed_summary*.csv
@@ -131,7 +145,7 @@ Required or strongly expected Bonde files:
 - `council_context_manifest.md` when present.
 - `bonde_stockbee_actionability/SKILL.md` or equivalent current actionability skill. If missing, state that the council is operating from the candidate packet and embedded playbook rules, not a fully auditable skill package.
 
-Optional context files such as `latest_market_context.md`, `latest_regime_context.md`, `latest_accountability_context.md`, and `latest_skill_context.md` are not required unless the current repo manifest explicitly requires them.
+Optional context files such as `latest_market_context.md`, `latest_regime_context.md`, `latest_accountability_context.md`, and `latest_skill_context.md` are not required unless the current repo manifest explicitly requires them. If `latest_market_context.md` is listed as LOADED in `council_context_manifest.md`, read it and summarize its tactical market implications in Outcome/Base-Rate Context or Portfolio Heat; do not treat it as a hard trade gate.
 
 B. V5.9.19 decision-field semantics
 
@@ -455,7 +469,7 @@ Rules:
 
 `council_verdict` must be exactly one of: PROMOTE, DEFER, CANCEL.
 
-Internal verdict language must be normalized to one of the three allowed values before writing the CSV. Use this exact mapping:
+Internal verdict language must be normalized to one of the three allowed values before writing. Use this exact mapping:
 
 - PROMOTE_FULL → PROMOTE
 - PROMOTE_HALF → PROMOTE
