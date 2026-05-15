@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Council Report — 2026-05-15 Batch (WCC, JBHT, NVMI, WERN)</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1f2c;
+    --muted: #5a6679;
+    --line: #e3e7ee;
+    --soft: #f6f8fb;
+    --accent: #2854c5;
+    --promote: #1f7a3c;
+    --defer: #b07b00;
+    --cancel: #b03030;
+    --warn-bg: #fff8e8;
+    --warn-border: #f0c878;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); margin: 0; padding: 32px 24px; line-height: 1.55; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px 0; }
+  h2 { font-size: 17px; margin: 28px 0 10px 0; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 15px; margin: 18px 0 6px 0; }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 12px 16px; margin: 14px 0; font-size: 14px; }
+  .warn { background: var(--warn-bg); border-left: 3px solid var(--warn-border); padding: 12px 16px; margin: 14px 0; font-size: 13.5px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px 0; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; }
+  .v-promote { color: var(--promote); font-weight: 600; }
+  .v-defer { color: var(--defer); font-weight: 600; }
+  .v-cancel { color: var(--cancel); font-weight: 600; }
+  .verdict-card { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin: 10px 0; background: var(--bg); }
+  .verdict-card .ticker { font-size: 18px; font-weight: 700; margin-right: 10px; }
+  .verdict-card .verdict { font-size: 14px; font-weight: 600; }
+  .verdict-card .conf { color: var(--muted); font-size: 12.5px; }
+  .verdict-card .reason { margin-top: 6px; font-size: 13.5px; color: var(--ink); }
+  details { margin: 8px 0; border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; background: var(--bg); }
+  details summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--accent); }
+  details[open] summary { margin-bottom: 8px; }
+  details .body { font-size: 13.5px; color: var(--ink); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .path-card { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; background: var(--soft); font-size: 13px; }
+  .path-card .name { font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+  footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+  ul { margin: 6px 0 8px 22px; padding: 0; }
+  li { margin: 3px 0; font-size: 13.5px; }
+  code.tk { background: var(--soft); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Council Report — 2026-05-15 Batch</h1>
+<div class="meta">Review date 2026-05-15 · Signal date 2026-05-14 · Risk-On regime · Tickers: WCC, JBHT, NVMI, WERN</div>
+
+<div class="callout">
+  <strong>Outcome / Base-Rate Context:</strong> Outcome data unavailable. The most recent learning cohort (W19) has T+5 not yet matured. All four verdicts are <em>playbook-only</em> and should be logged for future calibration.
+</div>
+
+<div class="warn">
+  <strong>Council self-calibration status:</strong> INSUFFICIENT_DATA. Resolved disagreements: 0/30. No reliability percentage reported. Self-calibration is context only and does not change verdicts.
+</div>
+
+<h2>Chairman Verdict</h2>
+
+<div class="verdict-card">
+  <span class="ticker">WCC</span>
+  <span class="verdict v-promote">PROMOTE</span>
+  <span class="conf">· confidence medium-high · A2 DELAYED_EP · NOT_BPLUS</span>
+  <div class="reason">
+    Limit-only at pause_high <strong>$371.67</strong>, stop <strong>$359.87</strong>, R:R 2.40 PASS. The Executor reframe wins: a resting GTC limit is a free option — fills on a flat/weak open, otherwise no trade and no harm. Do NOT chase a buy-stop above $374 (R:R drops to 1.84 and violates the 2.0 floor). Dual-trigger DEP (RECLAIM+TIGHT_BRK) fired, vol 1.62x PASS, A-grade Q1 beat 10 days fresh, best-in-batch fundamentals (comp 97, funds 887).
+  </div>
+</div>
+
+<div class="verdict-card">
+  <span class="ticker">JBHT</span>
+  <span class="verdict v-defer">DEFER</span>
+  <span class="conf">· confidence medium-high · B+ C1 SLINGSHOT</span>
+  <div class="reason">
+    Trucking-cluster follower vs WERN. Weakest sector vol (2.42x vs WERN 3.52x) + largest float (1789 funds) = sold-to-fund-the-leader risk. B-grade sector-theme catalyst thins the Day-2 promotion thesis. Operational form: keep a resting Day-2 limit at $247.79 <em>only if WERN does not fill</em>; cancel JBHT if WERN fills first.
+  </div>
+</div>
+
+<div class="verdict-card">
+  <span class="ticker">NVMI</span>
+  <span class="verdict v-defer">DEFER</span>
+  <span class="conf">· confidence high · B+ C1 SLINGSHOT</span>
+  <div class="reason">
+    1.26x vol is whisper-thin above the 1.2x floor on the single most important day of the catalyst — a tell, not a quibble. A −4.7% pullback after raised guide is the print being sold, not the setup confirming. +47.9% above 200SMA + new 52w high on a same-day earnings print = chase risk. Do not place a $530 limit tomorrow; require a fresh Day-2 signal.
+  </div>
+</div>
+
+<div class="verdict-card">
+  <span class="ticker">WERN</span>
+  <span class="verdict v-promote">PROMOTE</span>
+  <span class="conf">· confidence medium-high · B+ C1 SLINGSHOT · HALF SIZE</span>
+  <div class="reason">
+    Lead horse trucking. Vol 3.52x strongest in sector, +23.8% above 200SMA tightest extension, A-grade Apr 28 DEP-like Day-11. Limit BUY $36.86 only −0.78% from close = highest fill probability of the batch. Stop $34.10, recomputed R:R 2.0 PASS. <strong>HALF size</strong>; combined trucking exposure (with JBHT if it also fills) capped at 1.5R total.
+  </div>
+</div>
+
+<h2>The One Thing To Do First</h2>
+<div class="callout">
+  Place two GTC limits at the open: <strong>WERN $36.86 (half size)</strong> and <strong>WCC $371.67 (full size)</strong>. No NVMI order. JBHT $247.79 conditional on WERN not filling. No chase orders above today_high on any name.
+</div>
+
+<h2>Reasoning Paths Considered</h2>
+
+<div class="warn">
+  <strong>Note:</strong> These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration. The chairman weighs argument quality, not path counts.
+</div>
+
+<h3>Reasoning Path Convergence</h3>
+<ul>
+  <li><strong>JBHT:</strong> The Outsider, First Principles, Contrarian, Expansionist, and Executor paths each arrived at non-promote by different routes — Outsider via "redundant with WERN," First Principles via "JBHT+WERN is one bet not two," Contrarian via "weakest sector vol + largest float = sold to fund the leader," Expansionist via "follower not lead," Executor via "fill odds low, don't chase."</li>
+  <li><strong>NVMI:</strong> The Contrarian, Outsider, First Principles, and Executor paths each rejected the Day-2 pullback plan — Contrarian/Outsider via "1.26x vol is a tell," First Principles via "chasing post-earnings gap," Executor via "−4.7% required pullback after raised guide means the print got sold." Only the Expansionist path promoted.</li>
+  <li><strong>WERN:</strong> The First Principles, Expansionist, Outsider, and Executor paths each promoted on the Day-2 pullback path, by different routes: cleanest Slingshot / lead-horse regime call / real buyers showing up at 3.52x / −0.78% to fill is simplest mechanical trade. Only the Contrarian path deferred (correlation risk).</li>
+  <li><strong>Trucking-cluster framing:</strong> The Outsider, First Principles, Contrarian, and Executor paths each arrived at "JBHT and WERN are one trade, not two" by different routes.</li>
+</ul>
+
+<h3>Reasoning Path Divergence</h3>
+<ul>
+  <li><strong>WCC entry style</strong> split: Executor argued PROMOTE via limit at $371.67 ("no-fill = no-trade = free option"). First Principles argued PROMOTE via buy-stop at $374 ("pay 1.84 R:R to buy proof of strength, not hope"). Contrarian and Outsider argued DEFER ("worst of both worlds"). Expansionist argued PROMOTE on conviction ("hidden A2"). The Chairman went with the Executor's framing — a limit-only entry is a free option that captures the cleanest fill without violating the R:R floor.</li>
+  <li><strong>NVMI</strong>: The Expansionist path argued PROMOTE high ("A-grade reset day of signal, semi-equipment early-cycle, generational winners start with new 52w high on raised guidance"). Four other paths rejected, primarily because the Day-2 pullback to $530 requires a −4.7% give-back that gap-up names with raised guidance rarely deliver — if it gets there, the thesis is wounded.</li>
+</ul>
+
+<h3>Blind Spots the Reasoning Paths Caught</h3>
+<ul>
+  <li>The <strong>Expansionist's regime-bet framing</strong> was identified by every peer reviewer as the principal blind spot: stacking WERN + NVMI + WCC as "1 Risk-On regime bet" treats correlation as a feature when it was explicitly flagged as a risk.</li>
+  <li>The <strong>Outsider</strong> caught the curse-of-knowledge angle on WCC: a limit at $371.67 is BELOW the close $372.05 — an entry that reads as "hoping for a discount" rather than conviction. (The Executor reframed this as a free option.)</li>
+  <li>The <strong>Contrarian</strong> caught the inter-trucking microstructure: JBHT has the largest float (1789 funds) and weakest Day-1 vol (2.42x), making it the laggard sold to fund the leader (WERN).</li>
+  <li>The <strong>First Principles</strong> path caught the meta-issue: the Day-2 pullback rule itself is unstudied. Without an outcome study it may be "synthetic R:R rescue," not edge.</li>
+  <li><strong>All five paths missed</strong> (per peer reviews): (a) NVMI Q1 prints pre-open today — verdicts should be conditional on the open, not pre-decided; (b) 2026-05-15 is a Friday — weekend gap risk on fills; (c) total portfolio heat across all promotes was not aggregated; (d) WERN Day-11 staleness vs NVMI Day-0 freshness as a tradeoff was unaddressed.</li>
+</ul>
+
+<h2>Per-Ticker Reasoning Path Map</h2>
+<table>
+  <thead><tr><th>Ticker</th><th>Contrarian</th><th>First Principles</th><th>Expansionist</th><th>Outsider</th><th>Executor</th><th>Chairman</th></tr></thead>
+  <tbody>
+    <tr><td><strong>WCC</strong></td><td>defer mh</td><td>promote buy-stop ~60%</td><td>promote mh</td><td>defer ~70%</td><td>promote limit 75%</td><td class="v-promote">PROMOTE limit-only mh</td></tr>
+    <tr><td><strong>JBHT</strong></td><td>cancel mh</td><td>defer</td><td>defer m</td><td>cancel ~75%</td><td>defer 60%</td><td class="v-defer">DEFER mh</td></tr>
+    <tr><td><strong>NVMI</strong></td><td>defer high</td><td>defer</td><td>promote high</td><td>defer ~70%</td><td>cancel 80%</td><td class="v-defer">DEFER high</td></tr>
+    <tr><td><strong>WERN</strong></td><td>defer m</td><td>promote ~55%</td><td>promote high</td><td>promote ~65%</td><td>promote 80%</td><td class="v-promote">PROMOTE half-size mh</td></tr>
+  </tbody>
+</table>
+
+<h2>Advisor Responses (full text)</h2>
+
+<details><summary>The Contrarian</summary>
+<div class="body">
+<p><strong>WCC — DEFER, medium-high.</strong> The 0.10% close above pause_high is mechanically a "reclaim" but operationally a coin-flip — you're paying full price at the trigger with zero cushion, and a buy-stop above $374 collapses R:R to 1.84 which violates the 2.0 floor. The DEP RECLAIM is technically valid but the entry is the worst of both worlds — neither a real pullback nor a confirmed breakout.</p>
+<p><strong>JBHT — CANCEL, medium-high.</strong> This is the weakest of the trucking quartet on volume (2.42x vs WERN's 3.52x) yet carries the largest institutional float (funds 1789), meaning it's the most likely to be the laggard sold to fund the leader. Sector-concentration says you pick ONE trucker, and JBHT is not it; B-grade catalyst makes Day-2 promotion thin.</p>
+<p><strong>NVMI — DEFER, high.</strong> Volume at 1.26x is whisper-thin above floor on the single most important day of the catalyst — a tell, not a quibble. +10.4% on weak volume after a same-day earnings print with price already +47.9% above 200SMA means buying euphoria from a thin tape, and a pullback to $530 requires ~4.7% give-back gap-up names with raised guidance often refuse to deliver.</p>
+<p><strong>WERN — DEFER, medium.</strong> Strongest volume, tightest extension, freshest EP — genuinely best of the four — but $37 stock in a five-name sector cluster where one negative trucking print torches all correlated longs simultaneously; sizing must assume JBHT/KNX/SAIA/ARCB co-movement.</p>
+</div>
+</details>
+
+<details><summary>The First Principles Thinker</summary>
+<div class="body">
+<p><strong>Stop asking "is the R:R math passing?"</strong> Start asking "what is the Day-2 pullback PATH actually selecting for?" The V5.9 Day-2 pullback rule isn't an edge — it's a synthetic R:R rescue. Without that base rate, "Day-2 pullback PASS" is dressing up FOMO as discipline.</p>
+<p><strong>JBHT + WERN: ONE BET, NOT TWO.</strong> Pick WERN (A-grade earnings, tightest extension +23.8%, vol 3.52x). DEFER JBHT.</p>
+<p><strong>NVMI: DEFER.</strong> Q1 reported TODAY means chasing post-earnings gap on thin volume (1.26x) at +47.9% extension. "A-grade catalyst" is a reason for the move, not for YOUR entry.</p>
+<p><strong>WERN: PROMOTE (~55%).</strong> Cleanest Slingshot of four. Day-2 pullback acceptable BECAUSE underlying quality survives without the R:R rescue.</p>
+<p><strong>WCC: BUY-STOP above $374 PROMOTE (~60%).</strong> A RECLAIM that closes 0.10% above pause_high is statistically noise. The limit at $371.67 buys weakness on a thesis of confirmed strength. Pay 1.84 R:R to buy proof, not hope.</p>
+<p><em>Meta:</em> The Day-2 pullback path needs an outcome study before you trust it.</p>
+</div>
+</details>
+
+<details><summary>The Expansionist</summary>
+<div class="body">
+<p>The council is staring at a sector regime shift and 4 candidates that all cleared R:R. "Defer until pullback fills" is how you miss the run.</p>
+<p><strong>WCC — PROMOTE medium-high.</strong> Hidden A2 — dual-trigger DEP fired, comp 97, 887 funds, 86.2% close at reclaim = institutions defending.</p>
+<p><strong>JBHT — DEFER medium.</strong> The follower of the trucking concert, not the lead. Funds 1789 = easy money already in.</p>
+<p><strong>NVMI — PROMOTE high.</strong> Biggest miss if you defer. Record rev + raised Q2 + reaffirmed $1B 2027 = full A-grade reset day of signal. DTE 90 longest. Semi-equipment is early-cycle; you're buying a multi-quarter earnings ramp at hour zero. New 52w high on raised guidance is how generational winners start.</p>
+<p><strong>WERN — PROMOTE high.</strong> Lead horse trucking: vol 3.52x strongest, extension +23.8% tightest, A-grade DEP. Cyclical recovery + small-cap trucking + A-grade = regime-level call.</p>
+<p><strong>Upside thesis:</strong> WERN + NVMI + WCC = 1 Risk-On regime bet.</p>
+</div>
+</details>
+
+<details><summary>The Outsider</summary>
+<div class="body">
+<p>Two trucking stocks (JBHT + WERN) = 3 bets not 4. WCC's limit BELOW yesterday's close = hoping for a discount, not conviction. NVMI +10.4% on 1.26x vol (thin air) vs WERN +7.4% on 3.52x (real buyers). Stops 8-10% wide are large.</p>
+<ul>
+<li><strong>WCC — defer (70%):</strong> two-headed entry plan reads as indecision.</li>
+<li><strong>JBHT — cancel (75%):</strong> R:R 0.83 openly bad; redundant with WERN.</li>
+<li><strong>NVMI — defer (70%):</strong> weak volume + earnings dropping morning of decision = too many unknowns.</li>
+<li><strong>WERN — promote (65%):</strong> strongest volume, tightest extension, cleanest single trucking pick — Day-2 pullback only.</li>
+</ul>
+</div>
+</details>
+
+<details><summary>The Executor</summary>
+<div class="body">
+<p><strong>WCC — PROMOTE, 75%.</strong> GTC limit BUY $371.67, stop $359.87. Fills on flat/weak open. No fill = no trade, no harm done.</p>
+<p><strong>JBHT — DEFER, 60%.</strong> Working a limit at $247.79 = waiting for a −2.7% intraday flush. Place GTC as a resting bid but DO NOT chase above today_high. Fill odds low.</p>
+<p><strong>NVMI — CANCEL (for tomorrow), 80%.</strong> A −4.7% required pullback the day after Q1 earnings with raised guide means the print got sold — breaks the thesis. Don't put the order in.</p>
+<p><strong>WERN — PROMOTE, 80%.</strong> Limit BUY $36.86, stop $34.10, target $42.38. Only −0.78% from close = highest fill probability. Simplest mechanical trade.</p>
+<p><strong>Correlation:</strong> cap combined trucking at 1.5R; halve WERN if JBHT fills first. Monday open: WCC $371.67 full, WERN $36.86 full, JBHT $247.79 conditional, zero on NVMI.</p>
+</div>
+</details>
+
+<h2>Peer Review Highlights</h2>
+
+<details><summary>Strongest path</summary>
+<div class="body">
+<p>Most peer reviewers named <strong>the Executor path</strong> as the strongest — it's the only response that translates verdicts into executable mechanics (GTC limits, stops, fill-probability ranking) and imposes a portfolio-level correlation cap (1.5R combined trucking, halve WERN if JBHT fills first).</p>
+<p>One peer reviewer instead named <strong>the Contrarian path</strong> for forensic work on volume/float/grade data and the "sold to fund the leader" coupling.</p>
+</div>
+</details>
+
+<details><summary>Biggest blind spot</summary>
+<div class="body">
+<p>All 5 peer reviewers named <strong>the Expansionist path</strong> as the principal blind spot: stacking WERN + NVMI + WCC as "1 Risk-On regime bet" treats correlation as a feature when concentration was explicitly flagged as a risk, and the "generational winners start with raised guidance" framing is a narrative claim with no base-rate support.</p>
+</div>
+</details>
+
+<details><summary>Outcome / base-rate honesty</summary>
+<div class="body">
+<p>The First Principles path was the most honest about the missing base rate, naming the Day-2 pullback rule as "synthetic R:R rescue without outcome study" rather than papering over the gap. The Expansionist overfit narrative ("hidden A2," "generational winner"). Contrarian, Outsider, and Executor paths stayed appropriately playbook-bounded.</p>
+</div>
+</details>
+
+<details><summary>What all 5 paths missed</summary>
+<div class="body">
+<ul>
+<li><strong>Sequencing / timing risk:</strong> NVMI Q1 prints pre-open today — its signal is unresolved at decision time, which should gate the WERN trucking-cluster decision (NVMI miss likely drags trucks).</li>
+<li><strong>Friday weekend gap risk</strong> on any fills on 2026-05-15.</li>
+<li><strong>Total portfolio heat</strong> across all promotes was not aggregated; Executor's 1.5R trucking cap ignores WCC+WERN stacking.</li>
+<li><strong>WERN Day-11 staleness vs NVMI Day-0 freshness</strong> as a tradeoff was never explicitly compared.</li>
+<li><strong>Fill-path conditionality:</strong> what cancels the WCC limit if NVMI gaps down pre-open and drags the tape.</li>
+</ul>
+</div>
+</details>
+
+<footer>
+  Generated 2026-05-15 · LLM Council V1.1 · Verdicts are playbook-only (outcome data unavailable). Self-calibration: INSUFFICIENT_DATA (0/30). No reliability percentage reported. Outcome data does not override hard rejects; only the Bonde actionability skill can change hard rules.
+</footer>
+
+</div>
+</body>
+</html>
