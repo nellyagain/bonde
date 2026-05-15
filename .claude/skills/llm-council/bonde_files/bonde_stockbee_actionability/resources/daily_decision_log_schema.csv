@@ -1,0 +1,26 @@
+column,description,format_rule
+signal_date,"YYYY-MM-DD date of the bar/signal being reviewed. Must equal candidate's last_bar_date from skill pack. For stale carryover rows this is the SIGNAL date, NOT pack_date.",ISO date YYYY-MM-DD
+review_date,YYYY-MM-DD date Claude generated the review/decision log. Today's date for live reviews.,ISO date YYYY-MM-DD
+pack_date,"YYYY-MM-DD skill-pack report date. Must equal the pack_date field of the uploaded bonde_skill_pack_*.csv. Blank if no skill pack was uploaded.",ISO date YYYY-MM-DD or blank
+ticker,Ticker symbol uppercase,quoted text
+focus_rank,Numeric Focus List rank if available,integer or blank
+tier,TAKE/WATCH/PASS/UNKNOWN from dashboard or source file,quoted text
+setups,"Setup stack as compact codes, e.g. EP+MB+LF+9M",quoted text
+primary_setup,"Primary setup family used for review",quoted text
+action_label,A1/A2/B+/B/C/D/UNKNOWN,quoted text
+catalyst_type,Earnings/Guidance/FDA/Contract/Upgrade/Sympathy/Deal/Offering/None/Unknown/etc.,quoted text
+catalyst_grade,A/B/C/D/UNKNOWN,quoted text
+catalyst_confidence,0-100,number only or blank
+neglect_score,0-5,number only or blank
+market_mode,Risk-on/Mixed/Defensive/Unknown,quoted text
+trigger_price,Entry trigger or alert price,number only or blank
+invalidation_price,Invalidation/stop reference price,number only or blank
+planned_size,full/half/quarter/none/unknown,quoted text
+analysis_confidence,0-100,number only or blank
+decision_reason,Concise reason for action label,quoted text; escape internal quotes; commas allowed only inside quotes
+what_would_prove_wrong,Falsifier / invalidation of thesis,quoted text; escape internal quotes; commas allowed only inside quotes
+learned_pattern_matches,"Active learned pattern IDs applied, semicolon separated",quoted text
+day1_close_pct_in_range,"Day-1 close location in daily range; pass-through integrity field",number 0-100 or blank
+day1_move_pct,"Day-1 percentage move; pass-through integrity field",number or blank
+day1_vol_ratio,"Day-1 volume ratio; pass-through integrity field",number or blank
+final_trade_status,"V5.9.19 final executable decision status. This is the only field humans or automation may treat as trade permission. Dashboard tier is source focus tier only and must not override this field.",TRADE/COUNCIL/WATCH/REJECT/UNKNOWN
