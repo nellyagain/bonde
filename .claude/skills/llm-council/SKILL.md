@@ -2,9 +2,11 @@
 name: llm-council
 description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, chairman verdict, optional Bonde outcome overlay, and structured trading council outcomes. Use for council this, run the council, pressure-test this, or meaningful tradeoffs. For Bonde trading councils, produce report, transcript, and council_outcomes CSV for learning-loop ingestion.
 ---
-**Version: V1.1** (2026-05-13)
+**Version: V1.2** (2026-05-15)
 
 **Changelog**
+
+- **V1.2 (2026-05-15)** — Context Audit + V5.9.19 Bonde Compatibility + Execution-Safety Guardrails. Adds mandatory `Context Files Loaded` audit section for Bonde/trading council runs; explicitly treats `final_trade_status` as the executable field and `tier` as source/dashboard focus tier only; adds Friday/weekend order-duration guardrail; requires portfolio heat aggregation for promoted candidates; tightens sector-correlation hygiene by separating direct sector exposure from broad risk-appetite exposure; adds Day-2 pullback rescue/base-rate warning when entry is lowered mainly to satisfy R:R. **No changes to V1.1 artifact names, CSV schemas, PROMOTE/DEFER/CANCEL verdict schema, disagreement tracker schema, or self-calibration scaffold.**
 
 - **V1.1 (2026-05-13)** — Reasoning Path Framing + Disagreement Tracker + Self-Calibration Scaffold. Replaced advisor "vote" language with "Reasoning Paths Considered" framing throughout. Renamed report sections "Where the Council Agrees / Clashes" to "Reasoning Path Convergence / Divergence" to clarify that multi-perspective output from one model is not statistical corroboration. Added `council_disagreements_YYYY-MM-DD.csv` output (computes `actionability_council_disagreement` at council-run time; `user_council_disagreement` starts PENDING for learning-loop resolution). Added `council_self_calibration_summary_YYYY-MM-DD.csv` output with strict 30/10 thresholds — no reliability percentages reported below threshold. **No council verdict rule changes. No trading rule changes.** Outputs follow the existing path convention (workspace + `bonde_screener_cache/council_queues/` for Bonde councils). The disagreement tracker honors the no-manual-process constraint: Kevin logs nothing by hand.
 - **V1.0** — Initial skill: 5-advisor multi-perspective council, anonymous peer review, chairman verdict, optional Bonde outcome overlay, structured `council_outcomes_YYYY-MM-DD.csv` output.
@@ -58,8 +60,16 @@ Any files the user explicitly referenced or attached
 Recent council transcripts in this folder (to avoid re-counciling the same ground)
 Any other context files that seem relevant to the specific question (e.g., if they're asking about pricing, look for revenue data, past launch results, audience research)
 
-For Bonde/trading/B+ council questions, also look for outcome/base-rate context if available:
+For Bonde/trading/B+ council questions, also look for outcome/base-rate and current-context files if available:
 
+bonde_files/README_BONDE_FILES.md, if present
+bonde_files/current/council_queue_*.csv
+bonde_files/current/daily_decision_log_*.csv
+bonde_files/current/bonde_skill_pack_*.csv
+bonde_files/active_context/council_context_manifest.md
+bonde_files/active_context/latest_candidate_context.md
+bonde_files/active_context/latest_learning_context.md
+bonde_files/playbook/bonde_stockbee_actionability/SKILL.md
 skill_pack_performance_report_v410.md or similar
 weekly_learning_report_*.md
 reviewed_vs_unreviewed_summary*.csv
@@ -67,6 +77,8 @@ bplus_council_outcome_summary*.csv
 council_queue_*.csv
 prior council-report-*.html or council-transcript-*.md
 skill_pack_ticker_outcomes_enriched*.csv or decision/outcome summaries
+
+For Bonde/trading council runs, record exactly which context files were found and used. The report and transcript must include a `Context Files Loaded` section. Missing optional context files are allowed, but missing current candidate files or missing current council queue/decision log context must be stated clearly.
 
 Use Glob and quick Read calls to find these. Don't spend more than 30 seconds on this. You're looking for the 2-3 files that would give advisors the context they need to give specific, grounded advice instead of generic takes.
 
@@ -94,6 +106,88 @@ What's at stake (why this decision matters)
 Don't add your own opinion. Don't steer it. But DO make sure each advisor has enough context to give a specific, grounded answer rather than generic advice.
 If the question is too vague ("council this: my business"), ask one clarifying question. Just one. Then proceed.
 Save the framed question and outcome/base-rate context for the transcript.
+
+step 1.2: Bonde V5.9.19 context and execution-safety normalization
+
+For Bonde/trading council runs, normalize the current context before advisors evaluate candidates.
+
+A. Context files loaded audit
+
+Create a `Context Files Loaded` audit list with these fields per file:
+
+- `file_role` — e.g., council_queue, daily_decision_log, skill_pack, candidate_context, learning_context, manifest, actionability_skill, prior_council.
+- `path` — actual path used.
+- `status` — LOADED, MISSING_OPTIONAL, MISSING_REQUIRED, or STALE.
+- `notes` — version/date caveats.
+
+The audit must appear in the HTML report and markdown transcript. For Bonde runs, the chairman must not merely imply context. It must state what was loaded.
+
+Required or strongly expected Bonde files:
+
+- `council_queue_*.csv` for candidates routed to council.
+- `daily_decision_log_*.csv` when available, especially for `final_trade_status`.
+- `bonde_skill_pack_*.csv` when available, for source signal evidence.
+- `latest_candidate_context.md` and `latest_learning_context.md` when the repo context manager is used.
+- `council_context_manifest.md` when present.
+- `bonde_stockbee_actionability/SKILL.md` or equivalent current actionability skill. If missing, state that the council is operating from the candidate packet and embedded playbook rules, not a fully auditable skill package.
+
+Optional context files such as `latest_market_context.md`, `latest_regime_context.md`, `latest_accountability_context.md`, and `latest_skill_context.md` are not required unless the current repo manifest explicitly requires them.
+
+B. V5.9.19 decision-field semantics
+
+For Bonde V5.9.19 and later:
+
+- `final_trade_status` is the executable field.
+- `tier` is source/dashboard focus tier only.
+- `tier=TAKE` does not mean trade authorization.
+- Plain `B` is watch-only unless explicitly routed to council.
+- `B+` / `C1` / `C2` / `C3` / `final_trade_status=COUNCIL` means the candidate is a judgment-review candidate, not an automatic trade.
+- If `final_trade_status` is unavailable because the log is pre-V5.9.19, state that the council is using backward-compatible action-label inference.
+
+Do not promote a candidate solely because `tier=TAKE`. The chairman must reference the actual actionable field or its fallback.
+
+C. Friday / weekend exposure guardrail
+
+If the review date is Friday, or the next market session is separated by a weekend or holiday gap:
+
+- Do not casually recommend open-ended GTC orders.
+- Default to DAY orders or cancel-before-close instructions unless the user explicitly accepts overnight/weekend exposure.
+- If GTC is still recommended, state why the weekend/holiday exposure is intentional and how the order should be canceled or resized if conditions change.
+- Include weekend gap risk in the execution section for any promoted candidate.
+
+D. Portfolio heat aggregation
+
+For every Bonde/trading chairman synthesis with one or more PROMOTE verdicts, include a `Portfolio Heat` subsection stating:
+
+- proposed risk per promoted ticker when available;
+- total proposed R if all promoted entries fill;
+- sector/theme overlap;
+- maximum correlated exposure;
+- which order fills cancel or resize other orders;
+- what market/candidate event invalidates the basket.
+
+If exact account-risk numbers are unavailable, use qualitative heat labels and explicitly say that exact account-risk sizing was unavailable.
+
+E. Sector-correlation hygiene
+
+Separate direct sector/industry correlation from broad risk-appetite correlation.
+
+- Direct sector correlation: same industry/theme, e.g., JBHT/WERN trucking.
+- Broad risk-appetite correlation: unrelated growth/cyclical names that may move together during risk-on/risk-off tape.
+- Do not claim one unrelated ticker directly gates another unrelated industry unless the linkage is explicit and defensible.
+- If a ticker only affects the broader tape, say "broad risk-appetite read-through," not direct sector correlation.
+
+F. Day-2 pullback rescue warning
+
+If a candidate becomes valid mainly because the entry is lowered until R:R passes, label it as `Day-2 pullback rescue`.
+
+For such candidates:
+
+- State whether mature base-rate data exists for that rescue path.
+- If no mature base-rate exists, verdict is playbook-only.
+- Do not describe R:R rescue as proven edge.
+- Require clean thesis preservation: if the pullback needed to satisfy R:R would also damage the catalyst/setup thesis, prefer DEFER or CANCEL.
+
 step 2: convene the council (5 sub-agents in parallel)
 Spawn all 5 advisors simultaneously as sub-agents. Each gets:
 
@@ -124,7 +218,7 @@ Respond from your perspective. Be direct and specific. Don't hedge or try to be 
 
 If outcome/base-rate context is available, use it explicitly. If it is unavailable, state that your view is playbook-only and should be logged for calibration. Do not use weak or immature outcome data to justify breaking hard rules.
 
-For Bonde/trading questions, include one of: promote / defer / cancel, plus confidence and whether the verdict is evidence-backed or playbook-only.
+For Bonde/trading questions, include one of: promote / defer / cancel, plus confidence and whether the verdict is evidence-backed or playbook-only. Respect V5.9.19 semantics: `final_trade_status` is executable, `tier` is not. If a Day-2 pullback only works because entry was lowered to rescue R:R, call that out explicitly. If review timing creates Friday/weekend/holiday gap risk, include that execution risk.
 
 Keep your response between 150-300 words. No preamble. Go straight into your analysis.
 step 3: peer review (5 sub-agents in parallel)
@@ -250,6 +344,11 @@ PEER REVIEWS:
 Produce the council verdict using this exact structure:
 
 
+## Context Files Loaded
+
+[For Bonde/trading runs, list the concrete files used with role, path, and status. Include council_queue, daily_decision_log, skill_pack, active context files, manifest, actionability skill, and prior council/outcome files when present. State missing optional files as optional; state missing required/current files as limitations. For non-Bonde questions, write N/A unless context files were used.]
+
+
 ## Council self-calibration status
 
 [State the self-calibration status from the most recent `council_self_calibration_summary_YYYY-MM-DD.csv` if available. One of: `UNAVAILABLE` (no history file), `INSUFFICIENT_DATA` (fewer than 30 resolved disagreements), `BUILDING_SAMPLE` (≥30 total but slice thresholds not met), `CALIBRATED` (thresholds met). If CALIBRATED, state aggregate council accuracy with sample size. If not CALIBRATED, state "no reliability percentage reported." See step 7.7 for thresholds. Self-calibration is context only and does NOT change verdicts.]
@@ -279,7 +378,12 @@ Produce the council verdict using this exact structure:
 
 ## Chairman Synthesis
 
-[The Chairman weighs the reasoning paths against each other and produces ONE verdict. The Chairman is not bound by which path "won" — a single dissenting path may carry the verdict if its reasoning is strongest. State explicitly which paths were weighted and why. Example: "The Chairman weighted the Contrarian path's risk framing against the Expansionist path's upside argument and concluded DEFER because the immediate execution geometry does not yet exist." For Bonde/trading candidates, state promote / defer / cancel, confidence, and whether the recommendation is evidence-backed or playbook-only.]
+[The Chairman weighs the reasoning paths against each other and produces ONE verdict. The Chairman is not bound by which path "won" — a single dissenting path may carry the verdict if its reasoning is strongest. State explicitly which paths were weighted and why. Example: "The Chairman weighted the Contrarian path's risk framing against the Expansionist path's upside argument and concluded DEFER because the immediate execution geometry does not yet exist." For Bonde/trading candidates, state promote / defer / cancel, confidence, and whether the recommendation is evidence-backed or playbook-only. Apply V5.9.19 semantics: `final_trade_status` is executable, `tier` is not. If the decision relies on backward-compatible inference because `final_trade_status` is missing, say so.]
+
+
+## Portfolio Heat
+
+[For Bonde/trading runs with any PROMOTE verdict, state proposed risk per promoted ticker if available, total proposed R if all entries fill, sector/theme overlap, maximum correlated exposure, order-cancel/resize dependencies, and what invalidates the basket. If no PROMOTE verdicts, write "No promoted exposure." If exact account risk is unavailable, say so and use qualitative heat labels.]
 
 
 ## The One Thing to Do First
@@ -302,7 +406,9 @@ The report should be a single self-contained HTML file with inline CSS. Clean de
 
 The question at the top
 The outcome/base-rate context prominently displayed when relevant
+For Bonde/trading runs, a `Context Files Loaded` section showing concrete file roles, paths, and status
 The chairman's verdict prominently displayed (this is what most people will read)
+For Bonde/trading runs with promoted candidates, a `Portfolio Heat` section showing risk, correlation, order dependencies, and weekend/holiday guardrails when relevant
 A "Reasoning Paths Considered" visual — a clean breakdown showing how each reasoning path framed the question and what conclusion it reached. NOT a vote tally. NOT an "agreement matrix" as statistical corroboration. Frame as "Convergence and Divergence of Reasoning Paths" or similar. Include the explicit disclaimer near the visual: "These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration." Keep it clean and scannable. The visual MUST NOT use "vote", "4 of 5", or similar language anywhere in its labels or annotations.
 Collapsible sections for each advisor's full response (collapsed by default so the page isn't overwhelming, but available if the user wants to dig in)
 Collapsible section for the peer review highlights
@@ -315,10 +421,12 @@ Save the complete council transcript as council-transcript-[timestamp].md in the
 
 The original question
 The framed question
+The context files loaded audit for Bonde/trading runs
 The outcome/base-rate context used or the statement that no outcome data was available
 All 5 advisor responses
 All 5 peer reviews (with anonymization mapping revealed)
 The chairman's full synthesis
+The portfolio heat section for Bonde/trading runs with promoted exposure
 
 This transcript is the artifact. If the user wants to run the council again on the same question after making changes, having the previous transcript lets them (or a future agent) see how the thinking evolved.
 
@@ -569,6 +677,17 @@ C1 = wide Day-1 range / static EOD R:R floor fail
 C2 = DTE / pre-earnings tactical setup
 C3 = mild extension or Day-2 confirmation requirement
 
+V5.9.19 actionability compatibility:
+
+- `final_trade_status` is the executable field when present.
+- `tier` is source/dashboard focus tier only.
+- `tier=TAKE` is not a trade signal.
+- `final_trade_status=TRADE` means the actionability skill views it as executable, still subject to council/risk review if routed.
+- `final_trade_status=COUNCIL` means judgment review is required before execution.
+- `final_trade_status=WATCH` means review/watch only unless a later fresh signal changes the status.
+- `final_trade_status=REJECT` means no trade unless the main Bonde actionability skill has formally changed the rule.
+- If `final_trade_status` is missing, state that the council is using legacy action-label fallback.
+
 Before the reasoning paths evaluate the candidates, state whether historical outcome data exists for the same setup_family, same B+ blocker type, or prior council verdict type. Use outcome data only if it is mature enough to be meaningful. Immature cohorts are monitoring-only.
 
 For every B+ candidate, the final verdict must include:
@@ -585,8 +704,16 @@ Hard rule: outcome data is an overlay, not a loophole. The council cannot use ou
 
 If outcome data is unavailable, the council must say: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."
 
+Execution-safety guardrails for Bonde/trading runs:
 
-For Bonde/trading council runs, the final response must explicitly list where the five artifacts were written:
+- Friday/weekend/holiday guardrail: use DAY orders or cancel-before-close by default. Do not recommend open-ended GTC orders across a weekend/holiday unless intentional and explicitly justified.
+- Portfolio heat: when promoting more than one candidate, aggregate total risk and correlated exposure. If exact account-risk data is unavailable, state that and still provide qualitative heat.
+- Order dependency: state which order fills cancel, reduce, or condition other orders.
+- Sector-correlation hygiene: separate same-sector exposure from broad risk-appetite exposure. Do not claim unrelated sectors directly gate each other unless the linkage is explicit.
+- Day-2 pullback rescue: if R:R passes only after lowering entry, label the setup as Day-2 pullback rescue and state whether base-rate evidence exists. If the pullback that creates R:R would also damage the thesis, prefer DEFER or CANCEL.
+
+
+For Bonde/trading council runs, the final response must explicitly list where the five artifacts were written and state whether the report included the `Context Files Loaded` and `Portfolio Heat` sections:
 - council-report-[timestamp].html
 - council-transcript-[timestamp].md
 - council_outcomes_YYYY-MM-DD.csv
@@ -645,6 +772,19 @@ The following tests apply to every Bonde/trading council run. Any failure must b
 26. No actionability skill outputs are affected by this patch.
 27. The final response lists all five Bonde artifacts (report, transcript, outcomes, disagreements, calibration).
 
+**V1.2 context/execution-safety tests:**
+
+28. For Bonde/trading runs, the HTML report contains the exact section header `Context Files Loaded`.
+29. For Bonde/trading runs, the markdown transcript contains the context files loaded audit.
+30. If `daily_decision_log_*.csv` contains `final_trade_status`, the report treats `final_trade_status` as executable and does not treat `tier=TAKE` as trade authorization.
+31. If `final_trade_status` is missing, the report states that it is using legacy action-label fallback.
+32. If any candidate is promoted on a Friday or before a weekend/holiday gap, the report includes an order-duration guardrail: DAY order, cancel-before-close, or explicit justification for GTC.
+33. If more than one candidate is promoted, the report contains a `Portfolio Heat` section with total exposure and correlation notes.
+34. If promoted candidates share direct sector/theme exposure, the report states the maximum correlated exposure and any cancel/resize dependency.
+35. The report does not claim direct sector correlation between unrelated industries unless the linkage is explicit. Broad tape linkage must be labeled as broad risk-appetite read-through.
+36. If a Day-2 entry becomes valid mainly by lowering entry until R:R passes, the report labels it as `Day-2 pullback rescue` and states whether mature base-rate data exists.
+37. Existing V1.1 schemas remain unchanged: council_outcomes has 11 columns, council_disagreements has 22 columns, and council_self_calibration_summary has 13 columns.
+
 If any test fails, fix it before reporting the run complete.
 
 
@@ -653,5 +793,6 @@ important notes
 Always spawn all 5 advisors in parallel. Sequential spawning wastes time and lets earlier responses bleed into later ones.
 Always anonymize for peer review. If reviewers know which advisor said what, they'll defer to certain thinking styles instead of evaluating on merit.
 The chairman is not bound by reasoning-path convergence. If four reasoning paths reach the same conclusion but the fifth path's argument is strongest, the chairman sides with the strongest argument and explains why. The reasoning paths are not votes; the chairman weighs argument quality, not path counts.
+For Bonde/trading runs, the chairman must distinguish direct sector correlation from broad risk-appetite correlation. Do not let a broad market concern masquerade as a direct industry linkage.
 Don't council trivial questions. If the user asks something with one right answer, just answer it. The council is for genuine uncertainty where multiple perspectives add value.
 The visual report matters. Most users will scan the report, not read the full transcript. Make the HTML output clean and scannable.
