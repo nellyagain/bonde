@@ -29,15 +29,27 @@ Use this package as the current council context bundle. Do not scan stale root-l
 ## Learning/reference files
 
 - `actionability_performance_summary_v410.csv` — LOADED
+- `active_burst_gate6_observational_watchlist_latest.md` — LOADED
+- `active_burst_gate6_observational_watchlist_v41329.csv` — LOADED
+- `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
 - `bonde_learned_patterns.md` — LOADED
+- `broker_export_normalization_audit_latest.md` — LOADED
 - `catalyst_x_family_summary_v410.csv` — LOADED
 - `council_disagreements_resolved.csv` — LOADED
 - `council_resolver_report_2026-05-16.md` — LOADED
 - `daily_learning_report_2026-05-16.md` — LOADED
 - `day1_shape_coverage_v413.csv` — LOADED
 - `day1_shape_verdicts_v413.csv` — LOADED
+- `hypothesis_tracker_latest.md` — LOADED
+- `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
+- `learning_loop_executive_digest_2026-05-16.md` — LOADED
 - `learning_loop_executive_digest_latest.md` — LOADED
+- `realized_pnl_attribution_2026-05-16.md` — LOADED
+- `realized_pnl_attribution_latest.md` — LOADED
+- `realized_pnl_attribution_summary_v41330.csv` — LOADED
+- `realized_trades_master_v41330.csv` — LOADED
+- `realized_trades_template.csv` — LOADED
 - `rr_target_audit_report_v410.md` — LOADED
 - `rr_target_audit_v410.csv` — LOADED
 - `setup_family_performance_summary_v410.csv` — LOADED
@@ -61,3 +73,4 @@ SPIR, WRBY
 4. Sugar Babies may raise review priority or confidence framing, but must not override R:R, DTE, hard rejects, failed EP, bag-holder, dilution/offering, data-quality, or `final_trade_status`.
 5. If outcome/base-rate evidence is immature, state that verdicts are playbook-only and should be logged for calibration.
 6. If candidates are promoted, include Portfolio Heat and order-duration guardrails.
+7. `learning/learning_loop_executive_digest_latest.md` is the primary human-readable summary of latest learning-loop findings and caveats.
