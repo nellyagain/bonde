@@ -4,25 +4,7 @@ Parser version: **v4.13.34**
 
 ## Source hygiene
 - Broker source scan is limited to `bonde_learning/_inbox/` only.
-- Stale generated broker CSVs removed before this run: **17**
-- Removed generated files include:
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/broker_export_normalized_trades_v41332.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/broker_export_normalized_trades_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_latest/bonde_files 3/learning/broker_export_normalized_trades_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_2026-05-16/bonde_files 3/learning/broker_export_normalized_trades_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_trades_master_v41330.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_trades_master_v41332.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_trades_master_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_latest/bonde_files 3/learning/realized_trades_master_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_2026-05-16/bonde_files 3/learning/realized_trades_master_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_pnl_attribution_summary_v41330.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_pnl_attribution_summary_v41332.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_pnl_attribution_summary_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_latest/bonde_files 3/learning/realized_pnl_attribution_summary_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_2026-05-16/bonde_files 3/learning/realized_pnl_attribution_summary_v41331.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/realized_trades_template.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_latest/bonde_files 3/learning/realized_trades_template.csv`
-  - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_ready_bundle_2026-05-16/bonde_files 3/learning/realized_trades_template.csv`
+- Stale generated broker CSVs removed before this run: **0**
 
 ## Source files scanned
 | file                                                                    |   rows_loaded | status   |
