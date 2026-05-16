@@ -62,7 +62,13 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `slingshot_diagnostics_report_v41314.md` — LOADED
 - `slingshot_evaluability_audit_latest.csv` — LOADED
 - `slingshot_evaluability_audit_latest.md` — LOADED
+- `slingshot_evaluability_enhanced_latest.csv` — LOADED
+- `slingshot_evaluability_scope_summary_latest.csv` — LOADED
+- `slingshot_evaluability_setup_family_summary_latest.csv` — LOADED
+- `slingshot_evaluability_signal_date_summary_latest.csv` — LOADED
+- `slingshot_evaluability_stage_summary_latest.csv` — LOADED
 - `slingshot_evaluability_summary_latest.csv` — LOADED
+- `slingshot_scope_price_diagnostics_latest.md` — LOADED
 - `sugar_babies_overlay_report_v410.md` — LOADED
 - `sugar_babies_overlay_summary_v410.csv` — LOADED
 - `weekly_cohort_summary_v410.csv` — LOADED
