@@ -1,7 +1,7 @@
 scope,primary_setup,field,n_total,n_populated,coverage_pct,status
-ALL_ROWS_INFO_ONLY,(all),day1_close_pct_in_range,1226,58,4.7,INFO_LEGACY_MIXED_SCHEMA
-ALL_ROWS_INFO_ONLY,(all),day1_move_pct,1226,58,4.7,INFO_LEGACY_MIXED_SCHEMA
-ALL_ROWS_INFO_ONLY,(all),day1_vol_ratio,1226,58,4.7,INFO_LEGACY_MIXED_SCHEMA
+ALL_ROWS_INFO_ONLY,(all),day1_close_pct_in_range,729,58,8.0,INFO_LEGACY_MIXED_SCHEMA
+ALL_ROWS_INFO_ONLY,(all),day1_move_pct,729,58,8.0,INFO_LEGACY_MIXED_SCHEMA
+ALL_ROWS_INFO_ONLY,(all),day1_vol_ratio,729,58,8.0,INFO_LEGACY_MIXED_SCHEMA
 SOURCE_CAPABLE,(source-capable),day1_close_pct_in_range,58,58,100.0,OK
 SOURCE_CAPABLE,(source-capable),day1_move_pct,58,58,100.0,OK
 SOURCE_CAPABLE,(source-capable),day1_vol_ratio,58,58,100.0,OK
