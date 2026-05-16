@@ -41,12 +41,12 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `daily_learning_report_2026-05-16.md` — LOADED
 - `day1_shape_coverage_v413.csv` — LOADED
 - `day1_shape_verdicts_v413.csv` — LOADED
+- `hypothesis_tracker_2026-05-16.md` — LOADED
 - `hypothesis_tracker_latest.md` — LOADED
 - `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
 - `learning_loop_executive_digest_2026-05-16.md` — LOADED
 - `learning_loop_executive_digest_latest.md` — LOADED
-- `realized_pnl_attribution_2026-05-16.md` — LOADED
 - `realized_pnl_attribution_latest.md` — LOADED
 - `realized_pnl_attribution_summary_v41331.csv` — LOADED
 - `realized_trades_master_v41331.csv` — LOADED
