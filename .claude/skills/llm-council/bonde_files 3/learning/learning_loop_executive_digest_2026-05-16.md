@@ -22,14 +22,25 @@ _Primary review artifact. Use the underlying CSVs only when a specific number ne
 | COUNCIL              |      2 |
 | REJECT               |      1 |
 
+### Corpus reconciliation
+- Candidate decision-log files discovered: **8**
+- Included decision-log files: **7**
+- Excluded decision-log files: **1** (1 duplicate/lower-score files)
+- Raw included rows → normalized rows → master rows: **753 → 753 → 729**
+- Rows removed by final master de-duplication: **24**
+- EP9M setup-family rows raw included → master: **0 → 0**
+- File-level audit: `decision_log_discovery_audit_latest.md`
+- Scope note: row-count drift versus prior digests should be interpreted through the file-level audit before drawing setup-performance conclusions.
 
 ## 2. Executive interpretation
 Current loop status: **operationally healthy, evidence still immature**. This digest is monitoring context, not rule-change permission.
-1. Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=995 vs 613). This is currently the stronger candidate for a future ranking overlay than EP9M, but still needs out-of-sample/weekly validation.
+1. Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=996 vs 613). This is currently the stronger candidate for a future ranking overlay than EP9M, but still needs out-of-sample/weekly validation.
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
 3. Post-2026-05-15 rows have zero TRADE rows (n=35). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.
 4. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable. Post-V5.9.19 rows have zero TRADE rows. Confirm whether clean A1/A2 rows are being over-routed to COUNCIL/WATCH.
-5. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
+5. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 1 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
+6. Corpus reconciliation is now active: 1 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
+7. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
 ## 3. Key findings from current data
 ### Setup-family summary
@@ -96,13 +107,17 @@ Purpose: check whether the actionability layer is producing true executable cand
 - If A1 remains absent post-V5.9.19, test whether criteria are intentionally rare or unreachable.
 
 ## 5. EP9M overlay
-- EP9M setup-family row unavailable in the current summaries.
+- EP9M setup-family row unavailable in the current setup-family summary.
+- Corpus audit EP9M setup-family rows raw → normalized → master: **0 → 0 → 0**.
+- Corpus audit EP9M context rows in master: **143**.
+- Interpretation: EP9M did not enter the current decision-log corpus as a setup-family row. If a prior digest showed EP9M, inspect `decision_log_discovery_audit_latest.md` for excluded files or changed source scope.
 
 ## 6. Action-label / reject-vs-watch inversion watchlist
 Lower-quality labels outperforming higher-quality labels within the same family are investigation triggers, not rule-change evidence.
 | setup_family   | higher_label   |   higher_n_eval |   higher_avg_5d |   higher_wr_5d | lower_label   |   lower_n_eval |   lower_avg_5d |   lower_wr_5d |   avg_gap_lower_minus_higher |
 |:---------------|:---------------|----------------:|----------------:|---------------:|:--------------|---------------:|---------------:|--------------:|-----------------------------:|
-| ACTIVE_BURST   | C              |              26 |        -4.09441 |        30.7692 | D             |             37 |       -1.08773 |       37.8378 |                      3.00668 |
+| PAUSE          | B              |              20 |       -0.301985 |       nan      | C             |             18 |        2.77643 |      nan      |                      3.07841 |
+| ACTIVE_BURST   | C              |              26 |       -4.09441  |        30.7692 | D             |             37 |       -1.08773 |       37.8378 |                      3.00668 |
 
 Potential explanations to test: 5-day window too short, extension/streak gate rejecting legitimate continuation, or backward-looking quality labels over-penalizing names already working.
 
@@ -120,14 +135,13 @@ These are pre-registered monitoring slots, not a roadmap and not rule-change per
 
 ## 8. ACTIVE_BURST Gate-6 Observational Watchlist
 Rows in this section remain `REJECT` in the decision log. This is an observational research/watchlist section only; it does not alter `final_trade_status`, action labels, ranking, R:R, or hard-reject behavior.
-- Observational watchlist rows: **1**
+- Full shadow candidates: **1**
+- Tradeability-review watchlist rows: **0**
+- Context-only rows excluded for missing trigger/invalidation: **1**
 - Output file: `active_burst_gate6_observational_watchlist_latest.md`
 - Source shadow CSV: `active_burst_gate6_shadow_candidates_v41328.csv`
 - Required manual check: only consider these for live attention if they have a defensible trigger, invalidation, R:R, liquidity, DTE safety, and no hard reject.
-| signal_date   | date       | ticker   | setup_family   | primary_setup   | action_label   | final_trade_status   |   trigger_price |   invalidation_price |   ret_5d_close_pct |
-|:--------------|:-----------|:---------|:---------------|:----------------|:---------------|:---------------------|----------------:|---------------------:|-------------------:|
-| 2026-04-27    | 2026-04-27 | PENG     | ACTIVE_BURST   | lowfloat        | D              | REJECT               |             nan |                  nan |            11.5318 |
-
+_No tradeability-review rows found. Shadow candidates exist, but they are context-only because trigger and/or invalidation is missing._
 
 ## 9. Council resolver status
 - Council/disagreement resolver rows: **2**
@@ -191,14 +205,14 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 
 ## 12. Sugar Babies overlay
 - Status: **monitoring-only context overlay, not a trade signal.**
-- Current read: Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=995 vs 613).
+- Current read: Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=996 vs 613).
 - Interpretation: Sugar Babies currently has broader sample support than EP9M for a future `ranking_context_score` contribution, but still needs out-of-sample / mature-week validation before any non-zero boost.
 - Sugar Babies ticker lookup rows: **399**
 ### Sugar Baby vs non-Sugar Baby
 | row_level   | slice_name      | slice_value   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:------------|:----------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| candidate   | sugar_baby_flag | True          |     2027 |                 995 |              1.7415  |               45.1256 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_flag | True          |     1817 |                 900 |              1.62252 |               44.7778 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| candidate   | sugar_baby_flag | True          |     2027 |                 996 |              1.73976 |               45.0803 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_flag | True          |     1817 |                 901 |              1.62072 |               44.7281 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | candidate   | sugar_baby_flag | False         |     1181 |                 613 |             -1.18492 |               42.2512 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_flag | False         |     1011 |                 533 |             -1.13341 |               41.0882 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
@@ -207,7 +221,7 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 |:------------|:-----------------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
 | ticker      | sugar_baby_runs_bucket | 0             |     1011 |                 533 |            -1.13341  |               41.0882 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_runs_bucket | 1             |      153 |                  96 |            -0.74999  |               40.625  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 2-3           |      214 |                 105 |             2.35311  |               42.8571 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 2-3           |      214 |                 106 |             2.33091  |               42.4528 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_runs_bucket | 4-7           |      333 |                 163 |             0.464646 |               46.6258 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_runs_bucket | 8+            |     1117 |                 536 |             2.25644  |               45.3358 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
@@ -218,7 +232,7 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 | ACTIVE_BURST   |      143 |                  78 |              4.7581  |               48.7179 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | EP_SPIKE       |       99 |                  52 |              1.89756 |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | EP_ACTIVE      |       48 |                  28 |              4.84145 |               46.4286 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| PAUSE          |       53 |                  19 |              6.16485 |               63.1579 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| PAUSE          |       53 |                  20 |              5.8566  |               60      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | DELAYED_EP     |       11 |                   7 |             -2.43556 |               57.1429 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | PRE_BURST      |        2 |                   1 |             -6.39038 |                0      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | SLINGSHOT      |       21 |                   0 |            nan       |              nan      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
@@ -227,7 +241,8 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 - Council context export: `latest_sugar_babies_context.md` + `latest_sugar_babies_ticker_context.csv`.
 
 ## 13. Realized P&L attribution
-- Status: **available**. This is trading-layer attribution, not just signal-date forward return.
+- Status: **available but sample-immature**. This is trading-layer attribution, not just signal-date forward return.
+- Maturity: **2** closed realized rows; **1** with realized R. Calibration threshold: **30+ realized-R rows**.
 ### Overall realized P&L / R
 | slice_name   | slice_value   |   n_rows |   n_traded_rows |   n_with_realized_r |   total_realized_r |   avg_realized_r |   median_realized_r |   win_rate_r |   gross_win_r |   gross_loss_r |   profit_factor_r |   total_pnl |   avg_pnl |
 |:-------------|:--------------|---------:|----------------:|--------------------:|-------------------:|-----------------:|--------------------:|-------------:|--------------:|---------------:|------------------:|------------:|----------:|
@@ -269,14 +284,15 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 - Interpretation: realized R should be used to validate whether Layer 5 execution is selecting the right subset from WATCH/COUNCIL candidates.
 
 ## 14. Investigation queue
-| priority   | item                                         | why                                                                                                                                                        |
-|:-----------|:---------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| P1         | A1/A2 executable-signal health check         | Confirm A1 count, A2 routing, and whether zero clean TRADE rows is intended strictness or over-routing.                                                    |
-| P1         | Confirm zero-TRADE root cause                | Post-2026-05-15 rows have zero TRADE rows (n=35). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                            |
-| P1         | Investigate reject/watch and B/C/D inversion | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.               |
-| P1         | Track pre-registered rule-change hypotheses  | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, and H_PAUSE_BC_INVERT daily with OOS and realized-R gates before any V5.9.21 rule patch. |
-| P2         | Sugar Babies validation                      | Candidate for first ranking_context_score contribution, but validate out-of-sample and by setup family before non-zero boost.                              |
-| P2         | Add SLINGSHOT R:R values                     | SLINGSHOT diagnostics are alive but cannot test R:R until upstream R:R fields are available.                                                               |
+| priority   | item                                         | why                                                                                                                                                                                                                         |
+|:-----------|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| P1         | Realized-P&L correlation check               | Once n_with_realized_r >= 30, compare realized R by setup_family/action_label/final_trade_status against learning-loop forward-return expectancy. This is the key bridge between signal quality and actual trading quality. |
+| P1         | A1/A2 executable-signal health check         | Confirm A1 count, A2 routing, and whether zero clean TRADE rows is intended strictness or over-routing.                                                                                                                     |
+| P1         | Confirm zero-TRADE root cause                | Post-2026-05-15 rows have zero TRADE rows (n=35). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                                                                                             |
+| P1         | Investigate reject/watch and B/C/D inversion | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.                                                                                |
+| P1         | Track pre-registered rule-change hypotheses  | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, and H_PAUSE_BC_INVERT daily with OOS and realized-R gates before any V5.9.21 rule patch.                                                                  |
+| P2         | Sugar Babies validation                      | Candidate for first ranking_context_score contribution, but validate out-of-sample and by setup family before non-zero boost.                                                                                               |
+| P2         | Add SLINGSHOT R:R values                     | SLINGSHOT diagnostics are alive but cannot test R:R until upstream R:R fields are available.                                                                                                                                |
 
 
 ## 15. Open caveats / next actions
