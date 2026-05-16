@@ -2,7 +2,31 @@
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
 
-## 1. Operational status
+## 1. Today's required action
+1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
+2. **Wait for SLINGSHOT future bars.** Earliest T+5 maturity: **2026-05-22**. (§13)
+3. **Watch A1/A2 zero-TRADE issue.** Confirm whether A1 is intentionally rare or unreachable and whether clean A1/A2 rows are over-routed. (§6)
+4. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
+5. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **1**. (§15)
+
+## 2. Changed since last run
+### Pipeline changes
+- SLINGSHOT decision-log target/R:R backfilled inside the learning loop: **21** rows.
+- Tiny-geometry hygiene audit added / active: **4** rows flagged.
+- Dedup diagnostics active: **45** raw full-plan+price rows → **21** unique ticker-date rows.
+- Backfill source attribution simplified to `slingshot_backfill_source` enum.
+
+### Data changes
+- No new hypothesis verdicts crossed a rule-change threshold.
+- No Day-1 shape verdicts crossed threshold.
+- Realized P&L remains sample-immature: `n_with_realized_r` = **1**.
+
+### Open follow-ups carried forward
+- ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
+- Float-precision drift in tiny-geometry flags across sources: known, low materiality; use tolerance-aware comparisons.
+- SLINGSHOT `OK_EVALUABLE` rows remain 0 until future bars mature.
+
+## 3. Operational status
 - Master decision-log rows: **729**
 - Decision-log source files: **7**
 - Latest decision-log sources: `daily_decision_log_2026-05-07.csv`, `daily_decision_log_2026-05-09.csv`, `daily_decision_log_2026-05-12.csv`, `daily_decision_log_2026-05-13.csv`, `daily_decision_log_2026-05-15.csv`
@@ -32,7 +56,7 @@ _Primary review artifact. Use the underlying CSVs only when a specific number ne
 - File-level audit: `decision_log_discovery_audit_latest.md`
 - Scope note: row-count drift versus prior digests should be interpreted through the file-level audit before drawing setup-performance conclusions.
 
-## 2. Executive interpretation
+## 4. Executive interpretation
 Current loop status: **operationally healthy, evidence still immature**. This digest is monitoring context, not rule-change permission.
 1. Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=996 vs 613). This is currently the stronger candidate for a future ranking overlay than EP9M, but still needs out-of-sample/weekly validation.
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
@@ -42,7 +66,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 6. Corpus reconciliation is now active: 0 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 7. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
-## 3. Key findings from current data
+## 5. Key findings from current data
 ### Setup-family summary
 | setup_family   |   n_rows |   n_evaluable_5d | confidence_5d     |   pct_triggered |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:---------------|---------:|-----------------:|:------------------|----------------:|-------------------:|------------------:|
@@ -80,7 +104,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 | EP_ACTIVE      | WATCH_ONLY      | C              | WATCH                |       12 |               12 | BUILDING_SAMPLE   |            66.6667 |          1.23244  |
 
 
-## 4. A1 / A2 executable-signal health
+## 6. A1 / A2 executable-signal health
 Purpose: check whether the actionability layer is producing true executable candidates or routing everything to council/watch.
 ### A1/A2 count and routing check
 | scope          | action_label   | final_trade_status   | setup_family   |   n_rows |
@@ -106,13 +130,13 @@ Purpose: check whether the actionability layer is producing true executable cand
 - A2 rows routed to COUNCIL are marginal by design; they should not be treated as clean executable A2 evidence.
 - If A1 remains absent post-V5.9.19, test whether criteria are intentionally rare or unreachable.
 
-## 5. EP9M overlay
+## 7. EP9M overlay
 - EP9M setup-family row unavailable in the current setup-family summary.
 - Corpus audit EP9M setup-family rows raw → normalized → master: **0 → 0 → 0**.
 - Corpus audit EP9M context rows in master: **143**.
 - Interpretation: EP9M did not enter the current decision-log corpus as a setup-family row. If a prior digest showed EP9M, inspect `decision_log_discovery_audit_latest.md` for excluded files or changed source scope.
 
-## 6. Action-label / reject-vs-watch inversion watchlist
+## 8. Action-label / reject-vs-watch inversion watchlist
 Lower-quality labels outperforming higher-quality labels within the same family are investigation triggers, not rule-change evidence.
 | setup_family   | higher_label   |   higher_n_eval |   higher_avg_5d |   higher_wr_5d | lower_label   |   lower_n_eval |   lower_avg_5d |   lower_wr_5d |   avg_gap_lower_minus_higher |
 |:---------------|:---------------|----------------:|----------------:|---------------:|:--------------|---------------:|---------------:|--------------:|-----------------------------:|
@@ -121,7 +145,7 @@ Lower-quality labels outperforming higher-quality labels within the same family 
 
 Potential explanations to test: 5-day window too short, extension/streak gate rejecting legitimate continuation, or backward-looking quality labels over-penalizing names already working.
 
-## 7. Hypothesis tracker / shadow validation
+## 9. Hypothesis tracker / verdict gates
 These are pre-registered monitoring slots, not a roadmap and not rule-change permission. They exist so July does not become passive waiting: the loop tracks OOS rows daily while preserving evidence discipline.
 | hypothesis_id               | family       | current_test                                             |   current_n_a |   current_avg_a |   current_n_b |   current_avg_b |   current_effect_size | oos_start_date   |   oos_n_a |   oos_n_b |   oos_effect_size | status                     |
 |:----------------------------|:-------------|:---------------------------------------------------------|--------------:|----------------:|--------------:|----------------:|----------------------:|:-----------------|----------:|----------:|------------------:|:---------------------------|
@@ -132,8 +156,19 @@ These are pre-registered monitoring slots, not a roadmap and not rule-change per
 - Hypothesis tracker report: `hypothesis_tracker_latest.md`
 - ACTIVE_BURST Gate6 shadow candidates: **1** rows in `active_burst_gate6_shadow_candidates_v41328.csv`
 - Guardrail: shadow candidates are review/tradeability audit rows only. They do not change `final_trade_status`, action label, ranking, R:R, or hard-reject behavior.
+### Pre-registered verdict gates
+These gates are binding review criteria. A rule patch should not ship unless its hypothesis has a pre-registered SUPPORTED verdict or a separate explicitly documented emergency bug rationale.
+| hypothesis_id                  | current_state                                                                                                       | required_sample                                                                                           | oos_window                                      | earliest_review                                         | pre_registered_prediction                                                                                              | supported_if                                                                              | rejected_if                                                                                          | ambiguous_if                                                                                    | if_supported                                                                                                                          | if_rejected                                                           |
+|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|:------------------------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|
+| H_ACTIVE_BURST_GATE6_SOFTEN    | current effect 3.01; n_a=37; n_b=26; status=WATCHING_NOT_RULE_EVIDENCE                                              | OOS n_C >= 30 and n_D >= 30, with mature T+5/T+10/T+20 windows.                                           | 2026-05-16 onward                               | When both OOS slices meet sample and maturity gates.    | D/REJECT minus C/WATCH spread remains >= +1.5% OOS.                                                                    | OOS spread >= +1.5% and confidence interval / robustness check does not collapse to zero. | OOS spread < +0.5% or direction inverts.                                                             | OOS spread is +0.5% to +1.5% or sample composition is unstable.                                 | Draft V5.9.21-G6-SOFTEN spec; do not ship until patch text is reviewed.                                                               | File hypothesis; no Gate6 softening.                                  |
+| H_EP_ACTIVE_COUNCIL_TIGHTEN    | current effect -7.64; n_a=11; status=WATCHING_LOW_SAMPLE                                                            | OOS EP_ACTIVE COUNCIL n >= 30 with mature T+5 and at least 10 T+20 rows.                                  | 2026-05-16 onward                               | When OOS council-routed EP_ACTIVE rows reach n>=30.     | EP_ACTIVE COUNCIL average T+5 remains <= -3.0% OOS.                                                                    | OOS avg T+5 <= -3.0% and win rate <= 35% without one-stock distortion.                    | OOS avg T+5 >= 0% or win rate normalizes above 45%.                                                  | OOS avg T+5 is -3.0% to 0% or driven by one outlier.                                            | Draft V5.9.21-EPACTIVE-COUNCIL-TIGHTEN review spec.                                                                                   | Keep EP_ACTIVE council routing unchanged.                             |
+| H_PAUSE_BC_INVERT              | current effect 3.08; n_a=18; n_b=20; status=WATCHING_NOT_RULE_EVIDENCE                                              | OOS PAUSE B/WATCH n >= 30 and PAUSE C/WATCH n >= 30.                                                      | 2026-05-16 onward                               | When both OOS PAUSE slices hit n>=30 and T+5 is mature. | PAUSE C/WATCH minus B/WATCH spread remains >= +1.5% OOS.                                                               | OOS spread >= +1.5% and persists after removing tiny/liquidity outliers.                  | OOS spread < +0.5% or B resumes leadership.                                                          | OOS spread is +0.5% to +1.5% or sample is too concentrated.                                     | Draft V5.9.21-PAUSE-RANK-REVIEW spec; do not change B/C labels before review.                                                         | Keep PAUSE B/C rank mapping unchanged.                                |
+| H_SLINGSHOT_TARGET_BASIS       | 45 raw full-plan+price rows; 21 unique full-plan+price ticker-date rows; 0 unique OK_EVALUABLE ticker-date rows.    | unique_ok_evaluable_ticker_date_rows >= 30 and at least 10 OOS rows after 2026-05-22.                     | Starts 2026-05-22                               | When unique OK_EVALUABLE ticker-date rows reach n>=30.  | >=40% of SLINGSHOT_PRIMARY full-plan unique ticker-date rows clear V5.9 R:R floor >= 2.0.                              | R:R>=2.0 pass rate >=40% and T+5 expectancy is not worse than ACTIVE_BURST baseline.      | R:R>=2.0 pass rate <30% or T+5 expectancy materially underperforms ACTIVE_BURST.                     | R:R pass rate is 30–40% or expectancy is positive but under-sampled.                            | Keep SLINGSHOT measurement path live; consider later context/ranking overlay only after 100+ unique OK_EVALUABLE rows.                | Do not promote SLINGSHOT; review target-basis and detection criteria. |
+| H_SUGAR_BABIES_CONTEXT_OVERLAY | Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=996 vs 613). | OOS >= 100 evaluated Sugar=True and >= 100 Sugar=False rows, plus at least two setup families with n>=30. | Next mature weekly cohorts after current digest | When OOS rows and family spread requirements are met.   | Sugar=True retains >= +1.0% avg T+5 spread over Sugar=False without worsening win-rate materially.                     | OOS avg spread >= +1.0% and at least two families have non-negative confirmation.         | OOS spread < +0.25% or driven by one family only.                                                    | OOS spread +0.25% to +1.0% or family split is mixed.                                            | Draft Sugar Babies ranking_context_score proposal; cannot override R:R, DTE, hard rejects, failed EP, dilution/offering, or bad data. | Keep Sugar Babies as monitoring-only context.                         |
+| H_REALIZED_PNL_CORRELATION     | 1 realized-R rows; threshold not met.                                                                               | n_with_realized_r >= 30 total, then >=10 per major setup/action slice before slice-level claims.          | Broker-export rows as they arrive               | When realized-R count reaches n>=30.                    | Layer 5 realized-R selection should outperform raw WATCH/COUNCIL forward-return expectancy on comparable setup slices. | Realized R is positive overall and aligns with the strongest forward-return slices.       | Realized R is negative despite positive forward-return slices, implying execution/selection failure. | Positive P&L but too concentrated in one trade or mismatch between broker rows and system rows. | Use realized-R weighting in weekly system review; do not change signal rules solely from P&L.                                         | Prioritize execution/selection review before signal-rule changes.     |
 
-## 8. ACTIVE_BURST Gate-6 Observational Watchlist
+
+## 10. ACTIVE_BURST Gate-6 Observational Watchlist
 Rows in this section remain `REJECT` in the decision log. This is an observational research/watchlist section only; it does not alter `final_trade_status`, action labels, ranking, R:R, or hard-reject behavior.
 - Full shadow candidates: **1**
 - Tradeability-review watchlist rows: **0**
@@ -143,7 +178,7 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 - Required manual check: only consider these for live attention if they have a defensible trigger, invalidation, R:R, liquidity, DTE safety, and no hard reject.
 _No tradeability-review rows found. Shadow candidates exist, but they are context-only because trigger and/or invalidation is missing._
 
-## 9. Council resolver status
+## 11. Council resolver status
 - Council/disagreement resolver rows: **2**
 | outcome_status   |   rows |
 |:-----------------|-------:|
@@ -155,7 +190,7 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | WRBY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 
 
-## 10. Day-1 shape diagnostics
+## 12. Day-1 shape diagnostics
 ### Source-capable coverage
 | scope          | primary_setup    | field                   |   n_total |   n_populated |   coverage_pct | status   |
 |:---------------|:-----------------|:------------------------|----------:|--------------:|---------------:|:---------|
@@ -179,7 +214,7 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | day1_combined           | INSUFFICIENT_RESOLVED_SAMPLE |        0 |       0 |
 
 
-## 11. SLINGSHOT diagnostics / evaluability audit
+## 13. SLINGSHOT diagnostics / evaluability audit
 - Status: **detected but evaluability-gated**. This is a measurement section, not SLINGSHOT rule-change evidence.
 - SLINGSHOT evaluability rows: **231**
 - Rows with entry/trigger: **47 / 231**
@@ -308,7 +343,7 @@ Measurement-only checks: tiny measured-move geometry, duplicate ticker-date outc
 | risk_pct            | 3-5%     |        4 |            0 |              nan |        nan |
 
 
-## 12. Sugar Babies overlay
+## 14. Sugar Babies overlay
 - Status: **monitoring-only context overlay, not a trade signal.**
 - Current read: Sugar Baby=True candidates show 1.74% avg T+5 versus -1.18% for non-Sugar Baby candidates (evaluated n=996 vs 613).
 - Interpretation: Sugar Babies currently has broader sample support than EP9M for a future `ranking_context_score` contribution, but still needs out-of-sample / mature-week validation before any non-zero boost.
@@ -345,7 +380,7 @@ Measurement-only checks: tiny measured-move geometry, duplicate ticker-date outc
 
 - Council context export: `latest_sugar_babies_context.md` + `latest_sugar_babies_ticker_context.csv`.
 
-## 13. Realized P&L attribution
+## 15. Realized P&L attribution
 - Status: **available but sample-immature**. This is trading-layer attribution, not just signal-date forward return.
 - Maturity: **2** closed realized rows; **1** with realized R. Calibration threshold: **30+ realized-R rows**.
 ### Overall realized P&L / R
@@ -388,7 +423,7 @@ Measurement-only checks: tiny measured-move geometry, duplicate ticker-date outc
 
 - Interpretation: realized R should be used to validate whether Layer 5 execution is selecting the right subset from WATCH/COUNCIL candidates.
 
-## 14. Investigation queue
+## 16. Investigation queue
 | priority   | item                                                  | why                                                                                                                                                                                                                                                     |
 |:-----------|:------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | P1         | Realized-P&L correlation check                        | Once n_with_realized_r >= 30, compare realized R by setup_family/action_label/final_trade_status against learning-loop forward-return expectancy. This is the key bridge between signal quality and actual trading quality.                             |
@@ -402,12 +437,12 @@ Measurement-only checks: tiny measured-move geometry, duplicate ticker-date outc
 | P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                            |
 
 
-## 15. Open caveats / next actions
+## 17. Open caveats / next actions
 - Day-1 fields are being captured, but verdicts remain insufficient until resolved sample sizes mature.
 - SLINGSHOT is detected but has zero OK-evaluable rows; use the evaluability audit to fix missing entry/stop/target/R:R/outcome data before judging expectancy.
 - Council rows are found but still pending; no council calibration conclusions yet.
 
-## 16. Evidence discipline
+## 18. Evidence discipline
 - This digest is monitoring context, not permission to change rules.
 - Rule-change evidence should come from weekly cohorts with mature T+5/T+10/T+20 windows and repeated effects across cohorts.
 - `final_trade_status` remains the executable decision field; `tier` is dashboard/source context only.
