@@ -116,7 +116,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 Lower-quality labels outperforming higher-quality labels within the same family are investigation triggers, not rule-change evidence.
 | setup_family   | higher_label   |   higher_n_eval |   higher_avg_5d |   higher_wr_5d | lower_label   |   lower_n_eval |   lower_avg_5d |   lower_wr_5d |   avg_gap_lower_minus_higher |
 |:---------------|:---------------|----------------:|----------------:|---------------:|:--------------|---------------:|---------------:|--------------:|-----------------------------:|
-| PAUSE          | B              |              20 |       -0.301985 |       nan      | C             |             18 |        2.77643 |      nan      |                      3.07841 |
+| PAUSE          | B              |              20 |       -0.301985 |        33.3333 | C             |             18 |        2.77643 |       66.6667 |                      3.07841 |
 | ACTIVE_BURST   | C              |              26 |       -4.09441  |        30.7692 | D             |             37 |       -1.08773 |       37.8378 |                      3.00668 |
 
 Potential explanations to test: 5-day window too short, extension/streak gate rejecting legitimate continuation, or backward-looking quality labels over-penalizing names already working.
@@ -149,10 +149,10 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 |:-----------------|-------:|
 | PENDING          |      2 |
 
-| ticker   | setup_family   | council_verdict   | outcome_status   | outcome_class   | council_outcome_alignment   |   resolution_notes |
-|:---------|:---------------|:------------------|:-----------------|:----------------|:----------------------------|-------------------:|
-| SPIR     | SLINGSHOT      | DEFER             | PENDING          | PENDING         | PENDING                     |                nan |
-| WRBY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     |                nan |
+| ticker   | setup_family   | council_verdict   | outcome_status   | outcome_class   | council_outcome_alignment   | resolution_notes                                                  |
+|:---------|:---------------|:------------------|:-----------------|:----------------|:----------------------------|:------------------------------------------------------------------|
+| SPIR     | SLINGSHOT      | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| WRBY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 
 
 ## 10. Day-1 shape diagnostics
