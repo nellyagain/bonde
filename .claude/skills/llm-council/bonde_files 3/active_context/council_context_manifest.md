@@ -34,6 +34,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
 - `bonde_learned_patterns.md` — LOADED
 - `broker_export_normalization_audit_latest.md` — LOADED
+- `broker_export_normalized_trades_v41331.csv` — LOADED
 - `catalyst_x_family_summary_v410.csv` — LOADED
 - `council_disagreements_resolved.csv` — LOADED
 - `council_resolver_report_2026-05-16.md` — LOADED
@@ -47,8 +48,8 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `learning_loop_executive_digest_latest.md` — LOADED
 - `realized_pnl_attribution_2026-05-16.md` — LOADED
 - `realized_pnl_attribution_latest.md` — LOADED
-- `realized_pnl_attribution_summary_v41330.csv` — LOADED
-- `realized_trades_master_v41330.csv` — LOADED
+- `realized_pnl_attribution_summary_v41331.csv` — LOADED
+- `realized_trades_master_v41331.csv` — LOADED
 - `realized_trades_template.csv` — LOADED
 - `rr_target_audit_report_v410.md` — LOADED
 - `rr_target_audit_v410.csv` — LOADED
