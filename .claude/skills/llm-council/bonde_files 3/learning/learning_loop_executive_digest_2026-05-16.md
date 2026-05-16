@@ -200,6 +200,44 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | NO_PRICE_DATA            |      2 |
 
 - Audit files: `slingshot_evaluability_audit_latest.md` and `slingshot_evaluability_audit_latest.csv`.
+### Evaluability stage funnel
+| evaluability_stage                |   rows |
+|:----------------------------------|-------:|
+| MISSING_ENTRY                     |    184 |
+| FULL_PLAN_WAITING_FOR_FUTURE_BARS |     24 |
+| ENTRY_STOP_NO_TARGET              |     21 |
+| FULL_PLAN_NO_PRICE_DATA           |      2 |
+
+### Source scope × SLINGSHOT scope
+| source_scope_resolved   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   median_business_days_since_signal |
+|:------------------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------:|
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |    144 |           21 |          21 |            21 |                21 |                23 |                     0 |              0 |                                   2 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     57 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                   2 |
+| DECISION_LOG            | SLINGSHOT_PRIMARY               |     23 |           21 |          21 |             0 |                 0 |                23 |                     0 |              0 |                                   1 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |      7 |            5 |           5 |             5 |                 5 |                 5 |                     0 |              0 |                                   1 |
+
+### Setup family × SLINGSHOT scope
+| setup_family   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   median_business_days_since_signal |
+|:---------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------:|
+| SLINGSHOT      | SLINGSHOT_PRIMARY               |    167 |           42 |          42 |            21 |                21 |                46 |                     0 |              0 |                                 2   |
+| ACTIVE_BURST   | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     28 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2   |
+| EP_SPIKE       | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     13 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2   |
+| EP9M           | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     11 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2   |
+| EP_ACTIVE      | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      4 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2.5 |
+| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |      3 |            3 |           3 |             3 |                 3 |                 2 |                     0 |              0 |                                 1   |
+| EP9M           | SLINGSHOT_OVERLAY               |      2 |            1 |           1 |             1 |                 1 |                 2 |                     0 |              0 |                                 1   |
+| PAUSE          | SLINGSHOT_OVERLAY               |      2 |            1 |           1 |             1 |                 1 |                 1 |                     0 |              0 |                                 1   |
+| DELAYED_EP     | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      1 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 3   |
+
+### Signal-date / recency summary
+| signal_date_parsed   | source_scope_resolved   |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   median_business_days_since_signal |
+|:---------------------|:------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------:|
+| 2026-05-15           | SLINGSHOT_DIAGNOSTIC    |     30 |           26 |          26 |            26 |                26 |                28 |                     0 |              0 |                                   1 |
+| 2026-05-15           | DECISION_LOG            |     23 |           21 |          21 |             0 |                 0 |                23 |                     0 |              0 |                                   1 |
+| 2026-05-14           | SLINGSHOT_DIAGNOSTIC    |    113 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                   2 |
+| 2026-05-13           | SLINGSHOT_DIAGNOSTIC    |     65 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                   3 |
+
+- Scope/price diagnostics: `slingshot_scope_price_diagnostics_latest.md` plus `slingshot_evaluability_*_summary_latest.csv` files.
 - Interpretation: missing R:R is now treated as a field/evaluability issue, not as zero R:R or negative SLINGSHOT expectancy.
 ### Bucket-distribution snapshot
 | metric              | bucket   |   n_rows |   n_resolved |   avg_realized_r |   win_rate |
@@ -218,7 +256,7 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | distance_from_21ema | 8-12%    |       41 |            0 |              nan |        nan |
 | distance_from_21ema | <=3%     |       51 |            0 |              nan |        nan |
 | distance_from_21ema | >12%     |       54 |            0 |              nan |        nan |
-| risk_pct            | 3-5%     |       49 |            0 |              nan |        nan |
+| risk_pct            | 3-5%     |        4 |            0 |              nan |        nan |
 
 
 ## 12. Sugar Babies overlay
