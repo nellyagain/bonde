@@ -23,9 +23,9 @@ _Primary review artifact. Use the underlying CSVs only when a specific number ne
 | REJECT               |      1 |
 
 ### Corpus reconciliation
-- Candidate decision-log files discovered: **8**
+- Candidate decision-log files discovered: **7**
 - Included decision-log files: **7**
-- Excluded decision-log files: **1** (1 duplicate/lower-score files)
+- Excluded decision-log files: **0** (0 duplicate/lower-score files)
 - Raw included rows → normalized rows → master rows: **753 → 753 → 729**
 - Rows removed by final master de-duplication: **24**
 - EP9M setup-family rows raw included → master: **0 → 0**
@@ -39,7 +39,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 3. Post-2026-05-15 rows have zero TRADE rows (n=35). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.
 4. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable. Post-V5.9.19 rows have zero TRADE rows. Confirm whether clean A1/A2 rows are being over-routed to COUNCIL/WATCH.
 5. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 1 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
-6. Corpus reconciliation is now active: 1 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
+6. Corpus reconciliation is now active: 0 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 7. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
 ## 3. Key findings from current data
@@ -182,10 +182,10 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 ## 11. SLINGSHOT diagnostics / evaluability audit
 - Status: **detected but evaluability-gated**. This is a measurement section, not SLINGSHOT rule-change evidence.
 - SLINGSHOT evaluability rows: **231**
-- Rows with entry/trigger: **21 / 231**
-- Rows with stop/invalidation: **21 / 231**
-- Rows with target: **0 / 231**
-- Rows with planned R:R: **0 / 231**
+- Rows with entry/trigger: **47 / 231**
+- Rows with stop/invalidation: **47 / 231**
+- Rows with target: **26 / 231**
+- Rows with planned R:R: **26 / 231**
 - Rows with price/outcome data: **51 / 231**
 - Rows with ≥5 future bars: **0 / 231**
 - Rows triggered within 5d: **0 / 231**
@@ -194,8 +194,10 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 ### Top missing/evaluability reasons
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
-| MISSING_ENTRY            |    210 |
+| MISSING_ENTRY            |    184 |
+| INSUFFICIENT_FUTURE_BARS |     24 |
 | MISSING_TARGET           |     21 |
+| NO_PRICE_DATA            |      2 |
 
 - Audit files: `slingshot_evaluability_audit_latest.md` and `slingshot_evaluability_audit_latest.csv`.
 - Interpretation: missing R:R is now treated as a field/evaluability issue, not as zero R:R or negative SLINGSHOT expectancy.
