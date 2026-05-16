@@ -1,48 +1,147 @@
 # ACTIVE CANDIDATE CONTEXT
 
-Generated: 2026-05-16
-Source packet: 2026-05-15 V5.9.19-compatible decision log
+Generated: 2026-05-15T16:24:48.053128+08:00
+Source file: /content/drive/MyDrive/bonde_learning/reports/learning_context_manifest.md
+Source effective date: 2026-05-07
 Status: CURRENT
-Instruction: Treat this file as the current candidate context. Do not treat archived reports or root-level dated files as current.
+Instruction: Treat this file as the current candidate context. Do not treat archived reports as current unless explicitly asked.
 
-## Current council candidates
+---
 
-The current council packet contains **2 candidates**. Both are routed to council because `final_trade_status=COUNCIL` and both are B+ C1 wide/R:R floor cases.
+# Learning Context Manifest
 
-| Ticker | final_trade_status | action_label | primary_setup | tier | Catalyst | Trigger | Invalidation | Key issue |
-|---|---|---|---|---|---|---:|---:|---|
-| SPIR | COUNCIL | B+_C1 | slingshot | UNKNOWN | Earnings + guidance raise, Q1 2026 reported 13-May | 20.45 | 17.74 | Wide Day-1 range; no defensible target clears 2R from trigger/stop. Day-2 controlled pullback or inside-day needed. |
-| WRBY | COUNCIL | B+_C1 | delayed_ep | TAKE | Earnings beat + AI glasses positioning, Q1 2026 reported 7-May | 29.95 | 27.77 | Wide Day-1 range; measured-move target implies sub-2R. Tighter Day-2 pullback/reclaim needed. |
+Generated: 2026-05-07
 
-## Candidate-level interpretation
+## Purpose
 
-- `final_trade_status` is the executable/routing field.
-- `tier=TAKE` is not trade authorization.
-- Both rows require council judgment before any trade.
-- Both should be evaluated as `Day-2 pullback rescue` / R:R rescue cases unless the council identifies an independent valid entry/stop/target structure.
-- A PROMOTE verdict should specify exact order type, entry, stop, target/R:R, order duration, and cancellation conditions.
+This file tells the Bonde/Stockbee actionability skill and the LLM council which learning-loop files are current, which are optional, and which are legacy.
 
-## SPIR notes
+Use this manifest to avoid relying on stale dashboard-learning-loop files.
 
-- Setup family in skill pack includes SLINGSHOT and ACTIVE_BURST evidence; council row primary setup is `slingshot`.
-- Slingshot confirmation flags pass: uptrend, range break, contraction quality.
-- Volume gate passes: today/prior volume about 1.82x.
-- RS context strong; close above 200SMA.
-- Main blocker: wide trigger-bar stop and inadequate target/R:R from standard references.
-- Council should prefer DEFER unless a Day-2 controlled pullback materially improves R:R without damaging the setup.
+## Current live workflow
 
-## WRBY notes
+Current production workflow:
 
-- Primary setup: delayed_ep / DEP.
-- DEP volume gate passes: today/prior volume about 1.51x.
-- Structure clean: no extension severity, swing-day context, RS strong.
-- Main blocker: target/reference structure near 252d high gives sub-2R on Day-1 trigger geometry.
-- Council should not treat `tier=TAKE` as automatic trade permission.
+- Bonde actionability skill: V5.9.5
+- Learning-loop notebook lineage: v4.10 / v4.12 / v4.13 decision-loop lineage
+- Required daily inputs:
+  - `bonde_skill_pack_<SIG>.csv`
+  - `daily_decision_log_<SIG>.csv`
+- Optional daily input:
+  - `council_queue_<SIG>.csv`
 
-## Required council behavior
+## Current files to use
 
-- Include Context Files Loaded.
-- Use `final_trade_status=COUNCIL` as the routing field.
-- Treat market/regime context as advisory execution context, not a trade gate.
-- Include Portfolio Heat if either candidate is promoted.
-- Since the review context is around a Friday/weekend window, avoid casual GTC language; default to DAY/cancel-before-close unless justified.
+Use these files when available.
+
+### Primary learning reports
+
+- `weekly_learning_report_*.md`
+- `skill_pack_performance_report_v410.md`
+- `weekly_cohort_summary_v410.csv`
+
+### Current decision / outcome summaries
+
+- `actionability_performance_summary_v410.csv`
+- `setup_family_performance_summary_v410.csv`
+- `catalyst_x_family_summary_v410.csv`
+- `decision_outcomes_enriched_v410.csv`
+- `master_decision_log_v410.csv`
+
+### Current skill-pack universe outputs
+
+- `skill_pack_candidate_log_v410.csv`
+- `skill_pack_ticker_view_v410.csv`
+- `skill_pack_candidate_outcomes_enriched_v410.csv`
+- `skill_pack_ticker_outcomes_enriched_v410.csv`
+- `reviewed_vs_unreviewed_summary_v410.csv`
+- `skill_pack_setup_family_summary_v410.csv`
+- `skill_pack_source_type_summary_v410.csv`
+- `ep_spike_vs_active_burst_summary_v410.csv`
+- `ep_spike_origin_summary_v410.csv`
+- `ep9m_only_performance_summary_v410.csv`
+- `extension_performance_summary_v410.csv`
+- `bag_holder_performance_summary_v410.csv`
+- `skill_pack_catalyst_grade_summary_v410.csv`
+
+### Current diagnostics
+
+- `decision_log_join_diagnostics_v410.csv`
+- `stale_row_join_diagnostics_v410.csv`
+- `duplicate_audit_v410.csv`
+- `skill_pack_ingestion_report_v410.md`
+
+### Council context
+
+- `council_queue_<SIG>.csv`
+- `council-report-*.html`
+- `council-transcript-*.md`
+- `bplus_council_outcome_summary.csv` if generated later
+
+## Legacy / not current
+
+The following files are legacy unless freshly generated by the current v4.13 decision-loop notebook:
+
+- `rule_diagnostics.csv`
+- `bonde_learned_patterns.md` from the older dashboard-learning-loop lineage
+- `quality_gate_summary.csv`
+- `focus_vs_exclusion_summary.csv`
+- `master_candidate_log.csv`
+- `master_outcome_log.csv`
+- old dashboard-only `bonde_focus_list_*`, `bonde_focus_exclusions_*`, `bonde_diagnostics_*` outputs unless explicitly used in the current run
+
+## How to interpret immature evidence
+
+If a report says:
+
+- `mature_t5 = False`
+- `mature_t10 = False`
+- `mature_t20 = False`
+- `PARTIAL_OUTCOME`
+- `IMMATURE_20D`
+- `NO_RULE_CHANGE`
+- `monitoring-only`
+
+then do not change rules.
+
+The correct output is:
+
+“Learning-loop evidence is immature. No rule change recommended.”
+
+## How the council should use these files
+
+The LLM council should use current learning-loop files as a base-rate overlay only.
+
+Before voting, it should state:
+
+- Outcome data available: yes/no
+- Relevant setup-family base rate: available/not available
+- Relevant B+ blocker-type base rate: available/not available
+- Prior council promote/defer/cancel outcomes: available/not available
+- Whether the verdict is evidence-backed or playbook-only
+
+Outcome evidence must not override hard-risk rules unless the Bonde actionability skill has formally changed the rule.
+
+## How the actionability skill should use these files
+
+The Bonde actionability skill should:
+
+1. Apply active learned patterns only if `bonde_learned_patterns.md` contains ACTIVE patterns.
+2. Treat this manifest as authority on current vs legacy learning-loop files.
+3. Mention if learning files are missing or immature.
+4. Leave `learned_pattern_matches` blank or `NONE` when no active learned patterns exist.
+5. Never use stale `rule_diagnostics.csv` as current evidence.
+
+## File placement for repo context
+
+Place this file in:
+
+```text
+bonde_files/latest_context/learning_context_manifest.md
+```
+
+Place the null learned-pattern file in:
+
+```text
+bonde_files/latest_context/bonde_learned_patterns.md
+```
