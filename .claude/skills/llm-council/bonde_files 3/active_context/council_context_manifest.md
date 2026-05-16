@@ -1,48 +1,63 @@
 # Council Context Manifest
 
 Generated: 2026-05-16
-Target folder: `.claude/skills/llm-council/bonde_files 3/active_context/`
+Packet date: 2026-05-15
+Target folder: `bonde_files 3/`
 
-Use only the active files listed below as current council context. Historical files, dated files, and root-level files are not current instructions unless explicitly referenced by the user.
+Use this package as the current council context bundle. Do not scan stale root-level dated files as current context.
 
-| File | Role | Status | Notes |
-|---|---|---|---|
-| `latest_candidate_context.md` | Candidate context | LOADED | Current 2026-05-15 council packet context. Candidates: SPIR and WRBY, both `final_trade_status=COUNCIL`. |
-| `latest_learning_context.md` | Learning context | LOADED | Current learning state. No active learned-pattern overrides; W20 cohort is immature. |
-| `latest_market_context.md` | Market context | LOADED | Nasdaq extension / tactical market context. Advisory only; not a hard actionability gate. Current read: risk-on but tactically extended. |
-| `latest_regime_context.md` | Regime context | LOADED | Market regime module says Risk-On, high confidence, normal sizing hint. Advisory facts only. |
-| `council_context_manifest.md` | Context manifest | LOADED | This file. Tells the council which active context files are current. |
+## Folder roles
 
-## Optional context files not required by default
+- `current/` — daily packet: decision log, council queue, and skill pack.
+- `active_context/` — stable current context files used by the council.
+- `learning/` — weekly/base-rate/reference context used as advisory evidence only.
 
-These files are optional and should not be treated as missing-required unless this manifest is changed to require them:
+## Current daily packet
 
-- `latest_accountability_context.md`
-- `latest_skill_context.md`
+- `bonde_skill_pack_2026-05-15.csv` — LOADED
+- `council_queue_2026-05-15.csv` — LOADED
+- `daily_decision_log_2026-05-15.csv` — LOADED
 
-## Current daily packet expected
+## Active context files
 
-Use files in `../current/` as the current daily decision packet:
+- `latest_candidate_context.md` — LOADED — candidate context
+- `latest_learning_context.md` — LOADED — learning context
+- `latest_market_context.md` — LOADED — market context
+- `latest_sugar_babies_context.md` — LOADED — Sugar Babies overlay context
+- `latest_sugar_babies_ticker_context.csv` — LOADED — Sugar Babies overlay context
 
-- `daily_decision_log_2026-05-15_council_subset.csv` — LOADED, V5.9.19-compatible subset, includes `final_trade_status` for council-routed rows.
-- `council_queue_2026-05-15.csv` — LOADED, derived from rows where `final_trade_status=COUNCIL`.
-- `bonde_skill_pack_2026-05-15_council_subset.csv` — LOADED, current candidate evidence subset for council tickers.
+## Learning/reference files
+
+- `actionability_performance_summary_v410.csv` — LOADED
+- `bonde_learned_patterns.md` — LOADED
+- `catalyst_x_family_summary_v410.csv` — LOADED
+- `council_disagreements_resolved.csv` — LOADED
+- `council_resolver_report_2026-05-16.md` — LOADED
+- `daily_learning_report_2026-05-16.md` — LOADED
+- `day1_shape_coverage_v413.csv` — LOADED
+- `day1_shape_verdicts_v413.csv` — LOADED
+- `latest_sugar_babies_ticker_context.csv` — LOADED
+- `learning_loop_executive_digest_latest.md` — LOADED
+- `rr_target_audit_report_v410.md` — LOADED
+- `rr_target_audit_v410.csv` — LOADED
+- `setup_family_performance_summary_v410.csv` — LOADED
+- `skill_pack_performance_report_v410.md` — LOADED
+- `slingshot_bucket_performance_v41314.csv` — LOADED
+- `slingshot_diagnostics_report_v41314.md` — LOADED
+- `sugar_babies_overlay_report_v410.md` — LOADED
+- `sugar_babies_overlay_summary_v410.csv` — LOADED
+- `weekly_cohort_summary_v410.csv` — LOADED
+- `weekly_learning_report_2026-W20.md` — LOADED
 
 ## Current council candidate set
 
-The current run should review only:
-
-- SPIR
-- WRBY
-
-Do not use old WCC/JBHT/NVMI/WERN files or old root-level dated files as the current packet.
+SPIR, WRBY
 
 ## Council use rules
 
-1. Use files in `active_context/` as current context.
-2. Use files in `current/` as the current daily decision packet.
-3. Use files in `learning/` as historical/base-rate context.
-4. Do not scan loose root-level dated files as current context.
-5. Market and regime context are advisory. They can affect execution posture, order type, and portfolio heat, but must not override candidate-level `final_trade_status` or hard rejects.
-6. The council report must include a `Context Files Loaded` section and state whether each expected file was loaded, missing, optional, or stale.
-7. If outcome/base-rate evidence is immature, state that the verdict is playbook-only and should be logged for calibration.
+1. `final_trade_status` is the executable/routing field.
+2. `tier` is source/dashboard context only and is not trade authorization.
+3. Market, regime, learning, and Sugar Babies context are advisory only.
+4. Sugar Babies may raise review priority or confidence framing, but must not override R:R, DTE, hard rejects, failed EP, bag-holder, dilution/offering, data-quality, or `final_trade_status`.
+5. If outcome/base-rate evidence is immature, state that verdicts are playbook-only and should be logged for calibration.
+6. If candidates are promoted, include Portfolio Heat and order-duration guardrails.
