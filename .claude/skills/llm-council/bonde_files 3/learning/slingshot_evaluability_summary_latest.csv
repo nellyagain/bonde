@@ -2,8 +2,8 @@ metric,value
 diagnostic_rows,231
 rows_with_entry,47
 rows_with_stop,47
-rows_with_target,26
-rows_with_planned_rr,26
+rows_with_target,47
+rows_with_planned_rr,47
 rows_with_price_data,51
 rows_with_enough_future_bars_5d,0
 rows_triggered_5d,0
