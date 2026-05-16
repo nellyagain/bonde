@@ -37,7 +37,7 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 | stop_price            |                  47 |    231 |           20.3 |
 | target_price          |                  26 |    231 |           11.3 |
 | planned_rr            |                  26 |    231 |           11.3 |
-| risk_pct              |                 208 |    231 |           90   |
+| risk_pct              |                  26 |    231 |           11.3 |
 | has_price_data        |                  51 |    231 |           22.1 |
 | available_future_bars |                 231 |    231 |          100   |
 | trigger_hit_5d        |                   0 |    231 |            0   |
