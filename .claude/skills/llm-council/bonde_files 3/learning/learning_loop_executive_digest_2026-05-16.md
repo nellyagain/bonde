@@ -179,11 +179,27 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | day1_combined           | INSUFFICIENT_RESOLVED_SAMPLE |        0 |       0 |
 
 
-## 11. SLINGSHOT diagnostics
-- SLINGSHOT diagnostic rows: **208**
-- R:R ≥ 2: **0 / 208** (non-missing 0)
-- resolved outcomes: **0 / 208** (non-missing 208)
-### Bucket-performance snapshot
+## 11. SLINGSHOT diagnostics / evaluability audit
+- Status: **detected but evaluability-gated**. This is a measurement section, not SLINGSHOT rule-change evidence.
+- SLINGSHOT evaluability rows: **231**
+- Rows with entry/trigger: **21 / 231**
+- Rows with stop/invalidation: **21 / 231**
+- Rows with target: **0 / 231**
+- Rows with planned R:R: **0 / 231**
+- Rows with price/outcome data: **51 / 231**
+- Rows with ≥5 future bars: **0 / 231**
+- Rows triggered within 5d: **0 / 231**
+- Rows stopped within 5d: **0 / 231**
+- OK-evaluable rows: **0 / 231**
+### Top missing/evaluability reasons
+| primary_missing_reason   |   rows |
+|:-------------------------|-------:|
+| MISSING_ENTRY            |    210 |
+| MISSING_TARGET           |     21 |
+
+- Audit files: `slingshot_evaluability_audit_latest.md` and `slingshot_evaluability_audit_latest.csv`.
+- Interpretation: missing R:R is now treated as a field/evaluability issue, not as zero R:R or negative SLINGSHOT expectancy.
+### Bucket-distribution snapshot
 | metric              | bucket   |   n_rows |   n_resolved |   avg_realized_r |   win_rate |
 |:--------------------|:---------|---------:|-------------:|-----------------:|-----------:|
 | contraction_quality | 30-40    |       35 |            0 |              nan |        nan |
@@ -292,13 +308,12 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | P1         | Investigate reject/watch and B/C/D inversion | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.                                                                                |
 | P1         | Track pre-registered rule-change hypotheses  | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, and H_PAUSE_BC_INVERT daily with OOS and realized-R gates before any V5.9.21 rule patch.                                                                  |
 | P2         | Sugar Babies validation                      | Candidate for first ranking_context_score contribution, but validate out-of-sample and by setup family before non-zero boost.                                                                                               |
-| P2         | Add SLINGSHOT R:R values                     | SLINGSHOT diagnostics are alive but cannot test R:R until upstream R:R fields are available.                                                                                                                                |
+| P1         | Fix SLINGSHOT evaluability path              | SLINGSHOT detection is alive but zero rows are OK-evaluable. Use `slingshot_evaluability_audit_latest.md` to fix missing entry/stop/target/R:R/outcome fields before drawing setup conclusions.                             |
 
 
 ## 15. Open caveats / next actions
 - Day-1 fields are being captured, but verdicts remain insufficient until resolved sample sizes mature.
-- SLINGSHOT diagnostics are structurally alive but have no resolved outcomes yet.
-- SLINGSHOT R:R values are still missing; use gate-distribution diagnostics only until upstream R:R is available.
+- SLINGSHOT is detected but has zero OK-evaluable rows; use the evaluability audit to fix missing entry/stop/target/R:R/outcome data before judging expectancy.
 - Council rows are found but still pending; no council calibration conclusions yet.
 
 ## 16. Evidence discipline
