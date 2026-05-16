@@ -184,19 +184,19 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 - SLINGSHOT evaluability rows: **231**
 - Rows with entry/trigger: **47 / 231**
 - Rows with stop/invalidation: **47 / 231**
-- Rows with target: **26 / 231**
-- Rows with planned R:R: **26 / 231**
+- Rows with target: **47 / 231**
+- Rows with planned R:R: **47 / 231**
 - Rows with price/outcome data: **51 / 231**
 - Rows with ≥5 future bars: **0 / 231**
 - Rows triggered within 5d: **0 / 231**
 - Rows stopped within 5d: **0 / 231**
 - OK-evaluable rows: **0 / 231**
+- DECISION_LOG rows target/R:R enriched inside learning loop from universe planning fields: **21**
 ### Top missing/evaluability reasons
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
 | MISSING_ENTRY            |    184 |
-| INSUFFICIENT_FUTURE_BARS |     24 |
-| MISSING_TARGET           |     21 |
+| INSUFFICIENT_FUTURE_BARS |     45 |
 | NO_PRICE_DATA            |      2 |
 
 - Audit files: `slingshot_evaluability_audit_latest.md` and `slingshot_evaluability_audit_latest.csv`.
@@ -204,38 +204,37 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | evaluability_stage                |   rows |
 |:----------------------------------|-------:|
 | MISSING_ENTRY                     |    184 |
-| FULL_PLAN_WAITING_FOR_FUTURE_BARS |     24 |
-| ENTRY_STOP_NO_TARGET              |     21 |
+| FULL_PLAN_WAITING_FOR_FUTURE_BARS |     45 |
 | FULL_PLAN_NO_PRICE_DATA           |      2 |
 
 ### Source scope × SLINGSHOT scope
-| source_scope_resolved   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   median_business_days_since_signal |
-|:------------------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------:|
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |    144 |           21 |          21 |            21 |                21 |                23 |                     0 |              0 |                                   2 |
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     57 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                   2 |
-| DECISION_LOG            | SLINGSHOT_PRIMARY               |     23 |           21 |          21 |             0 |                 0 |                23 |                     0 |              0 |                                   1 |
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |      7 |            5 |           5 |             5 |                 5 |                 5 |                     0 |              0 |                                   1 |
+| source_scope_resolved   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
+|:------------------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |    144 |           21 |          21 |            21 |                21 |                23 |                     0 |              0 |                                         0 |                                   2 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     57 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                   2 |
+| DECISION_LOG            | SLINGSHOT_PRIMARY               |     23 |           21 |          21 |            21 |                21 |                23 |                     0 |              0 |                                        21 |                                   1 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |      7 |            5 |           5 |             5 |                 5 |                 5 |                     0 |              0 |                                         0 |                                   1 |
 
 ### Setup family × SLINGSHOT scope
-| setup_family   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   median_business_days_since_signal |
-|:---------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------:|
-| SLINGSHOT      | SLINGSHOT_PRIMARY               |    167 |           42 |          42 |            21 |                21 |                46 |                     0 |              0 |                                 2   |
-| ACTIVE_BURST   | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     28 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2   |
-| EP_SPIKE       | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     13 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2   |
-| EP9M           | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     11 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2   |
-| EP_ACTIVE      | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      4 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 2.5 |
-| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |      3 |            3 |           3 |             3 |                 3 |                 2 |                     0 |              0 |                                 1   |
-| EP9M           | SLINGSHOT_OVERLAY               |      2 |            1 |           1 |             1 |                 1 |                 2 |                     0 |              0 |                                 1   |
-| PAUSE          | SLINGSHOT_OVERLAY               |      2 |            1 |           1 |             1 |                 1 |                 1 |                     0 |              0 |                                 1   |
-| DELAYED_EP     | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      1 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                 3   |
+| setup_family   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
+|:---------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
+| SLINGSHOT      | SLINGSHOT_PRIMARY               |    167 |           42 |          42 |            42 |                42 |                46 |                     0 |              0 |                                        21 |                                 2   |
+| ACTIVE_BURST   | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     28 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                 2   |
+| EP_SPIKE       | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     13 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                 2   |
+| EP9M           | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     11 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                 2   |
+| EP_ACTIVE      | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      4 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                 2.5 |
+| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |      3 |            3 |           3 |             3 |                 3 |                 2 |                     0 |              0 |                                         0 |                                 1   |
+| EP9M           | SLINGSHOT_OVERLAY               |      2 |            1 |           1 |             1 |                 1 |                 2 |                     0 |              0 |                                         0 |                                 1   |
+| PAUSE          | SLINGSHOT_OVERLAY               |      2 |            1 |           1 |             1 |                 1 |                 1 |                     0 |              0 |                                         0 |                                 1   |
+| DELAYED_EP     | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      1 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                 3   |
 
 ### Signal-date / recency summary
-| signal_date_parsed   | source_scope_resolved   |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   median_business_days_since_signal |
-|:---------------------|:------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------:|
-| 2026-05-15           | SLINGSHOT_DIAGNOSTIC    |     30 |           26 |          26 |            26 |                26 |                28 |                     0 |              0 |                                   1 |
-| 2026-05-15           | DECISION_LOG            |     23 |           21 |          21 |             0 |                 0 |                23 |                     0 |              0 |                                   1 |
-| 2026-05-14           | SLINGSHOT_DIAGNOSTIC    |    113 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                   2 |
-| 2026-05-13           | SLINGSHOT_DIAGNOSTIC    |     65 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                   3 |
+| signal_date_parsed   | source_scope_resolved   |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
+|:---------------------|:------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
+| 2026-05-15           | SLINGSHOT_DIAGNOSTIC    |     30 |           26 |          26 |            26 |                26 |                28 |                     0 |              0 |                                         0 |                                   1 |
+| 2026-05-15           | DECISION_LOG            |     23 |           21 |          21 |            21 |                21 |                23 |                     0 |              0 |                                        21 |                                   1 |
+| 2026-05-14           | SLINGSHOT_DIAGNOSTIC    |    113 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                   2 |
+| 2026-05-13           | SLINGSHOT_DIAGNOSTIC    |     65 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                   3 |
 
 - Scope/price diagnostics: `slingshot_scope_price_diagnostics_latest.md` plus `slingshot_evaluability_*_summary_latest.csv` files.
 - Interpretation: missing R:R is now treated as a field/evaluability issue, not as zero R:R or negative SLINGSHOT expectancy.
@@ -340,15 +339,16 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 - Interpretation: realized R should be used to validate whether Layer 5 execution is selecting the right subset from WATCH/COUNCIL candidates.
 
 ## 14. Investigation queue
-| priority   | item                                         | why                                                                                                                                                                                                                         |
-|:-----------|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| P1         | Realized-P&L correlation check               | Once n_with_realized_r >= 30, compare realized R by setup_family/action_label/final_trade_status against learning-loop forward-return expectancy. This is the key bridge between signal quality and actual trading quality. |
-| P1         | A1/A2 executable-signal health check         | Confirm A1 count, A2 routing, and whether zero clean TRADE rows is intended strictness or over-routing.                                                                                                                     |
-| P1         | Confirm zero-TRADE root cause                | Post-2026-05-15 rows have zero TRADE rows (n=35). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                                                                                             |
-| P1         | Investigate reject/watch and B/C/D inversion | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.                                                                                |
-| P1         | Track pre-registered rule-change hypotheses  | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, and H_PAUSE_BC_INVERT daily with OOS and realized-R gates before any V5.9.21 rule patch.                                                                  |
-| P2         | Sugar Babies validation                      | Candidate for first ranking_context_score contribution, but validate out-of-sample and by setup family before non-zero boost.                                                                                               |
-| P1         | Fix SLINGSHOT evaluability path              | SLINGSHOT detection is alive but zero rows are OK-evaluable. Use `slingshot_evaluability_audit_latest.md` to fix missing entry/stop/target/R:R/outcome fields before drawing setup conclusions.                             |
+| priority   | item                                                  | why                                                                                                                                                                                                                                                     |
+|:-----------|:------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| P1         | Realized-P&L correlation check                        | Once n_with_realized_r >= 30, compare realized R by setup_family/action_label/final_trade_status against learning-loop forward-return expectancy. This is the key bridge between signal quality and actual trading quality.                             |
+| P1         | A1/A2 executable-signal health check                  | Confirm A1 count, A2 routing, and whether zero clean TRADE rows is intended strictness or over-routing.                                                                                                                                                 |
+| P1         | Confirm zero-TRADE root cause                         | Post-2026-05-15 rows have zero TRADE rows (n=35). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                                                                                                                         |
+| P1         | Investigate reject/watch and B/C/D inversion          | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.                                                                                                            |
+| P1         | Track pre-registered rule-change hypotheses           | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, and H_PAUSE_BC_INVERT daily with OOS and realized-R gates before any V5.9.21 rule patch.                                                                                              |
+| P2         | Sugar Babies validation                               | Candidate for first ranking_context_score contribution, but validate out-of-sample and by setup family before non-zero boost.                                                                                                                           |
+| P1         | Keep SLINGSHOT target/R:R enrichment in learning loop | Learning loop backfilled 21 DECISION_LOG row(s) from diagnostic/skill-pack planning fields. Actionability skill remains stable; continue measurement-layer enrichment from universe outputs until the raw decision-log schema is intentionally revised. |
+| P1         | Fix SLINGSHOT evaluability path                       | SLINGSHOT detection is alive but zero rows are OK-evaluable. Use `slingshot_evaluability_audit_latest.md` to fix missing entry/stop/target/R:R/outcome fields before drawing setup conclusions.                                                         |
 
 
 ## 15. Open caveats / next actions
