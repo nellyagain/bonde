@@ -236,6 +236,56 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | 2026-05-14           | SLINGSHOT_DIAGNOSTIC    |    113 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                   2 |
 | 2026-05-13           | SLINGSHOT_DIAGNOSTIC    |     65 |            0 |           0 |             0 |                 0 |                 0 |                     0 |              0 |                                         0 |                                   3 |
 
+### Hygiene diagnostics
+Measurement-only checks: tiny measured-move geometry, duplicate ticker-date outcomes, and backfill-source attribution. No trading rules changed.
+**Hygiene summary**
+| metric                                  |   value |
+|:----------------------------------------|--------:|
+| rows_total                              |     231 |
+| full_plan_rows                          |      47 |
+| tiny_geometry_flag_rows                 |       4 |
+| tiny_stop_pct_rows                      |       4 |
+| tiny_stop_abs_rows                      |       3 |
+| tiny_target_abs_rows                    |       2 |
+| nonpositive_geometry_rows               |       0 |
+| raw_full_plan_price_rows                |      45 |
+| unique_ticker_date_rows                 |     155 |
+| unique_full_plan_price_ticker_date_rows |      21 |
+| raw_ok_evaluable_rows                   |       0 |
+| unique_ok_evaluable_ticker_date_rows    |       0 |
+| duplicate_trade_key_rows                |     139 |
+
+**Backfill source attribution**
+| slingshot_backfill_source    |   rows |
+|:-----------------------------|-------:|
+| NONE                         |    210 |
+| DIAGNOSTIC_AND_UNIVERSE_PLAN |     21 |
+
+**Duplicate ticker-date rows (sample)**
+| _ss_unique_trade_key   | ticker   | signal_date   | _ss_source_scope     | setup_family   |   planned_rr |   _ss_duplicate_trade_key_count | _ss_recommended_dedup_keep   | slingshot_geometry_tiny_flag   | slingshot_backfill_source    |
+|:-----------------------|:---------|:--------------|:---------------------|:---------------|-------------:|--------------------------------:|:-----------------------------|:-------------------------------|:-----------------------------|
+| ACLX|2026-05-15        | ACLX     | 2026-05-15    | DECISION_LOG         | SLINGSHOT      |   nan        |                               4 | True                         | False                          | NONE                         |
+| ACLX|2026-05-15        | ACLX     | 2026-05-15    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               4 | False                        | False                          | NONE                         |
+| ACLX|2026-05-15        | ACLX     | 2026-05-15    | SLINGSHOT_DIAGNOSTIC | EP9M           |   nan        |                               4 | False                        | False                          | NONE                         |
+| ACLX|2026-05-15        | ACLX     | 2026-05-15    | SLINGSHOT_DIAGNOSTIC | PAUSE          |   nan        |                               4 | False                        | False                          | NONE                         |
+| AMRC|2026-05-14        | AMRC     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | ACTIVE_BURST   |   nan        |                               2 | True                         | False                          | NONE                         |
+| AMRC|2026-05-14        | AMRC     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               2 | False                        | False                          | NONE                         |
+| ANET|2026-05-14        | ANET     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               2 | True                         | False                          | NONE                         |
+| ANET|2026-05-14        | ANET     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | EP9M           |   nan        |                               2 | False                        | False                          | NONE                         |
+| AOSL|2026-05-13        | AOSL     | 2026-05-13    | SLINGSHOT_DIAGNOSTIC | ACTIVE_BURST   |   nan        |                               2 | True                         | False                          | NONE                         |
+| AOSL|2026-05-13        | AOSL     | 2026-05-13    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               2 | False                        | False                          | NONE                         |
+| APA|2026-05-15         | APA      | 2026-05-15    | DECISION_LOG         | SLINGSHOT      |     0.487655 |                               2 | True                         | False                          | DIAGNOSTIC_AND_UNIVERSE_PLAN |
+| APA|2026-05-15         | APA      | 2026-05-15    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |     0.481598 |                               2 | False                        | False                          | NONE                         |
+| ARCB|2026-05-14        | ARCB     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | ACTIVE_BURST   |   nan        |                               2 | True                         | False                          | NONE                         |
+| ARCB|2026-05-14        | ARCB     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               2 | False                        | False                          | NONE                         |
+| AVGO|2026-05-14        | AVGO     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               2 | True                         | False                          | NONE                         |
+| AVGO|2026-05-14        | AVGO     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | EP9M           |   nan        |                               2 | False                        | False                          | NONE                         |
+| AVT|2026-05-13         | AVT      | 2026-05-13    | SLINGSHOT_DIAGNOSTIC | ACTIVE_BURST   |   nan        |                               2 | True                         | False                          | NONE                         |
+| AVT|2026-05-13         | AVT      | 2026-05-13    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               2 | False                        | False                          | NONE                         |
+| BTDR|2026-05-14        | BTDR     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | ACTIVE_BURST   |   nan        |                               3 | True                         | False                          | NONE                         |
+| BTDR|2026-05-14        | BTDR     | 2026-05-14    | SLINGSHOT_DIAGNOSTIC | SLINGSHOT      |   nan        |                               3 | False                        | False                          | NONE                         |
+
+- Hygiene diagnostics: `slingshot_hygiene_diagnostics_latest.md`, `slingshot_hygiene_summary_latest.csv`, `slingshot_dedup_diagnostics_latest.csv`, `slingshot_backfill_attribution_latest.csv`.
 - Scope/price diagnostics: `slingshot_scope_price_diagnostics_latest.md` plus `slingshot_evaluability_*_summary_latest.csv` files.
 - Interpretation: missing R:R is now treated as a field/evaluability issue, not as zero R:R or negative SLINGSHOT expectancy.
 ### Bucket-distribution snapshot
@@ -349,6 +399,7 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | P2         | Sugar Babies validation                               | Candidate for first ranking_context_score contribution, but validate out-of-sample and by setup family before non-zero boost.                                                                                                                           |
 | P1         | Keep SLINGSHOT target/R:R enrichment in learning loop | Learning loop backfilled 21 DECISION_LOG row(s) from diagnostic/skill-pack planning fields. Actionability skill remains stable; continue measurement-layer enrichment from universe outputs until the raw decision-log schema is intentionally revised. |
 | P1         | Fix SLINGSHOT evaluability path                       | SLINGSHOT detection is alive but zero rows are OK-evaluable. Use `slingshot_evaluability_audit_latest.md` to fix missing entry/stop/target/R:R/outcome fields before drawing setup conclusions.                                                         |
+| P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                            |
 
 
 ## 15. Open caveats / next actions
