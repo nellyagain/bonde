@@ -8,8 +8,8 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 | diagnostic_rows                 |     231 |
 | rows_with_entry                 |      47 |
 | rows_with_stop                  |      47 |
-| rows_with_target                |      26 |
-| rows_with_planned_rr            |      26 |
+| rows_with_target                |      47 |
+| rows_with_planned_rr            |      47 |
 | rows_with_price_data            |      51 |
 | rows_with_enough_future_bars_5d |       0 |
 | rows_triggered_5d               |       0 |
@@ -20,8 +20,7 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
 | MISSING_ENTRY            |    184 |
-| INSUFFICIENT_FUTURE_BARS |     24 |
-| MISSING_TARGET           |     21 |
+| INSUFFICIENT_FUTURE_BARS |     45 |
 | NO_PRICE_DATA            |      2 |
 
 ## Source scope
@@ -35,9 +34,9 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 |:----------------------|--------------------:|-------:|---------------:|
 | entry_price           |                  47 |    231 |           20.3 |
 | stop_price            |                  47 |    231 |           20.3 |
-| target_price          |                  26 |    231 |           11.3 |
-| planned_rr            |                  26 |    231 |           11.3 |
-| risk_pct              |                  26 |    231 |           11.3 |
+| target_price          |                  47 |    231 |           20.3 |
+| planned_rr            |                  47 |    231 |           20.3 |
+| risk_pct              |                  47 |    231 |           20.3 |
 | has_price_data        |                  51 |    231 |           22.1 |
 | available_future_bars |                 231 |    231 |          100   |
 | trigger_hit_5d        |                   0 |    231 |            0   |
