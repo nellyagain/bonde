@@ -1,0 +1,1 @@
+trade_date,signal_date,exit_date,ticker,side,setup_family,primary_setup,action_label,final_trade_status,council_verdict,sugar_baby_flag,ep9m_context_type,entry_price,stop_price,exit_price,quantity,pnl,planned_risk_amount,realized_r,trade_taken_or_skipped,skip_reason,join_quality,risk_status,source_trade_file
