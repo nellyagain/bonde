@@ -45,6 +45,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `decision_log_corpus_reconciliation_summary_latest.csv` — LOADED
 - `decision_log_discovery_audit_latest.csv` — LOADED
 - `decision_log_discovery_audit_latest.md` — LOADED
+- `hypothesis_tracker_2026-05-16.md` — LOADED
 - `hypothesis_tracker_latest.md` — LOADED
 - `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
