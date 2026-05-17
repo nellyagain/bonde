@@ -1,16 +1,16 @@
-# SLINGSHOT Evaluability Audit — 2026-05-16
+# SLINGSHOT Evaluability Audit — 2026-05-17
 
 Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permission logic changed.
 
 ## Summary
 | metric                          |   value |
 |:--------------------------------|--------:|
-| diagnostic_rows                 |     231 |
-| rows_with_entry                 |      47 |
-| rows_with_stop                  |      47 |
-| rows_with_target                |      47 |
-| rows_with_planned_rr            |      47 |
-| rows_with_price_data            |      51 |
+| diagnostic_rows                 |     228 |
+| rows_with_entry                 |      48 |
+| rows_with_stop                  |      48 |
+| rows_with_target                |      48 |
+| rows_with_planned_rr            |      48 |
+| rows_with_price_data            |      47 |
 | rows_with_enough_future_bars_5d |       0 |
 | rows_triggered_5d               |       0 |
 | rows_stopped_5d                 |       0 |
@@ -19,30 +19,30 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 ## Top missing reasons
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
-| MISSING_ENTRY            |    184 |
+| MISSING_ENTRY            |    180 |
 | INSUFFICIENT_FUTURE_BARS |     45 |
-| NO_PRICE_DATA            |      2 |
+| NO_PRICE_DATA            |      3 |
 
 ## Source scope
 | source_scope         |   rows |
 |:---------------------|-------:|
-| SLINGSHOT_DIAGNOSTIC |    208 |
+| SLINGSHOT_DIAGNOSTIC |    205 |
 | DECISION_LOG         |     23 |
 
 ## Field coverage
 | field                 |   populated_or_true |   rows |   coverage_pct |
 |:----------------------|--------------------:|-------:|---------------:|
-| entry_price           |                  47 |    231 |           20.3 |
-| stop_price            |                  47 |    231 |           20.3 |
-| target_price          |                  47 |    231 |           20.3 |
-| planned_rr            |                  47 |    231 |           20.3 |
-| risk_pct              |                  47 |    231 |           20.3 |
-| has_price_data        |                  51 |    231 |           22.1 |
-| available_future_bars |                 231 |    231 |          100   |
-| trigger_hit_5d        |                   0 |    231 |            0   |
-| stop_hit_5d           |                   0 |    231 |            0   |
-| mfe_r                 |                   0 |    231 |            0   |
-| mae_r                 |                   0 |    231 |            0   |
+| entry_price           |                  48 |    228 |           21.1 |
+| stop_price            |                  48 |    228 |           21.1 |
+| target_price          |                  48 |    228 |           21.1 |
+| planned_rr            |                  48 |    228 |           21.1 |
+| risk_pct              |                  48 |    228 |           21.1 |
+| has_price_data        |                  47 |    228 |           20.6 |
+| available_future_bars |                 228 |    228 |          100   |
+| trigger_hit_5d        |                   0 |    228 |            0   |
+| stop_hit_5d           |                   0 |    228 |            0   |
+| mfe_r                 |                   0 |    228 |            0   |
+| mae_r                 |                   0 |    228 |            0   |
 
 ## Sample rows
 | _ss_source_scope     | ticker   | signal_date   | setup_family   | primary_setup   |   entry_price |   stop_price |   target_price |   planned_rr | has_price_data   |   available_future_bars | trigger_hit_5d   | primary_missing_reason   | missing_reasons                                                    |
