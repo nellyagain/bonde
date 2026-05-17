@@ -16,9 +16,9 @@ _v4.11 Session 2 patch. Outcome evaluation + slice-based performance summaries o
 ### Outcome status (ticker-level)
 
 - EVALUATED_FULL: **0**
-- EVALUATED_PARTIAL: **2573**
+- EVALUATED_PARTIAL: **2580**
 - PENDING_NO_FUTURE_BARS: **244**
-- NO_PRICE_DATA: **9**
+- NO_PRICE_DATA: **2**
 
 ## A. Reviewed vs unreviewed (ticker-level)
 
@@ -106,7 +106,7 @@ _Filtered to rows that joined the decision log; catalyst_grade is a decision-log
 |:-----------------|---------:|------------------:|:------------|-----------------:|:------------------|------------------:|-----------------:|
 | C                |      267 |                 0 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
 | UNKNOWN          |      219 |                 0 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
-| D                |      172 |                 7 | True        |              171 | ACTIONABLE_SAMPLE |             43.86 |             0.64 |
+| D                |      172 |                 7 | True        |              172 | ACTIONABLE_SAMPLE |             44.19 |             0.65 |
 | B                |       25 |                 0 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
 | A                |       10 |                 0 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
 
