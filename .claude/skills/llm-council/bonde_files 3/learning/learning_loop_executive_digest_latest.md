@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-17
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-17 08:01 UTC_
+_Run timestamp: 2026-05-17 09:53 UTC_
 
 ## 1. Today's required action
 1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
@@ -11,7 +11,7 @@ _Run timestamp: 2026-05-17 08:01 UTC_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **1**. (§15)
 
-## 2. Changed since last run — 2026-05-17 07:52 UTC → 2026-05-17 08:01 UTC
+## 2. Changed since last run — 2026-05-17 08:01 UTC → 2026-05-17 09:53 UTC
 - Prior digest date: **2026-05-17**
 - Current digest date: **2026-05-17**
 - Comparison window: **2026-05-17 → 2026-05-17**
