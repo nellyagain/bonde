@@ -1,0 +1,4 @@
+# Generated LLM Council runtime artifacts
+# These files are written locally for learning-loop ingestion and should not be merged as code.
+.claude/skills/llm-council/reports/
+bonde_screener_cache/council_queues/
