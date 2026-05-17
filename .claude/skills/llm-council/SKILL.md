@@ -2,9 +2,11 @@
 name: llm-council
 description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, chairman verdict, optional Bonde outcome overlay, and structured trading council outcomes. Use for council this, run the council, pressure-test this, or meaningful tradeoffs. For Bonde trading councils, produce report, transcript, and council_outcomes CSV for learning-loop ingestion.
 ---
-**Version: V1.3.3** (2026-05-17)
+**Version: V1.3.4** (2026-05-17)
 
 **Changelog**
+
+- **V1.3.4 (2026-05-17)** — Create Missing Council Handoff Folder. Strengthens the V1.3.3 handoff rule: if the Bonde machine-readable handoff folder such as `bonde_screener_cache/council_queues/` does not exist but the workspace/repo root is writable, the Council must create it (`mkdir -p`) and write/copy **all four** machine-readable Council CSVs there: `council_outcomes_*`, `council_disagreements_*`, `council_self_calibration_summary_*`, and `council_reachability_audit_*`. A missing handoff directory is not by itself a reason for manual upload. Manual `_inbox` fallback is allowed only when the environment cannot create or write any learning-loop-visible handoff folder. No schema, verdict, routing, or trading-rule changes.
 
 - **V1.3.3 (2026-05-17)** — Reachability Artifact Handoff Fix. Treats `council_reachability_audit_YYYY-MM-DD*.csv` as a first-class Bonde machine-readable Council artifact. The reachability audit must be written next to the report/transcript **and** copied/written to the same machine-readable handoff destination used for `council_outcomes`, `council_disagreements`, and `council_self_calibration_summary`, especially `bonde_screener_cache/council_queues/` when available. A Bonde Council run is incomplete if the existing Council CSVs reach the handoff folder but the reachability audit remains only in the local reports folder. No schema, verdict, routing, or trading-rule changes.
 
@@ -754,7 +756,9 @@ Required handoff behavior:
 
 - If `council_outcomes_*.csv`, `council_disagreements_*.csv`, or `council_self_calibration_summary_*.csv` is copied/written to `bonde_screener_cache/council_queues/`, then `council_reachability_audit_*.csv` must be copied/written there too.
 - If a repo-specific Council handoff folder exists and receives the other Council CSVs, the reachability audit must be copied/written there too.
-- The reachability audit must not remain only in `/home/user/bonde/.claude/skills/llm-council/reports/` when the other Council CSVs are also being exported to a learning-loop-visible handoff folder.
+- If `bonde_screener_cache/council_queues/` does **not** exist but the repo/workspace root is writable, create it with `mkdir -p bonde_screener_cache/council_queues/` and write/copy all four machine-readable Council CSVs there in the same run. A missing handoff directory is not by itself a valid reason for manual upload.
+- If the Council can write local reports to `/home/user/bonde/.claude/skills/llm-council/reports/`, first try to resolve `/home/user/bonde/bonde_screener_cache/council_queues/` as the machine-readable handoff folder; create it if missing and writable.
+- The reachability audit must not remain only in `/home/user/bonde/.claude/skills/llm-council/reports/` when a repo/workspace handoff folder can be created or already exists.
 - A Bonde Council run is incomplete if the existing Council CSVs are available to the learning loop but the reachability audit is not. Fix the copy/write failure before reporting the run complete, or explicitly set `manual_handoff_required: true` and print the raw CSV content.
 
 **Always write this file.** If the run has no Bonde rows, write a header-only CSV. If the audit cannot be evaluated because fields or routing code are missing, write one `NOT_EVALUABLE` summary row explaining why.
@@ -826,22 +830,33 @@ If the audit cannot be evaluated, say so directly. Do not claim A1/A2 is reachab
 
 Failure handling: If `council_reachability_audit_YYYY-MM-DD*.csv` cannot be written or cannot be copied to the same machine-readable handoff destination as the other Council CSVs, state this clearly and print the CSV content in a raw code block. Do not silently omit it.
 
-**Machine-readable handoff rule for reachability audits (V1.3.3):**
+**Machine-readable handoff rule for reachability audits (V1.3.3 / V1.3.4):**
 
 The reachability audit is a learning-loop artifact, not merely a local report attachment. It must follow the same handoff path as `council_outcomes_*.csv`, `council_disagreements_*.csv`, and `council_self_calibration_summary_*.csv`. When `bonde_screener_cache/council_queues/` is available, the reachability audit must be written or copied there using the exact filename prefix `council_reachability_audit_`.
 
-The final response must show both:
+If `bonde_screener_cache/council_queues/` is not available because the directory is missing, the Council must attempt to create it in the current repo/workspace root before falling back to manual handoff. For the common Claude workspace path, if local reports are being written to `/home/user/bonde/.claude/skills/llm-council/reports/`, the preferred machine-readable handoff folder is:
+
+```text
+/home/user/bonde/bonde_screener_cache/council_queues/
+```
+
+Create that folder if it does not exist and the workspace is writable. Then write/copy all four machine-readable CSVs there. A missing handoff folder is not, by itself, a valid reason to require manual upload.
+
+The final response must show:
 
 ```text
 local_report_path: /home/user/bonde/.claude/skills/llm-council/reports/council_reachability_audit_YYYY-MM-DD*.csv
 handoff_path: /path/to/bonde_screener_cache/council_queues/council_reachability_audit_YYYY-MM-DD*.csv
+copied_to_machine_handoff: TRUE/FALSE
+handoff_dir_created: TRUE/FALSE
+manual_handoff_required: TRUE/FALSE
 ```
 
-If the local report path exists but the handoff path does not, the Council run is not complete for learning-loop purposes.
+If the local report path exists but the handoff path does not, and the handoff directory could have been created, the Council run is not complete for learning-loop purposes.
 
-**Manual `_inbox` handoff when Drive/workspace write access is unavailable (V1.3.2 fallback):**
+**Manual `_inbox` handoff when Drive/workspace write access is unavailable (V1.3.2 fallback, narrowed by V1.3.4):**
 
-If the Council environment cannot write directly to Google Drive or the Bonde workspace, still produce the artifact content. Print `council_reachability_audit_YYYY-MM-DD.csv` as a raw CSV code block and instruct Kevin to save or upload it exactly as:
+Manual handoff is allowed only after the Council has tried and failed to create/write a learning-loop-visible handoff folder such as `bonde_screener_cache/council_queues/`. A missing folder alone is not enough; try `mkdir -p` first. If the Council environment truly cannot write directly to Google Drive or the Bonde workspace, still produce the artifact content. Print `council_reachability_audit_YYYY-MM-DD.csv` as a raw CSV code block and instruct Kevin to save or upload it exactly as:
 
 ```text
 /content/drive/MyDrive/bonde_learning/_inbox/council_reachability_audit_YYYY-MM-DD.csv
@@ -1037,6 +1052,8 @@ If any test fails, fix it before reporting the run complete.
 50. Existing V1.1/V1.2 schemas remain unchanged: `council_outcomes` has 11 columns, `council_disagreements` has 22 columns, and `council_self_calibration_summary` has 13 columns.
 51. If Drive/workspace write access is unavailable, the final response prints `council_reachability_audit_YYYY-MM-DD.csv` in a raw CSV code block and states the exact manual upload path `/content/drive/MyDrive/bonde_learning/_inbox/council_reachability_audit_YYYY-MM-DD.csv`.
 52. If manual handoff is required, the final response includes `manual_handoff_required: true` and does not claim that the learning loop has ingested the reachability audit until Kevin uploads the CSV and reruns the learning loop.
+52a. If `bonde_screener_cache/council_queues/` is missing but the repo/workspace root is writable, the Council creates the directory and writes/copies all four machine-readable Council CSVs there.
+52b. A run fails acceptance if it reports manual handoff solely because `bonde_screener_cache/council_queues/` did not already exist.
 53. If `council_outcomes_*.csv`, `council_disagreements_*.csv`, or `council_self_calibration_summary_*.csv` is copied/written to `bonde_screener_cache/council_queues/` or any other learning-loop-visible handoff folder, then `council_reachability_audit_*.csv` must be copied/written to the same folder in the same run.
 54. The final response lists both `local_report_path` and `handoff_path` for `council_reachability_audit_*.csv`, and states `copied_to_machine_handoff: TRUE` when the handoff copy succeeds.
 55. A Bonde Council run fails acceptance if the reachability audit exists only in the local reports folder while the other Council CSVs are available in the machine-readable handoff folder.
@@ -1049,6 +1066,6 @@ Always anonymize for peer review. If reviewers know which advisor said what, the
 The chairman is not bound by reasoning-path convergence. If four reasoning paths reach the same conclusion but the fifth path's argument is strongest, the chairman sides with the strongest argument and explains why. The reasoning paths are not votes; the chairman weighs argument quality, not path counts.
 For Bonde/trading runs, the chairman must distinguish direct sector correlation from broad risk-appetite correlation. Do not let a broad market concern masquerade as a direct industry linkage.
 For Bonde/trading runs, the chairman must distinguish A1/A2 reachability/routing defects from threshold-calibration questions. Fix unreachable logic now; do not lower thresholds or promote marginal candidates without pre-registered evidence.
-For Bonde/trading runs, the reachability audit must travel with the other machine-readable Council CSVs to the learning-loop-visible handoff folder; writing it only to the local reports folder is an incomplete run.
+For Bonde/trading runs, the reachability audit must travel with the other machine-readable Council CSVs to the learning-loop-visible handoff folder; writing it only to the local reports folder is an incomplete run. If the expected handoff directory is missing, create it before falling back to manual upload.
 Don't council trivial questions. If the user asks something with one right answer, just answer it. The council is for genuine uncertainty where multiple perspectives add value.
 The visual report matters. Most users will scan the report, not read the full transcript. Make the HTML output clean and scannable.
