@@ -1,5 +1,5 @@
 signal_date_parsed,source_scope_resolved,rows,with_entry,with_stop,with_target,with_planned_rr,with_price_data,with_5d_future_bars,ok_evaluable,decision_log_backfilled_from_diagnostic,median_business_days_since_signal
-2026-05-15,SLINGSHOT_DIAGNOSTIC,30,26,26,26,26,28,0,0,0,1.0
+2026-05-15,SLINGSHOT_DIAGNOSTIC,27,27,27,27,27,24,0,0,0,1.0
 2026-05-15,DECISION_LOG,23,21,21,21,21,23,0,0,21,1.0
 2026-05-14,SLINGSHOT_DIAGNOSTIC,113,0,0,0,0,0,0,0,0,2.0
 2026-05-13,SLINGSHOT_DIAGNOSTIC,65,0,0,0,0,0,0,0,0,3.0
