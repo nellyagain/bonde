@@ -1,10 +1,10 @@
 metric,value
-diagnostic_rows,46
-rows_with_entry,42
-rows_with_stop,42
-rows_with_target,0
-rows_with_planned_rr,0
-rows_with_price_data,46
+diagnostic_rows,228
+rows_with_entry,48
+rows_with_stop,48
+rows_with_target,48
+rows_with_planned_rr,48
+rows_with_price_data,47
 rows_with_enough_future_bars_5d,0
 rows_triggered_5d,0
 rows_stopped_5d,0
