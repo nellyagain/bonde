@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Council — WRBY / SPIR B+ C1 Day-2 Review (2026-05-15)</title>
+<style>
+  :root { --ink:#1c1d20; --mut:#5f6470; --line:#e3e5ea; --bg:#fbfbfc;
+    --promote:#1c7c4a; --defer:#b07b16; --cancel:#b3382f; --accent:#2f5fa8; }
+  * { box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); margin:0; line-height:1.55; }
+  .wrap { max-width:880px; margin:0 auto; padding:40px 24px 80px; }
+  h1 { font-size:23px; margin:0 0 4px; }
+  h2 { font-size:17px; margin:34px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3 { font-size:14px; margin:20px 0 8px; text-transform:uppercase; letter-spacing:.04em; color:var(--mut); }
+  p, li { font-size:14.5px; }
+  .sub { color:var(--mut); font-size:13px; margin:0 0 22px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:9px; padding:16px 18px; margin:12px 0; }
+  .q { background:#f4f6f9; border-left:3px solid var(--accent); }
+  .verdict-row { display:flex; gap:14px; flex-wrap:wrap; margin:10px 0; }
+  .vbox { flex:1; min-width:260px; border:1px solid var(--line); border-radius:9px; padding:14px 16px; background:#fff; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.05em;
+    padding:3px 9px; border-radius:5px; color:#fff; }
+  .t-promote{background:var(--promote);} .t-defer{background:var(--defer);} .t-cancel{background:var(--cancel);}
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px;
+    background:#eef0f4; color:var(--mut); margin-right:5px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; margin:8px 0; }
+  th,td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--mut); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.03em; }
+  .mono { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12.5px; }
+  details { border:1px solid var(--line); border-radius:8px; margin:8px 0; background:#fff; }
+  summary { cursor:pointer; padding:11px 15px; font-weight:600; font-size:13.5px; }
+  details[open] summary { border-bottom:1px solid var(--line); }
+  .det-body { padding:13px 16px; }
+  .disclaim { font-size:12.5px; color:var(--mut); font-style:italic; background:#f4f6f9;
+    border-radius:6px; padding:9px 12px; margin:8px 0; }
+  .path { border-left:3px solid var(--line); padding:4px 0 4px 13px; margin:10px 0; }
+  .path b { font-size:13.5px; }
+  .foot { margin-top:40px; padding-top:14px; border-top:1px solid var(--line);
+    color:var(--mut); font-size:12px; }
+  .warn { color:var(--cancel); font-weight:600; }
+  .ok { color:var(--promote); font-weight:600; }
+  ul { margin:6px 0; padding-left:20px; }
+  code { background:#eef0f4; padding:1px 5px; border-radius:4px; font-size:12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>LLM Council Verdict — WRBY &amp; SPIR</h1>
+  <p class="sub">B+ &ldquo;C1&rdquo; Day-2 council review &middot; signal/review date 2026-05-15 (Fri) &middot;
+    council run 2026-05-17 (Sun) &middot; Day-2 entry session = Mon 2026-05-18</p>
+
+  <div class="card q">
+    <strong>Question brought to the council</strong>
+    <p style="margin:8px 0 0">Two Bonde/Stockbee candidates are routed to council as B+ <em>C1</em> Day-2 setups
+    (C1 = wide Day-1 range / static end-of-day R:R floor fail). Both <strong>fail the 2.0 R:R floor</strong>
+    on Day-1 numbers. For each: PROMOTE, DEFER, or CANCEL — and would Monday&rsquo;s inside-day or
+    pullback tighten the entry enough to clear 2.0R? Both rows carry
+    <code>final_trade_status=COUNCIL</code> (judgment review, not auto-trade).</p>
+  </div>
+
+  <h2>Chairman Verdict</h2>
+  <div class="verdict-row">
+    <div class="vbox">
+      <span class="tag t-defer">DEFER</span> &nbsp;<strong>WRBY</strong>
+      <span class="pill">DELAYED_EP</span><span class="pill">confidence: medium</span><span class="pill">playbook-only</span>
+      <p style="margin:9px 0 0">Monday-only Day-2 alert. Clean structure (consec_up 0, swing_day 1,
+      RS 86, extension none, DEP vol gate PASS) — the <em>only</em> blocker is R:R 1.64. A legitimate,
+      non-rescue path exists: a volume-contracting inside-day Monday lifts the canonical DEP stop above
+      the $27.77 Day-1 low while entry stays $29.95 and target $33.52 — re-clearing 2.0R by tightening
+      risk, not by lowering entry. Confidence is only <em>medium</em> because the $33.52 blue-sky
+      measured-move target has no overhead structure to anchor it.</p>
+    </div>
+    <div class="vbox">
+      <span class="tag t-cancel">CANCEL</span> &nbsp;<strong>SPIR</strong>
+      <span class="pill">SLINGSHOT</span><span class="pill">confidence: medium-high</span><span class="pill">playbook-only</span>
+      <p style="margin:9px 0 0">Remove from the screen. Unlike WRBY&rsquo;s blue-sky, SPIR&rsquo;s
+      measured-move target $24.01 must punch through the 252-day high $23.14, which sits only
+      <strong>0.99R</strong> above the trigger — reward runs straight into hard overhead. Reaching a
+      defensible 2.0R needs the entry dragged down materially: a textbook Day-2 pullback rescue, on a
+      family with <strong>zero realized outcomes</strong>. Reported-loss catalyst, widest stop in the
+      pair (13.2%), +75.75% above the 200SMA. Prior council had SPIR at DEFER but &ldquo;near-CANCEL&rdquo;;
+      nothing improved.</p>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--mut)">Both verdicts are <strong>playbook-only</strong> — no mature
+  outcome data exists for either setup family or for the B+ C1 blocker. <span class="warn">Place no
+  resting weekend orders.</span> If Monday&rsquo;s only path to 2.0R on WRBY is <em>lowering</em> the
+  entry below $29.95, that becomes a Day-2 pullback rescue with no base rate &rarr; WRBY flips to CANCEL.</p>
+
+  <h2>Context Files Loaded</h2>
+  <table>
+    <tr><th>Role</th><th>Path</th><th>Status</th></tr>
+    <tr><td>council_queue</td><td class="mono">bonde_files 3/current/council_queue_2026-05-15.csv</td><td class="ok">LOADED</td></tr>
+    <tr><td>daily_decision_log</td><td class="mono">bonde_files 3/current/daily_decision_log_2026-05-15.csv</td><td class="ok">LOADED</td></tr>
+    <tr><td>skill_pack</td><td class="mono">bonde_files 3/current/bonde_skill_pack_2026-05-15.csv</td><td class="ok">LOADED</td></tr>
+    <tr><td>manifest</td><td class="mono">bonde_files 3/active_context/council_context_manifest.md</td><td class="ok">LOADED</td></tr>
+    <tr><td>candidate_context</td><td class="mono">bonde_files 3/active_context/latest_candidate_context.md</td><td class="ok">LOADED</td></tr>
+    <tr><td>learning_context</td><td class="mono">bonde_files 3/active_context/latest_learning_context.md</td><td class="ok">LOADED — no ACTIVE learned patterns</td></tr>
+    <tr><td>market_context</td><td class="mono">bonde_files 3/active_context/latest_market_context.md</td><td class="ok">LOADED — Nasdaq Bull regime, SMA50 extremely extended</td></tr>
+    <tr><td>base rates</td><td class="mono">learning/setup_family_performance_summary_v410.csv, slingshot_bucket_performance_v41314.csv, slingshot_evaluability_summary_latest.csv</td><td class="ok">LOADED</td></tr>
+    <tr><td>actionability skill</td><td class="mono">bonde_files/bonde_stockbee_actionability/SKILL.md</td><td class="ok">LOADED</td></tr>
+    <tr><td>prior council</td><td class="mono">reports/council_outcomes_2026-05-15-spir-wrby.csv (+ disagreements, self-cal)</td><td class="ok">LOADED — prior verdicts DEFER/DEFER, outcomes PENDING</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--mut)">No required current files missing. V5.9.19 semantics applied:
+  <code>final_trade_status</code> is executable (both = COUNCIL); <code>tier=TAKE</code> on WRBY is
+  dashboard focus only, not trade authorization.</p>
+
+  <h2>Council self-calibration status</h2>
+  <p><strong>INSUFFICIENT_DATA.</strong> Resolved disagreements: 0 / 30. Historical disagreement files
+  exist (2026-05-14, 2026-05-15, 2026-05-15-spir-wrby) but every row remains PENDING outcome
+  resolution. <strong>No reliability percentage reported.</strong> Self-calibration is context only and
+  did not influence the verdicts.</p>
+
+  <h2>A1/A2 Reachability Audit</h2>
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>A1_REACHABLE</td><td><strong>NOT_EVALUABLE</strong></td></tr>
+    <tr><td>A2_EXECUTABLE_REACHABLE</td><td><strong>NOT_EVALUABLE</strong></td></tr>
+    <tr><td>ZERO_TRADE_CAUSE</td><td><strong>INSUFFICIENT_CLEAN_ROWS</strong></td></tr>
+    <tr><td>Counts (2026-05-15 log)</td><td>n_A1 = 0 &middot; n_A2 = 0 &middot; n_TRADE = 0 &middot;
+      n_COUNCIL = 2 &middot; n_WATCH = 32 &middot; n_REJECT = 1 &middot; n_A2&rarr;COUNCIL = 0</td></tr>
+    <tr><td>Top demotion reason</td><td><code>rr_floor_fail</code> — WRBY &amp; SPIR were the day&rsquo;s
+      highest-quality rows but capped at B+_C1 by the 2.0 R:R floor, then routed to COUNCIL by design</td></tr>
+    <tr><td>Audit basis</td><td>ACTUAL_CORPUS — no isolated routing harness available</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--mut)">The 2026-05-15 decision log produced zero TRADE rows because
+  it contained zero A1/A2 rows — every name was setup-building (32 WATCH, triggers unbroken / vol gates
+  failing), plus 2 B+_C1 COUNCIL rows and 1 REJECT. That is an <strong>expected quiet-day distribution,
+  not a routing bug</strong>. Whether a clean A1/A2 row routes to an executable TRADE under V5.9.19
+  cannot be confirmed: the only V5.9.19-format log (which carries <code>final_trade_status</code>) has
+  no A1/A2 rows, and no isolated routing harness was available to run positive controls. Per V1.3.1,
+  reachability is therefore reported NOT_EVALUABLE rather than asserted. The two COUNCIL rows are
+  B+ judgment-review candidates routed intentionally — not demoted A2 rows. This is an observation for a
+  future implementation/routing check, <strong>not</strong> a reason to relax thresholds or promote a
+  marginal candidate.</p>
+
+  <h2>Outcome / Base-Rate Context</h2>
+  <p>Outcome data available: <strong>yes, but immature</strong> — verdicts are playbook-only.</p>
+  <ul>
+    <li><strong>DELAYED_EP</strong> (WRBY): n=14, LOW_SAMPLE, IMMATURE_20D. Only 6 rows 5-day-evaluable
+      (avg +1.3%, win 83%) — too small to lean on. Trigger-hit-5d ~80%.</li>
+    <li><strong>SLINGSHOT</strong> (SPIR): n=23, PARTIAL_OUTCOME, IMMATURE_20D — <span class="warn">zero
+      realized outcomes</span> (0 rows with 5-day future bars; slingshot_bucket_performance n_resolved=0
+      in every bucket). No realized Slingshot edge exists. Bucket distribution note: contraction-quality
+      &ge;60 bucket (SPIR=62.4) shows pct_rr_pass = 0%.</li>
+    <li><strong>B+ C1 blocker</strong>: no resolved council outcomes; self-calibration INSUFFICIENT_DATA.</li>
+    <li><strong>Prior council</strong> reviewed WRBY &amp; SPIR on review_date 2026-05-15 &rarr; DEFER /
+      DEFER; both outcomes still PENDING.</li>
+  </ul>
+
+  <h2>Reasoning Paths Considered</h2>
+  <div class="disclaim">These are not independent votes. Convergence is useful as a reasoning check, not
+  as statistical corroboration. Five perspectives generated in one process exploring the same problem
+  is not five independent verdicts.</div>
+
+  <h3>Reasoning Path Convergence</h3>
+  <p>Four of the reasoning paths arrived at &ldquo;not promotable today&rdquo; — by genuinely different
+  routes. The <strong>Contrarian</strong> path reached it through the fabricated-target framing (a
+  measured move into blue sky is a ruler exercise, not a level the market respects). The
+  <strong>First Principles</strong> path reached it by reframing — promoting either name means
+  pre-committing to a setup that <em>does not exist yet</em>. The <strong>Outsider</strong> path reached
+  it by plain reading — a trade that fails a hard floor is a no-trade. The <strong>Executor</strong>
+  path reached it through execution feasibility — there is no clean Monday order plan that doesn&rsquo;t
+  fill worse on a weekend gap. All paths agreed the verdicts are playbook-only, that no resting weekend
+  order should be placed, and that the two names represent correlated risk-on exposure.</p>
+
+  <h3>Reasoning Path Divergence</h3>
+  <div class="path"><b>Promote vs. not.</b> The Expansionist path argued PROMOTE both — WRBY&rsquo;s
+  blue-sky breakout makes the measured move a floor not a ceiling, and SPIR&rsquo;s low-float /
+  institutional / re-rating profile is asymmetric upside. The Contrarian, First Principles and Outsider
+  paths rejected this: it overrides a hard R:R floor with narrative and reframes immature / zero-sample
+  data as bullish conviction.</div>
+  <div class="path"><b>WRBY: CANCEL vs. DEFER.</b> The Contrarian and Outsider paths said CANCEL — the
+  target is fabricated, so R:R cannot be honestly rescued. The First Principles and Executor paths said
+  DEFER — there is an organic path: a volume-contracting inside-day lifts the <em>stop</em> (not lowers
+  the entry), re-clearing 2.0R legitimately.</div>
+
+  <h3>Blind Spots the Reasoning Paths Caught</h3>
+  <p>The peer-review round identified the Expansionist path as the largest blind spot — it overrode a
+  hard rule with narrative, reframed SPIR&rsquo;s zero-outcome family as &ldquo;asymmetric,&rdquo; and
+  recast doubled correlated risk-on exposure as &ldquo;conviction.&rdquo; Separately, every reviewer
+  flagged something <em>no advisor</em> raised: why are two setups that mechanically fail a hard floor
+  in front of the council at all? Reviewers (working without the playbook) read this as a routing leak.
+  <strong>Chairman clarification:</strong> it is not a leak — Bonde V5.9 <em>intentionally</em> routes
+  B+ C1 rows (tagged <code>R_R_PENDING_DAY2_CONTRACTION</code>) to a Day-2 council precisely because
+  Day-2 contraction may re-clear the floor. The reviewers&rsquo; underlying point still lands: on these
+  rows the council&rsquo;s job is narrow — confirm or reject the specific Day-2 condition, not
+  re-promote a setup that has not formed.</p>
+
+  <h2>Chairman Synthesis</h2>
+  <p>The Chairman weighted the <strong>Executor</strong> path most heavily (the only one with an
+  executable, falsifiable Monday plan — and the unanimous peer-review pick as strongest) and the
+  <strong>First Principles</strong> path second (correctly: you cannot promote a setup that has not
+  formed). The Expansionist path was discounted — it is the right instinct on a confirmed breakout, but
+  here it overrides a hard floor with narrative and is unsupported by any realized base rate.</p>
+  <p><strong>WRBY &rarr; DEFER (medium, playbook-only).</strong> The Contrarian/Outsider CANCEL is too
+  strong. WRBY&rsquo;s structure is genuinely clean and the sole blocker is R:R. A non-rescue path to
+  2.0R exists: a Monday volume-contracting inside-day raises the canonical DEP stop (today&rsquo;s low)
+  above $27.77 with entry held at $29.95 and target $33.52 — that tightens risk rather than lowering
+  entry, so it is <em>not</em> a Day-2 pullback rescue. Confidence is capped at medium because the
+  blue-sky $33.52 target is a measured-move projection with nothing structural to anchor it.</p>
+  <p><strong>SPIR &rarr; CANCEL (medium-high, playbook-only).</strong> Four paths converged on CANCEL
+  and the structural argument is decisive. SPIR&rsquo;s target must punch through the 252-day high
+  $23.14, which sits only 0.99R above the trigger — so even a tight Monday inside-day that lifts the
+  stop runs the reward into hard resistance. A defensible 2.0R requires dragging the entry down
+  materially: a true Day-2 pullback rescue, with zero SLINGSHOT outcomes to support it. Combined with
+  the reported-loss catalyst, the 13.2% stop, and +75.75% above the 200SMA, the Chairman tightens the
+  prior council&rsquo;s &ldquo;near-CANCEL&rdquo; DEFER to CANCEL. This is decisive, not punitive — if
+  SPIR later prints a genuinely fresh, tighter signal it re-enters on its own merits.</p>
+
+  <h2>Portfolio Heat</h2>
+  <p><strong>No promoted exposure</strong> (WRBY DEFER, SPIR CANCEL) — no portfolio risk is taken on by
+  this verdict. Note for completeness: had both been promoted, WRBY (consumer / eyewear) and SPIR
+  (satellite intelligence / space) are <em>not</em> direct sector peers — the only linkage is
+  <strong>broad risk-appetite read-through</strong> (two post-earnings momentum growth names in a
+  RISK_ON tape), not direct-sector correlation. Exact account-risk sizing was not available; heat is
+  described qualitatively.</p>
+  <p><strong>Order-duration guardrail (weekend gap):</strong> the next session is Monday across a
+  weekend gap. <span class="warn">No GTC / resting conditional orders.</span> Any WRBY action is a
+  non-resting price alert plus manual, live re-evaluation Monday — never a weekend order that fills
+  through the trigger on a news-driven gap.</p>
+
+  <h2>The One Thing to Do First</h2>
+  <p>Set a single <strong>non-resting price alert on WRBY at $29.95</strong> and place no weekend orders
+  on either name — then Monday, act only if a volume-contracting inside-day lifts the stop enough to
+  clear 2.0R with the entry held at $29.95.</p>
+
+  <h2>Advisor Detail</h2>
+  <details><summary>The Contrarian — WRBY CANCEL / SPIR CANCEL</summary>
+  <div class="det-body"><p>Both of these are trades looking for a reason to exist. <strong>WRBY —
+  CANCEL, 80%, playbook-only.</strong> The fatal flaw is the target: a 1.64 R:R built on a measured
+  move into pure blue sky is fiction — no overhead structure, so the target is a ruler exercise. You
+  cannot rescue R:R by lowering entry on a stock +35% in 6 sessions and +19.8% above its 200SMA — that
+  is catching a stock mid-exhale and pretending the math improved. The denominator shrank; the
+  probability of hitting an invented target did not. 7.3% stop on a parabola across a weekend gap.
+  <strong>SPIR — CANCEL, 85%, playbook-only.</strong> Worse. +75.75% above 200SMA is untethered. R:R
+  1.31, 252-day high gives 0.99R — mathematically dead before fees. Zero realized Slingshot outcomes
+  across n=23: you would be the experiment. Reported a loss, low-float, momentum blowoff.
+  <strong>Portfolio:</strong> two correlated risk-on names is doubled, not diversified, heat. CANCEL
+  both; log for calibration.</p></div></details>
+
+  <details><summary>The First Principles Thinker — WRBY DEFER / SPIR CANCEL</summary>
+  <div class="det-body"><p>Strip this down. The question is not &ldquo;promote or defer these two
+  setups&rdquo; — it is why they are in front of the council at all. Both fail the 2.0 floor; that is a
+  hard rule producing a clean answer, not a close call. The only path to promote is the Day-2 pullback
+  rescue: promoting a setup that does not exist yet, betting the market manufactures it. Wrong question.
+  <strong>WRBY — DEFER (alert-only), 80%, playbook-only.</strong> Blue-sky means the $33.52 target is
+  fabricated, not measured; you cannot rescue R:R on an invented target. No order, alert at $29.95,
+  re-derive R:R only if Monday&rsquo;s structure is real. <strong>SPIR — CANCEL, 85%,
+  playbook-only.</strong> 13.2% stop, +75.75% above 200SMA, R:R 1.31, 0.99R to the 252-day high, zero
+  realized Slingshot outcomes — no edge, a narrative and a chart. A prior council already said DEFER;
+  running it again Sunday adds the illusion of a decision. Log both for calibration; wait for
+  Monday&rsquo;s actual print.</p></div></details>
+
+  <details><summary>The Expansionist — WRBY PROMOTE / SPIR PROMOTE</summary>
+  <div class="det-body"><p><strong>WRBY — PROMOTE, 70%, playbook-only.</strong> The failed 1.64 R:R is
+  an artifact of a missing target. WRBY printed a 52-week high AT the trigger — that is blue sky, the
+  single most powerful condition in swing trading; the measured move is a floor, not a ceiling. A stock
+  +35% in six sessions on an earnings beat, reaffirmed guidance and a new AI-eyewear partnership does
+  not stop at $33.52. RS 86, vol gate PASS, closed 63.8% up in range — controlled. The weekend gap is
+  an asset; a Monday gap-up through $29.95 confirms demand. <strong>SPIR — PROMOTE, 58%,
+  playbook-only.</strong> The &ldquo;extended&rdquo; framing misses what extension on a re-rating name
+  means — institutions accumulating a satellite-intelligence story raising guidance to 30%+ organic
+  growth. ACTIVE_BURST, low-float, institutional participation is asymmetric; a low-float name with a
+  fresh narrative can run 2-3x the measured move. Size SPIR smaller, but take both.</p></div></details>
+
+  <details><summary>The Outsider — WRBY CANCEL / SPIR CANCEL</summary>
+  <div class="det-body"><p><strong>WRBY — CANCEL, 70%, playbook-only.</strong> Cold read: the system
+  has a 2.0 R:R floor; this fails it (1.64). The only way it passes is Monday handing you a cheaper
+  entry — waiting for the trade to become a different trade. If you need a future price to manufacture
+  the edge, you do not have the edge today. The target is admitted fiction (blue-sky, no overhead
+  structure). Already +35% in six sessions — paying the top of someone else&rsquo;s move.
+  <strong>SPIR — CANCEL, 80%, playbook-only.</strong> Worse: R:R 1.31, 13.2% stop, +75% above 200SMA,
+  reported a loss — a momentum chase dressed in confirmation flags. Slingshot has zero realized
+  outcomes, n_resolved=0 — risking money on a pattern never measured. That is not playbook-backed, it
+  is playbook-hoped. A prior council already said DEFER on these exact tickers; the weekend gap means a
+  conditional order fills on a news jump with no reassessment. Log both as alert-only.</p></div></details>
+
+  <details><summary>The Executor — WRBY DEFER / SPIR CANCEL</summary>
+  <div class="det-body"><p><strong>WRBY — DEFER, 70%, playbook-only.</strong> Monday morning: nothing
+  resting. R:R 1.64; the only path to 2.0 is a tighter entry below $29.95 — a Day-2 pullback rescue
+  with no base rate, will not pre-authorize it. Concrete mechanic: a price ALERT at $29.50, not a
+  resting buy. If Monday prints a volume-contracting inside-day, the Day-1 low lifts, the stop tightens,
+  and the math re-clears organically — re-evaluate live, manual entry only. Do NOT place a weekend GTC
+  conditional buy: a Monday gap-up through a blue-sky 52w high fills you worse with a 7.3% stop.
+  <code>final_trade_status=COUNCIL</code> already says no auto-trade; <code>tier=TAKE</code> is
+  dashboard noise. <strong>SPIR — CANCEL, 80%, playbook-only.</strong> No executable plan: R:R 1.31,
+  13.2% stop, target only 0.99R from trigger — even a perfect fill barely clears 2.0. Rescue needs the
+  entry dragged way down, a pure pullback rescue on a family with zero realized outcomes. Kill the
+  conditional, demote to watch-only.</p></div></details>
+
+  <details><summary>Peer Review Highlights (5 anonymized reviews)</summary>
+  <div class="det-body">
+  <p><strong>Strongest path —</strong> every reviewer named the Executor path: the only response that
+  converts &ldquo;fails the floor&rdquo; into an executable, playbook-legal mechanic (non-resting alert,
+  manual live re-evaluation, explicit rejection of the weekend GTC) and separates WRBY from SPIR on
+  actual math rather than vibes.</p>
+  <p><strong>Biggest blind spot —</strong> every reviewer named the Expansionist path: it overrides a
+  hard 2.0 R:R rule with narrative, reframes SPIR&rsquo;s zero-outcome family as &ldquo;asymmetric,&rdquo;
+  and recasts doubled correlated risk-on exposure as &ldquo;conviction.&rdquo;</p>
+  <p><strong>Base-rate handling —</strong> reviewers agreed the Expansionist path misused the data
+  (spinning immature / zero-outcome evidence into a bullish story); the Contrarian, First Principles
+  and Outsider paths used it correctly (n_resolved=0 means SPIR is an unmeasured experiment). Mild note:
+  two paths leaned on &ldquo;the prior council already said DEFER&rdquo; slightly too hard — a fresh
+  weekend gap is genuinely new information.</p>
+  <p><strong>What all five missed —</strong> none asked why rule-failing B+ C1 setups reach council at
+  all. Reviewers framed it as a routing/intake question. The Chairman addresses this above: it is
+  intentional B+ Day-2 routing, not a leak — but the council&rsquo;s role on these rows is narrow.</p>
+  </div></details>
+
+  <div class="foot">
+    Generated 2026-05-17 &middot; LLM Council v1.3.2 &middot; Bonde/trading council run<br>
+    Counciled: WRBY (DELAYED_EP) &amp; SPIR (SLINGSHOT) — B+ C1 Day-2 review, review_date 2026-05-15.<br>
+    Verdicts: WRBY DEFER (medium) &middot; SPIR CANCEL (medium-high) &middot; both playbook-only.<br>
+    Companion artifacts: council-transcript-20260517-spir-wrby.md &middot;
+    council_outcomes / council_disagreements / council_self_calibration_summary /
+    council_reachability_audit (review_date 2026-05-15, -spir-wrby-r2).
+  </div>
+
+</div>
+</body>
+</html>
