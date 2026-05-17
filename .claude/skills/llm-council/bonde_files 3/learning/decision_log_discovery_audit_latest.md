@@ -1,4 +1,4 @@
-# Decision-Log Corpus Reconciliation Audit — 2026-05-16
+# Decision-Log Corpus Reconciliation Audit — 2026-05-17
 
 Purpose: explain decision-log row-count changes and EP9M coverage across discovery → de-duplication → normalization → master log.
 
@@ -6,7 +6,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 
 | run_date   |   raw_candidate_files_discovered |   included_files |   excluded_files |   raw_rows_discovered_all_candidates |   raw_rows_included_files |   rows_after_schema_normalization_included |   master_decision_log_rows_after_dedup |   rows_removed_by_master_dedup |   excluded_duplicate_files |   included_raw_ep9m_setup_family_rows |   included_raw_ep9m_context_rows_any |   included_norm_ep9m_setup_family_rows |   included_norm_ep9m_context_rows_any |   master_ep9m_setup_family_rows |   master_ep9m_context_rows_any |
 |:-----------|---------------------------------:|-----------------:|-----------------:|-------------------------------------:|--------------------------:|-------------------------------------------:|---------------------------------------:|-------------------------------:|---------------------------:|--------------------------------------:|-------------------------------------:|---------------------------------------:|--------------------------------------:|--------------------------------:|-------------------------------:|
-| 2026-05-16 |                                7 |                7 |                0 |                                  753 |                       753 |                                        753 |                                    729 |                             24 |                          0 |                                     0 |                                  143 |                                      0 |                                   143 |                               0 |                            143 |
+| 2026-05-17 |                                7 |                7 |                0 |                                  753 |                       753 |                                        753 |                                    729 |                             24 |                          0 |                                     0 |                                  143 |                                      0 |                                   143 |                               0 |                            143 |
 
 ## Included decision-log files
 
