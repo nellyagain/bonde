@@ -2,9 +2,13 @@
 name: llm-council
 description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, chairman verdict, optional Bonde outcome overlay, and structured trading council outcomes. Use for council this, run the council, pressure-test this, or meaningful tradeoffs. For Bonde trading councils, produce report, transcript, and council_outcomes CSV for learning-loop ingestion.
 ---
-**Version: V1.2** (2026-05-15)
+**Version: V1.3.1** (2026-05-17)
 
 **Changelog**
+
+- **V1.3.1 (2026-05-17)** — Positive-Control Safety Clarification. Tightens the A1/A2 reachability audit so synthetic positive controls are sandbox-only and never injected into production candidate streams, daily decision logs, council outcomes, disagreement/calibration outputs, or learning-loop inputs. If the Council environment cannot execute an isolated routing harness, reachability must be reported as `NOT_EVALUABLE` or based only on actual-corpus evidence; hypothetical clean-row reasoning alone cannot claim `A1_REACHABLE=TRUE` or `A2_EXECUTABLE_REACHABLE=TRUE`.
+
+- **V1.3 (2026-05-17)** — Council A1/A2 Reachability Audit + Zero-TRADE Cause Classification. Adds a mandatory Bonde/trading reachability audit that checks whether A1 and clean A2 outcomes are theoretically reachable, whether A2 rows are being forced to COUNCIL, and why post-cutover runs may produce zero TRADE rows. Adds `council_reachability_audit_YYYY-MM-DD.csv` as a sixth Bonde council artifact, plus report/transcript sections for `A1_REACHABLE`, `A2_EXECUTABLE_REACHABLE`, `ZERO_TRADE_CAUSE`, and top demotion reasons. Existing V1.1/V1.2 artifact schemas remain unchanged: `council_outcomes`, `council_disagreements`, and `council_self_calibration_summary` retain their canonical columns. This patch is diagnostic/reporting only; it does not lower A1/A2 thresholds, promote COUNCIL rows, or change the actionability skill.
 
 - **V1.2 (2026-05-15)** — Context Audit + V5.9.19 Bonde Compatibility + Execution-Safety Guardrails. Adds mandatory `Context Files Loaded` audit section for Bonde/trading council runs; explicitly treats `final_trade_status` as the executable field and `tier` as source/dashboard focus tier only; adds Friday/weekend order-duration guardrail; requires portfolio heat aggregation for promoted candidates; tightens sector-correlation hygiene by separating direct sector exposure from broad risk-appetite exposure; adds Day-2 pullback rescue/base-rate warning when entry is lowered mainly to satisfy R:R. **No changes to V1.1 artifact names, CSV schemas, PROMOTE/DEFER/CANCEL verdict schema, disagreement tracker schema, or self-calibration scaffold.**
 
@@ -202,6 +206,84 @@ For such candidates:
 - Do not describe R:R rescue as proven edge.
 - Require clean thesis preservation: if the pullback needed to satisfy R:R would also damage the catalyst/setup thesis, prefer DEFER or CANCEL.
 
+
+step 1.3: Bonde Council A1/A2 reachability and zero-TRADE audit (V1.3)
+
+For every Bonde/trading council run, and especially when the current decision log shows zero `TRADE` rows, no `A1` rows, or all visible `A2` rows routed to `COUNCIL`, run a diagnostic reachability audit before advisors evaluate candidates.
+
+This audit is not a trading-rule change. It is a Council-skill sanity check that answers whether the current council/actionability interface can produce executable A1/A2 paths at all, and if not, why.
+
+A. Inputs to inspect
+
+Use the same context files loaded in Step 1.2, especially:
+
+- `council_queue_*.csv`
+- `daily_decision_log_*.csv`
+- `bonde_skill_pack_*.csv`
+- `latest_candidate_context.md`
+- `latest_learning_context.md`
+- the current actionability skill/playbook when available
+
+If the necessary fields are missing, set the audit status to `NOT_EVALUABLE` rather than guessing.
+
+B. Required reachability questions
+
+The audit must answer these questions in the report and transcript:
+
+1. `A1_REACHABLE` — can a clean, fully valid row theoretically route to `action_label=A1` under the current Council/actionability interface?
+2. `A2_EXECUTABLE_REACHABLE` — can a clean A2 row route to an executable status, or does every A2 path force `final_trade_status=COUNCIL`?
+3. `ZERO_TRADE_CAUSE` — if recent rows have zero `TRADE`, classify the likely cause.
+4. `TOP_DEMOTION_REASONS` — for A1/A2 or near-A1/A2 rows that did not become executable, list the main demotion/override reasons.
+5. `ROUTING_OVERRIDE_FIELD` — identify the field or rule layer that overrode the row if detectable, e.g. `final_trade_status`, `council_verdict`, `hard_reject_reason`, `rr_floor_fail`, `dte_guardrail`, `data_missing`, or `unknown`.
+
+Allowed values:
+
+- `A1_REACHABLE`: `TRUE`, `FALSE`, `NOT_EVALUABLE`
+- `A2_EXECUTABLE_REACHABLE`: `TRUE`, `FALSE`, `NOT_EVALUABLE`
+- `ZERO_TRADE_CAUSE`: `BUG_SUSPECTED`, `INTENTIONAL_STRICTNESS`, `INSUFFICIENT_CLEAN_ROWS`, `DATA_MISSING`, `NOT_EVALUABLE`, `NO_ZERO_TRADE_ISSUE`
+
+C. Positive-control rows — sandbox-only
+
+Positive controls are allowed only as an isolated reachability test. They must never be injected into production candidate streams, `daily_decision_log`, `council_queue`, `council_outcomes`, `council_disagreements`, `council_self_calibration_summary`, learning-loop candidate tables, weekly cohort reports, or any live recommendation artifact.
+
+Use this evidence hierarchy:
+
+1. **Actual-corpus evidence** — real A1/A2 rows and their observed routing in the loaded decision log / council queue.
+2. **Isolated routing harness evidence** — synthetic positive controls executed in a sandbox/in-memory harness that cannot write to production artifacts.
+3. **Playbook-only inference** — reading rules without executing routing. This may identify likely blockers, but it cannot prove reachability.
+
+Only use synthetic positive controls when the current actionability/council routing logic is actually executable or faithfully emulatable in isolation. If no isolated harness is available, do not fabricate a pass/fail result. Set the relevant reachability fields to `NOT_EVALUABLE` unless actual-corpus evidence already proves the route.
+
+Minimum positive controls, when sandbox execution is available:
+
+- `CLEAN_A1_POSITIVE_CONTROL`: clean setup, valid trigger, valid invalidation, acceptable R:R, no hard rejects, no DTE/earnings guardrail, sufficient liquidity, no bag-holder/failed-EP/dilution/deal-pinned flags, and strong actionability evidence.
+- `CLEAN_A2_POSITIVE_CONTROL`: similar to A1 but with slightly lower quality or one mild council-review reason; should still demonstrate whether executable A2 routing is possible when no hard reject exists.
+
+Expected interpretation:
+
+- If actual-corpus rows prove A1 or A2 executable routing exists, reachability may be `TRUE` even without synthetic controls.
+- If sandbox positive controls prove the route, reachability may be `TRUE` and the reachability audit must state `audit_basis=SANDBOX_POSITIVE_CONTROL`.
+- If a clean A1 positive-control row cannot produce A1 or any executable status in an isolated harness, set `A1_REACHABLE=FALSE` and `ZERO_TRADE_CAUSE=BUG_SUSPECTED` unless the playbook explicitly says A1 is disabled.
+- If a clean A2 positive-control row always becomes `COUNCIL` by design in an isolated harness, set `A2_EXECUTABLE_REACHABLE=FALSE` and classify as `INTENTIONAL_STRICTNESS` only if the playbook explicitly documents A2 as council-only. Otherwise classify as `BUG_SUSPECTED` or `DATA_MISSING` depending on evidence.
+- If the current environment cannot execute or faithfully emulate routing logic, set the relevant reachability fields to `NOT_EVALUABLE` and explain what is missing. Do not mark reachability `TRUE` from hypothetical clean-row reasoning alone.
+
+D. Actual-corpus audit
+
+For actual rows in the loaded decision log / council queue:
+
+- Count `A1`, `A2`, `TRADE`, `COUNCIL`, `WATCH`, and `REJECT` rows.
+- Count `A1/A2 -> TRADE`, `A1/A2 -> COUNCIL`, `A1/A2 -> WATCH`, and `A1/A2 -> REJECT` routes.
+- For every actual `A1` or `A2` row reviewed by council, capture the demotion reason if it did not remain executable.
+- For rows that appear near-executable but are demoted, capture the first blocking reason visible in the source fields or decision text.
+
+Do not treat “few trades” alone as a bug. Only classify `BUG_SUSPECTED` when the positive controls or rule precedence indicate an unreachable/contradictory route.
+
+E. Chairman use of the audit
+
+The Chairman must use this audit as context only. The audit can justify a diagnostic recommendation such as “fix A1/A2 reachability before changing thresholds,” but it must not promote a live ticker merely because the system is too conservative.
+
+If the audit finds `A1_REACHABLE=FALSE` or `A2_EXECUTABLE_REACHABLE=FALSE`, the Chairman must explicitly state that the issue is an implementation/routing investigation, not proof that thresholds should be relaxed.
+
 step 2: convene the council (5 sub-agents in parallel)
 Spawn all 5 advisors simultaneously as sub-agents. Each gets:
 
@@ -368,6 +450,11 @@ Produce the council verdict using this exact structure:
 [State the self-calibration status from the most recent `council_self_calibration_summary_YYYY-MM-DD.csv` if available. One of: `UNAVAILABLE` (no history file), `INSUFFICIENT_DATA` (fewer than 30 resolved disagreements), `BUILDING_SAMPLE` (≥30 total but slice thresholds not met), `CALIBRATED` (thresholds met). If CALIBRATED, state aggregate council accuracy with sample size. If not CALIBRATED, state "no reliability percentage reported." See step 7.7 for thresholds. Self-calibration is context only and does NOT change verdicts.]
 
 
+## A1/A2 Reachability Audit
+
+[For Bonde/trading runs, summarize the V1.3 reachability audit: `A1_REACHABLE`, `A2_EXECUTABLE_REACHABLE`, `ZERO_TRADE_CAUSE`, actual A1/A2/TRADE counts, top demotion reasons, and whether the audit was based on positive-control routing, actual-corpus routing, or was `NOT_EVALUABLE` because required fields/routing code were missing. State explicitly if A1/A2 reachability is an implementation investigation rather than a threshold-change recommendation. For non-Bonde questions, write N/A.]
+
+
 ## Outcome/Base-Rate Context
 
 [State whether outcome data was available. Summarize relevant base rates, sample sizes, +1D/+5D, MFE/MAE, trigger-hit or conversion data if available. If unavailable, write: "Outcome data unavailable; verdict is playbook-only and should be logged for future calibration."]
@@ -423,6 +510,7 @@ The outcome/base-rate context prominently displayed when relevant
 For Bonde/trading runs, a `Context Files Loaded` section showing concrete file roles, paths, and status
 The chairman's verdict prominently displayed (this is what most people will read)
 For Bonde/trading runs with promoted candidates, a `Portfolio Heat` section showing risk, correlation, order dependencies, and weekend/holiday guardrails when relevant
+For Bonde/trading runs, an `A1/A2 Reachability Audit` section showing A1 reachability, A2 executable reachability, zero-TRADE cause, and top demotion reasons
 A "Reasoning Paths Considered" visual — a clean breakdown showing how each reasoning path framed the question and what conclusion it reached. NOT a vote tally. NOT an "agreement matrix" as statistical corroboration. Frame as "Convergence and Divergence of Reasoning Paths" or similar. Include the explicit disclaimer near the visual: "These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration." Keep it clean and scannable. The visual MUST NOT use "vote", "4 of 5", or similar language anywhere in its labels or annotations.
 Collapsible sections for each advisor's full response (collapsed by default so the page isn't overwhelming, but available if the user wants to dig in)
 Collapsible section for the peer review highlights
@@ -437,6 +525,7 @@ The original question
 The framed question
 The context files loaded audit for Bonde/trading runs
 The outcome/base-rate context used or the statement that no outcome data was available
+The A1/A2 reachability audit for Bonde/trading runs, including positive-control status where evaluated
 All 5 advisor responses
 All 5 peer reviews (with anonymization mapping revealed)
 The chairman's full synthesis
@@ -652,6 +741,78 @@ Above threshold (CALIBRATED state) the report MAY say:
 The calibration data is context only. **It MUST NOT change the council verdict.** Specifically, the chairman MUST NOT alter a DEFER to a PROMOTE because "historical DEFER accuracy is only 45%." The verdict logic is rule-based; calibration is meta-context that informs the user, not the verdict.
 
 
+
+step 7.8: write A1/A2 reachability audit CSV (V1.3)
+
+For every Bonde/trading council run, after writing the self-calibration scaffold, write `council_reachability_audit_YYYY-MM-DD.csv` to the same location as the report, transcript, outcomes, disagreements, and calibration files.
+
+**Always write this file.** If the run has no Bonde rows, write a header-only CSV. If the audit cannot be evaluated because fields or routing code are missing, write one `NOT_EVALUABLE` summary row explaining why.
+
+Required schema, exact column order:
+
+`run_date,review_date,audit_scope,ticker,signal_date,setup_family,action_label,final_trade_status,a1_reachable,a2_executable_reachable,zero_trade_cause,demotion_reason,routing_override_field,source_file,notes`
+
+Column semantics:
+
+| Column | Allowed values / notes |
+|---|---|
+| `run_date` | YYYY-MM-DD |
+| `review_date` | YYYY-MM-DD |
+| `audit_scope` | `SUMMARY`, `POSITIVE_CONTROL_A1`, `POSITIVE_CONTROL_A2`, `ACTUAL_A1_A2_ROW`, `NEAR_EXECUTABLE_ROW`, `NOT_EVALUABLE` |
+| `ticker` | real ticker for actual rows; blank for summary/positive-control rows. Synthetic ticker symbols such as `SYNTH_*` are forbidden in all production artifacts. |
+| `signal_date` | YYYY-MM-DD or blank |
+| `setup_family` | source setup family for actual rows; for positive controls use `SANDBOX_CONTROL` or blank, not a live setup-family row that could be joined as a candidate. |
+| `action_label` | A1/A2/B/C/D/UNKNOWN for actual rows; expected label for sandbox controls only, clearly marked by `audit_scope`. |
+| `final_trade_status` | TRADE/COUNCIL/WATCH/REJECT/UNKNOWN for actual rows; sandbox routed status only when produced by an isolated harness. |
+| `a1_reachable` | TRUE/FALSE/NOT_EVALUABLE |
+| `a2_executable_reachable` | TRUE/FALSE/NOT_EVALUABLE |
+| `zero_trade_cause` | BUG_SUSPECTED/INTENTIONAL_STRICTNESS/INSUFFICIENT_CLEAN_ROWS/DATA_MISSING/NOT_EVALUABLE/NO_ZERO_TRADE_ISSUE |
+| `demotion_reason` | concise machine-readable reason; blank when not applicable |
+| `routing_override_field` | final_trade_status/council_verdict/hard_reject_reason/rr_floor_fail/dte_guardrail/data_missing/unknown/none |
+| `source_file` | path or basename of the decision log / council queue / skill file that produced the row |
+| `notes` | concise explanation |
+
+Summary row requirements:
+
+- Include one `SUMMARY` row per run.
+- The `notes` field in the `SUMMARY` row must include `audit_basis=ACTUAL_CORPUS`, `audit_basis=SANDBOX_POSITIVE_CONTROL`, `audit_basis=PLAYBOOK_ONLY`, or `audit_basis=NOT_EVALUABLE`.
+- `audit_basis=PLAYBOOK_ONLY` may support `BUG_SUSPECTED` or `DATA_MISSING`, but must not be used to claim `A1_REACHABLE=TRUE` or `A2_EXECUTABLE_REACHABLE=TRUE`.
+- The summary row must state the overall `A1_REACHABLE`, `A2_EXECUTABLE_REACHABLE`, and `ZERO_TRADE_CAUSE` values.
+- Use `notes` to include compact counts, e.g. `n_A1=0; n_A2=7; n_TRADE=0; n_A2_to_COUNCIL=7; top_demotion=rr_floor_fail`.
+
+Positive-control row requirements:
+
+- If positive controls were evaluated, include one row each for `POSITIVE_CONTROL_A1` and `POSITIVE_CONTROL_A2`.
+- If they were not evaluated, include `NOT_EVALUABLE` in the summary row and explain what was missing.
+- Synthetic positive controls must never enter `council_outcomes`, `council_disagreements`, or live candidate recommendation tables.
+
+Actual-row requirements:
+
+- Include one `ACTUAL_A1_A2_ROW` for every actual A1/A2 row visible to the council run.
+- Include `NEAR_EXECUTABLE_ROW` rows only when the source data makes a blocking reason clear enough to audit.
+- Do not invent demotion reasons. If not visible, use `routing_override_field=unknown` and explain the limitation.
+
+Final-response audit block (V1.3):
+
+After writing the file, the final response MUST include:
+
+```
+Council reachability audit:
+- A1_REACHABLE: TRUE/FALSE/NOT_EVALUABLE
+- A2_EXECUTABLE_REACHABLE: TRUE/FALSE/NOT_EVALUABLE
+- ZERO_TRADE_CAUSE: BUG_SUSPECTED/INTENTIONAL_STRICTNESS/INSUFFICIENT_CLEAN_ROWS/DATA_MISSING/NOT_EVALUABLE/NO_ZERO_TRADE_ISSUE
+- n_A1: N
+- n_A2: N
+- n_TRADE: N
+- n_A2_to_COUNCIL: N
+- top_demotion_reasons: ...
+- file_path: /path/to/council_reachability_audit_YYYY-MM-DD.csv
+```
+
+If the audit cannot be evaluated, say so directly. Do not claim A1/A2 is reachable unless the positive-control or actual-corpus evidence supports it.
+
+Failure handling: If `council_reachability_audit_YYYY-MM-DD.csv` cannot be written, state this clearly and print the CSV content in a raw code block. Do not silently omit it.
+
 output format
 Every council session produces at least two files:
 
@@ -664,8 +825,9 @@ For Bonde/trading council runs, every session also produces:
 council_outcomes_YYYY-MM-DD.csv                  # machine-readable verdicts for the learning loop
 council_disagreements_YYYY-MM-DD.csv             # V1.1 — actionability/user/council disagreement audit
 council_self_calibration_summary_YYYY-MM-DD.csv  # V1.1 — calibration status (default: INSUFFICIENT_DATA)
+council_reachability_audit_YYYY-MM-DD.csv           # V1.3 — A1/A2 reachability and zero-TRADE cause audit
 
-The user sees the HTML report. The transcript is there if they want to dig deeper or reference specific advisor arguments later. The council outcomes CSV is the artifact used by the Bonde learning loop; it must not be replaced by prose-only transcript parsing. The V1.1 disagreement and calibration CSVs are emitted alongside; they are also durable artifacts for downstream analysis.
+The user sees the HTML report. The transcript is there if they want to dig deeper or reference specific advisor arguments later. The council outcomes CSV is the artifact used by the Bonde learning loop; it must not be replaced by prose-only transcript parsing. The V1.1 disagreement and calibration CSVs are emitted alongside; the V1.3 reachability audit is emitted alongside as a durable diagnostic artifact for downstream accountability and learning-loop reporting.
 
 example: counciling a product decision
 User: "Council this: I'm thinking of building a $297 course on Claude Code for beginners. My audience is mostly non-technical solopreneurs. Is this the right move?"
@@ -702,6 +864,14 @@ V5.9.19 actionability compatibility:
 - `final_trade_status=REJECT` means no trade unless the main Bonde actionability skill has formally changed the rule.
 - If `final_trade_status` is missing, state that the council is using legacy action-label fallback.
 
+Council A1/A2 reachability compatibility (V1.3):
+
+- If the current run or recent decision log has zero `TRADE` rows, no `A1` rows, or all visible `A2` rows routed to `COUNCIL`, run the V1.3 reachability audit before issuing chairman verdicts.
+- Treat A1/A2 reachability failures as implementation/routing investigations, not as permission to lower thresholds.
+- Do not promote a candidate merely to compensate for zero `TRADE` output.
+- If `A1_REACHABLE=FALSE` or `A2_EXECUTABLE_REACHABLE=FALSE`, state whether the evidence points to `BUG_SUSPECTED`, `INTENTIONAL_STRICTNESS`, `INSUFFICIENT_CLEAN_ROWS`, `DATA_MISSING`, or `NOT_EVALUABLE`.
+- If A2 is intentionally council-only, document that explicitly; otherwise, all-A2-to-COUNCIL routing should be treated as a reachability concern until proven intentional.
+
 Before the reasoning paths evaluate the candidates, state whether historical outcome data exists for the same setup_family, same B+ blocker type, or prior council verdict type. Use outcome data only if it is mature enough to be meaningful. Immature cohorts are monitoring-only.
 
 For every B+ candidate, the final verdict must include:
@@ -727,16 +897,17 @@ Execution-safety guardrails for Bonde/trading runs:
 - Day-2 pullback rescue: if R:R passes only after lowering entry, label the setup as Day-2 pullback rescue and state whether base-rate evidence exists. If the pullback that creates R:R would also damage the thesis, prefer DEFER or CANCEL.
 
 
-For Bonde/trading council runs, the final response must explicitly list where the five artifacts were written and state whether the report included the `Context Files Loaded` and `Portfolio Heat` sections:
+For Bonde/trading council runs, the final response must explicitly list where the six artifacts were written and state whether the report included the `Context Files Loaded` and `Portfolio Heat` sections:
 - council-report-[timestamp].html
 - council-transcript-[timestamp].md
 - council_outcomes_YYYY-MM-DD.csv
 - council_disagreements_YYYY-MM-DD.csv (V1.1)
 - council_self_calibration_summary_YYYY-MM-DD.csv (V1.1)
+- council_reachability_audit_YYYY-MM-DD.csv (V1.3)
 
-All five files are mandatory for Bonde trading council runs. If any file write fails, state that clearly and print the file content in a raw code block so the user can save it. Do not silently omit any of them.
+All six files are mandatory for Bonde trading council runs. If any file write fails, state that clearly and print the file content in a raw code block so the user can save it. Do not silently omit any of them.
 
-Final response must also include the Council disagreement audit block from Step 7.5 with `council_rows`, `actionability_council_disagreements`, `user_council_disagreements` (always PENDING at run time), `pending_outcome_count`, and the file path.
+Final response must also include the Council disagreement audit block from Step 7.5 with `council_rows`, `actionability_council_disagreements`, `user_council_disagreements` (always PENDING at run time), `pending_outcome_count`, and the file path. Final response must also include the Council reachability audit block from Step 7.8 with A1/A2 reachability, zero-TRADE cause, key counts, top demotion reasons, and the file path.
 
 
 
@@ -802,11 +973,31 @@ The following tests apply to every Bonde/trading council run. Any failure must b
 If any test fails, fix it before reporting the run complete.
 
 
+
+**V1.3 Council A1/A2 reachability tests:**
+
+38. For every Bonde/trading council run, `council_reachability_audit_YYYY-MM-DD.csv` is written alongside the other council artifacts.
+39. The reachability CSV has exactly 15 columns in this order: `run_date,review_date,audit_scope,ticker,signal_date,setup_family,action_label,final_trade_status,a1_reachable,a2_executable_reachable,zero_trade_cause,demotion_reason,routing_override_field,source_file,notes`.
+40. The reachability CSV parses cleanly with `pandas.read_csv()`.
+41. The reachability CSV contains one `SUMMARY` row for every Bonde/trading run, even if no A1/A2 rows are present.
+42. `a1_reachable` contains only `TRUE`, `FALSE`, or `NOT_EVALUABLE`.
+43. `a2_executable_reachable` contains only `TRUE`, `FALSE`, or `NOT_EVALUABLE`.
+44. `zero_trade_cause` contains only `BUG_SUSPECTED`, `INTENTIONAL_STRICTNESS`, `INSUFFICIENT_CLEAN_ROWS`, `DATA_MISSING`, `NOT_EVALUABLE`, or `NO_ZERO_TRADE_ISSUE`.
+45. Synthetic positive-control rows, if generated, never appear in `daily_decision_log`, `council_queue`, `council_outcomes_YYYY-MM-DD.csv`, `council_disagreements_YYYY-MM-DD.csv`, `council_self_calibration_summary_YYYY-MM-DD.csv`, learning-loop candidate tables, weekly cohort reports, or any live candidate recommendation table.
+45a. If no isolated routing harness is available and actual-corpus evidence does not prove reachability, the audit must not mark `A1_REACHABLE=TRUE` or `A2_EXECUTABLE_REACHABLE=TRUE`.
+45b. Any positive-control row written to `council_reachability_audit_YYYY-MM-DD.csv` must have `audit_scope` beginning with `POSITIVE_CONTROL_`, blank `ticker`, and `setup_family` equal to `SANDBOX_CONTROL` or blank; it must not use a tradable ticker or production candidate key.
+46. If recent rows have zero `TRADE` and the audit cannot evaluate routing due to missing fields/code, the summary row uses `A1_REACHABLE=NOT_EVALUABLE`, `A2_EXECUTABLE_REACHABLE=NOT_EVALUABLE`, and `ZERO_TRADE_CAUSE=NOT_EVALUABLE` or `DATA_MISSING`; it does not assert reachability.
+47. The HTML report and markdown transcript contain the section header `A1/A2 Reachability Audit` for Bonde/trading runs.
+48. The final response includes the Council reachability audit block with A1 reachability, A2 executable reachability, zero-TRADE cause, n_A1, n_A2, n_TRADE, n_A2_to_COUNCIL, top demotion reasons, and the reachability CSV path.
+49. If `A1_REACHABLE=FALSE` or `A2_EXECUTABLE_REACHABLE=FALSE`, the chairman synthesis labels the issue as implementation/routing investigation unless the playbook explicitly documents the strictness.
+50. Existing V1.1/V1.2 schemas remain unchanged: `council_outcomes` has 11 columns, `council_disagreements` has 22 columns, and `council_self_calibration_summary` has 13 columns.
+
 important notes
 
 Always spawn all 5 advisors in parallel. Sequential spawning wastes time and lets earlier responses bleed into later ones.
 Always anonymize for peer review. If reviewers know which advisor said what, they'll defer to certain thinking styles instead of evaluating on merit.
 The chairman is not bound by reasoning-path convergence. If four reasoning paths reach the same conclusion but the fifth path's argument is strongest, the chairman sides with the strongest argument and explains why. The reasoning paths are not votes; the chairman weighs argument quality, not path counts.
 For Bonde/trading runs, the chairman must distinguish direct sector correlation from broad risk-appetite correlation. Do not let a broad market concern masquerade as a direct industry linkage.
+For Bonde/trading runs, the chairman must distinguish A1/A2 reachability/routing defects from threshold-calibration questions. Fix unreachable logic now; do not lower thresholds or promote marginal candidates without pre-registered evidence.
 Don't council trivial questions. If the user asks something with one right answer, just answer it. The council is for genuine uncertainty where multiple perspectives add value.
 The visual report matters. Most users will scan the report, not read the full transcript. Make the HTML output clean and scannable.
