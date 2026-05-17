@@ -1,0 +1,5 @@
+test,verdict,n_total_resolved,field_coverage_pct,n_high,n_low,expectancy_high_r,expectancy_low_r,gap_r,predicted_direction
+day1_close_pct_in_range,INSUFFICIENT_RESOLVED_SAMPLE,0,,0,0,,,,higher=better
+day1_move_pct,INSUFFICIENT_RESOLVED_SAMPLE,0,,0,0,,,,higher=better
+day1_vol_ratio,INSUFFICIENT_RESOLVED_SAMPLE,0,,0,0,,,,higher=better
+day1_combined,INSUFFICIENT_RESOLVED_SAMPLE,0,,0,0,,,,higher=better
