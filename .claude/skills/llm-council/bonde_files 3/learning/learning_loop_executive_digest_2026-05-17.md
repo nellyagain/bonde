@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-17
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-17 10:42 UTC_
+_Run timestamp: 2026-05-17 10:58 UTC_
 
 ## 1. Today's required action
 1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
@@ -11,7 +11,7 @@ _Run timestamp: 2026-05-17 10:42 UTC_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **1**. (§15)
 
-## 2. Changed since last run — 2026-05-17 10:17 UTC → 2026-05-17 10:42 UTC
+## 2. Changed since last run — 2026-05-17 10:42 UTC → 2026-05-17 10:58 UTC
 - Prior digest date: **2026-05-17**
 - Current digest date: **2026-05-17**
 - Comparison window: **2026-05-17 → 2026-05-17**
@@ -127,9 +127,9 @@ Purpose: check whether the actionability layer is producing true executable cand
 - All visible A2 rows route to COUNCIL. Treat A2 performance as marginal-A2 performance, not clean executable-A2 performance.
 ### Council A1/A2 reachability audit
 - Source: `council_reachability_audit_*.csv` from the Council skill. Diagnostic only; does not change labels or trading rules.
-| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE    |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
-|:---------------|:--------------------------|:--------------------|-------:|-------:|----------:|------------------:|
-| NOT_EVALUABLE  | NOT_EVALUABLE             | NO_ZERO_TRADE_ISSUE |      0 |      0 |         0 |                 0 |
+| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE        |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
+|:---------------|:--------------------------|:------------------------|-------:|-------:|----------:|------------------:|
+| NOT_EVALUABLE  | NOT_EVALUABLE             | INSUFFICIENT_CLEAN_ROWS |      0 |      0 |         0 |                 0 |
 
 - Latest reachability audit source: `/content/bonde_repo/bonde_screener_cache/council_queues/council_reachability_audit_2026-05-15-spir-wrby-r4.csv`
 - Top Council demotion reasons from latest audit:
@@ -138,6 +138,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 | rr_floor_fail     |      2 |
 | UNKNOWN           |      1 |
 
+- Interpretation: zero-TRADE appears driven by candidate quality/availability, not necessarily a Council routing bug.
 ### A1/A2 forward-return slices
 | setup_family   | review_bucket   | action_label   | final_trade_status   |   n_rows |   n_evaluable_5d | confidence_5d   |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:---------------|:----------------|:---------------|:---------------------|---------:|-----------------:|:----------------|-------------------:|------------------:|
@@ -374,7 +375,10 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 
 ## 16. Investigation queue
 ### New this run
-- None auto-detected.
+| priority   | item                                          | why                                                                                                                                     |
+|:-----------|:----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|
+| P2         | Monitor upstream clean-candidate availability | Council reachability audit reports INSUFFICIENT_CLEAN_ROWS; do not change A1/A2 rules unless future evidence shows a calibration issue. |
+
 ### Carried forward
 | priority   | item                                                  | why                                                                                                                                                                                                                                                     |
 |:-----------|:------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -390,10 +394,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 | P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                            |
 
 ### Resolved since last run
-| priority   | item                                   | why                                                                                                                                        |
-|:-----------|:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| P1         | Run patched Council reachability audit | Learning loop found A1/A2 or zero-TRADE concerns but no council_reachability_audit_*.csv yet; run Council V1.3.1+ and rerun learning loop. |
-
+- None auto-detected.
 - Persistent queue files: `investigation_queue_latest.csv`, `investigation_queue_history_latest.csv`
 
 ## 17. Open caveats / next actions
