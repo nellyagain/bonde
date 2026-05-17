@@ -1,9 +1,9 @@
 # Council Resolver Report — 2026-05-17
 
-**Total council disagreement rows in scope:** 4
+**Total council disagreement rows in scope:** 2
 **Source files read:** 3
 **Resolved (terminal outcome_class):** 0
-**Pending or N/A:** 4
+**Pending or N/A:** 2
 
 **Outcome basis:** T+5 close-to-close return (intraperiod path ignored). A trade that hit +2R intraperiod and faded to +0.5R close is classified AMBIGUOUS.
 
@@ -13,7 +13,7 @@
 - `LOSER`: 0
 - `AMBIGUOUS`: 0
 - `NEVER_TRIGGERED`: 0
-- `PENDING`: 4
+- `PENDING`: 2
 - `NOT_APPLICABLE`: 0
 
 ## Council outcome alignment breakdown
@@ -21,13 +21,13 @@
 - `ALIGNED`: 0
 - `MISALIGNED`: 0
 - `NEUTRAL`: 0
-- `PENDING`: 4
+- `PENDING`: 2
 - `NOT_APPLICABLE`: 0
 - `UNKNOWN`: 0
 
 ## Classification method breakdown (v4.13.13)
 
-- `NOT_CLASSIFIED_PENDING`: 4
+- `NOT_CLASSIFIED_PENDING`: 2
 
 ## Calibration status
 
