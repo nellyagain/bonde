@@ -12,9 +12,9 @@ Use Sugar Babies as an advisory context overlay only. It may raise review priori
 
 | Level | Sugar Baby | n_rows | T+5 evaluable | avg T+5 | win rate T+5 |
 |---|---:|---:|---:|---:|---:|
-| candidate | True | 2024 | 993 | 1.74% | 45.02% |
+| candidate | True | 2024 | 996 | 1.74% | 45.08% |
 | candidate | False | 1178 | 613 | -1.18% | 42.25% |
-| ticker | True | 1817 | 898 | 1.62% | 44.65% |
+| ticker | True | 1817 | 901 | 1.62% | 44.73% |
 | ticker | False | 1009 | 533 | -1.13% | 41.09% |
 
 Interpretation: if Sugar Baby cohorts outperform non-Sugar cohorts, treat that as recurrence/attention context. It is not trade permission.
@@ -27,14 +27,14 @@ Interpretation: if Sugar Baby cohorts outperform non-Sugar cohorts, treat that a
 | 1             |      145 |                  96 |            -0.74999  |               40.625  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | 2-3           |      192 |                 100 |             2.32293  |               42      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | 4-7           |      294 |                 137 |             0.748263 |               48.9051 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| 8+            |     1186 |                 565 |             2.10328  |               44.7788 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 8+            |     1186 |                 568 |             2.10821  |               44.8944 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 
 ## Setup-family interactions where Sugar Baby = True
 
 | setup_family   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:---------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| EP9M           |     1648 |                 807 |              1.26968 |               43.8662 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP9M           |     1648 |                 810 |              1.27622 |               43.9506 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ACTIVE_BURST   |      143 |                  78 |              4.7581  |               48.7179 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | EP_SPIKE       |       99 |                  52 |              1.89756 |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | EP_ACTIVE      |       48 |                  28 |              4.84145 |               46.4286 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
