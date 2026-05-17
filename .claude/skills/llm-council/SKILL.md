@@ -2,9 +2,11 @@
 name: llm-council
 description: Run high-stakes decisions through 5 independent AI advisors, anonymized peer review, chairman verdict, optional Bonde outcome overlay, and structured trading council outcomes. Use for council this, run the council, pressure-test this, or meaningful tradeoffs. For Bonde trading councils, produce report, transcript, and council_outcomes CSV for learning-loop ingestion.
 ---
-**Version: V1.3.1** (2026-05-17)
+**Version: V1.3.2** (2026-05-17)
 
 **Changelog**
+
+- **V1.3.2 (2026-05-17)** — Manual `_inbox` Handoff Clarification. Adds explicit low-complexity handoff instructions for environments where the Council skill cannot write directly to Google Drive. If workspace/Drive write access is unavailable, the Council must print each required CSV, especially `council_reachability_audit_YYYY-MM-DD.csv`, in a raw CSV code block and instruct Kevin to save/upload it to `/content/drive/MyDrive/bonde_learning/_inbox/`. No schema, verdict, routing, or artifact logic changes.
 
 - **V1.3.1 (2026-05-17)** — Positive-Control Safety Clarification. Tightens the A1/A2 reachability audit so synthetic positive controls are sandbox-only and never injected into production candidate streams, daily decision logs, council outcomes, disagreement/calibration outputs, or learning-loop inputs. If the Council environment cannot execute an isolated routing harness, reachability must be reported as `NOT_EVALUABLE` or based only on actual-corpus evidence; hypothetical clean-row reasoning alone cannot claim `A1_REACHABLE=TRUE` or `A2_EXECUTABLE_REACHABLE=TRUE`.
 
@@ -813,6 +815,16 @@ If the audit cannot be evaluated, say so directly. Do not claim A1/A2 is reachab
 
 Failure handling: If `council_reachability_audit_YYYY-MM-DD.csv` cannot be written, state this clearly and print the CSV content in a raw code block. Do not silently omit it.
 
+**Manual `_inbox` handoff when Drive/workspace write access is unavailable (V1.3.2):**
+
+If the Council environment cannot write directly to Google Drive or the Bonde workspace, still produce the artifact content. Print `council_reachability_audit_YYYY-MM-DD.csv` as a raw CSV code block and instruct Kevin to save or upload it exactly as:
+
+```text
+/content/drive/MyDrive/bonde_learning/_inbox/council_reachability_audit_YYYY-MM-DD.csv
+```
+
+Use the same fallback for the other Bonde machine-readable artifacts if they cannot be written directly. The learning loop ingests reachability handoff files from `_inbox` using the filename pattern `council_reachability_audit_*.csv`. Keep the workflow simple: Council produces the CSV; Kevin uploads it to `_inbox`; the learning loop ingests it on the next run.
+
 output format
 Every council session produces at least two files:
 
@@ -905,6 +917,12 @@ For Bonde/trading council runs, the final response must explicitly list where th
 - council_self_calibration_summary_YYYY-MM-DD.csv (V1.1)
 - council_reachability_audit_YYYY-MM-DD.csv (V1.3)
 
+If any artifact was not written directly because Drive/workspace access was unavailable, the final response must state `manual_handoff_required: true` and identify the exact target upload path. For reachability audits, the target path is:
+
+```text
+/content/drive/MyDrive/bonde_learning/_inbox/council_reachability_audit_YYYY-MM-DD.csv
+```
+
 All six files are mandatory for Bonde trading council runs. If any file write fails, state that clearly and print the file content in a raw code block so the user can save it. Do not silently omit any of them.
 
 Final response must also include the Council disagreement audit block from Step 7.5 with `council_rows`, `actionability_council_disagreements`, `user_council_disagreements` (always PENDING at run time), `pending_outcome_count`, and the file path. Final response must also include the Council reachability audit block from Step 7.8 with A1/A2 reachability, zero-TRADE cause, key counts, top demotion reasons, and the file path.
@@ -991,6 +1009,8 @@ If any test fails, fix it before reporting the run complete.
 48. The final response includes the Council reachability audit block with A1 reachability, A2 executable reachability, zero-TRADE cause, n_A1, n_A2, n_TRADE, n_A2_to_COUNCIL, top demotion reasons, and the reachability CSV path.
 49. If `A1_REACHABLE=FALSE` or `A2_EXECUTABLE_REACHABLE=FALSE`, the chairman synthesis labels the issue as implementation/routing investigation unless the playbook explicitly documents the strictness.
 50. Existing V1.1/V1.2 schemas remain unchanged: `council_outcomes` has 11 columns, `council_disagreements` has 22 columns, and `council_self_calibration_summary` has 13 columns.
+51. If Drive/workspace write access is unavailable, the final response prints `council_reachability_audit_YYYY-MM-DD.csv` in a raw CSV code block and states the exact manual upload path `/content/drive/MyDrive/bonde_learning/_inbox/council_reachability_audit_YYYY-MM-DD.csv`.
+52. If manual handoff is required, the final response includes `manual_handoff_required: true` and does not claim that the learning loop has ingested the reachability audit until Kevin uploads the CSV and reruns the learning loop.
 
 important notes
 
