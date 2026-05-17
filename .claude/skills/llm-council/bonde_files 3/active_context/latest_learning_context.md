@@ -1,77 +1,132 @@
-# ACTIVE LEARNING CONTEXT
+# Active Learning Context
 
-Generated: 2026-05-15T16:24:48.053128+08:00
-Source file: /content/drive/MyDrive/bonde_learning/reports/bonde_learned_patterns.md
-Source effective date: 2026-05-07
-Status: CURRENT
-Instruction: Treat this file as the current learning context. Do not treat archived reports as current unless explicitly asked.
+Generated: 2026-05-17
+Status: AUTO_GENERATED_FROM_LEARNING_LOOP
 
----
+## Current learning state
 
-# Bonde Learned Patterns
+- Use weekly cohort reports for rule-change evidence.
+- Do not change rules from immature T+5/T+10/T+20 data.
+- Council rows remain calibration data only until outcome resolution matures.
 
-Generated: 2026-05-07
+## Executive digest excerpt
 
-## Status
+# Bonde Learning Loop Executive Digest — 2026-05-17
 
-No ACTIVE learned patterns yet.
+_Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
+_Run timestamp: 2026-05-17 12:22 UTC_
 
-## Current operating rule
+## 1. Today's required action
+1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
+2. **Wait for SLINGSHOT future bars.** Earliest T+5 maturity: **2026-05-22**. (§13)
+3. **Watch A1/A2 zero-TRADE issue.** Confirm whether A1 is intentionally rare or unreachable and whether clean A1/A2 rows are over-routed. (§6)
+4. **Track KK confirmation.** H_KK_CONFIRMATION is now pre-registered and measurement-only; do not hard-gate Bonde rows from KK yet. (§9)
+5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
+6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **0**. (§15)
 
-No learned-pattern overrides are active until evidence is mature and repeated.
+## 2. Changed since last run — prior run → 2026-05-17 12:22 UTC
+- Prior digest date: **not available**
+- Current digest date: **2026-05-17**
+- Comparison window: **prior run → 2026-05-17**
 
-The Bonde/Stockbee actionability skill and LLM council should treat this file as a null-pattern file:
+### Pipeline changes
+- SLINGSHOT decision-log target/R:R backfill: no new backfilled rows detected in this run.
+- Tiny-geometry hygiene audit active: no tiny-geometry rows flagged.
+- Dedup diagnostics active: no full-plan+price rows yet.
+- Backfill source attribution simplified to `slingshot_backfill_source` enum.
+- KK confirmation research layer added: `H_KK_CONFIRMATION` computes cohorts in the learning loop without changing upstream signals.
 
-- Do not apply any learned-pattern promotion.
-- Do not apply any learned-pattern demotion.
-- Leave `learned_pattern_matches` blank or use `NONE`.
-- Do not change trading rules from immature cohorts.
+### Data changes
+- No new hypothesis verdicts crossed a rule-change threshold.
+- No Day-1 shape verdicts crossed threshold.
+- Realized P&L remains sample-immature: `n_with_realized_r` = **0**.
 
-## Evidence state
+### Open follow-ups carried forward
+- ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
+- Float-precision drift in tiny-geometry flags across sources: known, low materiality; use tolerance-aware comparisons.
+- SLINGSHOT `OK_EVALUABLE` rows remain 0 until future bars mature.
 
-Current learning-loop evidence is still immature.
+## 3. Operational status
+- Master decision log missing or empty. Review cannot be trusted until ingestion is fixed.
 
-Use the following files for monitoring only when available:
+## 4. Executive interpretation
+Current loop status: **operationally healthy, evidence still immature**. This digest is monitoring context, not rule-change permission.
+1. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
-- `weekly_learning_report_*.md`
-- `skill_pack_performance_report_v410.md`
-- `weekly_cohort_summary_v410.csv`
-- `actionability_performance_summary_v410.csv`
-- `setup_family_performance_summary_v410.csv`
-- `decision_log_join_diagnostics_v410.csv`
+## 5. Key findings from current data
+- Setup-family performance summary unavailable.
+- Actionability summary unavailable.
 
-## Rule-change policy
+## 6. A1 / A2 executable-signal health
+Purpose: check whether the actionability layer is producing true executable candidates or routing everything to council/watch.
+- A1/A2 routing counts unavailable because `action_label` is missing from the master decision log.
+### Current interpretation
+- No A1/A2 routing anomaly detected by the digest generator.
+### Council A1/A2 reachability audit
+- Source: `council_reachability_audit_*.csv` from the Council skill. Diagnostic only; does not change labels or trading rules.
+| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE        |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
+|:---------------|:--------------------------|:------------------------|-------:|-------:|----------:|------------------:|
+| NOT_EVALUABLE  | NOT_EVALUABLE             | INSUFFICIENT_CLEAN_ROWS |      0 |      0 |         0 |                 0 |
 
-A pattern may become ACTIVE only when all are true:
+- Latest reachability audit source: `/content/bonde_repo/.claude/skills/llm-council/reports/council_reachability_audit_2026-05-15-spir-wrby-r4.csv`
+- Top Council demotion reasons from latest audit:
+| demotion_reason   |   rows |
+|:------------------|-------:|
+| rr_floor_fail     |      2 |
+| UNKNOWN           |      1 |
 
-1. The relevant cohort is mature.
-2. The effect repeats across multiple cohorts.
-3. Sample size is sufficient for the setup family / blocker type.
-4. The proposed rule change does not violate hard-risk rules.
-5. The user explicitly approves incorporating the pattern into the playbook.
+- Interpretation: zero-TRADE appears driven by candidate quality/availability, not necessarily a Council routing bug.
+### A1/A2 forward-return slices
+- No A1/A2 performance slices surfaced in `actionability_performance_summary_v410.csv`.
+### Caveats
+- T+5 forward return is ticker-path evidence, not Kevin's realized P&L.
+- Stops, skipped trades, council deferrals, and actual user execution are not reflected in raw T+5 close-to-close returns.
+- A2 rows routed to COUNCIL are marginal by design; they should not be treated as clean executable A2 evidence.
+- If A1 remains absent post-V5.9.19, test whether criteria are intentionally rare or unreachable.
 
-## Hard-risk rules cannot be overridden by learned patterns
+## 7. EP9M overlay
+- EP9M setup-family row unavailable in the current setup-family summary.
+- Corpus audit EP9M setup-family rows raw → normalized → master: **0 → 0 → 0**.
+- Corpus audit EP9M context rows in master: **0**.
+- Interpretation: EP9M did not enter the current decision-log corpus as a setup-family row. If a prior digest showed EP9M, inspect `decision_log_discovery_audit_latest.md` for excluded files or changed source scope.
 
-Do not override:
+## 8. Action-label / reject-vs-watch inversion watchlist
+- No adjacent-label inversion with both sides n>=20 and lower-label avg return > higher-label avg by at least 1 percentage point.
 
-- Bag-holder / overhead-supply hard rejection.
-- Failed EP hard rejection.
-- DTE UNKNOWN non-promotion.
-- Imminent earnings hard reject unless the main playbook formally adds a tactical exception.
-- Dilution / offering hard reject.
-- Deal-pinned / merger-arb hard reject.
-- Severe extension without reset.
-- EP_SPIKE overriding bag-holder.
-- A1/A2 without valid trigger, invalidation, and R:R.
+## 9. Hypothesis tracker / verdict gates
+These are pre-registered monitoring slots, not a roadmap and not rule-change permission. They exist so July does not become passive waiting: the loop tracks OOS rows daily while preserving evidence discipline.
+| hypothesis_id               | family                         | current_test                                                                               | method_note                                                                                                                                                          | regime_context   |   current_n_a |   current_avg_a |   current_n_b |   current_avg_b |   current_effect_size | oos_start_date   |   oos_n_a |   oos_n_b |   oos_effect_size | status                     |
+|:----------------------------|:-------------------------------|:-------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|--------------:|----------------:|--------------:|----------------:|----------------------:|:-----------------|----------:|----------:|------------------:|:---------------------------|
+| H_ACTIVE_BURST_GATE6_SOFTEN | ACTIVE_BURST                   | ACTIVE_BURST D/REJECT minus ACTIVE_BURST C/WATCH avg T+5                                   | Compare ACTIVE_BURST D/REJECT vs ACTIVE_BURST C/WATCH on mature T+5; verdict uses strict OOS rows only.                                                              | UNKNOWN          |             0 |             nan |             0 |             nan |                   nan | 2026-05-16       |         0 |         0 |               nan | WATCHING_NOT_RULE_EVIDENCE |
+| H_EP_ACTIVE_COUNCIL_TIGHTEN | EP_ACTIVE                      | EP_ACTIVE final_trade_status=COUNCIL combined avg T+5                                      | Measure EP_ACTIVE rows routed to COUNCIL on mature T+5; verdict uses strict OOS rows only.                                                                           | UNKNOWN          |             0 |             nan |           nan |             nan |                   nan | 2026-05-16       |         0 |       nan |               nan | WATCHING_LOW_SAMPLE        |
+| H_PAUSE_BC_INVERT           | PAUSE                          | PAUSE C/WATCH minus PAUSE B/WATCH avg T+5                                                  | Compare PAUSE C/WATCH vs PAUSE B/WATCH on mature T+5; verdict uses strict OOS rows only.                                                                             | UNKNOWN          |             0 |             nan |             0 |             nan |                   nan | 2026-05-16       |         0 |         0 |               nan | WATCHING_NOT_RULE_EVIDENCE |
+| H_KK_CONFIRMATION           | ANTICIPATION / KK_CONFIRMATION | Bonde anticipation WITH KK confirmation minus WITHOUT KK confirmation avg T+5 alpha vs SPY | Compare Bonde anticipation rows WITH vs WITHOUT KK research confirmation on T+5 alpha vs SPY; KK definition excludes only kk_pause_too_long from hard disqualifiers. | UNKNOWN          |             0 |             nan |             0 |             nan |                   nan | 2026-05-17       |         0 |         0 |               nan | WATCHING_NOT_YET_WIRED     |
 
-## Pattern table
+- Hypothesis tracker report: `hypothesis_tracker_latest.md`
+- ACTIVE_BURST Gate6 shadow candidates: **0** rows in `active_burst_gate6_shadow_candidates_v41328.csv`
+- Guardrail: shadow candidates are review/tradeability audit rows only. They do not change `final_trade_status`, action label, ranking, R:R, or hard-reject behavior.
+### Pre-registered verdict gates
+These gates are binding review criteria. A rule patch should not ship unless its hypothesis has a pre-registered SUPPORTED verdict or a separate explicitly documented emergency bug rationale.
+| hypothesis_id                  | method_note                                                                                                                                                          | regime_context   | current_state                                                                                                  | required_sample                                                                                                                                      | oos_window                                      | earliest_review                                                                                                       | pre_registered_prediction                                                                                              | supported_if                                                                                                                                                 | rejected_if                                                                                          | ambiguous_if                                                                                                                                             | if_supported                                                                                                                          | if_rejected                                                                         |
+|:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|
+| H_ACTIVE_BURST_GATE6_SOFTEN    | Compare ACTIVE_BURST D/REJECT vs ACTIVE_BURST C/WATCH on mature T+5; verdict uses strict OOS rows only.                                                              | UNKNOWN          | n_a=0; n_b=0; status=WATCHING_NOT_RULE_EVIDENCE                                                                | OOS n_C >= 30 and n_D >= 30, with mature T+5/T+10/T+20 windows.                                                                                      | 2026-05-16 onward                               | When both OOS slices meet sample and maturity gates.                                                                  | D/REJECT minus C/WATCH spread remains >= +1.5% OOS.                                                                    | OOS spread >= +1.5% and confidence interval / robustness check does not collapse to zero.                                                                    | OOS spread < +0.5% or direction inverts.                                                             | OOS spread is +0.5% to +1.5% or sample composition is unstable.                                                                                          | Draft V5.9.21-G6-SOFTEN spec; do not ship until patch text is reviewed.                                                               | File hypothesis; no Gate6 softening.                                                |
+| H_EP_ACTIVE_COUNCIL_TIGHTEN    | Measure EP_ACTIVE rows routed to COUNCIL on mature T+5; verdict uses strict OOS rows only.                                                                           | UNKNOWN          | n_a=0; status=WATCHING_LOW_SAMPLE                                                                              | OOS EP_ACTIVE COUNCIL n >= 30 with mature T+5 and at least 10 T+20 rows.                                                                             | 2026-05-16 onward                               | When OOS council-routed EP_ACTIVE rows reach n>=30.                                                                   | EP_ACTIVE COUNCIL average T+5 remains <= -3.0% OOS.                                                                    | OOS avg T+5 <= -3.0% and win rate <= 35% without one-stock distortion.                                                                                       | OOS avg T+5 >= 0% or win rate normalizes above 45%.                                                  | OOS avg T+5 is -3.0% to 0% or driven by one outlier.                                                                                                     | Draft V5.9.21-EPACTIVE-COUNCIL-TIGHTEN review spec.                                                                                   | Keep EP_ACTIVE council routing unchanged.                                           |
+| H_PAUSE_BC_INVERT              | Compare PAUSE C/WATCH vs PAUSE B/WATCH on mature T+5; verdict uses strict OOS rows only.                                                                             | UNKNOWN          | n_a=0; n_b=0; status=WATCHING_NOT_RULE_EVIDENCE                                                                | OOS PAUSE B/WATCH n >= 30 and PAUSE C/WATCH n >= 30.                                                                                                 | 2026-05-16 onward                               | When both OOS PAUSE slices hit n>=30 and T+5 is mature.                                                               | PAUSE C/WATCH minus B/WATCH spread remains >= +1.5% OOS.                                                               | OOS spread >= +1.5% and persists after removing tiny/liquidity outliers.                                                                                     | OOS spread < +0.5% or B resumes leadership.                                                          | OOS spread is +0.5% to +1.5% or sample is too concentrated.                                                                                              | Draft V5.9.21-PAUSE-RANK-REVIEW spec; do not change B/C labels before review.                                                         | Keep PAUSE B/C rank mapping unchanged.                                              |
+| H_KK_CONFIRMATION              | Compare Bonde anticipation rows WITH vs WITHOUT KK research confirmation on T+5 alpha vs SPY; KK definition excludes only kk_pause_too_long from hard disqualifiers. | UNKNOWN          | n_a=0; n_b=0; status=WATCHING_NOT_YET_WIRED                                                                    | OOS n >= 30 confirmed AND n >= 30 unconfirmed Bonde anticipation rows with mature T+5 outcomes; both cohorts must satisfy signal_date >= 2026-05-17. | 2026-05-17 onward                               | When both confirmed and unconfirmed cohorts reach n>=30 with mature T+5; component regression only at n>=100 KK rows. | Confirmed cohort T+5 alpha vs SPY exceeds unconfirmed cohort by at least +0.50 percentage points.                      | T+5 alpha spread >= +0.50 pp, T+10 or T+20 confirms direction, no single ticker >40% of spread, weekly consistency >=60%, and bootstrap_supported_pct >=80%. | T+5 alpha spread <= 0 or unconfirmed cohort outperforms after sample gates.                          | T+5 alpha spread is 0 to +0.50 pp, multi-horizon direction is mixed, ticker/week concentration is excessive, or bootstrap robustness is below threshold. | Use KK confirmation as Layer 5 priority/confidence signal only; do not hard-reject unconfirmed Bonde rows.                            | Deprecate KK confirmation in Layer 5 decisions; keep KK fields as diagnostics only. |
+| H_SLINGSHOT_TARGET_BASIS       | Measure SLINGSHOT_PRIMARY full-plan unique ticker-date rows for R:R>=2.0 and later T+5 expectancy after evaluability gates pass.                                     | UNKNOWN          | 0 raw full-plan+price rows; 0 unique full-plan+price ticker-date rows; 0 unique OK_EVALUABLE ticker-date rows. | unique_ok_evaluable_ticker_date_rows >= 30 and at least 10 OOS rows after 2026-05-22.                                                                | Starts 2026-05-22                               | When unique OK_EVALUABLE ticker-date rows reach n>=30.                                                                | >=40% of SLINGSHOT_PRIMARY full-plan unique ticker-date rows clear V5.9 R:R floor >= 2.0.                              | R:R>=2.0 pass rate >=40% and T+5 expectancy is not worse than ACTIVE_BURST baseline.                                                                         | R:R>=2.0 pass rate <30% or T+5 expectancy materially underperforms ACTIVE_BURST.                     | R:R pass rate is 30–40% or expectancy is positive but under-sampled.                                                                                     | Keep SLINGSHOT measurement path live; consider later context/ranking overlay only after 100+ unique OK_EVALUABLE rows.                | Do not promote SLINGSHOT; review target-basis and detection criteria.               |
+| H_SUGAR_BABIES_CONTEXT_OVERLAY | Compare Sugar Baby=True vs False rows by mature T+5, then require OOS and family-level confirmation before any ranking-context boost.                                | UNKNOWN          | Sugar Babies overlay active; OOS spread not yet validated.                                                     | OOS >= 100 evaluated Sugar=True and >= 100 Sugar=False rows, plus at least two setup families with n>=30.                                            | Next mature weekly cohorts after current digest | When OOS rows and family spread requirements are met.                                                                 | Sugar=True retains >= +1.0% avg T+5 spread over Sugar=False without worsening win-rate materially.                     | OOS avg spread >= +1.0% and at least two families have non-negative confirmation.                                                                            | OOS spread < +0.25% or driven by one family only.                                                    | OOS spread +0.25% to +1.0% or family split is mixed.                                                                                                     | Draft Sugar Babies ranking_context_score proposal; cannot override R:R, DTE, hard rejects, failed EP, dilution/offering, or bad data. | Keep Sugar Babies as monitoring-only context.                                       |
+| H_REALIZED_PNL_CORRELATION     | Compare actual broker realized R/P&L against system setup/action/final-status slices once n_with_realized_r >= 30.                                                   | UNKNOWN          | 0 realized-R rows; threshold not met.                                                                          | n_with_realized_r >= 30 total, then >=10 per major setup/action slice before slice-level claims.                                                     | Broker-export rows as they arrive               | When realized-R count reaches n>=30.                                                                                  | Layer 5 realized-R selection should outperform raw WATCH/COUNCIL forward-return expectancy on comparable setup slices. | Realized R is positive overall and aligns with the strongest forward-return slices.                                                                          | Realized R is negative despite positive forward-return slices, implying execution/selection failure. | Positive P&L but too concentrated in one trade or mismatch between broker rows and system rows.                                                          | Use realized-R weighting in weekly system review; do not change signal rules solely from P&L.                                         | Prioritize execution/selection review before signal-rule changes.                   |
 
-| pattern_id | status | setup_family | condition | action | evidence_summary | first_seen | last_reviewed |
-|---|---|---|---|---|---|---|---|
-| NONE | INACTIVE | ALL | No mature repeated evidence yet | No learned-pattern action | Current cohorts immature; monitor only | 2026-05-07 | 2026-05-07 |
-
-## Notes for Claude / Council
-
-If this file is uploaded or present in `bonde_files/latest_context/`, explicitly state:
-
-“Loaded `bonde_learned_patterns.md`: no ACTIVE learned patterns. Proceeding with base V5.9.x rules only.”
+### KK confirmation study
+Research-only: tests whether Bonde anticipation rows with KK leadership-quality confirmation outperform Bonde anticipation rows without KK confirmation. This does not alter trading labels, ranking, R:R, or hard gates.
+**Operational definition:** `kk_research_confirmation = kk_extend_score >= 70 AND (kk_leadership_score >= 70 OR kk_group_strength_score >= 50) AND all KK hard-disqualifier flags are false except kk_pause_too_long. kk_low_price_for_extension remains a disqualifier.`
+**OOS semantics:** current counts are cumulative mature evidence; OOS counts are strict `signal_date >= 2026-05-17` mature evidence.
+**Realistic review timing:** earliest likely verdict review is late July–mid September 2026, depending on confirmed-row accumulation and T+5/T+10/T+20 maturity.
+- KK confirmation tracker did not run or found no base cohort. Put `bonde_kk_final_decision_*.csv` and the canonical skill-pack/anticipation files into the one-inbox or inputs folder, then rerun.
+- Pre-registered action: if SUPPORTED, use KK only as a Layer 5 priority/confidence signal; if REJECTED, keep KK diagnostics but stop using it for Layer 5 confirmation.
+### Hypothesis discipline meta-rules
+- Maximum active WATCHING hypotheses: **7**. Current pre-registered hypotheses: **7**.
+- New hypotheses should not be added unless one existing hypothesis closes as `SUPPORTED`, `REJECTED`, or `AMBIGUOUS`, or unless there is a separately documented emergency/data-capture rationale. KK confirmation is the documented data-capture exception: without capturing cohorts now, the next 8–12 weeks would not answer the question.
+- After a `SUPPORTED` hypothesis ships a patch, no new hypothesis from the same family should be opened for **90 days** unless there is an emergency bug rationale.
+- If `H_REALIZED_PNL_CORRELATION` returns `REJECTED`, all signal-rule patches pause until execution / selection quality is reviewed.
+- These meta-rules are designed to prevent hypothesis creep and post-hoc rule changes while OOS evidence matures.
