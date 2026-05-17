@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-17
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-17 11:12 UTC_
+_Run timestamp: 2026-05-17 11:25 UTC_
 
 ## 1. Today's required action
 1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
@@ -11,7 +11,7 @@ _Run timestamp: 2026-05-17 11:12 UTC_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **1**. (§15)
 
-## 2. Changed since last run — 2026-05-17 10:58 UTC → 2026-05-17 11:12 UTC
+## 2. Changed since last run — 2026-05-17 11:12 UTC → 2026-05-17 11:25 UTC
 - Prior digest date: **2026-05-17**
 - Current digest date: **2026-05-17**
 - Comparison window: **2026-05-17 → 2026-05-17**
@@ -250,15 +250,17 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 _No tradeability-review rows found. Shadow candidates exist, but they are context-only because trigger and/or invalidation is missing._
 
 ## 11. Council resolver status
-- Council/disagreement resolver rows: **2**
+- Council/disagreement resolver rows: **4**
 | outcome_status   |   rows |
 |:-----------------|-------:|
-| PENDING          |      2 |
+| PENDING          |      4 |
 
 | ticker   | setup_family   | council_verdict   | outcome_status   | outcome_class   | council_outcome_alignment   | resolution_notes                                                  |
 |:---------|:---------------|:------------------|:-----------------|:----------------|:----------------------------|:------------------------------------------------------------------|
 | SPIR     | SLINGSHOT      | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 | WRBY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| WRBY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| SPIR     | SLINGSHOT      | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 
 
 ## 12. Day-1 shape diagnostics
