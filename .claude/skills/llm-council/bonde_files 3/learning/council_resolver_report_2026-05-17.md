@@ -1,7 +1,7 @@
 # Council Resolver Report — 2026-05-17
 
 **Total council disagreement rows in scope:** 2
-**Source files read:** 3
+**Source files read:** 1
 **Resolved (terminal outcome_class):** 0
 **Pending or N/A:** 2
 
@@ -13,21 +13,21 @@
 - `LOSER`: 0
 - `AMBIGUOUS`: 0
 - `NEVER_TRIGGERED`: 0
-- `PENDING`: 2
-- `NOT_APPLICABLE`: 0
+- `PENDING`: 0
+- `NOT_APPLICABLE`: 2
 
 ## Council outcome alignment breakdown
 
 - `ALIGNED`: 0
 - `MISALIGNED`: 0
 - `NEUTRAL`: 0
-- `PENDING`: 2
-- `NOT_APPLICABLE`: 0
+- `PENDING`: 0
+- `NOT_APPLICABLE`: 2
 - `UNKNOWN`: 0
 
 ## Classification method breakdown (v4.13.13)
 
-- `NOT_CLASSIFIED_PENDING`: 2
+- `NOT_CLASSIFIED_NO_TRIGGER_PRICE`: 2
 
 ## Calibration status
 
