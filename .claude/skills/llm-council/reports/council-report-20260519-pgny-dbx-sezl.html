@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Council — PGNY / DBX / SEZL — 2026-05-19</title>
+<style>
+  :root{--ink:#1a1d24;--mut:#5b6470;--line:#e3e6ea;--bg:#f7f8fa;--card:#fff;
+    --promote:#1f8a4c;--defer:#b5780c;--cancel:#c0392b;--accent:#2c5fa8;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);margin:0;line-height:1.55;font-size:15px;}
+  .wrap{max-width:920px;margin:0 auto;padding:32px 24px 80px;}
+  h1{font-size:23px;margin:0 0 4px;}
+  h2{font-size:18px;margin:34px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--line);}
+  h3{font-size:15px;margin:20px 0 8px;}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:24px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:18px 20px;margin:14px 0;}
+  .q{background:#eef2f8;border-left:4px solid var(--accent);}
+  .verdict-row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;}
+  .vc{flex:1;min-width:210px;border:1px solid var(--line);border-radius:9px;padding:14px 16px;background:#fff;}
+  .vc .tk{font-size:17px;font-weight:700;}
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;
+    padding:3px 9px;border-radius:20px;color:#fff;margin-left:6px;vertical-align:middle;}
+  .b-promote{background:var(--promote);} .b-defer{background:var(--defer);} .b-cancel{background:var(--cancel);}
+  .vc .meta{font-size:12px;color:var(--mut);margin:6px 0 8px;}
+  .vc .why{font-size:13px;}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0;}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:#eef0f3;font-weight:600;}
+  .disclaimer{background:#fff7e6;border:1px solid #f0d9a6;border-radius:7px;
+    padding:10px 14px;font-size:13px;color:#6b5413;margin:10px 0;}
+  details{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:4px 14px;}
+  summary{cursor:pointer;font-weight:600;padding:8px 0;font-size:14px;}
+  details[open]{padding-bottom:12px;}
+  .adv{font-size:13.5px;white-space:pre-wrap;}
+  .lab{font-weight:600;color:var(--accent);}
+  .foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--mut);}
+  .pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;background:#eef0f3;color:var(--mut);margin-right:4px;}
+  code{background:#eef0f3;padding:1px 5px;border-radius:3px;font-size:12.5px;}
+  .conv{border-left:3px solid var(--promote);} .div{border-left:3px solid var(--defer);} .blind{border-left:3px solid var(--accent);}
+  ul{margin:6px 0;padding-left:22px;} li{margin:4px 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LLM Council Verdict — PGNY / DBX / SEZL</h1>
+<div class="sub">Bonde / Stockbee trading council &nbsp;·&nbsp; signal pack 2026-05-18 (Mon) &nbsp;·&nbsp; review 2026-05-19 (Tue) &nbsp;·&nbsp; Day-2 2026-05-20 (Wed), no weekend gap &nbsp;·&nbsp; 5 advisors · anonymized peer review · chairman synthesis</div>
+
+<div class="card q">
+<strong>The question.</strong> Three council-routed candidates from the 2026-05-18 signal pack. Decide PROMOTE / DEFER / CANCEL for each. <strong>PGNY</strong> (A2, DELAYED_EP) — R:R 3.50R PASSES the 2.0 floor; council asked full vs half size. <strong>DBX</strong> (B+ C1, ACTIVE_BURST/MB) — R:R 1.56R FAILS; can a Day-2 contraction rescue it? <strong>SEZL</strong> (B+ C1, DELAYED_EP) — R:R 1.01R FAILS at the canonical target; council asked whether to swap in a higher 50%-retrace target ($145, R:R 3.09R) to pass. V5.9.19 semantics apply: <code>final_trade_status</code> is executable; <code>tier</code> is dashboard focus only.
+</div>
+
+<h2>Chairman Verdict</h2>
+<div class="verdict-row">
+  <div class="vc">
+    <div class="tk">PGNY <span class="badge b-defer">DEFER</span></div>
+    <div class="meta">DELAYED_EP · A2 · confidence medium · playbook-only</div>
+    <div class="why">The only candidate with a genuinely passing static R:R (3.50R) and no target games — worth keeping live. But the row contradicts itself: <code>day1_vol_ratio</code> 1.21x vs a cited DEP vol_gate of 1.89x. That gate <em>qualifies</em> the setup. Do not place an order on 2026-05-20. Reconcile the volume metric first; if the gate genuinely passed it converts to a <strong>half-size</strong> (never full) buy-stop $24.39 / stop $23.24; if it did not, PGNY is a CANCEL.</div>
+  </div>
+  <div class="vc">
+    <div class="tk">DBX <span class="badge b-cancel">CANCEL</span></div>
+    <div class="meta">ACTIVE_BURST · B+ C1 · confidence high · playbook-only</div>
+    <div class="why">Same ticker, same B+ C1 blocker, same 52-week-high reward cap, same Q1 catalyst that this council <strong>unanimously CANCELLED on 2026-05-09</strong> (NI -24% YoY, flat-revenue raised guide). R:R 1.56R still fails. Today's packet dropped the prior CANCEL from the reason. A re-surfaced candidate that omits its own kill is not new information. Remove from screen.</div>
+  </div>
+  <div class="vc">
+    <div class="tk">SEZL <span class="badge b-cancel">CANCEL</span></div>
+    <div class="meta">DELAYED_EP · B+ C1 · confidence high · playbook-only</div>
+    <div class="why">The council was asked to swap the canonical $119 target (R:R 1.01R) for a reverse-engineered $145 retrace target (R:R 3.09R). Rejected — that is target inflation. The honest geometry is 1.01R; the only 2.0R paths inflate the target or lower the entry off the $106.50 pivot, on a Day-1 reclaim printed on 0.71x below-average volume. Remove this row; SEZL may re-qualify on a future clean signal.</div>
+  </div>
+</div>
+
+<div class="card">
+<strong>Synthesis.</strong> Three candidates, three different failure modes — and only one decision the council could not make cleanly from the playbook alone.
+<p><strong>DBX — CANCEL.</strong> The geometry is technically rescuable (an honest Day-2 inside-day could tighten the stop above $27.00 and clear 2.0R), but that does not touch the two reasons DBX was killed ten days ago: the reward is structurally capped at the 52-week high, and the catalyst is a B-grade earnings event with net income down 24% YoY on a flat-revenue raised guide. Nothing in the packet changed those facts; the packet merely deleted them from the decision_reason.</p>
+<p><strong>SEZL — CANCEL.</strong> SEZL carries the strongest catalyst on the board (grade-A, a 23% EPS beat with raised guidance) and is not a dead chart — but the council question itself was the tell. A target reverse-engineered from the R:R you need is not a price objective. At the honest measured-move target SEZL is a 1.01R setup; the only routes to 2.0R are target inflation or a Day-2 entry-lowering pullback rescue with no mature base rate, on weak (0.71x) reclaim volume. The Expansionist path dissented to DEFER on the catalyst's strength — a fair point for a <em>future</em>, honestly-formed signal, not this 2026-05-18 row.</p>
+<p><strong>PGNY — DEFER.</strong> This is the answer to the user's actual question. The question was "full or half size?" The council's answer is "neither, yet." PGNY is the one row worth keeping live — passing R:R, A2 label, safe DTE, no target games. But the peer-review round sharpened the 1.21x / 1.89x volume discrepancy from a sizing nuance into a gate-integrity problem: the DEP vol_gate is the gate that <em>qualifies</em> the setup, and the row's own day-1 field cannot reproduce the 1.89x figure the gate reportedly fired on. You cannot size a trade — full or half — whose qualifying gate is internally inconsistent. Reconcile first; then half size on trigger, never full.</p>
+<p><strong>How the paths were weighted.</strong> The Chairman weighted the Contrarian and First-Principles paths most heavily — both reached DEFER on PGNY and CANCEL on the other two, and peer review judged the Contrarian path the most internally consistent (it applied the same 252-day-high-ceiling objection to PGNY that it applied to DBX and SEZL, instead of exempting the one passing row). The Expansionist path's full-size PGNY PROMOTE was weighted down: every peer reviewer independently flagged it as the board's biggest blind spot — authorizing maximum risk on self-contradicting data, and re-labelling a yearly-high target a "launchpad" while condemning the identical structure in DBX. The Executor path's half-size PROMOTE was operationally almost identical to this DEFER (same order, same size, same precondition); the Chairman adopts its mechanics but keeps the DEFER label, because the gating precondition is a data-integrity check, not a market trigger.</p>
+<p><strong>Evidence note.</strong> All three verdicts are <strong>playbook-only</strong>. The DBX prior CANCEL is council precedent — itself playbook-only — not realized-outcome evidence. Setup-family outcome data is immature (DELAYED_EP is LOW_SAMPLE, n=14), self-calibration is INSUFFICIENT_DATA, and the SPIR references are structural analogy, not a calibrated base rate. Log all three rows for calibration.</p>
+</div>
+
+<h2>Context Files Loaded</h2>
+<table>
+<tr><th>Role</th><th>Path</th><th>Status</th><th>Notes</th></tr>
+<tr><td>council_queue (candidates)</td><td><em>user-supplied inline table</em></td><td>LOADED (substitute)</td><td>No <code>council_queue_2026-05-18.csv</code> on disk. The three PGNY/DBX/SEZL rows were supplied inline by the user and treated as the effective council queue for 2026-05-18.</td></tr>
+<tr><td>council_queue (current packet)</td><td>bonde_files 3/current/council_queue_2026-05-15.csv</td><td>STALE</td><td>3 days old; different candidate set (SPIR, WRBY). Not used for these candidates.</td></tr>
+<tr><td>daily_decision_log</td><td>bonde_files 3/current/daily_decision_log_2026-05-15.csv</td><td>STALE</td><td>No 2026-05-18 decision log. <code>final_trade_status</code> unavailable for the three candidates — routing inferred from <code>council_route_reason</code> (legacy/inference fallback).</td></tr>
+<tr><td>skill_pack</td><td>bonde_files 3/current/bonde_skill_pack_2026-05-15.csv</td><td>STALE</td><td>Does not cover the 2026-05-18 candidates.</td></tr>
+<tr><td>actionability skill</td><td>bonde_files/bonde_stockbee_actionability/SKILL.md (V5.9.19)</td><td>LOADED</td><td>Routing table: A2 non-council&rarr;TRADE, A2 council-routed&rarr;COUNCIL, B+&rarr;COUNCIL.</td></tr>
+<tr><td>manifest</td><td>bonde_files 3/active_context/council_context_manifest.md</td><td>LOADED</td><td>Packet date 2026-05-15.</td></tr>
+<tr><td>candidate / learning / market context</td><td>bonde_files 3/active_context/latest_*_context.md</td><td>LOADED</td><td>No ACTIVE learned patterns; Nasdaq regime Bull, SMA50 extremely extended (broad-tape context only).</td></tr>
+<tr><td>learning / base rates</td><td>setup_family_performance_summary_v410.csv · catalyst_x_family_summary_v410.csv · weekly_learning_report_2026-W20.md · learning_loop_executive_digest_latest.md</td><td>LOADED</td><td>All evidence monitoring-only; no rule changes authorized.</td></tr>
+<tr><td>prior council</td><td>reports/council_outcomes_2026-05-09.csv · 2026-05-15 SPIR/WRBY artifacts</td><td>LOADED</td><td>DBX&rarr;CANCEL (2026-05-09, unanimous). WRBY&rarr;DEFER, SPIR&rarr;CANCEL (2026-05-15).</td></tr>
+<tr><td>disagreement / calibration history</td><td>reports/council_disagreements_*.csv · council_self_calibration_summary_*.csv</td><td>LOADED</td><td>All disagreement rows outcome-PENDING; 0 resolved.</td></tr>
+</table>
+<p style="font-size:13px;color:#5b6470;"><strong>Limitation:</strong> the current daily packet is 3 days stale relative to the 2026-05-18 signal pack, and no 2026-05-18 <code>daily_decision_log</code> or <code>council_queue</code> file was provided. The council operated on the user-supplied candidate rows cross-referenced against the V5.9.19 actionability skill and the (immature) learning context.</p>
+
+<h2>Council self-calibration status</h2>
+<div class="card">
+<strong>Self-calibration: INSUFFICIENT_DATA.</strong> Resolved disagreements: <strong>0 / 30</strong>. No reliability percentage reported. Historical <code>council_disagreements</code> files exist (2026-05-14, 2026-05-15, and four SPIR/WRBY re-council passes) plus <code>council_disagreements_resolved.csv</code>, but every row remains outcome-PENDING (insufficient future bars). Self-calibration is context only and does <strong>not</strong> change verdicts.
+</div>
+
+<h2>A1/A2 Reachability Audit</h2>
+<div class="card">
+<table>
+<tr><th>A1_REACHABLE</th><th>A2_EXECUTABLE_REACHABLE</th><th>ZERO_TRADE_CAUSE</th><th>n_A1</th><th>n_A2</th><th>n_TRADE</th><th>n_A2&rarr;COUNCIL</th></tr>
+<tr><td>NOT_EVALUABLE</td><td>NOT_EVALUABLE</td><td>NOT_EVALUABLE</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+</table>
+<p><strong>Basis: ACTUAL_CORPUS</strong> (user-supplied 2026-05-18 council-queue rows + stale <code>daily_decision_log_2026-05-15.csv</code>). No isolated routing harness was available, so no synthetic positive controls were run, and reachability cannot be asserted TRUE.</p>
+<ul>
+<li>No A1 rows anywhere &mdash; <code>a1_reachable = NOT_EVALUABLE</code>.</li>
+<li>The one A2 row (PGNY) passes its static R:R and has nominally clean gates, yet carries <code>council_route_reason = TRIGGER_1_A2</code>, routing it to COUNCIL rather than direct TRADE (the V5.9.19 table says A2 non-council&rarr;TRADE). Whether TRIGGER_1_A2 is an intentional "all A2 &rarr; council" policy or a misroute <strong>cannot be determined without the routing code</strong> &mdash; <code>a2_executable_reachable = NOT_EVALUABLE</code>.</li>
+<li>Top demotion reason for the two B+ rows: <code>rr_floor_fail</code> (DBX 1.56R, SEZL 1.01R) routed to COUNCIL by the documented, intentional B_PLUS_DAY2_COUNCIL design &mdash; not a forced demotion.</li>
+</ul>
+<p><strong>This is an implementation / routing investigation, not a threshold-change recommendation.</strong> The council did not lower any threshold or promote a candidate to compensate for zero TRADE output. Recommended diagnostic: confirm whether <code>TRIGGER_1_A2</code> is intended to route every A2 to council review (consistent with the learning digest's section-6 observation that "all visible A2 rows route to COUNCIL").</p>
+</div>
+
+<h2>Outcome / Base-Rate Context</h2>
+<div class="card">
+Outcome data available: <strong>yes, but immature — overlay only, does not override hard rules.</strong>
+<ul>
+<li><strong>DELAYED_EP</strong> (PGNY, SEZL): n=14, LOW_SAMPLE, IMMATURE_20D. Triggered 5-day avg +1.31% / 83% win on n=6 — not actionable evidence.</li>
+<li><strong>ACTIVE_BURST</strong> (DBX): n=95, ACTIONABLE_SAMPLE but weak — 5-day avg -0.58%, win 38.8%. No mature weekly cohort exists (most recent T+20-mature cohort: none).</li>
+<li><strong>B+ blocker-type base rate:</strong> not available as a resolved cohort.</li>
+<li><strong>Prior council outcomes:</strong> DBX &rarr; CANCEL (2026-05-09, unanimous, same blocker/cap/catalyst). 2026-05-15 SPIR/WRBY council: WRBY &rarr; DEFER (honest Day-2 stop-tighten, entry held), SPIR &rarr; CANCEL (reward structurally capped by the 252-week high). All council disagreement rows to date remain outcome-PENDING — 0 resolved.</li>
+<li><strong>Learning loop (2026-05-17 digest):</strong> no rule changes authorized; all evidence monitoring-only; no ACTIVE learned patterns. "All visible A2 rows route to COUNCIL — treat A2 as marginal-A2, not clean executable-A2."</li>
+</ul>
+All three verdicts are <strong>playbook-only</strong> and should be logged for future calibration.
+</div>
+
+<h2>Portfolio Heat</h2>
+<div class="card">
+<strong>No promoted exposure.</strong> No candidate received a PROMOTE verdict, so there is no proposed risk, no order basket, and no correlation aggregation required this session. If PGNY clears its data-reconciliation precondition and converts to a half-size entry, it would be a single, isolated position (healthcare / fertility-benefits) with no overlap to DBX (software) or SEZL (BNPL fintech) — none of which are being taken. <strong>Order-duration:</strong> review date 2026-05-19 is a Tuesday and Day-2 is Wednesday 2026-05-20 — no weekend/holiday gap. Any future PGNY entry should still be a <strong>DAY</strong> buy-stop (cancel-at-close), not an open-ended GTC.
+</div>
+
+<h2>Reasoning Paths Considered</h2>
+<div class="disclaimer">These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration. Five perspectives generated in one process exploring a question from different framings is not five independent verdicts.</div>
+
+<table>
+<tr><th>Reasoning path</th><th>PGNY</th><th>DBX</th><th>SEZL</th><th>Framing</th></tr>
+<tr><td>Contrarian</td><td>DEFER</td><td>CANCEL</td><td>CANCEL</td><td>Hunts the flaw: the system is laundering rejected/failing trades through fresh dates and inflated targets.</td></tr>
+<tr><td>First Principles</td><td>DEFER</td><td>CANCEL</td><td>CANCEL</td><td>Strips the question: "may I swap the target?" really means "may I override a rule I dislike?" — no.</td></tr>
+<tr><td>Expansionist</td><td>PROMOTE (full)</td><td>CANCEL</td><td>DEFER</td><td>Hunts upside: PGNY's 252-day-high target is open air; SEZL's drawdown gap is the real prize.</td></tr>
+<tr><td>Outsider</td><td>DEFER</td><td>CANCEL</td><td>CANCEL</td><td>Fresh eyes: a row that contradicts itself cannot be sized; an omitted prior CANCEL is disqualifying.</td></tr>
+<tr><td>Executor</td><td>PROMOTE (half)</td><td>CANCEL</td><td>CANCEL</td><td>Order mechanics: only PGNY is a clean order, and only half-size pending vol-gate reconciliation.</td></tr>
+</table>
+
+<h3 class="conv" style="padding-left:10px;">Reasoning Path Convergence</h3>
+<div class="card conv">
+All five reasoning paths arrived at <strong>CANCEL for DBX</strong>, by different routes — the Contrarian via "laundering a rejected trade through a fresh date," First Principles via "nothing changed except the calendar," the Executor via "the Day-2 fix only manufactures the math," the Expansionist via "no hidden upside in a reward capped at a 52-week high." On <strong>SEZL</strong>, the Contrarian, First-Principles, Outsider and Executor paths each reached CANCEL — converging on the recognition that the council question itself ("may we swap the target?") was the tell. On <strong>PGNY</strong>, the Contrarian, First-Principles and Outsider paths each reached DEFER, each independently anchoring on the unresolved 1.21x / 1.89x volume discrepancy as the blocker.
+</div>
+
+<h3 class="div" style="padding-left:10px;">Reasoning Path Divergence</h3>
+<div class="card div">
+<strong>PGNY was the genuine clash.</strong> The Expansionist path argued PROMOTE at full size — PGNY clears every hard rule, the 252-day-high target is open-air upside, and half-sizing a clean setup over a dashboard label wastes asymmetry. The Executor path argued PROMOTE at half size — take it, but don't pay for conviction the marginal-A2 label and the volume discrepancy don't support. The Contrarian, First-Principles and Outsider paths argued DEFER — the volume discrepancy is not a sizing nuance but a gate-integrity defect that must be resolved before any order.<br><br>
+<strong>SEZL drew one dissent.</strong> The Expansionist path argued DEFER rather than CANCEL, on the strength of the grade-A catalyst and the 43.8%-below-52-week-high recovery gap; the other four paths rejected this because the only passing-R:R path requires target inflation and/or entry-lowering on weak volume.
+</div>
+
+<h3 class="blind" style="padding-left:10px;">Blind Spots the Peer Review Caught</h3>
+<div class="card blind">
+<ul>
+<li>The Expansionist path's full-size PGNY call rests on an <em>unverified</em> reconciliation of the volume metric ("two windows, both confirm"). Every peer reviewer flagged authorizing maximum risk on a self-contradicting row as the board's biggest blind spot.</li>
+<li>The Expansionist path called PGNY's $28.42 252-day-high target a "launchpad" while condemning DBX's identical 52-week-high target as a "cap" — an unexamined contradiction.</li>
+<li>Several advisor paths labelled the DBX verdict "evidence-backed." Peer review corrected this: the prior CANCEL is council precedent — itself playbook-only — not realized-outcome evidence.</li>
+<li>What no single advisor raised: the recurring pattern across DBX (omitted prior CANCEL) and SEZL (reverse-engineered target) is a <strong>packet-generation integrity problem</strong>, not three isolated bad rows. <em>Diagnostic recommendation (not a trading-rule change):</em> the packet generator should surface any prior council verdict for a re-appearing ticker, and lock the R:R target to a single canonical source so it cannot be swapped to manufacture a passing R:R.</li>
+</ul>
+</div>
+
+<h2>The One Thing To Do First</h2>
+<div class="card" style="border-left:4px solid var(--accent);">
+<strong>Reconcile PGNY's volume discrepancy before the 2026-05-20 open</strong> — confirm whether the DEP vol_gate genuinely passed on a defensible day-1 volume figure, given the row shows <code>day1_vol_ratio</code> 1.21x against a cited gate of 1.89x. That single check decides whether PGNY is a half-size trade or a CANCEL. It is the only live action on the board — DBX and SEZL require none.
+</div>
+
+<h2>Advisor Responses (full)</h2>
+<details><summary>The Contrarian</summary><div class="adv"><span class="lab">DBX — CANCEL, high confidence, evidence-backed.</span> This is the tell. Same ticker, same B+ C1 blocker, same 52w-high reward cap, same earnings catalyst — re-surfaced 10 days after a unanimous CANCEL. The packet "forgets" the prior verdict and the NI -24% YoY rot. That's not a new opportunity; it's the system laundering a rejected trade through a fresh date. Static R:R 1.56R fails the floor anyway.
+
+<span class="lab">SEZL — CANCEL, high confidence, playbook-only.</span> They are openly asking permission to swap a 1.01R-FAIL canonical target for a $145 "50%-retrace" target that conveniently scores 3.09R. That is target inflation to manufacture authorization — the exact behavior the 2.0 floor exists to stop. The $145 level isn't a measured move; it's a number reverse-engineered from the answer. Add: reclaim on 0.71x below-average volume, +34% extended over the 200SMA, an 11.7% stop. The Day-2 path also lowers entry from $106.50 to $102.59 — moving two variables to force a pass.
+
+<span class="lab">PGNY — DEFER, low-medium confidence, playbook-only.</span> The only passing static R:R, and that's exactly why I distrust the comfort. The catalyst is a ~5% EPS beat — grade B, marginal. The volume story is internally inconsistent: row says 1.21x, reason cites 1.89x. The 3.50R depends on a $28.42 rolling-252-day-high target; reward into a yearly ceiling is the same trap that killed SPIR. WATCH tier, focus_rank 9, council-routed marginal-A2 — none of that says "full size." Require the trigger reclaim to print cleanly, resolve the volume discrepancy, then half size at most.</div></details>
+
+<details><summary>The First Principles Thinker</summary><div class="adv"><span class="lab">SEZL — CANCEL, high confidence, playbook-only.</span> The council question itself is the tell. When someone asks "can I swap the target to make R:R pass," the real question is "may I override a rule I don't like?" No. The measured move is the honest reward; $119 gives 1.01R; the trade fails. A 50%-retrace-of-decline target is not a price objective, it's a number reverse-engineered from the answer you wanted. The 11.7% stop and 0.71x reclaim volume confirm the structure is broken, not the target.
+
+<span class="lab">DBX — CANCEL, high confidence, evidence-backed.</span> This is the cleanest decision on the board, and the packet hid the evidence. Same ticker, same B+ C1, same 52w-high cap, same catalyst, unanimous CANCEL ten days ago. Nothing changed except the calendar. A re-surfaced candidate that omits its own prior verdict and the NI -24% concern isn't new evidence — it's the same failed trade hoping you forgot. The Day-2 path only "works" by lowering entry to $28.05 and tightening the stop to manufacture 2.0R.
+
+<span class="lab">PGNY — DEFER, medium confidence, playbook-only.</span> The honest one. Real passing R:R, no target games. But ask what the trade actually is: a 5% earnings beat, council-routed, WATCH tier, on a volume metric the packet can't even state consistently (1.21x vs 1.89x). That discrepancy must be resolved before sizing — you cannot size a trade whose entry condition is ambiguous. Confirm the vol metric, take it half-size on a clean reclaim of $24.39. WATCH plus council-routed is not "no," but it isn't "full size" either.</div></details>
+
+<details><summary>The Expansionist</summary><div class="adv"><span class="lab">PGNY — PROMOTE, full size, high confidence, playbook-only.</span> Stop treating clean setups like fragile ones. PGNY clears the static R:R floor, prints a 71%-range close on expanding volume, sits +10.4% above the 200SMA with 80 DTE of runway, and has an earnings beat behind it. The $28.42 target is the rolling 252-day high — that's not a ceiling, it's a launchpad. Once price reclaims $24.39 and clears a one-year high, the next resistance is open air. Half-sizing a candidate that passes every hard rule because a dashboard label says WATCH is leaving the best asymmetry on the table. The 1.21x vs 1.89x discrepancy is two metrics measuring different windows — both confirm participation. Full size.
+
+<span class="lab">SEZL — DEFER, medium confidence, playbook-only.</span> The real story here is being buried by a target-inflation argument. SEZL has a grade-A catalyst, a 23% EPS beat WITH raised guidance, comp_rating 93, and sits 43.8% below its 52-week high — that gap is the upside. You don't need to manufacture $145; the recovery thesis writes itself. But don't fake the R:R: the $119 canonical target fails, and inflating to $145 to pass is dishonest. Defer to the Day-2 inside-day break above $102.59 — that lower entry is legitimate structure, and a tighter stop could make the canonical $119 target clear 2.0 honestly.
+
+<span class="lab">DBX — CANCEL, high confidence, playbook-only.</span> Same ticker, same B+ C1 blocker, same 52w-high cap that unanimously failed 10 days ago, re-surfaced with the NI -24% concern scrubbed from the reason. There's no hidden upside in a reward structurally capped at a 52-week high on flat-YoY revenue. Kill it.</div></details>
+
+<details><summary>The Outsider</summary><div class="adv"><span class="lab">PGNY — DEFER, medium confidence, playbook-only.</span> Fresh eyes: why is the only candidate with a passing R:R sitting at WATCH/focus_rank 9? Either the dashboard distrusts it or the tier means nothing — pick one. The trigger is +1.4% above close, so the system wants you to chase. And the row literally disagrees with itself: 1.21x in one column, 1.89x in another. I cannot authorize full size on data that contradicts itself. Reconcile the volume metric first. If reclaim happens, half size only.
+
+<span class="lab">DBX — CANCEL, high confidence, evidence-backed.</span> This is the cleanest call on the board. The same ticker, same B+ C1 blocker, same 52w-high cap, same catalyst got a unanimous CANCEL ten days ago — and today's packet pretends that never happened. That omission is itself disqualifying: a system that re-surfaces a killed candidate without flagging the kill is not to be trusted on this row. R:R 1.56R fails the floor. The Day-2 "fix" works only by lowering entry to $28.05. Nothing changed except the calendar.
+
+<span class="lab">SEZL — CANCEL, high confidence, playbook-only.</span> The council question itself tells you the answer: it openly asks to swap a failing target ($119, 1.01R) for an inflated one ($145, 3.09R). If you have to move the target to pass the rule, you have already failed the rule. The 50%-retrace target is reverse-engineered from the answer you wanted. Add: an 11.7% stop, a reclaim on 0.71x below-average volume, and a Day-2 path that also lowers entry. Three manipulations stacked. The rule exists precisely to stop this.</div></details>
+
+<details><summary>The Executor</summary><div class="adv"><span class="lab">PGNY — PROMOTE, medium confidence, playbook-only.</span> It's the only clean order. Mechanics: buy-stop $24.39 DAY order for 2026-05-20, half size. Marginal-A2 + WATCH + the 1.21x/1.89x vol discrepancy mean I do not pay for full conviction I don't have. Stop $23.24 DAY. R:R holds at 3.50R even halved. First trim trigger $25.60. If $24.39 doesn't print Wednesday, no fill, no chase. The vol discrepancy must be reconciled before market open — if the true Day-1 ratio is 1.21x not 1.89x, the DEP vol_gate PASS is in question; resolve it or it stays half size regardless.
+
+<span class="lab">DBX — CANCEL, high confidence, evidence-backed (prior council).</span> Same ticker, same B+ C1, same 52w-high cap, same catalyst, unanimous CANCEL 10 days ago. Nothing changed except 10 calendar days. The "required Day-2" is an entry-lowering exercise: you only clear 2.0R by jamming the stop to $27.00 mid-bar — that's manufacturing the math, not finding a trade. No order. Do not place anything. Re-surfacing is a scan artifact, not a new signal.
+
+<span class="lab">SEZL — CANCEL, medium-high confidence, playbook-only.</span> The council question itself is the tell: you cannot pass static R:R at the canonical $119 target (1.01R), so the proposal inflates the target to $145 to reach 3.09R. That's reverse-engineering. Add a 0.71x below-average-volume reclaim and an 11.7% stop — that is not a tradable structure. The Day-2 "fix" also lowers entry off the $106.50 pivot. Two cheats stacked. No order.</div></details>
+
+<h2>Peer Review Highlights</h2>
+<details><summary>Anonymized peer review — strongest response, blind spots, what all five missed</summary><div class="adv">Anonymization map for this review round: Response A = Expansionist · Response B = Outsider · Response C = Contrarian · Response D = Executor · Response E = First Principles.
+
+<span class="lab">Strongest response.</span> Every reviewer named Response C (the Contrarian). It was the only path that treated all three tickers with equal rigor — it refused the comfort of PGNY's one passing R:R and applied the same 252-day-high-ceiling objection there that it applied to DBX and SEZL, rather than exempting the passing row.
+
+<span class="lab">Biggest blind spot.</span> Every reviewer named Response A (the Expansionist): a full-size PGNY PROMOTE that admits the 1.21x/1.89x discrepancy yet waves it away as "two windows," authorizing maximum risk on self-contradicting data — and calls PGNY's 252-day-high target a "launchpad" while condemning DBX's identical structure as a "cap."
+
+<span class="lab">Outcome-context use.</span> No path badly misused the base-rate context; all correctly flagged verdicts as playbook-only and self-calibration as INSUFFICIENT_DATA. Minor corrections: tagging the DBX verdict "evidence-backed" overstates it (the prior CANCEL is playbook-only precedent), and citing SPIR reads as anecdote, not a calibrated base rate.
+
+<span class="lab">What all five missed.</span> No single advisor flagged the process failure as actionable. The reviewers converged: PGNY's self-contradicting volume row could invalidate the DEP qualification entirely (pushing it toward CANCEL, not just DEFER), and DBX's omitted prior CANCEL plus SEZL's reverse-engineered target indicate a packet-generation pipeline that launders rejected trades — the council should escalate a packet-integrity fix, not merely rule on three rows.</div></details>
+
+<h2>Council Outcome CSV (summary of rows written)</h2>
+<table>
+<tr><th>signal_date</th><th>review_date</th><th>ticker</th><th>setup_family</th><th>action_label</th><th>blocker</th><th>verdict</th><th>confidence</th></tr>
+<tr><td>2026-05-18</td><td>2026-05-19</td><td>PGNY</td><td>DELAYED_EP</td><td>A2</td><td>NOT_BPLUS</td><td>DEFER</td><td>medium</td></tr>
+<tr><td>2026-05-18</td><td>2026-05-19</td><td>DBX</td><td>ACTIVE_BURST</td><td>B+</td><td>C1</td><td>CANCEL</td><td>high</td></tr>
+<tr><td>2026-05-18</td><td>2026-05-19</td><td>SEZL</td><td>DELAYED_EP</td><td>B+</td><td>C1</td><td>CANCEL</td><td>high</td></tr>
+</table>
+
+<div class="foot">
+<span class="pill">LLM Council skill v1.3.4</span>
+<span class="pill">5 advisors</span>
+<span class="pill">anonymized peer review</span>
+<span class="pill">chairman synthesis</span><br><br>
+Generated 2026-05-19 · counciled: PGNY (DELAYED_EP A2), DBX (ACTIVE_BURST B+ C1), SEZL (DELAYED_EP B+ C1) from the Bonde signal pack 2026-05-18.<br>
+Verdicts: PGNY DEFER · DBX CANCEL · SEZL CANCEL. All playbook-only — log for calibration. This report is decision-support, not financial advice.
+</div>
+
+</div>
+</body>
+</html>
