@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-19
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-19 06:08 UTC_
+_Run timestamp: 2026-05-19 10:46 UTC_
 _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 
 ## 1. Today's required action
@@ -12,10 +12,10 @@ _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-17 12:46 UTC → 2026-05-19 06:08 UTC
-- Prior digest date: **2026-05-17**
+## 2. Changed since last run — 2026-05-19 06:08 UTC → 2026-05-19 10:46 UTC
+- Prior digest date: **2026-05-19**
 - Current digest date: **2026-05-19**
-- Comparison window: **2026-05-17 → 2026-05-19**
+- Comparison window: **2026-05-19 → 2026-05-19**
 
 ### Pipeline changes
 - SLINGSHOT decision-log target/R:R backfilled inside the learning loop: **93** rows.
@@ -204,18 +204,18 @@ Research-only: tests whether Bonde anticipation rows with KK leadership-quality 
 **Realistic review timing:** earliest likely verdict review is late July–mid September 2026, depending on confirmed-row accumulation and T+5/T+10/T+20 maturity.
 | hypothesis_id     | status              | baseline_available   |   confirmed_n_5d |   unconfirmed_n_5d |   spread_alpha_vs_spy_5d_pp |   supported_threshold_t5_alpha_spread_pp |   bootstrap_supported_pct |   supported_bootstrap_threshold_pct |   weekly_consistency_pct |   single_ticker_spread_share_pct |   invalid_signal_date_rows_dropped |
 |:------------------|:--------------------|:---------------------|-----------------:|-------------------:|----------------------------:|-----------------------------------------:|--------------------------:|------------------------------------:|-------------------------:|---------------------------------:|-----------------------------------:|
-| H_KK_CONFIRMATION | WATCHING_LOW_SAMPLE | True                 |                0 |                 27 |                         nan |                                      0.5 |                       nan |                                  80 |                      nan |                              nan |                                  3 |
+| H_KK_CONFIRMATION | WATCHING_LOW_SAMPLE | True                 |                0 |                 27 |                         nan |                                      0.5 |                       nan |                                  80 |                      nan |                              nan |                                  0 |
 
 **Current cohort split (cumulative, in-sample baseline):**
 | kk_confirmation_cohort                     |   n_rows |   n_evaluable_5d |   avg_ret_5d_all |   avg_alpha_vs_spy_5d |   n_evaluable_10d |   avg_ret_10d_all |   n_evaluable_20d |   avg_ret_20d_all |
 |:-------------------------------------------|---------:|-----------------:|-----------------:|----------------------:|------------------:|------------------:|------------------:|------------------:|
-| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |       47 |               27 |       -0.0914728 |              -1.68934 |                 4 |          -1.42863 |                 0 |               nan |
+| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |       49 |               27 |       -0.0914728 |              -1.68934 |                 4 |          -1.42863 |                 0 |               nan |
 | BONDE_ANTICIPATION_WITH_KK_CONFIRMATION    |        1 |                0 |      nan         |             nan       |                 0 |         nan       |                 0 |               nan |
 
 **Strict OOS cohort split (signal_date >= 2026-05-17; drives verdict):**
 | kk_confirmation_cohort                     |   n_rows |   n_evaluable_5d |   avg_ret_5d_all |   avg_alpha_vs_spy_5d |   n_evaluable_10d |   avg_ret_10d_all |   n_evaluable_20d |   avg_ret_20d_all |
 |:-------------------------------------------|---------:|-----------------:|-----------------:|----------------------:|------------------:|------------------:|------------------:|------------------:|
-| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |        4 |                0 |              nan |                   nan |                 0 |               nan |                 0 |               nan |
+| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |        5 |                0 |              nan |                   nan |                 0 |               nan |                 0 |               nan |
 
 **KK classification audit sample:**
 | ticker   | signal_date   | kk_research_confirmation   |   kk_extend_score |   kk_leadership_score |   kk_group_strength_score | kk_low_price_for_extension   | kk_pause_too_long   | kk_risk_too_wide   | kk_weak_liquidity   | kk_too_far_from_highs   | kk_major_breakdown   | kk_late_stage_proxy   | kk_bag_holder   | kk_weak_bonde_score   |
@@ -328,12 +328,12 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 | candidate   | sugar_baby_flag | True          |     2199 |                1215 |             0.684054 |               43.2922 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_flag | True          |     1979 |                1088 |             0.738128 |               43.1985 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | candidate   | sugar_baby_flag | False         |     1292 |                 714 |            -1.6059   |               41.0364 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_flag | False         |     1110 |                 623 |            -1.5482   |               39.9679 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_flag | False         |     1107 |                 623 |            -1.5482   |               39.9679 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 ### Recurrence buckets
 | row_level   | slice_name             | slice_value   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:------------|:-----------------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | sugar_baby_runs_bucket | 0             |     1110 |                 623 |           -1.5482    |               39.9679 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 0             |     1107 |                 623 |           -1.5482    |               39.9679 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_runs_bucket | 1             |      157 |                 105 |           -1.2933    |               40      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_runs_bucket | 2-3           |      200 |                 112 |            0.0842993 |               39.2857 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | ticker      | sugar_baby_runs_bucket | 4-7           |      307 |                 164 |            0.575958  |               46.9512 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
@@ -413,10 +413,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 | P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                            |
 
 ### Resolved since last run
-| priority   | item                                          | why                                                                                                                                     |
-|:-----------|:----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| P2         | Monitor upstream clean-candidate availability | Council reachability audit reports INSUFFICIENT_CLEAN_ROWS; do not change A1/A2 rules unless future evidence shows a calibration issue. |
-
+- None auto-detected.
 - Persistent queue files: `investigation_queue_latest.csv`, `investigation_queue_history_latest.csv`
 
 ## 17. Open caveats / next actions
