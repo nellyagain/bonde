@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-20
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-20 09:20 UTC_
+_Run timestamp: 2026-05-20 10:14 UTC_
 _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 
 ## 1. Today's required action
@@ -12,7 +12,7 @@ _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-20 09:02 UTC → 2026-05-20 09:20 UTC
+## 2. Changed since last run — 2026-05-20 09:20 UTC → 2026-05-20 10:14 UTC
 - Prior digest date: **2026-05-20**
 - Current digest date: **2026-05-20**
 - Comparison window: **2026-05-20 → 2026-05-20**
@@ -260,23 +260,22 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 - Council/disagreement resolver rows: **19**
 | outcome_status   |   rows |
 |:-----------------|-------:|
-| NOT_APPLICABLE   |     14 |
-| PENDING          |      5 |
+| PENDING          |     19 |
 
 | ticker   | setup_family   | council_verdict   | outcome_status   | outcome_class   | council_outcome_alignment   | resolution_notes                                                  |
 |:---------|:---------------|:------------------|:-----------------|:----------------|:----------------------------|:------------------------------------------------------------------|
 | PGNY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=1 |
 | DBX      | ACTIVE_BURST   | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=1 |
 | SEZL     | DELAYED_EP     | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=1 |
-| LOCO     | DELAYED_EP     | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| SEZL     | DELAYED_EP     | CANCEL            | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| CLSK     | SLINGSHOT      | CANCEL            | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| IFS      | SLINGSHOT      | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| CGCT     | SLINGSHOT      | CANCEL            | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| LLY      | SLINGSHOT      | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| KGS      | PAUSE          | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| EFC      | PAUSE          | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
-| KEX      | PAUSE          | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| LOCO     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| SEZL     | DELAYED_EP     | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| CLSK     | SLINGSHOT      | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| IFS      | SLINGSHOT      | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| CGCT     | SLINGSHOT      | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| LLY      | SLINGSHOT      | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| KGS      | PAUSE          | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| EFC      | PAUSE          | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
+| KEX      | PAUSE          | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 
 
 **Council resolver determinism audit (v4.13.61+ source-priority + round-aware):**
@@ -440,6 +439,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 ## 17. Open caveats / next actions
 - Day-1 fields are being captured, but verdicts remain insufficient until resolved sample sizes mature.
 - SLINGSHOT is detected but has zero OK-evaluable rows; use the evaluability audit to fix missing entry/stop/target/R:R/outcome data before judging expectancy.
+- Council rows are found but still pending; no council calibration conclusions yet.
 
 ## 18. Evidence discipline
 - This digest is monitoring context, not permission to change rules.
