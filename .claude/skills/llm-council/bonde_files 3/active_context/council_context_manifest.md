@@ -29,6 +29,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 ## Learning/reference files
 
 - `actionability_performance_summary_v410.csv` — LOADED
+- `active_burst_gate6_observational_watchlist_2026-05-20.md` — LOADED
 - `active_burst_gate6_observational_watchlist_latest.md` — LOADED
 - `active_burst_gate6_observational_watchlist_v41329.csv` — LOADED
 - `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
