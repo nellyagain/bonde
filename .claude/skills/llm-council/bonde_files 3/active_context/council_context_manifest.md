@@ -1,7 +1,7 @@
 # Council Context Manifest
 
 Generated: 2026-05-20
-Packet date: 2026-05-18
+Packet date: 2026-05-19
 Target folder: `bonde_files 3/`
 
 Use this package as the current council context bundle. Do not scan stale root-level dated files as current context.
@@ -15,7 +15,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 ## Current daily packet
 
 - `bonde_skill_pack_2026-05-15.csv` — LOADED
-- `council_queue_2026-05-18.csv` — LOADED
+- `council_queue_2026-05-19.csv` — LOADED
 - `daily_decision_log_2026-05-18.csv` — LOADED
 
 ## Active context files
@@ -29,6 +29,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 ## Learning/reference files
 
 - `actionability_performance_summary_v410.csv` — LOADED
+- `active_burst_gate6_observational_watchlist_2026-05-20.md` — LOADED
 - `active_burst_gate6_observational_watchlist_latest.md` — LOADED
 - `active_burst_gate6_observational_watchlist_v41329.csv` — LOADED
 - `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
@@ -75,7 +76,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current council candidate set
 
-DBX, PGNY, SEZL
+ALAB, ARM, CDNA, CGCT, CLSK, EFC, IFS, KEX, KGS, LLY, LOCO, RLAY, SEZL, TTMI
 
 ## Council use rules
 
