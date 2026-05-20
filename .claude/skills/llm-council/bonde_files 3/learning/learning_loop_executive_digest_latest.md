@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-20
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-20 07:38 UTC_
+_Run timestamp: 2026-05-20 07:44 UTC_
 _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 
 ## 1. Today's required action
@@ -12,10 +12,10 @@ _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-19 10:46 UTC → 2026-05-20 07:38 UTC
-- Prior digest date: **2026-05-19**
+## 2. Changed since last run — 2026-05-20 07:38 UTC → 2026-05-20 07:44 UTC
+- Prior digest date: **2026-05-20**
 - Current digest date: **2026-05-20**
-- Comparison window: **2026-05-19 → 2026-05-20**
+- Comparison window: **2026-05-20 → 2026-05-20**
 
 ### Pipeline changes
 - SLINGSHOT decision-log target/R:R backfilled inside the learning loop: **93** rows.
@@ -136,7 +136,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 |:---------------|:--------------------------|:-------------------|-------:|-------:|----------:|------------------:|
 | NOT_EVALUABLE  | NOT_EVALUABLE             | NOT_EVALUABLE      |      0 |      1 |         0 |                 1 |
 
-- Latest reachability audit source: `/content/bonde_repo/bonde_screener_cache/council_queues/council_reachability_audit_2026-05-19.csv`
+- Latest reachability audit source: `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_reachability_audit_latest.csv`
 - Top Council demotion reasons from latest audit:
 | demotion_reason                    |   rows |
 |:-----------------------------------|-------:|
