@@ -1,8 +1,8 @@
 # Bonde Learning Loop Executive Digest — 2026-05-20
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-20 11:16 UTC_
-_Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
+_Run timestamp: 2026-05-20 11:40 UTC_
+_Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
 1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
@@ -12,7 +12,7 @@ _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-20 10:27 UTC → 2026-05-20 11:16 UTC
+## 2. Changed since last run — 2026-05-20 11:16 UTC → 2026-05-20 11:40 UTC
 - Prior digest date: **2026-05-20**
 - Current digest date: **2026-05-20**
 - Comparison window: **2026-05-20 → 2026-05-20**
@@ -326,6 +326,8 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 - Status: **detected but evaluability-gated**. Measurement only; no SLINGSHOT rule-change evidence yet.
 - Rows: **475**; full-plan proxy rows: **254**; rows with ≥5 future bars: **0**; OK-evaluable rows: **0**.
 - DECISION_LOG rows target/R:R enriched inside learning loop from universe planning fields: **93**
+- Entry-source classification (v4.13.73): **CAPTURED_AT_TRIGGER=254** (verdict-eligible pool, gated on T+5 maturity); BACKFILLED_FROM_SIGNAL_CLOSE=178 (robustness panel only, excluded from verdict); MISSING_ENTRY_UNRECOVERABLE=43 (excluded).
+- Latest pack health: `2026-05-19` **47/47** rows CAPTURED_AT_TRIGGER (entry capture healthy).
 - Top missing/evaluability reasons:
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
