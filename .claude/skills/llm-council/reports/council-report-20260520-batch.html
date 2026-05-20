@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Council — Bonde B+ Day-2 Council — 2026-05-20</title>
+<style>
+  :root{--bg:#fff;--ink:#1a1d21;--mut:#5b6470;--line:#e3e6ea;--soft:#f6f7f9;
+        --cancel:#b3261e;--defer:#9a6700;--promote:#1a7f37;--accent:#2f5fae;}
+  *{box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink);margin:0;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       line-height:1.55;font-size:15px;}
+  .wrap{max-width:920px;margin:0 auto;padding:34px 24px 80px;}
+  h1{font-size:23px;margin:0 0 4px;}
+  h2{font-size:17px;margin:34px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--line);}
+  h3{font-size:14px;margin:18px 0 7px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:18px;}
+  .q{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:14px 16px;font-size:14px;}
+  .verdict-box{background:#fbfaf6;border:1px solid #ece4cf;border-left:4px solid var(--defer);
+       border-radius:8px;padding:14px 17px;margin:14px 0;}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;
+       letter-spacing:.03em;vertical-align:middle;}
+  .t-cancel{background:#fdeceb;color:var(--cancel);}
+  .t-defer{background:#fdf4e0;color:var(--defer);}
+  .t-promote{background:#e8f5ec;color:var(--promote);}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0;}
+  th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--soft);font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--mut);}
+  td.v{white-space:nowrap;font-weight:700;}
+  .stat{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;}
+  .pill{background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:8px 13px;font-size:13px;}
+  .pill b{font-size:18px;display:block;}
+  details{border:1px solid var(--line);border-radius:8px;margin:8px 0;background:var(--soft);}
+  summary{cursor:pointer;padding:10px 14px;font-weight:600;font-size:14px;}
+  details .body{padding:4px 16px 14px;font-size:13.5px;border-top:1px solid var(--line);}
+  .disc{background:#eef2f9;border:1px solid #d3deef;border-radius:7px;padding:9px 13px;
+        font-size:12.5px;color:#33455f;margin:10px 0;}
+  .conv{border-left:3px solid var(--accent);padding:3px 0 3px 13px;margin:9px 0;font-size:14px;}
+  .foot{margin-top:42px;border-top:1px solid var(--line);padding-top:13px;color:var(--mut);font-size:12px;}
+  code{background:#eef0f3;padding:1px 5px;border-radius:4px;font-size:12.5px;}
+  .mut{color:var(--mut);}
+  ul{margin:7px 0;padding-left:22px;}
+  li{margin:3px 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LLM Council — Bonde B+ Day-2 Council</h1>
+<div class="sub">review_date <b>2026-05-20</b> (Wednesday) &middot; signal_date 2026-05-19 &middot; 14 candidates &middot; 5 advisors, anonymized peer review, chairman synthesis</div>
+
+<div class="q">
+<b>Question put to the council:</b> 14 B+ Day-2 council candidates (all <code>action_label=B</code>, watch-only, routed to council). Group A = 6 C1 rows (wide Day-1 range / static EOD R:R floor fail). Group B = 8 C3 rows (mild extension / Day-2 confirmation pending). For each ticker: <b>promote / defer / cancel</b>. No <code>final_trade_status</code> field in the packet &rarr; V5.9.19 legacy fallback; <code>tier</code> (TAKE/WATCH) is dashboard focus only and is not trade authorization.
+</div>
+
+<div class="stat">
+  <div class="pill"><b>0</b>Promote</div>
+  <div class="pill"><b>10</b>Defer</div>
+  <div class="pill"><b>4</b>Cancel</div>
+  <div class="pill"><b>14</b>Reviewed</div>
+</div>
+
+<h2>Chairman Verdict</h2>
+<div class="verdict-box">
+<p><b>No promotions today. 10 defer, 4 cancel.</b> This is the correct response to a packet with a structural defect at its centre, not excess caution.</p>
+<p><b>The core finding.</b> For all 8 Group B (C3) rows, <code>planned_target = trigger + 2.0 &times; (trigger &minus; invalidation)</code>. The target is back-solved so the ratio lands on exactly 2.000. A "PASS" on a back-solved target is arithmetic, not evidence of reward &mdash; the 2026-05-19 council already rejected this exact manoeuvre on SEZL ("target inflation... not honestly tradeable"). So every C3 "R:R PASS" must be treated as <b>reward-unverified</b>, and the C3 group is no safer than the C1 group on geometry. The 6 Group A (C1) rows at least fail the 2.0 floor <i>honestly</i>; their thesis ("Day-2 contraction lifts R:R") is a <b>Day-2 pullback rescue</b> &mdash; a bet on a future price that does not yet exist, which is a defer, never a promote.</p>
+<p><b>Per-ticker verdicts</b> (all <b>playbook-only</b> &mdash; base rates are immature; see below):</p>
+<table>
+<tr><th>Ticker</th><th>Blocker</th><th>Verdict</th><th>Conf.</th><th>Reason</th></tr>
+<tr><td>LOCO</td><td>C1</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>Real A-grade beat-and-raise, DTE 78 verified, but R:R 0.63 fails honestly; rescue needs entry below close on a ~2.4% noise-prone stop and the target caps reward near 4%. Day-2 alert only.</td></tr>
+<tr><td>SEZL</td><td>C1</td><td class="v"><span class="tag t-cancel">CANCEL</span></td><td>high</td><td>The same name the 2026-05-19 council cancelled, now degraded to unresearched / DTE UNKNOWN. Prior CANCEL stands.</td></tr>
+<tr><td>CLSK</td><td>C1</td><td class="v"><span class="tag t-cancel">CANCEL</span></td><td>high</td><td>quality_gate_status FAIL + speculative_flag TRUE &mdash; a structural quality rejection. Not a research gap.</td></tr>
+<tr><td>IFS</td><td>C1</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>Unresearched, DTE UNKNOWN, R:R 0.64. Lowest-priority defer; needs full research + far better Day-2 geometry.</td></tr>
+<tr><td>CGCT</td><td>C1</td><td class="v"><span class="tag t-cancel">CANCEL</span></td><td>high</td><td>Degenerate geometry &mdash; target one cent above trigger, R:R 0.20 &mdash; on an 8.75&times; blowoff spike. Not tradeable.</td></tr>
+<tr><td>LLY</td><td>C1</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>Unresearched / DTE UNKNOWN caps it at watch-only &mdash; a fixable data gap, not a broken setup. Best C1 geometry (1.42R). Research &amp; re-qualify.</td></tr>
+<tr><td>KGS</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>Best row &mdash; researched, quality PASS, DTE 81, modest 6.4% stop &mdash; but the target is back-solved (R:R unverified) and Day-1 (+0.15%, 0.98&times; vol) showed no demand. Day-2 alert pending a real target + confirmed break.</td></tr>
+<tr><td>EFC</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>Researched B-grade but a 2.0% stop is too tight for normal noise, 0.48&times; volume = no participation, close below trigger.</td></tr>
+<tr><td>KEX</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>low</td><td>C-grade mixed earnings; the row's own note says "low conviction". Lowest priority.</td></tr>
+<tr><td>CDNA</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>Unresearched / DTE UNKNOWN &mdash; fixable data gap; quality PASS but 11% stop. Research &amp; re-qualify.</td></tr>
+<tr><td>ARM</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>B-grade beat but Q1 FY27 guide is a sequential decline that undercuts the catalyst; 9.7% stop.</td></tr>
+<tr><td>TTMI</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>A-grade beat-and-raise but close is +94.5% above the 200SMA &mdash; extension is the dominant risk; a quiet Day-1 is not a true reset. 15% stop.</td></tr>
+<tr><td>ALAB</td><td>C3</td><td class="v"><span class="tag t-defer">DEFER</span></td><td>med</td><td>A-grade catalyst, strong Day-1 shape, but a 17.7% stop is untradeable as presented. Wait for a tighter Day-2 stop structure.</td></tr>
+<tr><td>RLAY</td><td>C3</td><td class="v"><span class="tag t-cancel">CANCEL</span></td><td>med-high</td><td>A-grade FDA catalyst, but the data-readout day closed in the bottom 20% of range on 5.63&times; volume = catalyst-day distribution. The long thesis is rejected; this signal is dead.</td></tr>
+</table>
+<p class="mut"><b>Cancel vs defer rule applied:</b> CANCEL only where the setup is structurally broken or already killed &mdash; SEZL (prior council cancel), CLSK (quality-gate FAIL), CGCT (degenerate geometry), RLAY (Day-1 distribution shape). Pure research/data gaps (LLY, CDNA, IFS) are DEFER &mdash; they can re-qualify once researched.</p>
+</div>
+
+<h2>The One Thing to Do First</h2>
+<div class="verdict-box" style="border-left-color:var(--accent);background:#f4f7fc;">
+Before the 2026-05-20 open, <b>recompute KGS's target from real structure</b> (measured move / prior swing high / nearest resistance) instead of the back-solved <code>trigger + 2.0&times;risk</code> plug. If that honest target still clears 2.0R <i>and</i> KGS prints a confirmed Day-2 break above the pause high on real volume, it converts to a half-size DAY buy-stop. If the honest target does not clear 2.0R, KGS stays a watch. Everything else is a watch or is off the screen.
+</div>
+
+<h2>Context Files Loaded</h2>
+<table>
+<tr><th>Role</th><th>Path</th><th>Status</th></tr>
+<tr><td>council candidate set</td><td>user-supplied batch (pasted), review_date 2026-05-20</td><td>LOADED</td></tr>
+<tr><td>context manifest</td><td>bonde_files 3/active_context/council_context_manifest.md</td><td>LOADED</td></tr>
+<tr><td>candidate context</td><td>bonde_files 3/active_context/latest_candidate_context.md</td><td>LOADED</td></tr>
+<tr><td>learning context</td><td>bonde_files 3/active_context/latest_learning_context.md</td><td>LOADED &mdash; no ACTIVE learned patterns</td></tr>
+<tr><td>market context</td><td>bonde_files 3/active_context/latest_market_context.md</td><td>LOADED (advisory)</td></tr>
+<tr><td>setup-family base rates</td><td>bonde_files 3/learning/setup_family_performance_summary_v410.csv</td><td>LOADED (immature)</td></tr>
+<tr><td>catalyst &times; family base rates</td><td>bonde_files 3/learning/catalyst_x_family_summary_v410.csv</td><td>LOADED (immature)</td></tr>
+<tr><td>slingshot diagnostics</td><td>bonde_files 3/learning/slingshot_bucket_performance_v41314.csv</td><td>LOADED (immature)</td></tr>
+<tr><td>learning digest</td><td>bonde_files 3/learning/learning_loop_executive_digest_2026-05-19.md</td><td>LOADED</td></tr>
+<tr><td>weekly cohort report</td><td>bonde_files 3/learning/weekly_learning_report_2026-W21.md</td><td>LOADED (no mature T+20 cohort)</td></tr>
+<tr><td>decision log</td><td>bonde_files 3/current/daily_decision_log_2026-05-18.csv</td><td>LOADED (90 rows; A2:1, B:88, C:1; final_trade_status COUNCIL:3, WATCH:87)</td></tr>
+<tr><td>prior council outcomes</td><td>reports/council_outcomes_2026-05-19.csv (PGNY DEFER, DBX CANCEL, SEZL CANCEL)</td><td>LOADED</td></tr>
+<tr><td>disagreement history</td><td>bonde_files 3/learning/council_disagreements_resolved.csv (all rows PENDING)</td><td>LOADED</td></tr>
+<tr><td>actionability skill</td><td>bonde_stockbee_actionability/SKILL.md</td><td>NOT loaded in full &mdash; council operated from the candidate packet + embedded V5.9.x playbook rules; verdicts are playbook-only</td></tr>
+</table>
+<p class="mut">Note: the loaded daily packet is dated 2026-05-18 (one session stale relative to the 2026-05-19 signal batch under review). It is used as a base-rate / prior-council overlay only, which is its intended role. No current <code>final_trade_status</code> field accompanies the 14 candidates &rarr; V5.9.19 legacy action-label fallback.</p>
+
+<h2>Council self-calibration status</h2>
+<p><b>Self-calibration: INSUFFICIENT_DATA.</b> Resolved disagreements: 0/30. No reliability percentage reported. Historical <code>council_disagreements_*</code> files exist but every row remains PENDING outcome resolution (insufficient future bars). Calibration is context only and does not change any verdict.</p>
+
+<h2>A1/A2 Reachability Audit</h2>
+<table>
+<tr><th>A1_REACHABLE</th><th>A2_EXECUTABLE_REACHABLE</th><th>ZERO_TRADE_CAUSE</th><th>n_A1</th><th>n_A2</th><th>n_TRADE</th><th>n_COUNCIL</th></tr>
+<tr><td>NOT_EVALUABLE</td><td>NOT_EVALUABLE</td><td>NO_ZERO_TRADE_ISSUE</td><td>0</td><td>0</td><td>0</td><td>14</td></tr>
+</table>
+<p>This batch is exclusively B+ Day-2 council rows (<code>action_label=B</code>) by construction, so it structurally cannot produce A1/A2/TRADE rows &mdash; zero TRADE here is expected, not a routing defect. A1/A2 reachability is <b>NOT_EVALUABLE</b>: there are no A1/A2 rows in scope and no isolated routing harness was available, so no synthetic positive controls were run. <code>audit_basis=ACTUAL_CORPUS</code>.</p>
+<p><b>Carried-forward systemic concern (not from this batch):</b> <code>learning_loop_executive_digest_2026-05-19</code> &sect;6 documents that post-V5.9.19 the full decision log shows zero A1, zero TRADE, and all A2 rows routed to COUNCIL. That is an open <i>implementation / routing investigation</i> &mdash; it is not a reason to lower thresholds and is not evaluable from a B+-only batch. The council producing zero promotes today is a correct per-row outcome, not a symptom of that bug.</p>
+
+<h2>Outcome / Base-Rate Context</h2>
+<p>Outcome data is <b>available but immature across the board</b> &mdash; per the learning manifest, immature evidence means no rule change and monitoring only. <b>All verdicts here are playbook-only.</b></p>
+<ul>
+<li><b>No ACTIVE learned patterns</b> (<code>bonde_learned_patterns.md</code> is a null-pattern file). Base V5.9.x rules only.</li>
+<li><b>SLINGSHOT</b> (CLSK, IFS, CGCT, LLY): n=137; 3-day triggered win rate 17.5%, avg 3d &minus;3.7%; T+5 not yet evaluable. Weakest, least-mature family &mdash; a caution, not an edge.</li>
+<li><b>PAUSE</b> (KGS, EFC, KEX, CDNA): n=66; 5d avg +0.75%, win 47.8%; most mature family, roughly neutral.</li>
+<li><b>ACTIVE_BURST</b> (ALAB): n=106; 5d avg &minus;1.06%, win 37%; a +28% 20d figure rests on n=8 (immature).</li>
+<li><b>EP_ACTIVE + A-grade catalyst</b> (RLAY): n=9; 5d avg &minus;3.6%, win 22% &mdash; A-grade EP rows have underperformed at 5d.</li>
+<li><b>DELAYED_EP</b> (LOCO, SEZL, ARM, TTMI): n=23, LOW_SAMPLE, ~flat; trigger-hit ~70%.</li>
+<li>Prior council outcomes (2026-05-19 and earlier): all PENDING, 0 resolved. Self-calibration INSUFFICIENT_DATA.</li>
+</ul>
+<p class="mut">Immature data is used here only as a caution overlay (notably on SLINGSHOT). It is not leaned on as an edge in either direction.</p>
+
+<h2>Reasoning Paths Considered</h2>
+<div class="disc">These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration. The five paths below are one model exploring the problem through five framings; agreement means a position survived re-framing, not that five independent verdicts were cast.</div>
+
+<h3>Reasoning Path Convergence</h3>
+<div class="conv"><b>The back-solved C3 target is the central flaw.</b> The Outsider path reached it from fresh eyes ("every value being 2.000 is the tell"); the Contrarian path from risk ("a target back-solved to 2.0 is an arithmetic artifact"); the First Principles path by rebuilding the question ("a tautology wearing a passing grade"). Three routes, one conclusion: treat every C3 "PASS" as reward-unverified.</div>
+<div class="conv"><b>The unresearched / DTE-UNKNOWN rows are pre-decided by the playbook.</b> The Contrarian, First Principles, Executor and Outsider paths each independently noted that "not researched" + "unknown earnings date" caps a row at watch-only &mdash; SEZL, CLSK, IFS, CGCT, CDNA and LLY are largely settled before debate.</div>
+<div class="conv"><b>RLAY's Day-1 shape rejects the thesis.</b> Multiple paths flagged the bottom-20%-of-range close on 5.63&times; volume as catalyst-day distribution, not an entry.</div>
+
+<h3>Reasoning Path Divergence</h3>
+<div class="conv"><b>Is the AI / data-center cluster an opportunity or a trap?</b> The Expansionist path argued KGS / KEX / TTMI / ALAB are "the same trade" and that deferring four A-grade leadership names on technicalities forfeits the real prize &mdash; it promoted six names. Every other path rejected this: the same-trade observation is a <i>concentration warning</i>, not a green light, and "unresearched is upside not flaw" inverts a hard rule. The peer review was unanimous that the Expansionist path was the biggest blind spot &mdash; it treated the manufactured 2.0R as real edge and leaned on an immature momentum narrative.</div>
+<div class="conv"><b>Does KGS earn the single promote?</b> The Executor and First Principles paths promoted KGS as the one clean row; the Contrarian and Outsider paths deferred it. Peer review broke the tie toward defer: KGS's target is <i>also</i> back-solved and its Day-1 was a quiet +0.15% on below-average volume &mdash; a "promote" that only fills on a confirmed Day-2 break is, honestly labelled, a defer-with-trigger. The chairman sided with defer.</div>
+<div class="conv"><b>Cancel everything, or verdict row-by-row?</b> The Outsider path leaned toward "halt and re-screen". Peer review flagged that a system-wide halt would itself be a de-facto rule change the playbook forbids &mdash; immature data means <i>don't lean on it</i>, not <i>stop trading</i>. The chairman issues per-row verdicts and raises the target methodology as a separate process note.</div>
+
+<h3>Blind Spots the Reasoning Paths Caught</h3>
+<ul>
+<li><b>Portfolio heat / correlation.</b> No advisor netted it: KGS, KEX, ARM, TTMI, ALAB are all the AI / data-center / power-buildout theme. Promoting several would be one concentrated factor bet, not several independent trades. Peer review surfaced this.</li>
+<li><b>"Promote KGS" was ambiguous.</b> Promote-now vs promote-only-on-a-confirmed-Day-2-trigger are different actions; the honest label for the latter is a conditional order = a defer-with-trigger.</li>
+<li><b>Cancel vs defer was being applied inconsistently</b> to unresearched names. Peer review corrected it: a pure research gap (LLY, CDNA, IFS) is a DEFER; only a structurally broken or already-killed setup is a CANCEL.</li>
+<li><b>Upstream methodology.</b> If every C1 fails the floor and every C3 target is back-solved, the screen / target-derivation step is the real defect &mdash; a process fix, logged below, not a per-row trading question.</li>
+</ul>
+
+<h2>Portfolio Heat</h2>
+<p><b>No promoted exposure.</b> Zero promotions &rarr; zero proposed risk, zero open R, no order dependencies this session.</p>
+<p><b>Forward correlation note (for the deferred set).</b> Five of the ten deferred names &mdash; <b>KGS, KEX, ARM, TTMI, ALAB</b> &mdash; are the same AI / data-center / power-buildout theme. If their Day-2 triggers fire on or after 2026-05-20, they must be treated as <i>correlated single-factor exposure</i>, not five independent trades: cap simultaneous entries from this cluster and size the basket as one theme. LOCO (restaurant), EFC (mortgage REIT), CDNA (transplant diagnostics), IFS (Peru financials) and LLY (pharma) are uncorrelated to that cluster and to each other. Exact account-risk sizing was unavailable, so this is a qualitative heat note.</p>
+<p><b>Execution / calendar.</b> 2026-05-20 is a Wednesday, so any Day-2 entry is an intraday DAY order with no weekend gap on entry &mdash; use DAY orders, not open-ended GTC. However, US markets are closed Monday 2026-05-25 (Memorial Day): any position opened 5/20 and still held into Friday 5/22's close carries a 3-day-weekend gap. Wide-stop names (ALAB 17.7%, TTMI 15%, ARM 9.7%, CDNA 11%) are the worst candidates to carry over that holiday weekend.</p>
+
+<h2>Process note (diagnostic, not a trading verdict)</h2>
+<p>The C3 target methodology should be fixed upstream: a <code>planned_target</code> defined as <code>trigger + 2.0&times;risk</code> guarantees an R:R of exactly 2.000 and converts the R:R floor from a filter into a rubber stamp. C3 rows should carry an independently derived structural target (measured move, prior swing, resistance) before they generate an R:R verdict. This is an implementation recommendation and does <b>not</b> change any verdict above.</p>
+
+<h2>Advisor Responses (full)</h2>
+<details><summary>The Contrarian &mdash; finds what fails</summary><div class="body">
+<p>Every verdict playbook-only &mdash; base rates immature. The packet has rot at its centre: the 8 C3 "passes" are manufactured; a target back-solved to land on the 2.0 floor is an arithmetic artifact, not a reward. The 2026-05-19 council already rejected this on SEZL. A C3 "PASS" tells you the target was computed, not that the market will pay it.</p>
+<p><b>Group A (Day-2 pullback rescue, all):</b> LOCO defer/med (A-grade real, DTE verified, but R:R 0.63 is a real fail). SEZL cancel/high (killed yesterday, now unresearched conf20). CLSK cancel/high (quality FAIL, speculative, DTE unknown, SLINGSHOT). IFS cancel/med-high. CGCT cancel/high (target 1 cent above trigger). LLY cancel/med-high (unresearched, DTE unknown).</p>
+<p><b>Group B (manufactured 2.0 targets):</b> KGS defer/med (best of group, but Day-1 +0.15% on 0.98&times; vol = no breakout confirmation). EFC defer/med (close below trigger, vol 0.48&times; = dead). KEX cancel/med-high (grade C, low conviction). CDNA cancel/high (unresearched, DTE unknown). ARM defer/med (guide is a sequential decline). TTMI cancel/med-high (+94.5% above 200SMA, severe extension). ALAB cancel/high (17.7% stop, plugged target on a parabola). RLAY cancel/high (closed at 20% of range on 5.6&times; vol &mdash; buyers rejected the readout). Net: zero promotes.</p>
+</div></details>
+<details><summary>The First Principles Thinker &mdash; rebuilds the question</summary><div class="body">
+<p>This is not 14 decisions &mdash; it is two decisions repeated plus a noise filter. "Promote" cannot mean "trade": no row is executable, Day-2 prices do not exist, every promotion still sits behind a live trigger. So promote means exactly one thing &mdash; <i>survives to the Day-2 trigger check with a target I did not have to invent.</i></p>
+<p>The wrong question is "does this row pass R:R 2.0?" The C3 rows pass 2.0 because someone solved for 2.0 &mdash; a tautology wearing a passing grade. Treat all 8 C3 rows as R:R-unknown. The C1 "Day-2 contraction" thesis bets on a future price you cannot see &mdash; defer, never promote.</p>
+<p>Verdicts (playbook-only): LOCO defer 70. SEZL cancel 95. CLSK cancel 90. IFS cancel 85. CGCT cancel 95. LLY cancel 80 ("it's Lilly" is not a thesis &mdash; research or drop). KGS promote 70 (best real setup despite the structural-target caveat). EFC defer 55. KEX defer 50. CDNA cancel 80. ARM defer 55. TTMI defer 60 (A-grade but +94.5% over 200SMA). ALAB defer 55 (A-grade but 17.7% stop). RLAY cancel 75 (binary readout dated today; event-pinned; bottom-20% close).</p>
+</div></details>
+<details><summary>The Expansionist &mdash; hunts the upside</summary><div class="body">
+<p>The council will haircut the C3 construct and wave through the safe B-grades, and miss the actual prize: this is an AI / data-center leadership tape near all-time highs, and four rows are A-grade names with direct hyperscaler exposure about to be deferred on technicalities. KGS, KEX, TTMI, ALAB are the same trade in different costumes &mdash; a basket, not six lottery tickets.</p>
+<p><b>Group A:</b> LOCO DEFER 60 (best fundamental story; 0.63 R:R fails for real). SEZL DEFER 45 (too much torque to cancel &mdash; re-research). CLSK DEFER 35 (+9.3% on 1.71&times; is real ignition). IFS CANCEL 65. CGCT CANCEL 80 (blowoff). LLY PROMOTE 60 (hidden gem, GLP-1 franchise, 1.42 R:R best C1; unresearched is an upside, not a flaw).</p>
+<p><b>Group B:</b> ALAB PROMOTE 80 (the trade; +93% YoY revenue; 17.7% stop is the price of admission). TTMI PROMOTE 78 (extension is what leadership looks like). KGS PROMOTE 72. RLAY PROMOTE 65 (FDA Breakthrough + readout + Pfizer = binary upside). ARM DEFER 55. EFC PROMOTE 60. KEX DEFER 45. CDNA DEFER 40.</p>
+<p class="mut">[Peer review consensus flagged this path as the run's biggest blind spot &mdash; it treats a back-solved 2.0R as real edge and overrides the playbook's watch-only caps. Retained in full for transparency.]</p>
+</div></details>
+<details><summary>The Outsider &mdash; fresh eyes, no insider deference</summary><div class="body">
+<p>The most glaring thing: Group B's "pass" is fake. Define the target as trigger + 2.0&times;risk and the ratio is 2.0 by construction &mdash; arithmetic, not analysis. Every value being 2.000 is the tell. The 2.0 rule exists to filter for genuine upside room; solving backwards converts a filter into a rubber stamp. Group B has not passed anything; Group A at least failed honestly.</p>
+<p>The rules already answer most of this: "not researched" caps a stock at watch-only, "unknown earnings date" blocks promotion. Group A's plan &mdash; "wait, maybe tomorrow the math works" &mdash; is circular; you do not defer a failing trade hoping the dice land better. An immature system with no track record should be conservative.</p>
+<p>GROUP A: LOCO Cancel high. SEZL Cancel high. CLSK Cancel high. IFS Cancel medium. CGCT Cancel high. LLY Cancel medium. GROUP B: KGS Defer medium (do not promote on a fabricated ratio). EFC Cancel medium. KEX Cancel high. CDNA Cancel high. ARM Defer medium. TTMI Cancel medium. ALAB Defer low. RLAY Cancel high. Net: promote zero; fix the target methodology and re-screen.</p>
+</div></details>
+<details><summary>The Executor &mdash; what do you do at the open?</summary><div class="body">
+<p>Playbook-only. The whole question is what you literally enter as a working order at the 5/20 open. For C1 rows the honest answer is mostly nothing &mdash; the entry does not exist until price contracts.</p>
+<p><b>Group A:</b> LOCO DEFER 60 (no order; only actionable if it builds a 5/20 inside day). SEZL CANCEL 95 (already cancelled 5/19, DTE unknown). CLSK CANCEL 90. IFS CANCEL 85. CGCT CANCEL 99 (target 1 cent over trigger &mdash; a typo, not a trade). LLY DEFER 60 (DTE unknown caps at B; watch only).</p>
+<p><b>Group B:</b> KGS PROMOTE 70 (cleanest row; DAY buy-stop 76.55, stop 71.61; if unfilled by close, GTC but size for the Memorial Day gap). EFC DEFER 55 (close below trigger, vol 0.48&times; = no demand). KEX DEFER 45. CDNA CANCEL 80 (DTE unknown + 11% stop). ARM DEFER 55 (9.7% stop into a 3-day weekend &mdash; skip 5/20). TTMI CANCEL 75 (+94.5% above 200SMA, severe extension). ALAB DEFER 60 (17.7% stop too wide for the holiday weekend; revisit on a tighter Day-2 setup). RLAY CANCEL 80 (closed bottom 20% on 5.6&times; vol = distribution).</p>
+<p>Bottom line: one clean 5/20 action &mdash; KGS buy-stop 76.55.</p>
+</div></details>
+
+<h2>Peer Review Highlights</h2>
+<details><summary>Five anonymized reviews &mdash; strongest path, blind spots, what all missed</summary><div class="body">
+<p><b>Strongest path:</b> reviews split between the First Principles path (cleanest reframing &mdash; "promote means survives to a real trigger check"; treats all C3 as R:R-unknown) and the Executor path (only one to operationalize a verdict into a concrete order with holiday-gap sizing).</p>
+<p><b>Biggest blind spot &mdash; unanimous:</b> the Expansionist path. It treats the back-solved C3 target as a feature, promotes six watch-only rows, and inverts the playbook ("unresearched is upside not flaw"; "a 17.7% stop is the price of admission"). It substitutes an immature momentum narrative for row-level evidence.</p>
+<p><b>Base-rate misuse:</b> the Expansionist path overfit a bullish "AI leadership" prior onto data the system explicitly calls immature. One reviewer also flagged that the Outsider path's "halt and re-screen" would itself be a de-facto rule change &mdash; immature data means do not lean on it, not stop trading.</p>
+<p><b>What all five missed:</b> (1) portfolio-heat / correlation across the AI-data-center cluster; (2) "promote KGS" conflates promote-now with promote-on-a-confirmed-trigger &mdash; the latter is a conditional order = a defer-with-trigger; (3) inconsistent cancel-vs-defer on unresearched names &mdash; a research gap is a DEFER, only a broken setup is a CANCEL; (4) the upstream target-methodology defect; (5) the Memorial Day holiday lengthens the exposure window for anything carried past Friday.</p>
+<p>The chairman incorporated all five: KGS reclassified from promote to defer-with-trigger; LLY/CDNA/IFS moved to DEFER under a consistent cancel/defer rule; a Portfolio Heat correlation note added; the target methodology logged as a process note.</p>
+</div></details>
+
+<div class="foot">
+Generated 2026-05-20 &middot; LLM Council skill v1.3.4 &middot; Bonde B+ Day-2 council, 14 candidates (signal 2026-05-19 / review 2026-05-20).<br>
+Verdict: 0 promote / 10 defer / 4 cancel. All verdicts playbook-only &mdash; base rates immature, self-calibration INSUFFICIENT_DATA.<br>
+Artifacts: council-report-20260520-batch.html, council-transcript-20260520-batch.md, council_outcomes_2026-05-20.csv, council_disagreements_2026-05-20.csv, council_self_calibration_summary_2026-05-20.csv, council_reachability_audit_2026-05-20.csv.
+</div>
+
+</div>
+</body>
+</html>
