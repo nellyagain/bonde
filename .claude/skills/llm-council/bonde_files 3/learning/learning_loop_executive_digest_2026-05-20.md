@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-20
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-20 07:44 UTC_
+_Run timestamp: 2026-05-20 07:50 UTC_
 _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 
 ## 1. Today's required action
@@ -12,7 +12,7 @@ _Notebook: v4.13.64 (decision-log discovery includes GitHub repo)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-20 07:38 UTC → 2026-05-20 07:44 UTC
+## 2. Changed since last run — 2026-05-20 07:44 UTC → 2026-05-20 07:50 UTC
 - Prior digest date: **2026-05-20**
 - Current digest date: **2026-05-20**
 - Comparison window: **2026-05-20 → 2026-05-20**
@@ -132,17 +132,15 @@ Purpose: check whether the actionability layer is producing true executable cand
 - All visible A2 rows route to COUNCIL. Treat A2 performance as marginal-A2 performance, not clean executable-A2 performance.
 ### Council A1/A2 reachability audit
 - Source: `council_reachability_audit_*.csv` from the Council skill. Diagnostic only; does not change labels or trading rules.
-| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE   |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
-|:---------------|:--------------------------|:-------------------|-------:|-------:|----------:|------------------:|
-| NOT_EVALUABLE  | NOT_EVALUABLE             | NOT_EVALUABLE      |      0 |      1 |         0 |                 1 |
+| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE    |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
+|:---------------|:--------------------------|:--------------------|-------:|-------:|----------:|------------------:|
+| NOT_EVALUABLE  | NOT_EVALUABLE             | NO_ZERO_TRADE_ISSUE |      0 |      0 |         0 |                 0 |
 
-- Latest reachability audit source: `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_reachability_audit_latest.csv`
+- Latest reachability audit source: `/content/bonde_repo/.claude/skills/llm-council/reports/council_reachability_audit_2026-05-20.csv`
 - Top Council demotion reasons from latest audit:
-| demotion_reason                    |   rows |
-|:-----------------------------------|-------:|
-| rr_floor_fail                      |      2 |
-| UNKNOWN                            |      1 |
-| routed_to_council_via_TRIGGER_1_A2 |      1 |
+| demotion_reason   |   rows |
+|:------------------|-------:|
+| UNKNOWN           |      1 |
 
 ### A1/A2 forward-return slices
 | setup_family   | review_bucket   | action_label   | final_trade_status   |   n_rows |   n_evaluable_5d | confidence_5d   |   win_rate_5d_trig |   avg_ret_5d_trig |
@@ -259,9 +257,10 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 _No tradeability-review rows found. Shadow candidates exist, but they are context-only because trigger and/or invalidation is missing._
 
 ## 11. Council resolver status
-- Council/disagreement resolver rows: **5**
+- Council/disagreement resolver rows: **19**
 | outcome_status   |   rows |
 |:-----------------|-------:|
+| NOT_APPLICABLE   |     14 |
 | PENDING          |      5 |
 
 | ticker   | setup_family   | council_verdict   | outcome_status   | outcome_class   | council_outcome_alignment   | resolution_notes                                                  |
@@ -269,19 +268,40 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | PGNY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=1 |
 | DBX      | ACTIVE_BURST   | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=1 |
 | SEZL     | DELAYED_EP     | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=1 |
-| WRBY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=2 |
-| SPIR     | SLINGSHOT      | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=2 |
+| LOCO     | DELAYED_EP     | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| SEZL     | DELAYED_EP     | CANCEL            | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| CLSK     | SLINGSHOT      | CANCEL            | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| IFS      | SLINGSHOT      | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| CGCT     | SLINGSHOT      | CANCEL            | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| LLY      | SLINGSHOT      | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| KGS      | PAUSE          | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| EFC      | PAUSE          | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
+| KEX      | PAUSE          | DEFER             | NOT_APPLICABLE   | NOT_APPLICABLE  | NOT_APPLICABLE              | MISSING_SOURCE_FIELD: trigger_price                               |
 
 
 **Council resolver determinism audit (v4.13.61+ source-priority + round-aware):**
-- Raw Council resolver rows loaded: **7.0**
-- Rows after latest-run dedup: **5.0**
+- Raw Council resolver rows loaded: **21.0**
+- Rows after latest-run dedup: **19.0**
 - Latest source per ticker:
 | ticker   | signal_date   | setup_family   | council_verdict   | source_file                                       |   source_priority |   run_round |
 |:---------|:--------------|:---------------|:------------------|:--------------------------------------------------|------------------:|------------:|
 | PGNY     | 2026-05-18    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-19.csv              |               100 |           0 |
 | DBX      | 2026-05-18    | ACTIVE_BURST   | CANCEL            | council_disagreements_2026-05-19.csv              |               100 |           0 |
 | SEZL     | 2026-05-18    | DELAYED_EP     | CANCEL            | council_disagreements_2026-05-19.csv              |               100 |           0 |
+| LOCO     | 2026-05-19    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| SEZL     | 2026-05-19    | DELAYED_EP     | CANCEL            | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| CLSK     | 2026-05-19    | SLINGSHOT      | CANCEL            | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| IFS      | 2026-05-19    | SLINGSHOT      | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| CGCT     | 2026-05-19    | SLINGSHOT      | CANCEL            | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| LLY      | 2026-05-19    | SLINGSHOT      | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| KGS      | 2026-05-19    | PAUSE          | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| EFC      | 2026-05-19    | PAUSE          | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| KEX      | 2026-05-19    | PAUSE          | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| CDNA     | 2026-05-19    | PAUSE          | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| ARM      | 2026-05-19    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| TTMI     | 2026-05-19    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| ALAB     | 2026-05-19    | ACTIVE_BURST   | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| RLAY     | 2026-05-19    | EP_ACTIVE      | CANCEL            | council_disagreements_2026-05-20.csv              |               100 |           0 |
 | WRBY     | 2026-05-15    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-15-spir-wrby-r4.csv |               100 |           4 |
 | SPIR     | 2026-05-15    | SLINGSHOT      | CANCEL            | council_disagreements_2026-05-15-spir-wrby-r4.csv |               100 |           4 |
 
@@ -420,7 +440,6 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 ## 17. Open caveats / next actions
 - Day-1 fields are being captured, but verdicts remain insufficient until resolved sample sizes mature.
 - SLINGSHOT is detected but has zero OK-evaluable rows; use the evaluability audit to fix missing entry/stop/target/R:R/outcome data before judging expectancy.
-- Council rows are found but still pending; no council calibration conclusions yet.
 
 ## 18. Evidence discipline
 - This digest is monitoring context, not permission to change rules.
