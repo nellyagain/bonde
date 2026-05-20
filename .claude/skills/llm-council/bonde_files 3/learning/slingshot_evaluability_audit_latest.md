@@ -29,6 +29,26 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 | SLINGSHOT_DIAGNOSTIC |    337 |
 | DECISION_LOG         |    138 |
 
+## Entry-source classification (v4.13.73)
+
+Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_SLINGSHOT_TARGET_BASIS official verdict. `BACKFILLED_FROM_SIGNAL_CLOSE` rows are robustness-panel only.
+
+| _ss_entry_source             |   rows |
+|:-----------------------------|-------:|
+| CAPTURED_AT_TRIGGER          |    254 |
+| BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
+| MISSING_ENTRY_UNRECOVERABLE  |     43 |
+
+### Entry-source x pack_version cross-tab
+
+| pack_version      | _ss_entry_source             |   rows |
+|:------------------|:-----------------------------|-------:|
+| (no_pack_version) | CAPTURED_AT_TRIGGER          |     96 |
+| (no_pack_version) | MISSING_ENTRY_UNRECOVERABLE  |     42 |
+| v28.12-pack1      | CAPTURED_AT_TRIGGER          |    158 |
+| v28.12-pack1      | MISSING_ENTRY_UNRECOVERABLE  |      1 |
+| v28.9-pack1       | BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
+
 ## Field coverage
 | field                 |   populated_or_true |   rows |   coverage_pct |
 |:----------------------|--------------------:|-------:|---------------:|
