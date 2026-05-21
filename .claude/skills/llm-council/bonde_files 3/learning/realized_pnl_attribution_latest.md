@@ -1,4 +1,4 @@
-# Realized P&L Attribution — 2026-05-20
+# Realized P&L Attribution — 2026-05-21
 
 _Broker-export mode. Raw IBKR CSVs are normalized; open positions are separated from closed realized P&L. Stable latest CSVs replace prior generated broker files each run._
 
@@ -55,9 +55,9 @@ _Broker-export mode. Raw IBKR CSVs are normalized; open positions are separated 
 | sugar_baby_flag |           nan |        2 |               2 |                   2 |           0.586044 |         0.293022 |            0.293022 |          100 |      0.586044 |              0 |               nan |     237.919 |   118.959 |
 
 ## By ep9m_context_type
-| slice_name        |   slice_value |   n_rows |   n_traded_rows |   n_with_realized_r |   total_realized_r |   avg_realized_r |   median_realized_r |   win_rate_r |   gross_win_r |   gross_loss_r |   profit_factor_r |   total_pnl |   avg_pnl |
-|:------------------|--------------:|---------:|----------------:|--------------------:|-------------------:|-----------------:|--------------------:|-------------:|--------------:|---------------:|------------------:|------------:|----------:|
-| ep9m_context_type |           nan |        2 |               2 |                   2 |           0.586044 |         0.293022 |            0.293022 |          100 |      0.586044 |              0 |               nan |     237.919 |   118.959 |
+| slice_name        | slice_value   |   n_rows |   n_traded_rows |   n_with_realized_r |   total_realized_r |   avg_realized_r |   median_realized_r |   win_rate_r |   gross_win_r |   gross_loss_r |   profit_factor_r |   total_pnl |   avg_pnl |
+|:------------------|:--------------|---------:|----------------:|--------------------:|-------------------:|-----------------:|--------------------:|-------------:|--------------:|---------------:|------------------:|------------:|----------:|
+| ep9m_context_type |               |        2 |               2 |                   2 |           0.586044 |         0.293022 |            0.293022 |          100 |      0.586044 |              0 |               nan |     237.919 |   118.959 |
 
 ## Interpretation rules
 - This report excludes open-position rows from realized P&L.
