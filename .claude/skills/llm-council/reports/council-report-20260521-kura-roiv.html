@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Council Report — KURA / ROIV B+ C1 SLINGSHOT — 2026-05-21</title>
+<style>
+  :root{--bg:#fff;--ink:#1a1d21;--muted:#5c6470;--line:#e3e6ea;--soft:#f6f7f9;
+        --cancel:#b3261e;--defer:#9a6700;--promote:#1f7a37;--accent:#2d5fa6;}
+  *{box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink);margin:0;padding:0 16px 64px;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;}
+  header{padding:36px 0 20px;border-bottom:2px solid var(--ink);}
+  h1{font-size:24px;margin:0 0 6px;}
+  .sub{color:var(--muted);font-size:14px;}
+  h2{font-size:17px;margin:34px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  h3{font-size:14px;margin:20px 0 6px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);}
+  p{margin:8px 0;}
+  .q{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:14px;}
+  .verdict{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0;}
+  .card{flex:1;min-width:260px;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+  .card.cancel{border-left:5px solid var(--cancel);}
+  .card.defer{border-left:5px solid var(--defer);}
+  .tk{font-size:18px;font-weight:700;}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;
+         color:#fff;vertical-align:middle;margin-left:6px;}
+  .b-cancel{background:var(--cancel);}
+  .b-defer{background:var(--defer);}
+  .b-promote{background:var(--promote);}
+  .meta{font-size:12.5px;color:var(--muted);margin:6px 0 8px;}
+  .card p{font-size:13.5px;margin:6px 0;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0;}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--muted);font-weight:600;}
+  .status-ok{color:var(--promote);font-weight:600;}
+  .status-warn{color:var(--defer);font-weight:600;}
+  .status-stale{color:var(--muted);}
+  .callout{background:#fcf6e6;border:1px solid #ecd9a0;border-radius:8px;padding:10px 14px;font-size:13px;margin:12px 0;}
+  .disclaimer{background:var(--soft);border:1px dashed var(--accent);border-radius:8px;
+              padding:10px 14px;font-size:12.5px;color:var(--accent);margin:10px 0;}
+  .paths{display:flex;flex-direction:column;gap:8px;margin:12px 0;}
+  .path{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;}
+  .path .lens{font-weight:700;}
+  .path .route{color:var(--muted);}
+  .pathv{font-weight:700;}
+  .pathv.cancel{color:var(--cancel);}
+  .pathv.defer{color:var(--defer);}
+  details{border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px;}
+  summary{cursor:pointer;padding:11px 0;font-weight:600;font-size:13.5px;}
+  details[open]{padding-bottom:10px;}
+  details .body{font-size:13px;border-top:1px solid var(--line);padding-top:10px;}
+  .adv{font-size:13px;}
+  .adv h4{margin:14px 0 4px;font-size:13.5px;}
+  footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);
+         font-size:12px;color:var(--muted);}
+  code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>LLM Council — KURA &amp; ROIV · B+ C1 SLINGSHOT Day-2 Review</h1>
+  <div class="sub">Review date 2026-05-21 (Thu) · Signal date 2026-05-20 · Council skill V1.3.4 ·
+  Verdict: <strong>0 promote / 1 defer / 1 cancel</strong> · all verdicts playbook-only</div>
+</header>
+
+<h2>The question</h2>
+<div class="q">
+Two B+ Day-2 council candidates were routed for a promote / defer / cancel decision. Both are
+SLINGSHOT setups whose gates pass but whose Day-1 static EOD R:R fails the 2.0 floor, and both
+carry proposed Path A / Path B Day-2 rescue geometry.
+<br><br>
+<strong>KURA</strong> (Kura Oncology, biotech) — grade-B catalyst, +15.4% Day-1 on 3.89x volume; the move is
+a <em>delayed Day-6 post-earnings continuation</em>. Trigger $10.38 / invalidation $8.98 / target $12.14 →
+Day-1 R:R 1.26 FAIL. Path A tightens the stop to the Day-1 midpoint; Path B assumes a pullback.
+<br><br>
+<strong>ROIV</strong> (Roivant Sciences, biotech) — grade-A multi-vector fresh catalyst (conf 92), +14.9% Day-1,
+new all-time high, +48.9% above 200SMA. Trigger $32.79 / invalidation $29.35 / target $35.00 →
+Day-1 R:R 0.64 FAIL. Path A's R:R passes only against an inflated $40 target; Path B needs a 6-7% pullback.
+</div>
+
+<h2>Chairman verdict</h2>
+<div class="verdict">
+  <div class="card cancel">
+    <div class="tk">KURA <span class="badge b-cancel">CANCEL</span></div>
+    <div class="meta">SLINGSHOT · B+ C1 · confidence medium-high · playbook-only</div>
+    <p>Day-1 R:R 1.26 fails the 2.0 floor. Both rescue paths <strong>manufacture</strong> R:R — Path A
+    stacks two adjustments (adopt the 52w-high $12.14 target <em>and</em> tighten the stop to the
+    structurally meaningless Day-1 midpoint $9.68); Path B back-solves 4.28R against an imagined
+    Day-2 low. The honest pack MM target $11.22 gives just 0.60R.</p>
+    <p>The catalyst is only grade B, and the +15.4% is a <strong>delayed Day-6 post-EP chase</strong> —
+    a laggard entering the explicitly documented Day-7 gap-fill failure window. No honest tradeable
+    entry exists today. Cancel the signal; re-qualify only on a fresh, clean SLINGSHOT setup.</p>
+  </div>
+  <div class="card defer">
+    <div class="tk">ROIV <span class="badge b-defer">DEFER</span></div>
+    <div class="meta">SLINGSHOT · B+ C1 · confidence medium-high · playbook-only · Day-2 alert</div>
+    <p>The A-grade, multi-vector, fresh catalyst (conf 92) is genuinely real — that is the only
+    reason this is not a cancel. But Day-1 R:R 0.64 fails the floor badly.</p>
+    <p>Path A's 3.63R exists <strong>only</strong> against an inflated $40 target — a relabel of the
+    forbidden EVAL_2R_FALLBACK $39.68; against the defensible $35 target Path A collapses to ~1.0R.
+    Path B is a <strong>Day-2 pullback rescue</strong> (no mature base rate) whose required 6-7% retrace
+    would itself damage the new-ATH thesis. Stock is +48.9% above 200SMA (extended). Defer; re-qualify
+    only on honest geometry yielding R:R ≥ 2.0 against a defensible target.</p>
+  </div>
+</div>
+
+<div class="callout">
+<strong>The one thing to do first:</strong> Thursday at the open, place <strong>no orders</strong> on either
+name. Drop KURA from the active screen. Set ROIV as a watch-only Day-2 alert for a confirmed continuation
+that yields an honest R:R ≥ 2.0 against a defensible target — do not act on the $40 target or a
+thesis-damaging pullback.
+</div>
+
+<h2>Context Files Loaded</h2>
+<table>
+<tr><th>Role</th><th>Path</th><th>Status</th></tr>
+<tr><td>candidate set</td><td>user-supplied TSV (council prompt)</td><td class="status-ok">LOADED</td></tr>
+<tr><td>council manifest</td><td>bonde_files 3/active_context/council_context_manifest.md</td><td class="status-ok">LOADED</td></tr>
+<tr><td>council_queue</td><td>bonde_files 3/current/council_queue_2026-05-19.csv</td><td class="status-stale">LOADED (stale — 05-19 packet)</td></tr>
+<tr><td>daily_decision_log</td><td>bonde_files 3/current/daily_decision_log_2026-05-18.csv</td><td class="status-stale">LOADED (stale; no final_trade_status → legacy fallback)</td></tr>
+<tr><td>skill_pack</td><td>bonde_files 3/current/bonde_skill_pack_2026-05-15.csv</td><td class="status-stale">LOADED (stale)</td></tr>
+<tr><td>market context</td><td>bonde_files 3/active_context/latest_market_context.md</td><td class="status-ok">LOADED</td></tr>
+<tr><td>SLINGSHOT base rates</td><td>bonde_files 3/learning/slingshot_bucket_performance_v41314.csv + diagnostics</td><td class="status-warn">LOADED (immature — 0 resolved)</td></tr>
+<tr><td>setup-family base rates</td><td>bonde_files 3/learning/learning_loop_executive_digest_2026-05-20.md</td><td class="status-ok">LOADED</td></tr>
+<tr><td>self-calibration history</td><td>reports/council_self_calibration_summary_2026-05-20.csv</td><td class="status-ok">LOADED</td></tr>
+<tr><td>prior council</td><td>reports/council-transcript-20260520-batch.md + outcomes</td><td class="status-ok">LOADED</td></tr>
+<tr><td>actionability skill</td><td>bonde_stockbee_actionability/SKILL.md</td><td class="status-stale">MISSING_OPTIONAL — operating from candidate packet + embedded V5.9.x rules</td></tr>
+</table>
+<p style="font-size:12.5px;color:var(--muted);">Limitation: the loaded daily packet (2026-05-19) is one-to-two sessions stale relative to the
+2026-05-20 KURA/ROIV signals — used as a base-rate / prior-council overlay only. No
+<code>final_trade_status</code> field accompanies the candidates → V5.9.19 legacy action-label fallback
+(<code>action_label=B</code>, watch-only, routed to council). <code>tier</code> (KURA TAKE, ROIV WATCH)
+is dashboard focus only and is <strong>not</strong> trade authorization.</p>
+
+<h2>Council self-calibration status</h2>
+<p>Self-calibration: <strong>INSUFFICIENT_DATA</strong>. Resolved disagreements: 0/30.
+<strong>No reliability percentage reported.</strong> Historical disagreement files exist but every row
+remains PENDING outcome resolution. Self-calibration is context only and does not change verdicts.</p>
+
+<h2>A1/A2 Reachability Audit</h2>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>A1_REACHABLE</td><td>NOT_EVALUABLE</td></tr>
+<tr><td>A2_EXECUTABLE_REACHABLE</td><td>NOT_EVALUABLE</td></tr>
+<tr><td>ZERO_TRADE_CAUSE</td><td>NO_ZERO_TRADE_ISSUE</td></tr>
+<tr><td>Counts</td><td>n_A1=0 · n_A2=0 · n_TRADE=0 · n_COUNCIL=2 · n_A2_to_COUNCIL=0</td></tr>
+<tr><td>audit_basis</td><td>ACTUAL_CORPUS</td></tr>
+</table>
+<p style="font-size:12.5px;color:var(--muted);">This batch is exclusively B+ Day-2 council rows
+(<code>action_label=B</code>, both SLINGSHOT C1); it structurally cannot produce A1/A2/TRADE rows, so
+zero TRADE is expected, not a routing defect. Reachability is NOT_EVALUABLE — no A1/A2 rows in scope and
+no isolated routing harness available; no synthetic positive controls were run. Carried-forward systemic
+concern: <code>learning_loop_executive_digest_2026-05-20.md</code> §4 documents post-V5.9.19 zero A1 /
+zero TRADE / all-A2-to-COUNCIL across the full decision log — an open <strong>implementation/routing
+investigation</strong>, not a threshold-change recommendation, and not evaluable from this B+-only batch.</p>
+
+<h2>Outcome / base-rate context</h2>
+<p>Outcome data is <strong>available but immature — monitoring only; all verdicts playbook-only.</strong></p>
+<ul style="font-size:13.5px;">
+<li><strong>SLINGSHOT</strong> is the least-mature setup family: 337 signal rows, <strong>0 resolved
+5-day outcomes</strong>, <code>win_rate</code> = nan, confidence = PARTIAL_OUTCOME. Earliest T+5 maturity
+2026-05-22. A prior transcript's ~17.5% 3-day triggered win is a noisy in-flight snapshot on zero
+resolved rows — <em>not</em> a settled base rate, and was not used as decisive evidence either way.</li>
+<li><strong>Self-calibration:</strong> INSUFFICIENT_DATA (0/30 resolved).</li>
+<li><strong>Market:</strong> Nasdaq Bull regime but extended (EMA21 +3.70% Extended; SMA50 +11.29%
+Extremely Extended). Risk-On tape.</li>
+<li><strong>Prior precedent:</strong> the 2026-05-20 council reviewed 14 B+ rows → 0 promote / 10 defer /
+4 cancel, flagging back-solved targets and Day-2 pullback rescues as recurring defects.</li>
+</ul>
+
+<h2>Reasoning Paths Considered</h2>
+<div class="disclaimer">These are not independent votes. Convergence is useful as a reasoning check,
+not as statistical corroboration. Five perspectives generated in one process exploring the same
+question is one model examining it from five framings — not five independent verdicts.</div>
+
+<div class="paths">
+  <div class="path"><span class="lens">Contrarian</span> ·
+    <span class="route">fraud-detection — counted two stacked adjustments manufacturing KURA's R:R</span><br>
+    KURA <span class="pathv cancel">CANCEL</span> · ROIV <span class="pathv defer">DEFER</span></div>
+  <div class="path"><span class="lens">First Principles</span> ·
+    <span class="route">reframed — R:R is a ratio of chosen inputs; back-solving it ≠ edge</span><br>
+    KURA <span class="pathv cancel">CANCEL</span> · ROIV <span class="pathv defer">DEFER</span></div>
+  <div class="path"><span class="lens">Outsider</span> ·
+    <span class="route">fresh eyes — tightened stops are R:R cosmetics, not risk discipline</span><br>
+    KURA <span class="pathv cancel">CANCEL</span> · ROIV <span class="pathv defer">DEFER</span></div>
+  <div class="path"><span class="lens">Expansionist</span> ·
+    <span class="route">upside hunt — ROIV catalyst real, but conceded $40 target is inflated</span><br>
+    KURA <span class="pathv cancel">CANCEL</span> · ROIV <span class="pathv defer">DEFER</span> (leaned promote-watch)</div>
+  <div class="path"><span class="lens">Executor</span> ·
+    <span class="route">order-desk mechanics — Path A cannot be placed as an order</span><br>
+    KURA <span class="pathv defer">DEFER</span> · ROIV <span class="pathv defer">DEFER</span></div>
+</div>
+
+<h3>Convergence</h3>
+<p>The Contrarian, First Principles, Outsider and Executor paths each arrived — by fraud-detection,
+problem-reframing, fresh-eyes pattern-matching and order-desk mechanics respectively — at the same
+structural finding: both candidates fail the Day-1 2.0 R:R floor honestly, and every Day-2 rescue path
+"passes" only by manufacturing geometry. All five paths converged that ROIV's A-grade catalyst is
+genuinely real (the sole reason it escapes a cancel) and that neither name warrants a promote.</p>
+
+<h3>Divergence</h3>
+<p>The one genuine split was KURA <em>cancel vs defer</em>. The Contrarian, First Principles, Outsider
+and Expansionist paths concluded CANCEL because KURA is not a fixable-geometry problem awaiting a
+cleaner Day-2 — it is a grade-B delayed Day-6 post-EP chase entering a documented Day-7 gap-fill window,
+with no honest target that clears the floor. The Executor path concluded DEFER, but purely on
+mechanical un-executability ("no order goes in Thursday"); its substance — Path B back-solves, the
+catalyst is a weak laggard — actually supports cancel. The Chairman resolved the split toward CANCEL.</p>
+
+<h3>Blind spots the reasoning paths caught</h3>
+<p>The peer-review round unanimously flagged the <strong>Expansionist path's ROIV case</strong> as the
+biggest blind spot: "price discovery, no overhead supply, every holder profitable, $35 is timid" — a
+momentum narrative that nearly produced a "lean promote-watch" before conceding its own $40 geometry is
+inflated. That is precisely the extension-euphoria the other four paths read as <em>risk</em>: +48.9%
+above the 200SMA is a warning, not a feature. Reviewers also caught that the Outsider and First
+Principles paths mildly overfit the immature 17.5% SLINGSHOT snapshot — with 0 resolved rows it proves
+nothing; the Chairman adopted that correction and rests the verdicts on geometry and catalyst quality,
+not the 17.5% figure.</p>
+
+<h2>Portfolio Heat</h2>
+<p><strong>No promoted exposure.</strong> Zero PROMOTE verdicts — no risk is being put on, so no
+account-risk aggregation applies. For awareness if the user overrides: KURA and ROIV are
+<strong>both biotech/pharma</strong> — that is <em>direct sector correlation</em>, not merely broad
+risk-appetite read-through; taking both would concentrate single-industry exposure.</p>
+<p><strong>Execution / weekend guardrail:</strong> review date is Thu 2026-05-21 and Mon 2026-05-25 is
+Memorial Day (market closed). Any future Day-2 re-qualification entry must use <strong>DAY orders /
+cancel-before-close</strong> — never an open-ended GTC into the 3-day weekend on an extended biotech.</p>
+
+<h2>Advisor responses (full)</h2>
+
+<details><summary>The Contrarian — KURA cancel, ROIV defer</summary>
+<div class="body adv">
+<p>Both candidates fail the same way: the R:R only passes after someone moves the goalposts.</p>
+<h4>KURA — CANCEL, confidence high, blocker: manufactured R:R, playbook-only.</h4>
+<p>The fatal flaw is staring at you. The honest target is the pack's MM target $11.22 — that yields
+0.60R. To get to "2.51R" you have to (a) adopt the recent 52w high $12.14 as target AND (b) tighten the
+stop to a Day-1 midpoint that has zero structural meaning. Two adjustments stacked to clear a floor.
+Worse: this is a delayed Day-6 post-EP move on a grade-B catalyst, and the playbook explicitly names
+Day-7 gap-fill as a failure mode. You'd be entering at the exact moment the documented failure clock
+starts. Path B's "4.28R" requires a pullback that hasn't happened — you're trading a hypothetical.
+SLINGSHOT has 0/137 resolved and a noted ~17.5% triggered win. Don't pay for that lottery ticket with
+a fabricated number.</p>
+<h4>ROIV — DEFER, confidence high, blocker: inflated target, playbook-only.</h4>
+<p>The prompt convicts itself: "$40 makes the R:R pass; against the defensible $35 target Path A would
+be ~1.0R." That is a back-solved target wearing a different costume after the EVAL_2R_FALLBACK $39.68
+was already thrown out. A stock at a new ATH, +48.9% above its 200SMA, does not get a 22% measured-move
+target assumed into existence. The A-grade catalyst is real — that's the only reason this isn't a
+cancel — but a real catalyst with a fake target is still a losing trade structure. Defer; let it
+actually pull back and re-qualify on honest geometry.</p>
+<p>Execution: any Thu/Fri entry eats a 3-day Memorial Day weekend on extended biotech — gap risk you
+are not compensated for.</p>
+</div></details>
+
+<details><summary>The First Principles Thinker — KURA cancel, ROIV defer</summary>
+<div class="body adv">
+<p>You're asking the wrong question. The framed question is "Path A or Path B for each ticker?" — but
+that presupposes there's a trade here. There isn't. Rebuild from the ground up:</p>
+<p>What are you actually trying to do? Capture edge. Edge = a setup where the probabilities favor you.
+So the real question is: does a fixed R:R floor of 2.0 measure edge? No. R:R is a ratio of two numbers
+you partly choose. Both candidates failed it on Day-1, and every rescue path "passes" only by moving an
+input — tightening the stop (Path A) or assuming a deeper pullback (Path B). You are not discovering
+edge; you are reverse-engineering a number that makes a pre-decided trade legal. That is the exact
+defect the 5/20 council named: back-solved targets and Day-2 pullback rescues.</p>
+<p>Strip it to base reality:</p>
+<p><strong>KURA:</strong> Grade B, delayed Day-6 continuation, target $12.14 = a chart line. Path B's
+4.28R exists only because the stop is the imagined Day-2 low. It's a hypothetical R:R on a hypothetical
+entry. <strong>Cancel.</strong> Confidence 80%. Blocker: manufactured R:R / weak catalyst. Playbook-only.</p>
+<p><strong>ROIV:</strong> Genuine A-grade catalyst — that's real. But $40 target is a fabrication ($35 is
+defensible; against $35 Path A is ~1.0R). +48.9% above 200SMA means you'd be buying the reaction, not
+the opportunity. The catalyst is real; the entry is not. <strong>Defer.</strong> Confidence 75%.
+Blocker: inflated target / extension. Playbook-only.</p>
+<p>The honest move: SLINGSHOT has 0/137 resolved outcomes. You have no evidence this family pays. The
+disciplined answer to "no evidence" is "don't fund it" — not "construct an R:R that lets me." Plus
+Friday entry = 3-day-weekend gap risk on illiquid biotech. Two reasons to wait, zero to rush. 0 promote
+/ 1 defer (ROIV) / 1 cancel (KURA). Log both as playbook-only for calibration.</p>
+</div></details>
+
+<details><summary>The Expansionist — KURA cancel, ROIV defer (leaned promote-watch)</summary>
+<div class="body adv">
+<h4>ROIV — DEFER (lean promote-watch), confidence 65%, blocker: target geometry, playbook-only.</h4>
+<p>Here's the upside everyone's about to miss: ROIV is a genuine A-grade, confidence-92, multi-vector
+catalyst — earnings beat, $770M cash settlement, Breakthrough Designation, AND positive RA data —
+printing a new all-time high on 3.10x volume. That is a four-engine ignition, not a momentum echo. The
++48.9% above 200SMA isn't "extended risk," it's a stock in price discovery with no overhead supply. A
+new ATH means every holder is profitable — the cleanest possible tape. The $35 round-number target is
+the timid read; it's just the first $5 magnet, not a ceiling. A stock breaking out on settlement-funded
+balance-sheet strength can run a measured move. But — be honest — Path A's $40 only passes R:R because
+the target was inflated; against the defensible $35 it's ~1.0R. Don't manufacture it. The real
+expansion play: defer one session, let Friday confirm continuation above $33, and re-rank for a clean
+structural entry rather than forcing a holiday-weekend hold on a back-solved number.</p>
+<h4>KURA — CANCEL, confidence 70%, blocker: catalyst quality + manufactured R:R, playbook-only.</h4>
+<p>KURA is the trap dressed as opportunity. A grade-B, delayed Day-6 post-earnings pop is a laggard
+chasing the move, not leading it. Both rescue paths only clear 2.0 by tightening the stop into Day-1's
+midpoint — that's R:R engineered, not earned. No upside thesis survives that.</p>
+<p>SLINGSHOT family: n=137, zero resolved, win_rate nan — verdicts are playbook-only and must be logged
+for calibration. Prior weak SLINGSHOT reads (~17.5% triggered win) argue for patience, not against
+ROIV's quality.</p>
+</div></details>
+
+<details><summary>The Outsider — KURA cancel, ROIV defer</summary>
+<div class="body adv">
+<p>The whole exercise has a tell that nobody inside seems to notice: you are spending serious effort
+engineering entries for a setup family with 137 signals and zero resolved outcomes. You don't know if
+SLINGSHOT works. The one number you do have — 17.5% triggered win rate, avg 3d −3.7% — says it loses.
+An outsider reads that and asks: why is this on the council at all? You are debating paths down a road
+that base rates say is a cliff.</p>
+<p>KURA: The "rescue" is the problem. Day-1 R:R is 1.26. Both paths only clear 2.0 by tightening the
+stop until the math works — Path A's 6.7% stop and Path B's $9.50 stop aren't risk discipline, they're
+R:R cosmetics. The honest target ($12.14) against the honest pack MM target ($11.22) is 0.60R. The
+catalyst is grade B and a delayed Day-6 reaction, with gap-fill named as an explicit failure mode.
+CANCEL. Confidence 75%. Blocker: manufactured R:R + weak immature family. Playbook-only.</p>
+<p>ROIV: Better catalyst — A-grade, fresh, multi-vector, 92 confidence. But the $40 target is
+indefensible and you already know it: the prompt itself says against the real $35 target Path A is
+~1.0R, and you already killed the $39.68 back-solved version as forbidden. $40 is the same forbidden
+move wearing a different label. A stock at a new ATH, +48.9% over its 200SMA, does not get a generous
+measured-move target — extension argues the opposite. DEFER. Confidence 70%. Blocker: inflated target;
+honest geometry fails 2.0. Evidence-backed only on extension; setup playbook-only.</p>
+<p>Weekend risk: any Thu/Fri entry eats a 3-day hold on biotech — asymmetric gap risk both directions.
+That alone argues against forcing either today.</p>
+</div></details>
+
+<details><summary>The Executor — KURA defer, ROIV defer</summary>
+<div class="body adv">
+<h4>KURA — DEFER. Confidence: high. Blocker: no clean mechanical trigger. Playbook-only.</h4>
+<p>Path A is a fiction. "Hold $9.68 through first 30 min then enter at $10.38" — you can't place that.
+It requires a manual judgment call at 10:00 ET, then a chase entry, and the R:R 2.51 only exists if you
+assume the stop never gets touched intraday before fill. That's not an order, it's a hope. Path B is
+cleaner mechanically (limit buy stop $10.38, stop new Day-2 low) but you're back-solving: R:R 4.28 only
+works against the 52w-high $12.14, while the pack's own MM target $11.22 gives 0.60R. Against the
+honest target this fails the floor. Delayed Day-6 continuation + grade-B catalyst + explicit Day-7
+gap-fill risk + 3-day weekend = no. Defer.</p>
+<h4>ROIV — DEFER. Confidence: high. Blocker: inflated target. Playbook-only.</h4>
+<p>The mechanics here are actually executable: buy-stop $33.00, stop $31.07, DAY order. The problem is
+the destination. $40 is a 22% measured move conjured specifically to clear the 2.0 floor — against the
+defensible $35 target Path A is ~1.0R. That is exactly the "back-solved target" defect the 5/20 council
+flagged 4 cancels for. A-grade catalyst doesn't fix a 1.0R trade at a new ATH +48.9% above 200SMA.
+Path B's pullback needs a 6-7% retrace that may never come; un-actionable Thursday.</p>
+<p><strong>Both: do nothing at Thursday's open.</strong> No order goes in. SLINGSHOT has 0 resolved
+outcomes — first maturity 5/22 — so every verdict is playbook-only, log for calibration. If either is
+revisited, DAY orders only; never GTC into a Memorial Day weekend on an extended biotech.</p>
+</div></details>
+
+<h2>Peer review highlights</h2>
+<details><summary>Anonymized peer-review round (5 reviews)</summary>
+<div class="body adv">
+<p>Anonymization: Response A = Executor · B = Contrarian · C = Outsider · D = Expansionist ·
+E = First Principles.</p>
+<p><strong>Strongest path:</strong> the peer-review round rated the Contrarian path strongest across
+all five reviews — it named the shared failure mechanism most precisely ("R:R only passes after someone
+moves the goalposts") and was the only path to count the <em>number</em> of stacked adjustments
+manufacturing KURA's R:R.</p>
+<p><strong>Biggest blind spot:</strong> all five reviews flagged the Expansionist path's ROIV case — a
+momentum narrative ("price discovery, no overhead supply, every holder profitable, $35 is timid") that
+nearly produced a "lean promote-watch" on geometry it then admitted was inflated. Reviewers were blunt
+that this is the extension-euphoria the other four paths correctly read as risk.</p>
+<p><strong>Base-rate handling:</strong> reviewers noted the Outsider and First Principles paths mildly
+overfit the immature 17.5% SLINGSHOT snapshot — with 0 resolved rows it is an in-flight snapshot, not a
+settled base rate; the Executor path under-used base-rate context. The correct use of immature data:
+no evidence either way → playbook-only, do not lean on it.</p>
+<p><strong>What all five paths missed:</strong> a setup family with zero resolved outcomes keeps
+consuming full council cycles and producing back-solved-target rescues — an intake / escalation-policy
+question (and a question of whether the static 2.0 floor is the right gate), plus position sizing as a
+third path beyond binary promote/cancel. Noted as monitoring context; it does not change either verdict.</p>
+</div></details>
+
+<footer>
+Generated 2026-05-21 · Council skill V1.3.4 · Counciled: KURA &amp; ROIV B+ C1 SLINGSHOT Day-2 review ·
+Verdict 0 promote / 1 defer (ROIV) / 1 cancel (KURA) · all verdicts playbook-only · SLINGSHOT base
+rates immature (0 resolved) · self-calibration INSUFFICIENT_DATA. Companion artifacts:
+council-transcript-20260521-kura-roiv.md, council_outcomes_2026-05-21.csv,
+council_disagreements_2026-05-21.csv, council_self_calibration_summary_2026-05-21.csv,
+council_reachability_audit_2026-05-21.csv.
+</footer>
+
+</div>
+</body>
+</html>
