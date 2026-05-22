@@ -1,4 +1,4 @@
-# R:R Target Realism Audit — 2026-05-21
+# R:R Target Realism Audit — 2026-05-22
 
 *v4.13.7 — V5.9 target regex fix on top of v4.13.6 baseline (regex disambiguation only; audit logic unchanged).*
 
@@ -12,26 +12,26 @@ This is a measurement-only report. It does not change trading rules, action labe
 
 ## 2. Maturity Status
 
-- Rows audited: **39**
-- Pending insufficient data: **9** (23.1%)
+- Rows audited: **41**
+- Pending insufficient data: **11** (26.8%)
 
 ## 3. Summary
 
-- Rows in audit universe (final_trade_status TRADE/COUNCIL): **39**
+- Rows in audit universe (final_trade_status TRADE/COUNCIL): **41**
 - TRADE rows: 1
-- COUNCIL rows: **38**
+- COUNCIL rows: **40**
 - A1 rows: 1
-- A2 rows: **16**
-- B+ rows (C1/C2/C3): **14**
+- A2 rows: **17**
+- B+ rows (C1/C2/C3): **15**
 - Rows eligible for triggered-only views: **21**
 
-- Rows with V5.9 target parsed: **32**
+- Rows with V5.9 target parsed: **34**
 - Rows with no V5.9 target tag (pre-V5.8.9 or other): 7
 - Rows with invalid target parse (geometry guard): 0
-- Rows with V5.9 R:R parsed: 31
+- Rows with V5.9 R:R parsed: 33
 - Rows with R:R not logged (target may be present): 8
 
-- R:R arithmetic valid (computed within 0.10 of logged): 30
+- R:R arithmetic valid (computed within 0.10 of logged): 32
 - R:R arithmetic mismatch: 1
 
 - computed_planned_rr ≥ 2.0 but effective_rr < 2.0: **2**
@@ -45,7 +45,7 @@ This is a measurement-only report. It does not change trading rules, action labe
 
 | action_label   | view           |   n_rows |   n_with_5d_data |   avg_computed_planned_rr |   avg_effective_rr |   avg_actual_entry_rr |   avg_max_r_5d |   avg_mfe_5d_r |   avg_mae_5d_r |   median_max_r_5d |   expectancy_proxy_r |   pct_rr_overstated_resistance |   pct_rr_overstated_200sma |   pct_hit_1r_5d |   pct_hit_2r_5d |   pct_hit_target_5d |   pct_hit_effective_target_5d |   pct_failed_before_1r |   pct_major_rr_degradation |
 |:---------------|:---------------|---------:|-----------------:|--------------------------:|-------------------:|----------------------:|---------------:|---------------:|---------------:|------------------:|---------------------:|-------------------------------:|---------------------------:|----------------:|----------------:|--------------------:|------------------------------:|-----------------------:|---------------------------:|
-| A2             | ALL            |       16 |               14 |                      2.51 |               2.33 |                   2.7 |           0.74 |           0.74 |           1.17 |              0.37 |                -0.43 |                            100 |                        100 |           22.22 |           11.11 |                   0 |                             0 |                  66.67 |                          0 |
+| A2             | ALL            |       17 |               14 |                      2.47 |               2.3  |                   2.7 |           0.74 |           0.74 |           1.17 |              0.37 |                -0.43 |                            100 |                        100 |           22.22 |           11.11 |                   0 |                             0 |                  66.67 |                          0 |
 | A2             | TRIGGERED_ONLY |       11 |                9 |                      2.7  |               2.44 |                   2.7 |           0.74 |           0.74 |           1.17 |              0.37 |                -0.43 |                            100 |                        100 |           22.22 |           11.11 |                   0 |                             0 |                  66.67 |                          0 |
 | A2             | NOT_TRIGGERED  |        4 |                4 |                      2.08 |               2.08 |                 nan   |         nan    |         nan    |         nan    |            nan    |               nan    |                            nan |                        nan |          nan    |          nan    |                 nan |                           nan |                 nan    |                        nan |
 
@@ -55,7 +55,7 @@ This is a measurement-only report. It does not change trading rules, action labe
 
 | view               | group_col          | group_value   |   n_rows |   n_with_5d_data |   avg_computed_planned_rr |   avg_effective_rr |   avg_actual_entry_rr |   avg_max_r_5d |   avg_mfe_5d_r |   avg_mae_5d_r |   median_max_r_5d |   expectancy_proxy_r |   pct_rr_overstated_resistance |   pct_rr_overstated_200sma |   pct_hit_1r_5d |   pct_hit_2r_5d |   pct_hit_target_5d |   pct_hit_effective_target_5d |   pct_failed_before_1r |   pct_major_rr_degradation |
 |:-------------------|:-------------------|:--------------|---------:|-----------------:|--------------------------:|-------------------:|----------------------:|---------------:|---------------:|---------------:|------------------:|---------------------:|-------------------------------:|---------------------------:|----------------:|----------------:|--------------------:|------------------------------:|-----------------------:|---------------------------:|
-| BPLUS_BLOCKER_TYPE | bplus_blocker_type | C1            |       12 |                6 |                      1.36 |               1.36 |                  1.45 |           0.5  |           0.5  |           1.15 |              0.17 |                -0.65 |                            nan |                        nan |              25 |               0 |                   0 |                             0 |                     75 |                          0 |
+| BPLUS_BLOCKER_TYPE | bplus_blocker_type | C1            |       13 |                6 |                      1.29 |               1.29 |                  1.42 |           0.5  |           0.5  |           1.15 |              0.17 |                -0.65 |                            nan |                        nan |              25 |               0 |                   0 |                             0 |                     75 |                          0 |
 | BPLUS_BLOCKER_TYPE | bplus_blocker_type | C3            |        2 |                2 |                      2.25 |               2.25 |                  2.25 |           0.33 |           0.33 |           1.6  |              0.33 |                -1.27 |                            nan |                        nan |               0 |               0 |                   0 |                             0 |                    100 |                          0 |
 
 ## 5. Setup-family Audit
@@ -64,16 +64,16 @@ This is a measurement-only report. It does not change trading rules, action labe
 |:-------------|:-------------|:---------------|---------:|-----------------:|--------------------------:|-------------------:|----------------------:|---------------:|---------------:|---------------:|------------------:|---------------------:|-------------------------------:|---------------------------:|----------------:|----------------:|--------------------:|------------------------------:|-----------------------:|---------------------------:|
 | SETUP_FAMILY | setup_family | ACTIVE_BURST   |       13 |               12 |                      2.09 |               2.09 |                  2.23 |           0.81 |           0.81 |           1    |              0.37 |                -0.19 |                            nan |                        nan |           22.22 |           11.11 |                   0 |                             0 |                  66.67 |                          0 |
 | SETUP_FAMILY | setup_family | DELAYED_EP     |        7 |                3 |                      2.25 |               2.25 |                  2.27 |           0.7  |           0.7  |           1.41 |              0.7  |                -0.71 |                            nan |                        nan |           50    |            0    |                   0 |                             0 |                  50    |                          0 |
-| SETUP_FAMILY | setup_family | EP_ACTIVE      |       12 |               12 |                      1.83 |               1.6  |                  2.05 |           0.33 |           0.33 |           1.29 |              0.36 |                -0.96 |                             50 |                         50 |            0    |            0    |                   0 |                             0 |                 100    |                          0 |
+| SETUP_FAMILY | setup_family | EP_ACTIVE      |       14 |               12 |                      1.74 |               1.54 |                  2.05 |           0.33 |           0.33 |           1.29 |              0.36 |                -0.96 |                             50 |                         50 |            0    |            0    |                   0 |                             0 |                 100    |                          0 |
 | SETUP_FAMILY | setup_family | MOMENTUM_BURST |        1 |                0 |                    nan    |             nan    |                nan    |         nan    |         nan    |         nan    |            nan    |               nan    |                            nan |                        nan |          nan    |          nan    |                 nan |                           nan |                 nan    |                        nan |
-| SETUP_FAMILY | setup_family | SLINGSHOT      |        5 |                2 |                      1.56 |               1.56 |                  2.17 |           0.92 |           0.92 |           1.72 |              0.92 |                -0.8  |                            nan |                        nan |           50    |            0    |                   0 |                             0 |                  50    |                          0 |
+| SETUP_FAMILY | setup_family | SLINGSHOT      |        5 |                2 |                      1.56 |               1.56 |                  1.87 |           0.92 |           0.92 |           1.72 |              0.92 |                -0.8  |                            nan |                        nan |           50    |            0    |                   0 |                             0 |                  50    |                          0 |
 | SETUP_FAMILY | setup_family | UNKNOWN        |        1 |                1 |                      3.3  |               1.64 |                nan    |         nan    |         nan    |         nan    |            nan    |               nan    |                            100 |                        100 |          nan    |          nan    |                 nan |                           nan |                 nan    |                        nan |
 
 ## 6. Resistance Audit (by nearest_resistance_type)
 
 | view                    | group_col               | group_value   |   n_rows |   n_with_5d_data |   avg_computed_planned_rr |   avg_effective_rr |   avg_actual_entry_rr |   avg_max_r_5d |   avg_mfe_5d_r |   avg_mae_5d_r |   median_max_r_5d |   expectancy_proxy_r |   pct_rr_overstated_resistance |   pct_rr_overstated_200sma |   pct_hit_1r_5d |   pct_hit_2r_5d |   pct_hit_target_5d |   pct_hit_effective_target_5d |   pct_failed_before_1r |   pct_major_rr_degradation |
 |:------------------------|:------------------------|:--------------|---------:|-----------------:|--------------------------:|-------------------:|----------------------:|---------------:|---------------:|---------------:|------------------:|---------------------:|-------------------------------:|---------------------------:|----------------:|----------------:|--------------------:|------------------------------:|-----------------------:|---------------------------:|
-| NEAREST_RESISTANCE_TYPE | nearest_resistance_type | NONE          |       36 |               27 |                      1.93 |               1.93 |                  2.14 |           0.65 |           0.65 |           1.25 |              0.37 |                -0.6  |                         nan    |                     nan    |           21.05 |            5.26 |                   0 |                             0 |                  73.68 |                          0 |
+| NEAREST_RESISTANCE_TYPE | nearest_resistance_type | NONE          |       38 |               27 |                      1.89 |               1.89 |                  2.09 |           0.65 |           0.65 |           1.25 |              0.37 |                -0.6  |                         nan    |                     nan    |           21.05 |            5.26 |                   0 |                             0 |                  73.68 |                          0 |
 | NEAREST_RESISTANCE_TYPE | nearest_resistance_type | SMA200        |        3 |                3 |                      2.76 |               1.43 |                  2.5  |           0.39 |           0.39 |           0.86 |              0.39 |                -0.48 |                          66.67 |                      66.67 |            0    |            0    |                   0 |                             0 |                 100    |                          0 |
 
 ## 7. Top Warning Rows (computed_planned_rr ≥ 2.0 but effective or actual < 2.0)
