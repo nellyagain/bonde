@@ -1,4 +1,4 @@
-# ACTIVE_BURST Gate-6 Observational Watchlist — 2026-05-21
+# ACTIVE_BURST Gate-6 Observational Watchlist — 2026-05-22
 
 Status: OBSERVATIONAL_ONLY — no actionability-rule change.
 
