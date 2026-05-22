@@ -1,7 +1,7 @@
-# Bonde Learning Loop Executive Digest — 2026-05-21
+# Bonde Learning Loop Executive Digest — 2026-05-22
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-21 10:45 UTC_
+_Run timestamp: 2026-05-22 06:20 UTC_
 _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
@@ -12,15 +12,15 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-20 11:40 UTC → 2026-05-21 10:45 UTC
-- Prior digest date: **2026-05-20**
-- Current digest date: **2026-05-21**
-- Comparison window: **2026-05-20 → 2026-05-21**
+## 2. Changed since last run — 2026-05-21 10:45 UTC → 2026-05-22 06:20 UTC
+- Prior digest date: **2026-05-21**
+- Current digest date: **2026-05-22**
+- Comparison window: **2026-05-21 → 2026-05-22**
 
 ### Pipeline changes
 - SLINGSHOT decision-log target/R:R backfilled inside the learning loop: **99** rows.
-- Tiny-geometry hygiene audit added / active: **22** rows flagged.
-- Dedup diagnostics active: **220** raw full-plan+price rows → **102** unique ticker-date rows.
+- Tiny-geometry hygiene audit added / active: **23** rows flagged.
+- Dedup diagnostics active: **229** raw full-plan+price rows → **105** unique ticker-date rows.
 - Backfill source attribution simplified to `slingshot_backfill_source` enum.
 - KK confirmation research layer added: `H_KK_CONFIRMATION` computes cohorts in the learning loop without changing upstream signals.
 
@@ -35,31 +35,31 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 - SLINGSHOT `OK_EVALUABLE` rows remain 0 until future bars mature.
 
 ## 3. Operational status
-- Master decision-log rows: **882**
-- Decision-log source files: **10**
-- Latest decision-log sources: `daily_decision_log_2026-05-13.csv`, `daily_decision_log_2026-05-15.csv`, `daily_decision_log_2026-05-18.csv`, `daily_decision_log_2026-05-21 (2).csv`, `sample_daily_decision_log.csv`
+- Master decision-log rows: **902**
+- Decision-log source files: **11**
+- Latest decision-log sources: `daily_decision_log_2026-05-15.csv`, `daily_decision_log_2026-05-18.csv`, `daily_decision_log_2026-05-21 (2).csv`, `daily_decision_log_2026-05-22.csv`, `sample_daily_decision_log.csv`
 - 2026-05-15 decision log ingested: **YES**
 
 ### final_trade_status distribution
 | final_trade_status   |   rows |
 |:---------------------|-------:|
-| WATCH                |    740 |
+| WATCH                |    758 |
 | REJECT               |    103 |
-| COUNCIL              |     38 |
+| COUNCIL              |     40 |
 | TRADE                |      1 |
 
 ### Post-V5.9.19 distribution check
 | final_trade_status   |   rows |
 |:---------------------|-------:|
-| WATCH                |    140 |
-| COUNCIL              |      9 |
+| WATCH                |    158 |
+| COUNCIL              |     11 |
 | REJECT               |      3 |
 
 ### Corpus reconciliation
-- Candidate decision-log files discovered: **18**
-- Included decision-log files: **11**
+- Candidate decision-log files discovered: **19**
+- Included decision-log files: **12**
 - Excluded decision-log files: **7** (7 duplicate/lower-score files)
-- Raw included rows → normalized rows → master rows: **931 → 906 → 882**
+- Raw included rows → normalized rows → master rows: **951 → 926 → 902**
 - Rows removed by final master de-duplication: **24**
 - EP9M setup-family rows raw included → master: **0 → 0**
 - File-level audit: `decision_log_discovery_audit_latest.md`
@@ -67,9 +67,9 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 4. Executive interpretation
 Current loop status: **operationally healthy, evidence still immature**. This digest is monitoring context, not rule-change permission.
-1. Sugar Baby=True candidates show -0.01% avg T+5 versus -1.79% for non-Sugar Baby candidates (evaluated n=1620 vs 914). This is currently the stronger candidate for a future ranking overlay than EP9M, but still needs out-of-sample/weekly validation.
+1. Sugar Baby=True candidates show -0.04% avg T+5 versus -1.49% for non-Sugar Baby candidates (evaluated n=1828 vs 1076). This is currently the stronger candidate for a future ranking overlay than EP9M, but still needs out-of-sample/weekly validation.
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
-3. Post-2026-05-15 rows have zero TRADE rows (n=152). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.
+3. Post-2026-05-15 rows have zero TRADE rows (n=172). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.
 4. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable. Post-V5.9.19 rows have zero TRADE rows. Confirm whether clean A1/A2 rows are being over-routed to COUNCIL/WATCH.
 5. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 2 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
 6. Corpus reconciliation is now active: 7 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
@@ -79,11 +79,11 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 ### Setup-family summary
 | setup_family   |   n_rows |   n_evaluable_5d | confidence_5d     |   pct_triggered |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:---------------|---------:|-----------------:|:------------------|----------------:|-------------------:|------------------:|
-| ACTIVE_BURST   |      108 |              103 | ACTIONABLE_SAMPLE |         93.5185 |            37.7551 |        -1.0739    |
-| PAUSE          |       71 |               49 | ACTIONABLE_SAMPLE |         85.9155 |            48.9362 |         0.966915  |
-| SLINGSHOT      |      143 |               40 | ACTIONABLE_SAMPLE |         93.7063 |            25      |        -2.84694   |
-| EP_ACTIVE      |       43 |               35 | ACTIONABLE_SAMPLE |         93.0233 |            46.875  |        -0.496896  |
-| DELAYED_EP     |       28 |               16 | BUILDING_SAMPLE   |         85.7143 |            60      |        -0.491384  |
+| ACTIVE_BURST   |      111 |              103 | ACTIONABLE_SAMPLE |         94.5946 |            37.7551 |        -1.0739    |
+| PAUSE          |       83 |               49 | ACTIONABLE_SAMPLE |         89.1566 |            48.9362 |         0.966915  |
+| SLINGSHOT      |      143 |               40 | ACTIONABLE_SAMPLE |         97.2028 |            25      |        -2.84694   |
+| EP_ACTIVE      |       47 |               35 | ACTIONABLE_SAMPLE |         87.234  |            46.875  |        -0.496896  |
+| DELAYED_EP     |       29 |               16 | BUILDING_SAMPLE   |         89.6552 |            60      |        -0.491384  |
 | ANTICIPATION   |       10 |                8 | LOW_SAMPLE        |        100      |            50      |        -0.0866923 |
 | PRE_BURST      |        3 |                1 | LOW_SAMPLE        |          0      |           nan      |       nan         |
 | MOMENTUM_BURST |        1 |                0 | PARTIAL_OUTCOME   |          0      |           nan      |       nan         |
@@ -94,24 +94,24 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 |:---------------|:----------------|:---------------|:---------------------|---------:|-----------------:|:------------------|-------------------:|------------------:|
 | EP_ACTIVE      | WATCH_ONLY      | B              | WATCH                |        9 |                5 | LOW_SAMPLE        |            60      |          7.58384  |
 | PAUSE          | WATCH_ONLY      | C              | WATCH                |       28 |               18 | BUILDING_SAMPLE   |            66.6667 |          2.77643  |
-| ACTIVE_BURST   | WATCH_ONLY      | B              | WATCH                |       28 |               26 | ACTIONABLE_SAMPLE |            50      |          2.67481  |
+| ACTIVE_BURST   | WATCH_ONLY      | B              | WATCH                |       31 |               26 | ACTIONABLE_SAMPLE |            50      |          2.67481  |
 | ACTIVE_BURST   | ACTIONABLE      | A2             | COUNCIL              |        6 |                6 | LOW_SAMPLE        |            50      |          1.25906  |
 | ACTIVE_BURST   | WATCH_ONLY      | B              | COUNCIL              |        6 |                5 | LOW_SAMPLE        |            25      |          0.210662 |
-| PAUSE          | WATCH_ONLY      | B              | WATCH                |       42 |               30 | ACTIONABLE_SAMPLE |            35.7143 |         -0.167474 |
+| PAUSE          | WATCH_ONLY      | B              | WATCH                |       54 |               30 | ACTIONABLE_SAMPLE |            35.7143 |         -0.167474 |
 | ANTICIPATION   | WATCH_ONLY      | C              | WATCH                |        6 |                5 | LOW_SAMPLE        |            60      |         -0.268804 |
-| DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |       14 |                8 | LOW_SAMPLE        |            62.5    |         -0.7628   |
+| DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |       15 |                8 | LOW_SAMPLE        |            62.5    |         -0.7628   |
 
 **Weak current slices (monitoring only):**
 | setup_family   | review_bucket   | action_label   | final_trade_status   |   n_rows |   n_evaluable_5d | confidence_5d     |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:---------------|:----------------|:---------------|:---------------------|---------:|-----------------:|:------------------|-------------------:|------------------:|
 | SLINGSHOT      | REJECT          | D              | REJECT               |        5 |                5 | LOW_SAMPLE        |             0      |          -7.81828 |
-| EP_ACTIVE      | ACTIONABLE      | A2             | COUNCIL              |        5 |                5 | LOW_SAMPLE        |             0      |          -7.29049 |
-| EP_ACTIVE      | WATCH_ONLY      | B              | COUNCIL              |        7 |                7 | LOW_SAMPLE        |            40      |          -6.22877 |
+| EP_ACTIVE      | ACTIONABLE      | A2             | COUNCIL              |        6 |                5 | LOW_SAMPLE        |             0      |          -7.29049 |
+| EP_ACTIVE      | WATCH_ONLY      | B              | COUNCIL              |        8 |                7 | LOW_SAMPLE        |            40      |          -6.22877 |
 | ACTIVE_BURST   | WATCH_ONLY      | C              | WATCH                |       28 |               26 | ACTIONABLE_SAMPLE |            30.7692 |          -4.09441 |
 | SLINGSHOT      | WATCH_ONLY      | C              | WATCH                |       56 |               33 | ACTIONABLE_SAMPLE |            27.2727 |          -2.36423 |
-| EP_ACTIVE      | WATCH_ONLY      | C              | WATCH                |       17 |               16 | BUILDING_SAMPLE   |            50      |          -1.76348 |
+| EP_ACTIVE      | WATCH_ONLY      | C              | WATCH                |       19 |               16 | BUILDING_SAMPLE   |            50      |          -1.76348 |
 | ACTIVE_BURST   | REJECT          | D              | REJECT               |       39 |               39 | ACTIONABLE_SAMPLE |            35.8974 |          -1.7631  |
-| DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |       14 |                8 | LOW_SAMPLE        |            62.5    |          -0.7628  |
+| DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |       15 |                8 | LOW_SAMPLE        |            62.5    |          -0.7628  |
 
 
 ## 6. A1 / A2 executable-signal health
@@ -122,9 +122,10 @@ Purpose: check whether the actionability layer is producing true executable cand
 | ALL_ROWS       | A1             | TRADE                | ACTIVE_BURST   |        1 |
 | ALL_ROWS       | A2             | COUNCIL              | ACTIVE_BURST   |        6 |
 | ALL_ROWS       | A2             | COUNCIL              | DELAYED_EP     |        5 |
-| ALL_ROWS       | A2             | COUNCIL              | EP_ACTIVE      |        5 |
+| ALL_ROWS       | A2             | COUNCIL              | EP_ACTIVE      |        6 |
 | POST_V5_9_19   | A2             | COUNCIL              | DELAYED_EP     |        2 |
-| LATEST_SESSION | A1/A2          | NONE                 | ALL            |        0 |
+| POST_V5_9_19   | A2             | COUNCIL              | EP_ACTIVE      |        1 |
+| LATEST_SESSION | A2             | COUNCIL              | EP_ACTIVE      |        1 |
 
 ### Current interpretation
 - A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable.
@@ -132,22 +133,24 @@ Purpose: check whether the actionability layer is producing true executable cand
 - All visible A2 rows route to COUNCIL. Treat A2 performance as marginal-A2 performance, not clean executable-A2 performance.
 ### Council A1/A2 reachability audit
 - Source: `council_reachability_audit_*.csv` from the Council skill. Diagnostic only; does not change labels or trading rules.
-| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE    |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
-|:---------------|:--------------------------|:--------------------|-------:|-------:|----------:|------------------:|
-| NOT_EVALUABLE  | NOT_EVALUABLE             | NO_ZERO_TRADE_ISSUE |      0 |      0 |         0 |                 0 |
+| A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE   |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
+|:---------------|:--------------------------|:-------------------|-------:|-------:|----------:|------------------:|
+| NOT_EVALUABLE  | NOT_EVALUABLE             | NOT_EVALUABLE      |      0 |      1 |         0 |                 1 |
 
-- Latest reachability audit source: `/content/bonde_repo/bonde_screener_cache/council_queues/council_reachability_audit_2026-05-20.csv`
+- Latest reachability audit source: `/content/bonde_repo/bonde_screener_cache/council_queues/council_reachability_audit_2026-05-22.csv`
 - Top Council demotion reasons from latest audit:
-| demotion_reason   |   rows |
-|:------------------|-------:|
-| UNKNOWN           |      1 |
+| demotion_reason                                                                      |   rows |
+|:-------------------------------------------------------------------------------------|-------:|
+| UNKNOWN                                                                              |      1 |
+| A2_COUNCIL_REQUEST explicit council route (Trigger 1)                                |      1 |
+| rr_floor_fail static R:R 0.58 vs 2.0 floor; B+/C1 wide Day-1 range capped ATH target |      1 |
 
 ### A1/A2 forward-return slices
 | setup_family   | review_bucket   | action_label   | final_trade_status   |   n_rows |   n_evaluable_5d | confidence_5d   |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:---------------|:----------------|:---------------|:---------------------|---------:|-----------------:|:----------------|-------------------:|------------------:|
 | ACTIVE_BURST   | ACTIONABLE      | A1             | TRADE                |        1 |                1 | LOW_SAMPLE      |                  0 |         -0.101009 |
 | ACTIVE_BURST   | ACTIONABLE      | A2             | COUNCIL              |        6 |                6 | LOW_SAMPLE      |                 50 |          1.25906  |
-| EP_ACTIVE      | ACTIONABLE      | A2             | COUNCIL              |        5 |                5 | LOW_SAMPLE      |                  0 |         -7.29049  |
+| EP_ACTIVE      | ACTIONABLE      | A2             | COUNCIL              |        6 |                5 | LOW_SAMPLE      |                  0 |         -7.29049  |
 | DELAYED_EP     | ACTIONABLE      | A2             | COUNCIL              |        5 |                3 | LOW_SAMPLE      |                 50 |          0.985955 |
 
 ### Caveats
@@ -159,7 +162,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 ## 7. EP9M overlay
 - EP9M setup-family row unavailable in the current setup-family summary.
 - Corpus audit EP9M setup-family rows raw → normalized → master: **0 → 0 → 0**.
-- Corpus audit EP9M context rows in master: **156**.
+- Corpus audit EP9M context rows in master: **157**.
 - Interpretation: EP9M did not enter the current decision-log corpus as a setup-family row. If a prior digest showed EP9M, inspect `decision_log_discovery_audit_latest.md` for excluded files or changed source scope.
 
 ## 8. Action-label / reject-vs-watch inversion watchlist
@@ -178,22 +181,22 @@ These are pre-registered monitoring slots, not a roadmap and not rule-change per
 | H_ACTIVE_BURST_GATE6_SOFTEN | ACTIVE_BURST                   | ACTIVE_BURST D/REJECT minus ACTIVE_BURST C/WATCH avg T+5                                   | Compare ACTIVE_BURST D/REJECT vs ACTIVE_BURST C/WATCH on mature T+5; verdict uses strict OOS rows only.                                                              | Risk-On          |            39 |        -1.7631  |            26 |       -4.09441  |               2.33131 | 2026-05-16       |         0 |         0 |               nan | WATCHING_NOT_RULE_EVIDENCE |
 | H_EP_ACTIVE_COUNCIL_TIGHTEN | EP_ACTIVE                      | EP_ACTIVE final_trade_status=COUNCIL combined avg T+5                                      | Measure EP_ACTIVE rows routed to COUNCIL on mature T+5; verdict uses strict OOS rows only.                                                                           | Risk-On          |            12 |        -6.67115 |           nan |      nan        |              -6.67115 | 2026-05-16       |         0 |       nan |               nan | WATCHING_LOW_SAMPLE        |
 | H_PAUSE_BC_INVERT           | PAUSE                          | PAUSE C/WATCH minus PAUSE B/WATCH avg T+5                                                  | Compare PAUSE C/WATCH vs PAUSE B/WATCH on mature T+5; verdict uses strict OOS rows only.                                                                             | Risk-On          |            18 |         2.77643 |            30 |       -0.167474 |               2.9439  | 2026-05-16       |         0 |         0 |               nan | WATCHING_NOT_RULE_EVIDENCE |
-| H_KK_CONFIRMATION           | ANTICIPATION / KK_CONFIRMATION | Bonde anticipation WITH KK confirmation minus WITHOUT KK confirmation avg T+5 alpha vs SPY | Compare Bonde anticipation rows WITH vs WITHOUT KK research confirmation on T+5 alpha vs SPY; KK definition excludes only kk_pause_too_long from hard disqualifiers. | Risk-On          |             0 |       nan       |            33 |       -1.37197  |             nan       | 2026-05-17       |         0 |         0 |               nan | WATCHING_LOW_SAMPLE        |
+| H_KK_CONFIRMATION           | ANTICIPATION / KK_CONFIRMATION | Bonde anticipation WITH KK confirmation minus WITHOUT KK confirmation avg T+5 alpha vs SPY | Compare Bonde anticipation rows WITH vs WITHOUT KK research confirmation on T+5 alpha vs SPY; KK definition excludes only kk_pause_too_long from hard disqualifiers. | Risk-On          |             0 |       nan       |            37 |       -1.15198  |             nan       | 2026-05-17       |         0 |         0 |               nan | WATCHING_LOW_SAMPLE        |
 
 - Hypothesis tracker report: `hypothesis_tracker_latest.md`
 - ACTIVE_BURST Gate6 shadow candidates: **1** rows in `active_burst_gate6_shadow_candidates_v41328.csv`
 - Guardrail: shadow candidates are review/tradeability audit rows only. They do not change `final_trade_status`, action label, ranking, R:R, or hard-reject behavior.
 ### Pre-registered verdict gates
 These gates are binding review criteria. A rule patch should not ship unless its hypothesis has a pre-registered SUPPORTED verdict or a separate explicitly documented emergency bug rationale.
-| hypothesis_id                  | method_note                                                                                                                                                          | regime_context   | current_state                                                                                                         | required_sample                                                                                                                                      | oos_window                                      | earliest_review                                                                                                       | pre_registered_prediction                                                                                              | supported_if                                                                                                                                                 | rejected_if                                                                                          | ambiguous_if                                                                                                                                             | if_supported                                                                                                                          | if_rejected                                                                         |
-|:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|
-| H_ACTIVE_BURST_GATE6_SOFTEN    | Compare ACTIVE_BURST D/REJECT vs ACTIVE_BURST C/WATCH on mature T+5; verdict uses strict OOS rows only.                                                              | Risk-On          | current effect 2.33; n_a=39; n_b=26; status=WATCHING_NOT_RULE_EVIDENCE                                                | OOS n_C >= 30 and n_D >= 30, with mature T+5/T+10/T+20 windows.                                                                                      | 2026-05-16 onward                               | When both OOS slices meet sample and maturity gates.                                                                  | D/REJECT minus C/WATCH spread remains >= +1.5% OOS.                                                                    | OOS spread >= +1.5% and confidence interval / robustness check does not collapse to zero.                                                                    | OOS spread < +0.5% or direction inverts.                                                             | OOS spread is +0.5% to +1.5% or sample composition is unstable.                                                                                          | Draft V5.9.21-G6-SOFTEN spec; do not ship until patch text is reviewed.                                                               | File hypothesis; no Gate6 softening.                                                |
-| H_EP_ACTIVE_COUNCIL_TIGHTEN    | Measure EP_ACTIVE rows routed to COUNCIL on mature T+5; verdict uses strict OOS rows only.                                                                           | Risk-On          | current effect -6.67; n_a=12; status=WATCHING_LOW_SAMPLE                                                              | OOS EP_ACTIVE COUNCIL n >= 30 with mature T+5 and at least 10 T+20 rows.                                                                             | 2026-05-16 onward                               | When OOS council-routed EP_ACTIVE rows reach n>=30.                                                                   | EP_ACTIVE COUNCIL average T+5 remains <= -3.0% OOS.                                                                    | OOS avg T+5 <= -3.0% and win rate <= 35% without one-stock distortion.                                                                                       | OOS avg T+5 >= 0% or win rate normalizes above 45%.                                                  | OOS avg T+5 is -3.0% to 0% or driven by one outlier.                                                                                                     | Draft V5.9.21-EPACTIVE-COUNCIL-TIGHTEN review spec.                                                                                   | Keep EP_ACTIVE council routing unchanged.                                           |
-| H_PAUSE_BC_INVERT              | Compare PAUSE C/WATCH vs PAUSE B/WATCH on mature T+5; verdict uses strict OOS rows only.                                                                             | Risk-On          | current effect 2.94; n_a=18; n_b=30; status=WATCHING_NOT_RULE_EVIDENCE                                                | OOS PAUSE B/WATCH n >= 30 and PAUSE C/WATCH n >= 30.                                                                                                 | 2026-05-16 onward                               | When both OOS PAUSE slices hit n>=30 and T+5 is mature.                                                               | PAUSE C/WATCH minus B/WATCH spread remains >= +1.5% OOS.                                                               | OOS spread >= +1.5% and persists after removing tiny/liquidity outliers.                                                                                     | OOS spread < +0.5% or B resumes leadership.                                                          | OOS spread is +0.5% to +1.5% or sample is too concentrated.                                                                                              | Draft V5.9.21-PAUSE-RANK-REVIEW spec; do not change B/C labels before review.                                                         | Keep PAUSE B/C rank mapping unchanged.                                              |
-| H_KK_CONFIRMATION              | Compare Bonde anticipation rows WITH vs WITHOUT KK research confirmation on T+5 alpha vs SPY; KK definition excludes only kk_pause_too_long from hard disqualifiers. | Risk-On          | n_a=0; n_b=33; status=WATCHING_LOW_SAMPLE                                                                             | OOS n >= 30 confirmed AND n >= 30 unconfirmed Bonde anticipation rows with mature T+5 outcomes; both cohorts must satisfy signal_date >= 2026-05-17. | 2026-05-17 onward                               | When both confirmed and unconfirmed cohorts reach n>=30 with mature T+5; component regression only at n>=100 KK rows. | Confirmed cohort T+5 alpha vs SPY exceeds unconfirmed cohort by at least +0.50 percentage points.                      | T+5 alpha spread >= +0.50 pp, T+10 or T+20 confirms direction, no single ticker >40% of spread, weekly consistency >=60%, and bootstrap_supported_pct >=80%. | T+5 alpha spread <= 0 or unconfirmed cohort outperforms after sample gates.                          | T+5 alpha spread is 0 to +0.50 pp, multi-horizon direction is mixed, ticker/week concentration is excessive, or bootstrap robustness is below threshold. | Use KK confirmation as Layer 5 priority/confidence signal only; do not hard-reject unconfirmed Bonde rows.                            | Deprecate KK confirmation in Layer 5 decisions; keep KK fields as diagnostics only. |
-| H_SLINGSHOT_TARGET_BASIS       | Measure SLINGSHOT_PRIMARY full-plan unique ticker-date rows for R:R>=2.0 and later T+5 expectancy after evaluability gates pass.                                     | Risk-On          | 220 raw full-plan+price rows; 102 unique full-plan+price ticker-date rows; 3 unique OK_EVALUABLE ticker-date rows.    | unique_ok_evaluable_ticker_date_rows >= 30 and at least 10 OOS rows after 2026-05-22.                                                                | Starts 2026-05-22                               | When unique OK_EVALUABLE ticker-date rows reach n>=30.                                                                | >=40% of SLINGSHOT_PRIMARY full-plan unique ticker-date rows clear V5.9 R:R floor >= 2.0.                              | R:R>=2.0 pass rate >=40% and T+5 expectancy is not worse than ACTIVE_BURST baseline.                                                                         | R:R>=2.0 pass rate <30% or T+5 expectancy materially underperforms ACTIVE_BURST.                     | R:R pass rate is 30–40% or expectancy is positive but under-sampled.                                                                                     | Keep SLINGSHOT measurement path live; consider later context/ranking overlay only after 100+ unique OK_EVALUABLE rows.                | Do not promote SLINGSHOT; review target-basis and detection criteria.               |
-| H_SUGAR_BABIES_CONTEXT_OVERLAY | Compare Sugar Baby=True vs False rows by mature T+5, then require OOS and family-level confirmation before any ranking-context boost.                                | Risk-On          | Sugar Baby=True candidates show -0.01% avg T+5 versus -1.79% for non-Sugar Baby candidates (evaluated n=1620 vs 914). | OOS >= 100 evaluated Sugar=True and >= 100 Sugar=False rows, plus at least two setup families with n>=30.                                            | Next mature weekly cohorts after current digest | When OOS rows and family spread requirements are met.                                                                 | Sugar=True retains >= +1.0% avg T+5 spread over Sugar=False without worsening win-rate materially.                     | OOS avg spread >= +1.0% and at least two families have non-negative confirmation.                                                                            | OOS spread < +0.25% or driven by one family only.                                                    | OOS spread +0.25% to +1.0% or family split is mixed.                                                                                                     | Draft Sugar Babies ranking_context_score proposal; cannot override R:R, DTE, hard rejects, failed EP, dilution/offering, or bad data. | Keep Sugar Babies as monitoring-only context.                                       |
-| H_REALIZED_PNL_CORRELATION     | Compare actual broker realized R/P&L against system setup/action/final-status slices once n_with_realized_r >= 30.                                                   | Risk-On          | 2 realized-R rows; threshold not met.                                                                                 | n_with_realized_r >= 30 total, then >=10 per major setup/action slice before slice-level claims.                                                     | Broker-export rows as they arrive               | When realized-R count reaches n>=30.                                                                                  | Layer 5 realized-R selection should outperform raw WATCH/COUNCIL forward-return expectancy on comparable setup slices. | Realized R is positive overall and aligns with the strongest forward-return slices.                                                                          | Realized R is negative despite positive forward-return slices, implying execution/selection failure. | Positive P&L but too concentrated in one trade or mismatch between broker rows and system rows.                                                          | Use realized-R weighting in weekly system review; do not change signal rules solely from P&L.                                         | Prioritize execution/selection review before signal-rule changes.                   |
+| hypothesis_id                  | method_note                                                                                                                                                          | regime_context   | current_state                                                                                                          | required_sample                                                                                                                                      | oos_window                                      | earliest_review                                                                                                       | pre_registered_prediction                                                                                              | supported_if                                                                                                                                                 | rejected_if                                                                                          | ambiguous_if                                                                                                                                             | if_supported                                                                                                                          | if_rejected                                                                         |
+|:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:-----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|
+| H_ACTIVE_BURST_GATE6_SOFTEN    | Compare ACTIVE_BURST D/REJECT vs ACTIVE_BURST C/WATCH on mature T+5; verdict uses strict OOS rows only.                                                              | Risk-On          | current effect 2.33; n_a=39; n_b=26; status=WATCHING_NOT_RULE_EVIDENCE                                                 | OOS n_C >= 30 and n_D >= 30, with mature T+5/T+10/T+20 windows.                                                                                      | 2026-05-16 onward                               | When both OOS slices meet sample and maturity gates.                                                                  | D/REJECT minus C/WATCH spread remains >= +1.5% OOS.                                                                    | OOS spread >= +1.5% and confidence interval / robustness check does not collapse to zero.                                                                    | OOS spread < +0.5% or direction inverts.                                                             | OOS spread is +0.5% to +1.5% or sample composition is unstable.                                                                                          | Draft V5.9.21-G6-SOFTEN spec; do not ship until patch text is reviewed.                                                               | File hypothesis; no Gate6 softening.                                                |
+| H_EP_ACTIVE_COUNCIL_TIGHTEN    | Measure EP_ACTIVE rows routed to COUNCIL on mature T+5; verdict uses strict OOS rows only.                                                                           | Risk-On          | current effect -6.67; n_a=12; status=WATCHING_LOW_SAMPLE                                                               | OOS EP_ACTIVE COUNCIL n >= 30 with mature T+5 and at least 10 T+20 rows.                                                                             | 2026-05-16 onward                               | When OOS council-routed EP_ACTIVE rows reach n>=30.                                                                   | EP_ACTIVE COUNCIL average T+5 remains <= -3.0% OOS.                                                                    | OOS avg T+5 <= -3.0% and win rate <= 35% without one-stock distortion.                                                                                       | OOS avg T+5 >= 0% or win rate normalizes above 45%.                                                  | OOS avg T+5 is -3.0% to 0% or driven by one outlier.                                                                                                     | Draft V5.9.21-EPACTIVE-COUNCIL-TIGHTEN review spec.                                                                                   | Keep EP_ACTIVE council routing unchanged.                                           |
+| H_PAUSE_BC_INVERT              | Compare PAUSE C/WATCH vs PAUSE B/WATCH on mature T+5; verdict uses strict OOS rows only.                                                                             | Risk-On          | current effect 2.94; n_a=18; n_b=30; status=WATCHING_NOT_RULE_EVIDENCE                                                 | OOS PAUSE B/WATCH n >= 30 and PAUSE C/WATCH n >= 30.                                                                                                 | 2026-05-16 onward                               | When both OOS PAUSE slices hit n>=30 and T+5 is mature.                                                               | PAUSE C/WATCH minus B/WATCH spread remains >= +1.5% OOS.                                                               | OOS spread >= +1.5% and persists after removing tiny/liquidity outliers.                                                                                     | OOS spread < +0.5% or B resumes leadership.                                                          | OOS spread is +0.5% to +1.5% or sample is too concentrated.                                                                                              | Draft V5.9.21-PAUSE-RANK-REVIEW spec; do not change B/C labels before review.                                                         | Keep PAUSE B/C rank mapping unchanged.                                              |
+| H_KK_CONFIRMATION              | Compare Bonde anticipation rows WITH vs WITHOUT KK research confirmation on T+5 alpha vs SPY; KK definition excludes only kk_pause_too_long from hard disqualifiers. | Risk-On          | n_a=0; n_b=37; status=WATCHING_LOW_SAMPLE                                                                              | OOS n >= 30 confirmed AND n >= 30 unconfirmed Bonde anticipation rows with mature T+5 outcomes; both cohorts must satisfy signal_date >= 2026-05-17. | 2026-05-17 onward                               | When both confirmed and unconfirmed cohorts reach n>=30 with mature T+5; component regression only at n>=100 KK rows. | Confirmed cohort T+5 alpha vs SPY exceeds unconfirmed cohort by at least +0.50 percentage points.                      | T+5 alpha spread >= +0.50 pp, T+10 or T+20 confirms direction, no single ticker >40% of spread, weekly consistency >=60%, and bootstrap_supported_pct >=80%. | T+5 alpha spread <= 0 or unconfirmed cohort outperforms after sample gates.                          | T+5 alpha spread is 0 to +0.50 pp, multi-horizon direction is mixed, ticker/week concentration is excessive, or bootstrap robustness is below threshold. | Use KK confirmation as Layer 5 priority/confidence signal only; do not hard-reject unconfirmed Bonde rows.                            | Deprecate KK confirmation in Layer 5 decisions; keep KK fields as diagnostics only. |
+| H_SLINGSHOT_TARGET_BASIS       | Measure SLINGSHOT_PRIMARY full-plan unique ticker-date rows for R:R>=2.0 and later T+5 expectancy after evaluability gates pass.                                     | Risk-On          | 229 raw full-plan+price rows; 105 unique full-plan+price ticker-date rows; 3 unique OK_EVALUABLE ticker-date rows.     | unique_ok_evaluable_ticker_date_rows >= 30 and at least 10 OOS rows after 2026-05-22.                                                                | Starts 2026-05-22                               | When unique OK_EVALUABLE ticker-date rows reach n>=30.                                                                | >=40% of SLINGSHOT_PRIMARY full-plan unique ticker-date rows clear V5.9 R:R floor >= 2.0.                              | R:R>=2.0 pass rate >=40% and T+5 expectancy is not worse than ACTIVE_BURST baseline.                                                                         | R:R>=2.0 pass rate <30% or T+5 expectancy materially underperforms ACTIVE_BURST.                     | R:R pass rate is 30–40% or expectancy is positive but under-sampled.                                                                                     | Keep SLINGSHOT measurement path live; consider later context/ranking overlay only after 100+ unique OK_EVALUABLE rows.                | Do not promote SLINGSHOT; review target-basis and detection criteria.               |
+| H_SUGAR_BABIES_CONTEXT_OVERLAY | Compare Sugar Baby=True vs False rows by mature T+5, then require OOS and family-level confirmation before any ranking-context boost.                                | Risk-On          | Sugar Baby=True candidates show -0.04% avg T+5 versus -1.49% for non-Sugar Baby candidates (evaluated n=1828 vs 1076). | OOS >= 100 evaluated Sugar=True and >= 100 Sugar=False rows, plus at least two setup families with n>=30.                                            | Next mature weekly cohorts after current digest | When OOS rows and family spread requirements are met.                                                                 | Sugar=True retains >= +1.0% avg T+5 spread over Sugar=False without worsening win-rate materially.                     | OOS avg spread >= +1.0% and at least two families have non-negative confirmation.                                                                            | OOS spread < +0.25% or driven by one family only.                                                    | OOS spread +0.25% to +1.0% or family split is mixed.                                                                                                     | Draft Sugar Babies ranking_context_score proposal; cannot override R:R, DTE, hard rejects, failed EP, dilution/offering, or bad data. | Keep Sugar Babies as monitoring-only context.                                       |
+| H_REALIZED_PNL_CORRELATION     | Compare actual broker realized R/P&L against system setup/action/final-status slices once n_with_realized_r >= 30.                                                   | Risk-On          | 2 realized-R rows; threshold not met.                                                                                  | n_with_realized_r >= 30 total, then >=10 per major setup/action slice before slice-level claims.                                                     | Broker-export rows as they arrive               | When realized-R count reaches n>=30.                                                                                  | Layer 5 realized-R selection should outperform raw WATCH/COUNCIL forward-return expectancy on comparable setup slices. | Realized R is positive overall and aligns with the strongest forward-return slices.                                                                          | Realized R is negative despite positive forward-return slices, implying execution/selection failure. | Positive P&L but too concentrated in one trade or mismatch between broker rows and system rows.                                                          | Use realized-R weighting in weekly system review; do not change signal rules solely from P&L.                                         | Prioritize execution/selection review before signal-rule changes.                   |
 
 ### KK confirmation study
 Research-only: tests whether Bonde anticipation rows with KK leadership-quality confirmation outperform Bonde anticipation rows without KK confirmation. This does not alter trading labels, ranking, R:R, or hard gates.
@@ -202,18 +205,18 @@ Research-only: tests whether Bonde anticipation rows with KK leadership-quality 
 **Realistic review timing:** earliest likely verdict review is late July–mid September 2026, depending on confirmed-row accumulation and T+5/T+10/T+20 maturity.
 | hypothesis_id     | status              | baseline_available   |   confirmed_n_5d |   unconfirmed_n_5d |   spread_alpha_vs_spy_5d_pp |   supported_threshold_t5_alpha_spread_pp |   bootstrap_supported_pct |   supported_bootstrap_threshold_pct |   weekly_consistency_pct |   single_ticker_spread_share_pct |   invalid_signal_date_rows_dropped |
 |:------------------|:--------------------|:---------------------|-----------------:|-------------------:|----------------------------:|-----------------------------------------:|--------------------------:|------------------------------------:|-------------------------:|---------------------------------:|-----------------------------------:|
-| H_KK_CONFIRMATION | WATCHING_LOW_SAMPLE | True                 |                0 |                 33 |                         nan |                                      0.5 |                       nan |                                  80 |                      nan |                              nan |                                  0 |
+| H_KK_CONFIRMATION | WATCHING_LOW_SAMPLE | True                 |                0 |                 37 |                         nan |                                      0.5 |                       nan |                                  80 |                      nan |                              nan |                                  0 |
 
 **Current cohort split (cumulative, in-sample baseline):**
 | kk_confirmation_cohort                     |   n_rows |   n_evaluable_5d |   avg_ret_5d_all |   avg_alpha_vs_spy_5d |   n_evaluable_10d |   avg_ret_10d_all |   n_evaluable_20d |   avg_ret_20d_all |
 |:-------------------------------------------|---------:|-----------------:|-----------------:|----------------------:|------------------:|------------------:|------------------:|------------------:|
-| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |       57 |               33 |        -0.118468 |              -1.37197 |                15 |          0.290853 |                 0 |               nan |
+| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |       61 |               37 |        -0.112746 |              -1.15198 |                19 |          0.877187 |                 0 |               nan |
 | BONDE_ANTICIPATION_WITH_KK_CONFIRMATION    |        1 |                0 |       nan        |             nan       |                 0 |        nan        |                 0 |               nan |
 
 **Strict OOS cohort split (signal_date >= 2026-05-17; drives verdict):**
 | kk_confirmation_cohort                     |   n_rows |   n_evaluable_5d |   avg_ret_5d_all |   avg_alpha_vs_spy_5d |   n_evaluable_10d |   avg_ret_10d_all |   n_evaluable_20d |   avg_ret_20d_all |
 |:-------------------------------------------|---------:|-----------------:|-----------------:|----------------------:|------------------:|------------------:|------------------:|------------------:|
-| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |       13 |                0 |              nan |                   nan |                 0 |               nan |                 0 |               nan |
+| BONDE_ANTICIPATION_WITHOUT_KK_CONFIRMATION |       17 |                0 |              nan |                   nan |                 0 |               nan |                 0 |               nan |
 
 **KK classification audit sample:**
 | ticker   | signal_date   | kk_research_confirmation   |   kk_extend_score |   kk_leadership_score |   kk_group_strength_score | kk_low_price_for_extension   | kk_pause_too_long   | kk_risk_too_wide   | kk_weak_liquidity   | kk_too_far_from_highs   | kk_major_breakdown   | kk_late_stage_proxy   | kk_bag_holder   | kk_weak_bonde_score   |
@@ -224,6 +227,8 @@ Research-only: tests whether Bonde anticipation rows with KK leadership-quality 
 | SILA     | 2026-05-18    | False                      |           71.589  |               83.8692 |                  29.3464  | True                         | True                | False              | False               | False                   | False                | False                 | False           | False                 |
 | SILA     | 2026-05-19    | False                      |           70.9557 |               83.4916 |                  28.2179  | True                         | True                | False              | False               | False                   | False                | False                 | False           | False                 |
 | AVNS     | 2026-05-20    | False                      |           72.3139 |               92.5688 |                  14.4052  | True                         | True                | False              | False               | False                   | False                | False                 | False           | False                 |
+| TBRG     | 2026-05-21    | False                      |           72.0825 |               89.3302 |                   7.44879 | True                         | True                | False              | False               | False                   | False                | False                 | False           | False                 |
+| AVNS     | 2026-05-21    | False                      |           71.7059 |               92.2271 |                  13.2879  | True                         | True                | False              | False               | False                   | False                | False                 | False           | False                 |
 
 **KK confirmed cohort rows plus unconfirmed sample:**
 | ticker   | signal_date   | kk_research_confirmation   | kk_confirmation_cohort                     | kk_base_source                | source_kk_file                         | _kk_trade_key   |   _kk_duplicate_key_count | kept_for_hypothesis   |   kk_extend_score |   kk_low_price_for_extension |   kk_pause_too_long |
@@ -258,16 +263,16 @@ Rows in this section remain `REJECT` in the decision log. This is an observation
 _No tradeability-review rows found. Shadow candidates exist, but they are context-only because trigger and/or invalidation is missing._
 
 ## 11. Council resolver status
-- Council/disagreement resolver rows: **19**
+- Council/disagreement resolver rows: **21**
 | outcome_status   |   rows |
 |:-----------------|-------:|
-| PENDING          |     19 |
+| PENDING          |     21 |
 
 | ticker   | setup_family   | council_verdict   | outcome_status   | outcome_class   | council_outcome_alignment   | resolution_notes                                                  |
 |:---------|:---------------|:------------------|:-----------------|:----------------|:----------------------------|:------------------------------------------------------------------|
-| PGNY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=2 |
-| DBX      | ACTIVE_BURST   | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=2 |
-| SEZL     | DELAYED_EP     | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=2 |
+| PGNY     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=3 |
+| DBX      | ACTIVE_BURST   | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=3 |
+| SEZL     | DELAYED_EP     | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=3 |
 | LOCO     | DELAYED_EP     | DEFER             | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 | SEZL     | DELAYED_EP     | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
 | CLSK     | SLINGSHOT      | CANCEL            | PENDING          | PENDING         | PENDING                     | OUTCOME_PENDING_INSUFFICIENT_FUTURE_BARS: available_future_bars=0 |
@@ -280,8 +285,8 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 
 
 **Council resolver determinism audit (v4.13.61+ source-priority + round-aware):**
-- Raw Council resolver rows loaded: **21.0**
-- Rows after latest-run dedup: **19.0**
+- Raw Council resolver rows loaded: **23.0**
+- Rows after latest-run dedup: **21.0**
 - Latest source per ticker:
 | ticker   | signal_date   | setup_family   | council_verdict   | source_file                                       |   source_priority |   run_round |
 |:---------|:--------------|:---------------|:------------------|:--------------------------------------------------|------------------:|------------:|
@@ -302,14 +307,15 @@ _No tradeability-review rows found. Shadow candidates exist, but they are contex
 | TTMI     | 2026-05-19    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
 | ALAB     | 2026-05-19    | ACTIVE_BURST   | DEFER             | council_disagreements_2026-05-20.csv              |               100 |           0 |
 | RLAY     | 2026-05-19    | EP_ACTIVE      | CANCEL            | council_disagreements_2026-05-20.csv              |               100 |           0 |
+| AAP      | 2026-05-21    | EP_ACTIVE      | DEFER             | council_disagreements_2026-05-22.csv              |               100 |           0 |
+| GFS      | 2026-05-21    | EP_ACTIVE      | DEFER             | council_disagreements_2026-05-22.csv              |               100 |           0 |
 | WRBY     | 2026-05-15    | DELAYED_EP     | DEFER             | council_disagreements_2026-05-15-spir-wrby-r4.csv |               100 |           4 |
-| SPIR     | 2026-05-15    | SLINGSHOT      | CANCEL            | council_disagreements_2026-05-15-spir-wrby-r4.csv |               100 |           4 |
 
 
 ## 12. Day-1 shape diagnostics
 Compact executive view. Full coverage/verdict tables remain in the Day-1 audit CSV/markdown outputs.
 - Source-capable coverage minimum: **100.0%**
-- All-row coverage minimum, legacy rows included: **26.8%**
+- All-row coverage minimum, legacy rows included: **28.4%**
 - Source-capable field statuses:
 | field                   |   coverage_pct | status   |
 |:------------------------|---------------:|:---------|
@@ -325,16 +331,16 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 
 ## 13. SLINGSHOT diagnostics / evaluability audit
 - Status: **detected but evaluability-gated**. Measurement only; no SLINGSHOT rule-change evidence yet.
-- Rows: **729**; full-plan proxy rows: **508**; rows with ≥5 future bars: **106**; OK-evaluable rows: **3**.
+- Rows: **881**; full-plan proxy rows: **660**; rows with ≥5 future bars: **219**; OK-evaluable rows: **3**.
 - DECISION_LOG rows target/R:R enriched inside learning loop from universe planning fields: **99**
-- Entry-source classification (v4.13.73): **CAPTURED_AT_TRIGGER=508** (verdict-eligible pool, gated on T+5 maturity); BACKFILLED_FROM_SIGNAL_CLOSE=178 (robustness panel only, excluded from verdict); MISSING_ENTRY_UNRECOVERABLE=43 (excluded).
-- Latest pack health: `2026-05-20` **254/254** rows CAPTURED_AT_TRIGGER (entry capture healthy).
+- Entry-source classification (v4.13.73): **CAPTURED_AT_TRIGGER=660** (verdict-eligible pool, gated on T+5 maturity); BACKFILLED_FROM_SIGNAL_CLOSE=178 (robustness panel only, excluded from verdict); MISSING_ENTRY_UNRECOVERABLE=43 (excluded).
+- Latest pack health: `2026-05-21` **152/152** rows CAPTURED_AT_TRIGGER (entry capture healthy).
 - Top missing/evaluability reasons:
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
-| NO_PRICE_DATA            |    288 |
+| NO_PRICE_DATA            |    431 |
+| INSUFFICIENT_FUTURE_BARS |    226 |
 | MISSING_ENTRY            |    221 |
-| INSUFFICIENT_FUTURE_BARS |    217 |
 | OK_EVALUABLE             |      3 |
 
 - Full detail retained in: `slingshot_evaluability_audit_latest.md/csv`, `slingshot_scope_price_diagnostics_latest.md`, `slingshot_hygiene_diagnostics_latest.md`, and the corresponding summary CSVs.
@@ -343,38 +349,38 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 
 ## 14. Sugar Babies overlay
 - Status: **monitoring-only context overlay, not a trade signal.**
-- Current read: Sugar Baby=True candidates show -0.01% avg T+5 versus -1.79% for non-Sugar Baby candidates (evaluated n=1620 vs 914).
+- Current read: Sugar Baby=True candidates show -0.04% avg T+5 versus -1.49% for non-Sugar Baby candidates (evaluated n=1828 vs 1076).
 - Interpretation: Sugar Babies currently has broader sample support than EP9M for a future `ranking_context_score` contribution, but still needs out-of-sample / mature-week validation before any non-zero boost.
-- Sugar Babies ticker lookup rows: **421**
+- Sugar Babies ticker lookup rows: **426**
 ### Sugar Baby vs non-Sugar Baby
 | row_level   | slice_name      | slice_value   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:------------|:----------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| candidate   | sugar_baby_flag | True          |     2593 |                1620 |          -0.00720517 |               42.2222 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_flag | True          |     2330 |                1455 |           0.101208   |               42.4742 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | sugar_baby_flag | False         |     1632 |                 914 |          -1.78526    |               40.372  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_flag | False         |     1415 |                 794 |          -1.69265    |               40.1763 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| candidate   | sugar_baby_flag | True          |     2796 |                1828 |            -0.039988 |               42.6696 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_flag | True          |     2491 |                1633 |             0.096597 |               42.9884 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| candidate   | sugar_baby_flag | False         |     1790 |                1076 |            -1.49436  |               41.3569 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_flag | False         |     1558 |                 932 |            -1.4326   |               40.8798 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 ### Recurrence buckets
 | row_level   | slice_name             | slice_value   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:------------|:-----------------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | sugar_baby_runs_bucket | 0             |     1415 |                 794 |            -1.69265  |               40.1763 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 1             |      179 |                 130 |            -1.61767  |               38.4615 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 2-3           |      217 |                 134 |            -0.243946 |               39.5522 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 4-7           |      304 |                 188 |             0.993659 |               47.3404 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 8+            |     1630 |                1003 |             0.202826 |               42.4726 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 0             |     1558 |                 932 |           -1.4326    |               40.8798 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 1             |      193 |                 138 |           -1.59785   |               38.4058 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 2-3           |      229 |                 145 |            0.23249   |               42.7586 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 4-7           |      301 |                 203 |           -0.0696611 |               43.8424 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ticker      | sugar_baby_runs_bucket | 8+            |     1768 |                1147 |            0.312708  |               43.4176 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 ### Setup-family × Sugar Baby=True
 | setup_family   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:---------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| EP9M           |     2103 |                1308 |           -0.0401398 |               41.9725 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ACTIVE_BURST   |      171 |                 125 |            0.451312  |               41.6    | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| EP_SPIKE       |      106 |                  88 |           -1.29196   |               40.9091 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| EP_ACTIVE      |       59 |                  43 |            0.4395    |               39.5349 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| PAUSE          |       71 |                  35 |            2.75313   |               62.8571 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| DELAYED_EP     |       15 |                  11 |           -3.8476    |               36.3636 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| SLINGSHOT      |       63 |                   8 |            3.74069   |               37.5    | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| PRE_BURST      |        2 |                   2 |           -2.37558   |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ANTICIPATION   |        3 |                   0 |          nan         |              nan      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP9M           |     2235 |                1465 |           0.00641653 |               42.5939 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ACTIVE_BURST   |      189 |                 144 |           0.462215   |               40.9722 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP_SPIKE       |      117 |                 102 |          -2.49939    |               38.2353 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP_ACTIVE      |       65 |                  48 |           0.918183   |               43.75   | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| PAUSE          |       76 |                  38 |           2.56849    |               65.7895 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| SLINGSHOT      |       92 |                  18 |           0.626686   |               38.8889 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| DELAYED_EP     |       15 |                  11 |          -3.8476     |               36.3636 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| PRE_BURST      |        4 |                   2 |          -2.37558    |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ANTICIPATION   |        3 |                   0 |         nan          |              nan      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 - Council context export: `latest_sugar_babies_context.md` + `latest_sugar_babies_ticker_context.csv`.
 
@@ -427,7 +433,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 |:-----------|:------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | P1         | Realized-P&L correlation check                        | Once n_with_realized_r >= 30, compare realized R by setup_family/action_label/final_trade_status against learning-loop forward-return expectancy. This is the key bridge between signal quality and actual trading quality.                             |
 | P1         | A1/A2 executable-signal health check                  | Confirm A1 count, A2 routing, and whether zero clean TRADE rows is intended strictness or over-routing.                                                                                                                                                 |
-| P1         | Confirm zero-TRADE root cause                         | Post-2026-05-15 rows have zero TRADE rows (n=152). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                                                                                                                        |
+| P1         | Confirm zero-TRADE root cause                         | Post-2026-05-15 rows have zero TRADE rows (n=172). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                                                                                                                        |
 | P1         | Investigate reject/watch and B/C/D inversion          | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.                                                                                                            |
 | P1         | Track pre-registered rule-change hypotheses           | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, H_PAUSE_BC_INVERT, and H_KK_CONFIRMATION daily with OOS and realized-R gates before any rule patch.                                                                                   |
 | P1         | Accumulate KK confirmation cohorts                    | Keep H_KK_CONFIRMATION unchanged until n>=30 confirmed and n>=30 unconfirmed rows have mature T+5 outcomes.                                                                                                                                             |
@@ -436,10 +442,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 | P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                            |
 
 ### Resolved since last run
-| priority   | item                            | why                                                                                                                                                                                             |
-|:-----------|:--------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| P1         | Fix SLINGSHOT evaluability path | SLINGSHOT detection is alive but zero rows are OK-evaluable. Use `slingshot_evaluability_audit_latest.md` to fix missing entry/stop/target/R:R/outcome fields before drawing setup conclusions. |
-
+- None auto-detected.
 - Persistent queue files: `investigation_queue_latest.csv`, `investigation_queue_history_latest.csv`
 
 ## 17. Open caveats / next actions
