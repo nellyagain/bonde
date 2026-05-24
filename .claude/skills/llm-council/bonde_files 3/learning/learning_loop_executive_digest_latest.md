@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-24
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-24 02:04 UTC_
+_Run timestamp: 2026-05-24 03:31 UTC_
 _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
@@ -12,10 +12,10 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-22 06:20 UTC → 2026-05-24 02:04 UTC
-- Prior digest date: **2026-05-22**
+## 2. Changed since last run — 2026-05-24 02:04 UTC → 2026-05-24 03:31 UTC
+- Prior digest date: **2026-05-24**
 - Current digest date: **2026-05-24**
-- Comparison window: **2026-05-22 → 2026-05-24**
+- Comparison window: **2026-05-24 → 2026-05-24**
 
 ### Pipeline changes
 - SLINGSHOT decision-log target/R:R backfilled inside the learning loop: **151** rows.
@@ -57,9 +57,9 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 | TRADE                |      1 |
 
 ### Corpus reconciliation
-- Candidate decision-log files discovered: **19**
+- Candidate decision-log files discovered: **20**
 - Included decision-log files: **13**
-- Excluded decision-log files: **6** (6 duplicate/lower-score files)
+- Excluded decision-log files: **7** (7 duplicate/lower-score files)
 - Raw included rows → normalized rows → master rows: **1,020 → 995 → 971**
 - Rows removed by final master de-duplication: **24**
 - EP9M setup-family rows raw included → master: **0 → 0**
@@ -72,7 +72,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
 3. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable.
 4. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 2 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
-5. Corpus reconciliation is now active: 6 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
+5. Corpus reconciliation is now active: 7 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 6. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
 ## 5. Key findings from current data
@@ -446,10 +446,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 | P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                             |
 
 ### Resolved since last run
-| priority   | item                          | why                                                                                                                              |
-|:-----------|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| P1         | Confirm zero-TRADE root cause | Post-2026-05-15 rows have zero TRADE rows (n=172). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH. |
-
+- None auto-detected.
 - Persistent queue files: `investigation_queue_latest.csv`, `investigation_queue_history_latest.csv`
 
 ## 17. Open caveats / next actions
