@@ -1,4 +1,4 @@
-# SLINGSHOT Scope / Stage / Price Diagnostics — 2026-05-24
+# SLINGSHOT Scope / Stage / Price Diagnostics — 2026-05-25
 
 Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-permission logic changed.
 
