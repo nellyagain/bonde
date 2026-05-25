@@ -1,133 +1,77 @@
-# Active Learning Context
+# ACTIVE LEARNING CONTEXT
 
-Generated: 2026-05-25
-Status: AUTO_GENERATED_FROM_LEARNING_LOOP
+Generated: 2026-05-15T16:24:48.053128+08:00
+Source file: /content/drive/MyDrive/bonde_learning/reports/bonde_learned_patterns.md
+Source effective date: 2026-05-07
+Status: CURRENT
+Instruction: Treat this file as the current learning context. Do not treat archived reports as current unless explicitly asked.
 
-## Current learning state
+---
 
-- Use weekly cohort reports for rule-change evidence.
-- Do not change rules from immature T+5/T+10/T+20 data.
-- Council rows remain calibration data only until outcome resolution matures.
+# Bonde Learned Patterns
 
-## Executive digest excerpt
+Generated: 2026-05-07
 
-# Bonde Learning Loop Executive Digest — 2026-05-25
+## Status
 
-_Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-25 05:15 UTC_
-_Notebook: v4.13.74 (digest surfaces entry-source classification)_
+No ACTIVE learned patterns yet.
 
-## 1. Today's required action
-1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
-2. **Wait for SLINGSHOT future bars.** Earliest T+5 maturity: **2026-05-22**. (§13)
-3. **Watch A1/A2 zero-TRADE issue.** Confirm whether A1 is intentionally rare or unreachable and whether clean A1/A2 rows are over-routed. (§6)
-4. **Track KK confirmation.** H_KK_CONFIRMATION is now pre-registered and measurement-only; do not hard-gate Bonde rows from KK yet. (§9)
-5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
-6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **0**. (§15)
+## Current operating rule
 
-## 2. Changed since last run — 2026-05-25 04:48 UTC → 2026-05-25 05:15 UTC
-- Prior digest date: **2026-05-25**
-- Current digest date: **2026-05-25**
-- Comparison window: **2026-05-25 → 2026-05-25**
+No learned-pattern overrides are active until evidence is mature and repeated.
 
-### Pipeline changes
-- SLINGSHOT decision-log target/R:R backfill: no new backfilled rows detected in this run.
-- Tiny-geometry hygiene audit active: no tiny-geometry rows flagged.
-- Dedup diagnostics active: **5** raw full-plan+price rows → **3** unique ticker-date rows.
-- Backfill source attribution simplified to `slingshot_backfill_source` enum.
-- KK confirmation research layer added: `H_KK_CONFIRMATION` computes cohorts in the learning loop without changing upstream signals.
+The Bonde/Stockbee actionability skill and LLM council should treat this file as a null-pattern file:
 
-### Data changes
-- No new hypothesis verdicts crossed a rule-change threshold.
-- No Day-1 shape verdicts crossed threshold.
-- Realized P&L remains sample-immature: `n_with_realized_r` = **0**.
+- Do not apply any learned-pattern promotion.
+- Do not apply any learned-pattern demotion.
+- Leave `learned_pattern_matches` blank or use `NONE`.
+- Do not change trading rules from immature cohorts.
 
-### Open follow-ups carried forward
-- ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
-- Float-precision drift in tiny-geometry flags across sources: known, low materiality; use tolerance-aware comparisons.
-- SLINGSHOT `OK_EVALUABLE` rows remain 0 until future bars mature.
+## Evidence state
 
-## 3. Operational status
-- Master decision-log rows: **715**
-- Decision-log source files: **6**
-- Latest decision-log sources: `daily_decision_log_2026-05-07.csv`, `daily_decision_log_2026-05-09.csv`, `daily_decision_log_2026-05-12.csv`, `daily_decision_log_2026-05-13.csv`, `sample_daily_decision_log.csv`
-- 2026-05-15 decision log ingested: **NO**
+Current learning-loop evidence is still immature.
 
-### final_trade_status distribution
-| final_trade_status   |   rows |
-|:---------------------|-------:|
-| WATCH                |    587 |
-| REJECT               |     97 |
-| COUNCIL              |     30 |
-| TRADE                |      1 |
+Use the following files for monitoring only when available:
 
-### Post-V5.9.19 distribution check
-| final_trade_status   |   rows |
-|:---------------------|-------:|
-| COUNCIL              |      2 |
-| WATCH                |      1 |
-| REJECT               |      1 |
+- `weekly_learning_report_*.md`
+- `skill_pack_performance_report_v410.md`
+- `weekly_cohort_summary_v410.csv`
+- `actionability_performance_summary_v410.csv`
+- `setup_family_performance_summary_v410.csv`
+- `decision_log_join_diagnostics_v410.csv`
 
-### Corpus reconciliation
-- Candidate decision-log files discovered: **8**
-- Included decision-log files: **7**
-- Excluded decision-log files: **1** (1 duplicate/lower-score files)
-- Raw included rows → normalized rows → master rows: **764 → 739 → 715**
-- Rows removed by final master de-duplication: **24**
-- EP9M setup-family rows raw included → master: **0 → 0**
-- File-level audit: `decision_log_discovery_audit_latest.md`
-- Scope note: row-count drift versus prior digests should be interpreted through the file-level audit before drawing setup-performance conclusions.
+## Rule-change policy
 
-## 4. Executive interpretation
-Current loop status: **operationally healthy, evidence still immature**. This digest is monitoring context, not rule-change permission.
-1. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
-2. Post-2026-05-15 rows have zero TRADE rows (n=4). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.
-3. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable. Post-V5.9.19 rows have zero TRADE rows. Confirm whether clean A1/A2 rows are being over-routed to COUNCIL/WATCH.
-4. Corpus reconciliation is now active: 1 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
-5. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
+A pattern may become ACTIVE only when all are true:
 
-## 5. Key findings from current data
-### Setup-family summary
-| setup_family   |   n_rows |   n_evaluable_5d | confidence_5d     |   pct_triggered |   win_rate_5d_trig |   avg_ret_5d_trig |
-|:---------------|---------:|-----------------:|:------------------|----------------:|-------------------:|------------------:|
-| ACTIVE_BURST   |       96 |               96 | ACTIONABLE_SAMPLE |         94.7917 |            34.0659 |        -1.23472   |
-| PAUSE          |       47 |               44 | ACTIONABLE_SAMPLE |         95.7447 |            47.619  |         1.04069   |
-| SLINGSHOT      |       41 |               41 | ACTIONABLE_SAMPLE |        100      |            26.8293 |        -2.44218   |
-| EP_ACTIVE      |       33 |               33 | ACTIONABLE_SAMPLE |         90.9091 |            46.6667 |        -0.728472  |
-| DELAYED_EP     |       17 |               17 | BUILDING_SAMPLE   |         94.1176 |            62.5    |        -0.37617   |
-| ANTICIPATION   |        8 |                8 | LOW_SAMPLE        |        100      |            50      |        -0.0866923 |
-| MOMENTUM_BURST |        1 |                1 | LOW_SAMPLE        |          0      |           nan      |       nan         |
-| PRE_BURST      |        1 |                1 | LOW_SAMPLE        |          0      |           nan      |       nan         |
+1. The relevant cohort is mature.
+2. The effect repeats across multiple cohorts.
+3. Sample size is sufficient for the setup family / blocker type.
+4. The proposed rule change does not violate hard-risk rules.
+5. The user explicitly approves incorporating the pattern into the playbook.
 
-### Actionability slices to monitor
-**Best current slices (monitoring only):**
-| setup_family   | review_bucket   | action_label   | final_trade_status   |   n_rows |   n_evaluable_5d | confidence_5d     |   win_rate_5d_trig |   avg_ret_5d_trig |
-|:---------------|:----------------|:---------------|:---------------------|---------:|-----------------:|:------------------|-------------------:|------------------:|
-| PAUSE          | WATCH_ONLY      | C              | WATCH                |       20 |               18 | BUILDING_SAMPLE   |            66.6667 |          2.77643  |
-| ACTIVE_BURST   | ACTIONABLE      | A2             | COUNCIL              |        6 |                6 | LOW_SAMPLE        |            50      |          1.25906  |
-| ACTIVE_BURST   | WATCH_ONLY      | B              | WATCH                |       22 |               22 | ACTIONABLE_SAMPLE |            40      |          1.1819   |
-| ACTIVE_BURST   | WATCH_ONLY      | B              | COUNCIL              |        5 |                5 | LOW_SAMPLE        |            25      |          0.210662 |
-| PAUSE          | WATCH_ONLY      | B              | WATCH                |       27 |               26 | ACTIONABLE_SAMPLE |            33.3333 |         -0.261113 |
-| ANTICIPATION   | WATCH_ONLY      | C              | WATCH                |        5 |                5 | LOW_SAMPLE        |            60      |         -0.268804 |
-| DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |        8 |                8 | LOW_SAMPLE        |            62.5    |         -0.7628   |
-| SLINGSHOT      | WATCH_ONLY      | C              | WATCH                |       34 |               34 | ACTIONABLE_SAMPLE |            29.4118 |         -1.89033  |
+## Hard-risk rules cannot be overridden by learned patterns
 
-**Weak current slices (monitoring only):**
-| setup_family   | review_bucket   | action_label   | final_trade_status   |   n_rows |   n_evaluable_5d | confidence_5d     |   win_rate_5d_trig |   avg_ret_5d_trig |
-|:---------------|:----------------|:---------------|:---------------------|---------:|-----------------:|:------------------|-------------------:|------------------:|
-| SLINGSHOT      | REJECT          | D              | REJECT               |        5 |                5 | LOW_SAMPLE        |             0      |         -7.81828  |
-| EP_ACTIVE      | WATCH_ONLY      | B              | COUNCIL              |        7 |                7 | LOW_SAMPLE        |            40      |         -6.22877  |
-| ACTIVE_BURST   | WATCH_ONLY      | C              | WATCH                |       24 |               24 | ACTIONABLE_SAMPLE |            29.1667 |         -2.56178  |
-| EP_ACTIVE      | WATCH_ONLY      | C              | WATCH                |       15 |               15 | BUILDING_SAMPLE   |            46.6667 |         -2.17819  |
-| ACTIVE_BURST   | REJECT          | D              | REJECT               |       38 |               38 | ACTIONABLE_SAMPLE |            34.2105 |         -2.11297  |
-| SLINGSHOT      | WATCH_ONLY      | C              | WATCH                |       34 |               34 | ACTIONABLE_SAMPLE |            29.4118 |         -1.89033  |
-| DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |        8 |                8 | LOW_SAMPLE        |            62.5    |         -0.7628   |
-| ANTICIPATION   | WATCH_ONLY      | C              | WATCH                |        5 |                5 | LOW_SAMPLE        |            60      |         -0.268804 |
+Do not override:
 
+- Bag-holder / overhead-supply hard rejection.
+- Failed EP hard rejection.
+- DTE UNKNOWN non-promotion.
+- Imminent earnings hard reject unless the main playbook formally adds a tactical exception.
+- Dilution / offering hard reject.
+- Deal-pinned / merger-arb hard reject.
+- Severe extension without reset.
+- EP_SPIKE overriding bag-holder.
+- A1/A2 without valid trigger, invalidation, and R:R.
 
-## 6. A1 / A2 executable-signal health
-Purpose: check whether the actionability layer is producing true executable candidates or routing everything to council/watch.
-### A1/A2 count and routing check
-| scope          | action_label   | final_trade_status   | setup_family   |   n_rows |
-|:---------------|:---------------|:---------------------|:---------------|---------:|
-| ALL_ROWS       | A1             | TRADE                | ACTIVE_BURST   |        1 |
+## Pattern table
+
+| pattern_id | status | setup_family | condition | action | evidence_summary | first_seen | last_reviewed |
+|---|---|---|---|---|---|---|---|
+| NONE | INACTIVE | ALL | No mature repeated evidence yet | No learned-pattern action | Current cohorts immature; monitor only | 2026-05-07 | 2026-05-07 |
+
+## Notes for Claude / Council
+
+If this file is uploaded or present in `bonde_files/latest_context/`, explicitly state:
+
+“Loaded `bonde_learned_patterns.md`: no ACTIVE learned patterns. Proceeding with base V5.9.x rules only.”
