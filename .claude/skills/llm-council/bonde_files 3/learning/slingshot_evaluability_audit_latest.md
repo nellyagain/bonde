@@ -1,4 +1,4 @@
-# SLINGSHOT Evaluability Audit — 2026-05-24
+# SLINGSHOT Evaluability Audit — 2026-05-25
 
 Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permission logic changed.
 
