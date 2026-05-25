@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-25
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-25 06:17 UTC_
+_Run timestamp: 2026-05-25 06:36 UTC_
 _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
@@ -12,7 +12,7 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-25 04:20 UTC → 2026-05-25 06:17 UTC
+## 2. Changed since last run — 2026-05-25 06:17 UTC → 2026-05-25 06:36 UTC
 - Prior digest date: **2026-05-25**
 - Current digest date: **2026-05-25**
 - Comparison window: **2026-05-25 → 2026-05-25**
@@ -56,9 +56,9 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 | REJECT               |      9 |
 
 ### Corpus reconciliation
-- Candidate decision-log files discovered: **19**
+- Candidate decision-log files discovered: **20**
 - Included decision-log files: **13**
-- Excluded decision-log files: **6** (6 duplicate/lower-score files)
+- Excluded decision-log files: **7** (7 duplicate/lower-score files)
 - Raw included rows → normalized rows → master rows: **974 → 949 → 925**
 - Rows removed by final master de-duplication: **24**
 - EP9M setup-family rows raw included → master: **0 → 0**
@@ -72,7 +72,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 3. Post-2026-05-15 rows have zero TRADE rows (n=195). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.
 4. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable. Post-V5.9.19 rows have zero TRADE rows. Confirm whether clean A1/A2 rows are being over-routed to COUNCIL/WATCH.
 5. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 2 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
-6. Corpus reconciliation is now active: 6 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
+6. Corpus reconciliation is now active: 7 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 7. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
 ## 5. Key findings from current data
@@ -431,15 +431,13 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 
 ## 16. Investigation queue
 ### New this run
-| priority   | item                          | why                                                                                                                              |
-|:-----------|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| P1         | Confirm zero-TRADE root cause | Post-2026-05-15 rows have zero TRADE rows (n=195). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH. |
-
+- None auto-detected.
 ### Carried forward
 | priority   | item                                                  | why                                                                                                                                                                                                                                                      |
 |:-----------|:------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | P1         | Realized-P&L correlation check                        | Once n_with_realized_r >= 30, compare realized R by setup_family/action_label/final_trade_status against learning-loop forward-return expectancy. This is the key bridge between signal quality and actual trading quality.                              |
 | P1         | A1/A2 executable-signal health check                  | Confirm A1 count, A2 routing, and whether zero clean TRADE rows is intended strictness or over-routing.                                                                                                                                                  |
+| P1         | Confirm zero-TRADE root cause                         | Post-2026-05-15 rows have zero TRADE rows (n=195). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH.                                                                                                                         |
 | P1         | Investigate reject/watch and B/C/D inversion          | Lower labels are outperforming higher labels in at least one ACTIONABLE_SAMPLE family; investigate gates before adding new ranking overlays.                                                                                                             |
 | P1         | Track pre-registered rule-change hypotheses           | Monitor H_ACTIVE_BURST_GATE6_SOFTEN, H_EP_ACTIVE_COUNCIL_TIGHTEN, H_PAUSE_BC_INVERT, and H_KK_CONFIRMATION daily with OOS and realized-R gates before any rule patch.                                                                                    |
 | P1         | Accumulate KK confirmation cohorts                    | Keep H_KK_CONFIRMATION unchanged until n>=30 confirmed and n>=30 unconfirmed rows have mature T+5 outcomes.                                                                                                                                              |
