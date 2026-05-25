@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-25
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-25 06:36 UTC_
+_Run timestamp: 2026-05-25 07:31 UTC_
 _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
@@ -12,7 +12,7 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 
-## 2. Changed since last run — 2026-05-25 06:17 UTC → 2026-05-25 06:36 UTC
+## 2. Changed since last run — 2026-05-25 06:36 UTC → 2026-05-25 07:31 UTC
 - Prior digest date: **2026-05-25**
 - Current digest date: **2026-05-25**
 - Comparison window: **2026-05-25 → 2026-05-25**
@@ -575,36 +575,3 @@ Rows immature / no-data: 156
 - Join failures (NO_MATCH): 918
 - Rows missing trigger_price: 774
 - Rows missing invalidation_price: 766
-
-## Rule-Readiness Summary
-
-_Run date: 2026-05-25_  
-_Source: DISK:rule_readiness_monitor_latest.csv_  
-_Monitor rows: 3_
-
-Rule-Readiness is diagnostic only. It does not change trading rules, position sizing, the actionability skill, the council skill, or the dashboard.
-
-SOURCE_MISSING and REQUIRED_COLUMNS_MISSING rows are tracked for transparency but do not count as independent evidence windows.
-
-A rule should not be changed until the relevant candidate reaches RULE_REVIEW_READY and is manually reviewed.
-
-### Ready for Rule Review
-
-_None yet._
-
-### Candidate Hypotheses
-
-| candidate_rule_id | rule_module | setup_family | spread_t5 | trimmed_spread_t5 | n_smaller_bucket | independent_windows_observed | recommended_action |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| H_EP_ACTIVE_FADE_RISK | MB_EXIT | EP_ACTIVE_vs_ACTIVE_BURST | 6.4252 | 7.0577 | 35 | 1 | ADD_TO_DIGEST |
-| H_MB_EXIT_DAY3_FILTER | MB_EXIT | ALL_APPLICABLE | 12.1047 | 11.3070 | 31 | 1 | ADD_TO_DIGEST |
-
-### Soft Cautions
-
-| candidate_rule_id | rule_module | n_smaller_bucket | spread_t5 | recommended_action |
-| --- | --- | --- | --- | --- |
-| H_ACTIVE_BURST_MB_EXIT | MB_EXIT | 23 | 12.2317 | MANUAL_REVIEW_ONLY |
-
-### Source / Evidence Gaps
-
-_None._
