@@ -1,4 +1,4 @@
-# Hypothesis Tracker — 2026-05-24
+# Hypothesis Tracker — 2026-05-25
 
 Status: PRE-REGISTERED_MONITORING_ONLY. These are investigation slots, not roadmap commitments.
 
