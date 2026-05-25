@@ -1,7 +1,7 @@
 # Council Context Manifest
 
 Generated: 2026-05-25
-Packet date: 2026-05-23
+Packet date: 2026-05-14
 Target folder: `bonde_files 3/`
 
 Use this package as the current council context bundle. Do not scan stale root-level dated files as current context.
@@ -14,15 +14,12 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current daily packet
 
-- `bonde_skill_pack_2026-05-15.csv` — LOADED
-- `council_queue_2026-05-23.csv` — LOADED
-- `daily_decision_log_2026-05-23.csv` — LOADED
+- `council_queue_2026-05-14.csv` — LOADED
 
 ## Active context files
 
 - `latest_candidate_context.md` — LOADED — candidate context
 - `latest_learning_context.md` — LOADED — learning context
-- `latest_market_context.md` — LOADED — market context
 - `latest_sugar_babies_context.md` — LOADED — Sugar Babies overlay context
 - `latest_sugar_babies_ticker_context.csv` — LOADED — Sugar Babies overlay context
 
@@ -32,7 +29,6 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `active_burst_gate6_observational_watchlist_latest.md` — LOADED
 - `active_burst_gate6_observational_watchlist_v41329.csv` — LOADED
 - `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
-- `bonde_learned_patterns.md` — LOADED
 - `broker_export_normalization_audit_latest.md` — LOADED
 - `broker_export_normalized_trades_latest.csv` — LOADED
 - `catalyst_x_family_summary_v410.csv` — LOADED
@@ -45,6 +41,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `decision_log_corpus_reconciliation_summary_latest.csv` — LOADED
 - `decision_log_discovery_audit_latest.csv` — LOADED
 - `decision_log_discovery_audit_latest.md` — LOADED
+- `hypothesis_tracker_2026-05-25.md` — LOADED
 - `hypothesis_tracker_latest.md` — LOADED
 - `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
@@ -71,11 +68,11 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `sugar_babies_overlay_report_v410.md` — LOADED
 - `sugar_babies_overlay_summary_v410.csv` — LOADED
 - `weekly_cohort_summary_v410.csv` — LOADED
-- `weekly_learning_report_2026-W21.md` — LOADED
+- `weekly_learning_report_2026-W22.md` — LOADED
 
 ## Current council candidate set
 
-MEC, MRAM, UTI, ZM
+JBHT, NVMI, WCC, WERN
 
 ## Council use rules
 
