@@ -1,6 +1,6 @@
 # Active Sugar Babies Context
 
-Generated: 2026-05-24
+Generated: 2026-05-25
 Source: `sugar_babies_overlay_summary_v410.csv` / `sugar_babies_overlay_report_v410.md`
 Status: SUGAR_BABIES_COUNCIL_CONTEXT_MONITORING_ONLY
 
