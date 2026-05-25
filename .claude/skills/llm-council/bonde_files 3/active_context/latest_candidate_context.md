@@ -1,147 +1,23 @@
-# ACTIVE CANDIDATE CONTEXT
+# Active Candidate Context
 
-Generated: 2026-05-15T16:24:48.053128+08:00
-Source file: /content/drive/MyDrive/bonde_learning/reports/learning_context_manifest.md
-Source effective date: 2026-05-07
-Status: CURRENT
-Instruction: Treat this file as the current candidate context. Do not treat archived reports as current unless explicitly asked.
+Generated: 2026-05-25
+Packet date: 2026-05-14
+Status: AUTO_GENERATED_FROM_CURRENT_PACKET
 
----
+Instruction: Use this as current candidate context. Do not use stale root-level dated files as current context.
 
-# Learning Context Manifest
+## Current council candidates
 
-Generated: 2026-05-07
+| ticker   | action_label   | primary_setup   | tier   |   trigger_price |   invalidation_price | planned_size   | decision_reason                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|:---------|:---------------|:----------------|:-------|----------------:|---------------------:|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| WCC      | A2             | delayed_ep      | WATCH  |          371.67 |               359.87 | full           | [V5.9.14 invalidation rationale]: DEP consolidation-break-day low = today_low $359.87 (RECLAIM trigger fired today, pause_high $371.67 reclaim was confirmed). [V5.9.16 DEP_vol_gate]: today_vol/prior_vol = 1.62x (PASS vs 1.2 floor). [DTE verified: 2026-07-30, DTE=53]: Q1 2026 reported Apr 30 (+$0.09 EPS beat) — confirmed clean post-earnings DEP. [V5.9 R:R floor]: target=400.00, R:R=2.40 (PASS vs 2.0 floor) — measured-move target from post-EP range + round level. Day-2 RECLAIM trigger, A-grade Q1 2026 earnings beat from 10 days ago, dual-trigger DEP (RECLAIM+TIGHT_BRK). Strong fundamentals: comp 97, sales-growth 14%, funds 887, rs_3mo 92.                                                                                                                                                                                                                                                                                                                                          |
+| JBHT     | B              | slingshot       | TAKE   |          257.16 |               235.19 | none           | [B_PLUS_DAY2_COUNCIL:C1]: [V5.9 R:R floor]: target=275.00, R:R=0.83 (FAIL vs 2.0 floor) — stop today_low $235.19 is 7.6% below entry above today_high $257.16. Wide-range fail is only blocker. [V5.9.14 invalidation rationale]: SLINGSHOT trigger-bar low = today_low $235.19. [V5.9.17 Slingshot_vol_gate]: today_vol/prior_vol = 2.42x (PASS vs 1.2 floor). [DTE verified: 2026-07-21, DTE~47]: Last earnings reported Apr 2026; next Jul 21. Slingshot flags: uptrend ✓ range_break ✓ contraction 51.3 ✓. close 88.6% range. New 52w high. Trucking sector theme (WERN/KNX/SAIA/ARCB). Strong large-cap institutional (funds 1789, comp 91, rs_3mo 85). Day-2 plan: pullback to pause_high $247.79 reclaim hold → A2 with tighter R/R.                                                                                                                                                                                                                                                                   |
+| NVMI     | B              | slingshot       | TAKE   |          565    |               506.75 | none           | [B_PLUS_DAY2_COUNCIL:C1]: [V5.9 R:R floor]: target=609.00, R:R=0.76 (FAIL vs 2.0 floor) — stop $506.75 today_low is 8.9% from entry above today_high $565; measured-move target from pause range ($53) gives target $609 but R:R = 0.76. Wide-range fail is the only blocker. [V5.9.14 invalidation rationale]: SLINGSHOT trigger-bar low = today_low $506.75 (V5.9.18 canonical Scot1and mapping). [V5.9.17 Slingshot_vol_gate]: today_vol/prior_vol = 1.26x (PASS vs 1.2 floor). [DTE verified: 2026-08-13, DTE~90]: Q1 2026 reported May 14 BEFORE market open (TODAY's signal day = earnings reaction) — record revenue $235.3M, EPS $2.33 beat $2.19, Q2 guide $2.34-$2.48 raised, $1B 2027 target reaffirmed. A-grade catalyst. Slingshot flags: uptrend ✓ range_break ✓ contraction 53.8 ✓. close 84.7% range. New 52w high. Day-2 promotion plan: pullback to pause_high $530 reclaim test, if holds → A2 with limit-pullback entry $530, stop $506.75, R = $23.25, 2R target $576.50 = R:R 2.0 PASS. |
+| WERN     | B              | slingshot       | TAKE   |           37.88 |                34.1  | none           | [B_PLUS_DAY2_COUNCIL:C1]: [V5.9 R:R floor]: target=42.00, R:R=1.09 (FAIL vs 2.0 floor) — stop today_low $34.10 is 8.2% from entry above today_high $37.88; measured-move target $42 (pause range $3.54 added to entry) gives R:R 1.09. Only blocker. [V5.9.14 invalidation rationale]: SLINGSHOT trigger-bar low = today_low $34.10. [V5.9.17 Slingshot_vol_gate]: today_vol/prior_vol = 3.52x (PASS vs 1.2 floor — strongest in sector). [DTE verified: 2026-07-28, DTE~55]: Q1 2026 reported Apr 28 (140% EPS surprise: $0.02 vs -$0.05; revenue $808.6M +14% YoY beat; FirstFleet integration ahead of schedule). A-grade catalyst. Slingshot flags: uptrend ✓ range_break ✓ contraction 51.2 ✓. close 80.7% range. New 52w high $37.87. pack delayed_ep_days_since=11 confirms April 28 post-earnings DEP-like setup. Trucking sector breakout in concert with JBHT/KNX/SAIA/ARCB. Day-2 plan: pullback to pause_high $36.86 reclaim hold → A2 promotion with tighter R/R.                                |
 
-## Purpose
+## Use rules
 
-This file tells the Bonde/Stockbee actionability skill and the LLM council which learning-loop files are current, which are optional, and which are legacy.
-
-Use this manifest to avoid relying on stale dashboard-learning-loop files.
-
-## Current live workflow
-
-Current production workflow:
-
-- Bonde actionability skill: V5.9.5
-- Learning-loop notebook lineage: v4.10 / v4.12 / v4.13 decision-loop lineage
-- Required daily inputs:
-  - `bonde_skill_pack_<SIG>.csv`
-  - `daily_decision_log_<SIG>.csv`
-- Optional daily input:
-  - `council_queue_<SIG>.csv`
-
-## Current files to use
-
-Use these files when available.
-
-### Primary learning reports
-
-- `weekly_learning_report_*.md`
-- `skill_pack_performance_report_v410.md`
-- `weekly_cohort_summary_v410.csv`
-
-### Current decision / outcome summaries
-
-- `actionability_performance_summary_v410.csv`
-- `setup_family_performance_summary_v410.csv`
-- `catalyst_x_family_summary_v410.csv`
-- `decision_outcomes_enriched_v410.csv`
-- `master_decision_log_v410.csv`
-
-### Current skill-pack universe outputs
-
-- `skill_pack_candidate_log_v410.csv`
-- `skill_pack_ticker_view_v410.csv`
-- `skill_pack_candidate_outcomes_enriched_v410.csv`
-- `skill_pack_ticker_outcomes_enriched_v410.csv`
-- `reviewed_vs_unreviewed_summary_v410.csv`
-- `skill_pack_setup_family_summary_v410.csv`
-- `skill_pack_source_type_summary_v410.csv`
-- `ep_spike_vs_active_burst_summary_v410.csv`
-- `ep_spike_origin_summary_v410.csv`
-- `ep9m_only_performance_summary_v410.csv`
-- `extension_performance_summary_v410.csv`
-- `bag_holder_performance_summary_v410.csv`
-- `skill_pack_catalyst_grade_summary_v410.csv`
-
-### Current diagnostics
-
-- `decision_log_join_diagnostics_v410.csv`
-- `stale_row_join_diagnostics_v410.csv`
-- `duplicate_audit_v410.csv`
-- `skill_pack_ingestion_report_v410.md`
-
-### Council context
-
-- `council_queue_<SIG>.csv`
-- `council-report-*.html`
-- `council-transcript-*.md`
-- `bplus_council_outcome_summary.csv` if generated later
-
-## Legacy / not current
-
-The following files are legacy unless freshly generated by the current v4.13 decision-loop notebook:
-
-- `rule_diagnostics.csv`
-- `bonde_learned_patterns.md` from the older dashboard-learning-loop lineage
-- `quality_gate_summary.csv`
-- `focus_vs_exclusion_summary.csv`
-- `master_candidate_log.csv`
-- `master_outcome_log.csv`
-- old dashboard-only `bonde_focus_list_*`, `bonde_focus_exclusions_*`, `bonde_diagnostics_*` outputs unless explicitly used in the current run
-
-## How to interpret immature evidence
-
-If a report says:
-
-- `mature_t5 = False`
-- `mature_t10 = False`
-- `mature_t20 = False`
-- `PARTIAL_OUTCOME`
-- `IMMATURE_20D`
-- `NO_RULE_CHANGE`
-- `monitoring-only`
-
-then do not change rules.
-
-The correct output is:
-
-“Learning-loop evidence is immature. No rule change recommended.”
-
-## How the council should use these files
-
-The LLM council should use current learning-loop files as a base-rate overlay only.
-
-Before voting, it should state:
-
-- Outcome data available: yes/no
-- Relevant setup-family base rate: available/not available
-- Relevant B+ blocker-type base rate: available/not available
-- Prior council promote/defer/cancel outcomes: available/not available
-- Whether the verdict is evidence-backed or playbook-only
-
-Outcome evidence must not override hard-risk rules unless the Bonde actionability skill has formally changed the rule.
-
-## How the actionability skill should use these files
-
-The Bonde actionability skill should:
-
-1. Apply active learned patterns only if `bonde_learned_patterns.md` contains ACTIVE patterns.
-2. Treat this manifest as authority on current vs legacy learning-loop files.
-3. Mention if learning files are missing or immature.
-4. Leave `learned_pattern_matches` blank or `NONE` when no active learned patterns exist.
-5. Never use stale `rule_diagnostics.csv` as current evidence.
-
-## File placement for repo context
-
-Place this file in:
-
-```text
-bonde_files/latest_context/learning_context_manifest.md
-```
-
-Place the null learned-pattern file in:
-
-```text
-bonde_files/latest_context/bonde_learned_patterns.md
-```
+- `final_trade_status` is the executable/routing field.
+- `tier` is dashboard/source context only.
+- Sugar Babies, market, and regime context are advisory only.
+- Do not override R:R, DTE, hard rejects, failed EP, bag-holder, dilution/offering, or data-quality gates.
