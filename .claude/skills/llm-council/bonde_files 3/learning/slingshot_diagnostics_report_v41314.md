@@ -4,22 +4,22 @@ Monitoring only. No trading rules, tiers, gates, or precedence rules were change
 
 ## Source
 - Source frame: `decision_outcomes`
-- Input rows: 738
-- SLINGSHOT signal rows: 42
-- Active `setup_family=SLINGSHOT` rows: 42
+- Input rows: 715
+- SLINGSHOT signal rows: 41
+- Active `setup_family=SLINGSHOT` rows: 41
 - Precedence-absorbed SLINGSHOT signal rows: 0
 
 ## Missing core columns
 - `slingshot_flag`
 
 ## Gate-observation counts
-- Range-break true: 0 / 42
-- Contraction quality ≥ 50: 0 / 42
-- Volume ratio ≥ 1.2x: 0 / 42
-- `custom_rs_rating` ≥ 70: 0 / 42
-- R:R ≥ 2: 0 / 42
-- > 8% above 21EMA: 0 / 42
-- Resolved outcomes available: 0 / 42
+- Range-break true: 0 / 41
+- Contraction quality ≥ 50: 0 / 41
+- Volume ratio ≥ 1.2x: 0 / 41
+- `custom_rs_rating` ≥ 70: 0 / 41
+- R:R ≥ 2: 0 / 41
+- > 8% above 21EMA: 0 / 41
+- Resolved outcomes available: 0 / 41
 
 ## Metric sources
 - `sg_contraction_quality`: `missing`
@@ -74,15 +74,15 @@ Monitoring only. No trading rules, tiers, gates, or precedence rules were change
 ## Bucket performance summary
 | metric              | bucket   |   n_rows |   n_resolved |   avg_realized_r |   win_rate |   avg_ret_5d_pct |   pct_range_break |   pct_rr_pass |   pct_vol_gate_pass |   pct_contraction_gate_pass |
 |:--------------------|:---------|---------:|-------------:|-----------------:|-----------:|-----------------:|------------------:|--------------:|--------------------:|----------------------------:|
-| contraction_quality | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| volume_ratio        | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| distance_from_21ema | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| risk_pct            | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| range_break         | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| custom_rs_rating    | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| rr_pass             | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| vol_gate            | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
-| contraction_gate    | MISSING  |       42 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| contraction_quality | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| volume_ratio        | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| distance_from_21ema | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| risk_pct            | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| range_break         | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| custom_rs_rating    | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| rr_pass             | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| vol_gate            | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
+| contraction_gate    | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |               nan |           nan |                 nan |                         nan |
 
 ## Interpretation discipline
 - Do not relax SLINGSHOT gates from this report alone.
