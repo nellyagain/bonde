@@ -1,7 +1,7 @@
 # Council Context Manifest
 
 Generated: 2026-05-25
-Packet date: 2026-05-14
+Packet date: 2026-05-21
 Target folder: `bonde_files 3/`
 
 Use this package as the current council context bundle. Do not scan stale root-level dated files as current context.
@@ -14,7 +14,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current daily packet
 
-- `council_queue_2026-05-14.csv` — LOADED
+- `council_queue_2026-05-21.csv` — LOADED
 
 ## Active context files
 
@@ -72,7 +72,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current council candidate set
 
-JBHT, NVMI, WCC, WERN
+KURA, ROIV
 
 ## Council use rules
 
