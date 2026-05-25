@@ -1,6 +1,6 @@
 # Council Context Manifest
 
-Generated: 2026-05-24
+Generated: 2026-05-25
 Packet date: 2026-05-23
 Target folder: `bonde_files 3/`
 
@@ -37,8 +37,8 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `broker_export_normalized_trades_latest.csv` — LOADED
 - `catalyst_x_family_summary_v410.csv` — LOADED
 - `council_disagreements_resolved.csv` — LOADED
-- `council_resolver_report_2026-05-24.md` — LOADED
-- `daily_learning_report_2026-05-24.md` — LOADED
+- `council_resolver_report_2026-05-25.md` — LOADED
+- `daily_learning_report_2026-05-25.md` — LOADED
 - `day1_shape_coverage_v413.csv` — LOADED
 - `day1_shape_verdicts_v413.csv` — LOADED
 - `decision_log_corpus_reconciliation_history.csv` — LOADED
@@ -48,7 +48,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `hypothesis_tracker_latest.md` — LOADED
 - `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
-- `learning_loop_executive_digest_2026-05-24.md` — LOADED
+- `learning_loop_executive_digest_2026-05-25.md` — LOADED
 - `learning_loop_executive_digest_latest.md` — LOADED
 - `realized_pnl_attribution_latest.md` — LOADED
 - `realized_pnl_attribution_summary_latest.csv` — LOADED
@@ -75,7 +75,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current council candidate set
 
-AOSL, EXTR, FROG, UTI, ZM
+MEC, MRAM, UTI, ZM
 
 ## Council use rules
 
