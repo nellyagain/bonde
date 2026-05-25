@@ -1,4 +1,4 @@
-# Realized P&L Attribution — 2026-05-24
+# Realized P&L Attribution — 2026-05-25
 
 _Broker-export mode. Raw IBKR CSVs are normalized; open positions are separated from closed realized P&L. Stable latest CSVs replace prior generated broker files each run._
 
