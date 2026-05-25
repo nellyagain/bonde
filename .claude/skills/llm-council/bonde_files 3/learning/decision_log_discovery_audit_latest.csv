@@ -7,4 +7,3 @@ file_path,file_name,detected_date,candidate_score,included_or_excluded,exclude_r
 /content/bonde_repo/.claude/skills/llm-council/bonde_files 3/daily_decision_log_2026-05-12.csv,daily_decision_log_2026-05-12.csv,2026-05-12,134,INCLUDED,,22,24,22.0,22,V5_9_EXPLICIT,True,False,0,0,0.0,0.0,0,
 /content/bonde_repo/.claude/skills/llm-council/bonde_files 3/daily_decision_log_2026-05-13 (2).csv,daily_decision_log_2026-05-13 (2).csv,2026-05-13,102,EXCLUDED,EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-05-13.csv,23,24,,0,NOT_LOADED,,,0,1,,,0,
 /content/bonde_repo/.claude/skills/llm-council/bonde_files 3/daily_decision_log_2026-05-13.csv,daily_decision_log_2026-05-13.csv,2026-05-13,144,INCLUDED,,62,24,62.0,62,V5_9_EXPLICIT,True,False,0,6,0.0,6.0,0,
-/content/bonde_repo/.claude/skills/llm-council/bonde_files 3/current/daily_decision_log_2026-05-23.csv,daily_decision_log_2026-05-23.csv,2026-05-23,143,INCLUDED,,23,48,23.0,23,V5_9_EXPLICIT,True,True,0,3,0.0,3.0,0,
