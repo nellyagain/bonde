@@ -1,21 +1,147 @@
-# Active Candidate Context
+# ACTIVE CANDIDATE CONTEXT
 
-Generated: 2026-05-25
-Packet date: 2026-05-21
-Status: AUTO_GENERATED_FROM_CURRENT_PACKET
+Generated: 2026-05-15T16:24:48.053128+08:00
+Source file: /content/drive/MyDrive/bonde_learning/reports/learning_context_manifest.md
+Source effective date: 2026-05-07
+Status: CURRENT
+Instruction: Treat this file as the current candidate context. Do not treat archived reports as current unless explicitly asked.
 
-Instruction: Use this as current candidate context. Do not use stale root-level dated files as current context.
+---
 
-## Current council candidates
+# Learning Context Manifest
 
-| ticker   | action_label   | primary_setup   | tier   |   trigger_price |   invalidation_price | planned_size   | decision_reason                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|:---------|:---------------|:----------------|:-------|----------------:|---------------------:|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| KURA     | B              | slingshot       | TAKE   |           10.38 |                 8.98 | none           | [V5.9.17 Slingshot_vol_gate]: ep9m_volume/prior_volume=3.78 (PASS vs 1.2 floor); [V5.9 R:R floor]: target=$12.14 (recent 52w high), R:R=1.26R (FAIL vs 2.0 floor); [B_PLUS_DAY2_COUNCIL:C1]: gates clean (vol_gate PASS 3.78x; uptrend_pass=True; range_break=True; contraction_quality=56.5 PASS; close_pct=97.1; ext_sev=none; consec_up=1; fresh trigger: today_high $10.38 > pause_high $9.99) but R:R against $12.14 52w-high target is 1.26R; even MM pack-target $11.22 gives 0.60R; [DTE verified: 2026-07-30, DTE~70, valid] — Q1 reported 2026-05-12 with KOMET-007 EHA data; today's +15.4% on 3.78x is delayed post-EP continuation Day 6; council Q: does Day-2 gap-and-hold above $10.50 with $9.68 (Day-1 midpoint) holding through first 30 min produce R:R=2.51R against $12.14, OR does Day-2 pullback to $9.80-10.00 with reclaim of $10.38 (stop new Day-2 low ~$9.50) produce R:R=4.28R?                                                                                                                                    |
-| ROIV     | B              | slingshot       | WATCH  |           32.79 |                29.35 | none           | [V5.9.17 Slingshot_vol_gate]: ep9m_volume/prior_volume=4.05 (PASS vs 1.2 floor); [V5.9.20 EP9M_context]: type=EP9M_PLUS_REAL_SETUP; primary=slingshot; boost=0; [V5.9 R:R floor]: target=$35.00 (next $5 round resistance above new ATH), R:R=0.64R (FAIL vs 2.0 floor); [B_PLUS_DAY2_COUNCIL:C1]: gates clean (vol_gate PASS 4.05x; uptrend_pass=True; range_break=True; contraction_quality=68.7 PASS; close_pct=88.9; ext_sev=none; consec_up=1) but Day-1 R:R fails against defensible target — risk $3.44 (10.5% from entry) too wide for clean A2 against $35 resistance; pack's slingshot_target=$39.68 was EVAL_2R_FALLBACK (tautological per V5.9 forbidden); [DTE verified: 2026-08, DTE>60, valid] — Q4 FY26 reported 2026-05-20 BMO (signal-date catalyst); council Q: does Day-2 confirmation entry above $33 (stop above $31.07 Day-1 midpoint, target $40 measured-move extension) produce R:R>=2.0, OR does Day-2 pullback entry to $30.00-30.50 with reclaim of $32.79 (stop new Day-2 low, target $35 round) produce R:R>=2.0? |
+Generated: 2026-05-07
 
-## Use rules
+## Purpose
 
-- `final_trade_status` is the executable/routing field.
-- `tier` is dashboard/source context only.
-- Sugar Babies, market, and regime context are advisory only.
-- Do not override R:R, DTE, hard rejects, failed EP, bag-holder, dilution/offering, or data-quality gates.
+This file tells the Bonde/Stockbee actionability skill and the LLM council which learning-loop files are current, which are optional, and which are legacy.
+
+Use this manifest to avoid relying on stale dashboard-learning-loop files.
+
+## Current live workflow
+
+Current production workflow:
+
+- Bonde actionability skill: V5.9.5
+- Learning-loop notebook lineage: v4.10 / v4.12 / v4.13 decision-loop lineage
+- Required daily inputs:
+  - `bonde_skill_pack_<SIG>.csv`
+  - `daily_decision_log_<SIG>.csv`
+- Optional daily input:
+  - `council_queue_<SIG>.csv`
+
+## Current files to use
+
+Use these files when available.
+
+### Primary learning reports
+
+- `weekly_learning_report_*.md`
+- `skill_pack_performance_report_v410.md`
+- `weekly_cohort_summary_v410.csv`
+
+### Current decision / outcome summaries
+
+- `actionability_performance_summary_v410.csv`
+- `setup_family_performance_summary_v410.csv`
+- `catalyst_x_family_summary_v410.csv`
+- `decision_outcomes_enriched_v410.csv`
+- `master_decision_log_v410.csv`
+
+### Current skill-pack universe outputs
+
+- `skill_pack_candidate_log_v410.csv`
+- `skill_pack_ticker_view_v410.csv`
+- `skill_pack_candidate_outcomes_enriched_v410.csv`
+- `skill_pack_ticker_outcomes_enriched_v410.csv`
+- `reviewed_vs_unreviewed_summary_v410.csv`
+- `skill_pack_setup_family_summary_v410.csv`
+- `skill_pack_source_type_summary_v410.csv`
+- `ep_spike_vs_active_burst_summary_v410.csv`
+- `ep_spike_origin_summary_v410.csv`
+- `ep9m_only_performance_summary_v410.csv`
+- `extension_performance_summary_v410.csv`
+- `bag_holder_performance_summary_v410.csv`
+- `skill_pack_catalyst_grade_summary_v410.csv`
+
+### Current diagnostics
+
+- `decision_log_join_diagnostics_v410.csv`
+- `stale_row_join_diagnostics_v410.csv`
+- `duplicate_audit_v410.csv`
+- `skill_pack_ingestion_report_v410.md`
+
+### Council context
+
+- `council_queue_<SIG>.csv`
+- `council-report-*.html`
+- `council-transcript-*.md`
+- `bplus_council_outcome_summary.csv` if generated later
+
+## Legacy / not current
+
+The following files are legacy unless freshly generated by the current v4.13 decision-loop notebook:
+
+- `rule_diagnostics.csv`
+- `bonde_learned_patterns.md` from the older dashboard-learning-loop lineage
+- `quality_gate_summary.csv`
+- `focus_vs_exclusion_summary.csv`
+- `master_candidate_log.csv`
+- `master_outcome_log.csv`
+- old dashboard-only `bonde_focus_list_*`, `bonde_focus_exclusions_*`, `bonde_diagnostics_*` outputs unless explicitly used in the current run
+
+## How to interpret immature evidence
+
+If a report says:
+
+- `mature_t5 = False`
+- `mature_t10 = False`
+- `mature_t20 = False`
+- `PARTIAL_OUTCOME`
+- `IMMATURE_20D`
+- `NO_RULE_CHANGE`
+- `monitoring-only`
+
+then do not change rules.
+
+The correct output is:
+
+“Learning-loop evidence is immature. No rule change recommended.”
+
+## How the council should use these files
+
+The LLM council should use current learning-loop files as a base-rate overlay only.
+
+Before voting, it should state:
+
+- Outcome data available: yes/no
+- Relevant setup-family base rate: available/not available
+- Relevant B+ blocker-type base rate: available/not available
+- Prior council promote/defer/cancel outcomes: available/not available
+- Whether the verdict is evidence-backed or playbook-only
+
+Outcome evidence must not override hard-risk rules unless the Bonde actionability skill has formally changed the rule.
+
+## How the actionability skill should use these files
+
+The Bonde actionability skill should:
+
+1. Apply active learned patterns only if `bonde_learned_patterns.md` contains ACTIVE patterns.
+2. Treat this manifest as authority on current vs legacy learning-loop files.
+3. Mention if learning files are missing or immature.
+4. Leave `learned_pattern_matches` blank or `NONE` when no active learned patterns exist.
+5. Never use stale `rule_diagnostics.csv` as current evidence.
+
+## File placement for repo context
+
+Place this file in:
+
+```text
+bonde_files/latest_context/learning_context_manifest.md
+```
+
+Place the null learned-pattern file in:
+
+```text
+bonde_files/latest_context/bonde_learned_patterns.md
+```
