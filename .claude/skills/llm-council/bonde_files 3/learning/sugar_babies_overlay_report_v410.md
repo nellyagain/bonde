@@ -17,7 +17,7 @@ _v4.13.3 additive context overlay. This is monitoring only, not rule evidence._
 | `ticker_rows_matched` | 0 |
 | `candidate_rows_loaded` | 0 |
 | `candidate_rows_matched` | 0 |
-| `decision_rows_loaded` | 738 |
+| `decision_rows_loaded` | 715 |
 | `decision_rows_matched` | 0 |
 | `outputs_written` | /content/drive/MyDrive/bonde_screener_cache/learning_outputs/decision_outcomes_sugar_enriched_v410.csv |
 
