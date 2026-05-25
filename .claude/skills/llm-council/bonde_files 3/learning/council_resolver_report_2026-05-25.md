@@ -13,21 +13,22 @@
 - `LOSER`: 0
 - `AMBIGUOUS`: 0
 - `NEVER_TRIGGERED`: 0
-- `PENDING`: 0
-- `NOT_APPLICABLE`: 21
+- `PENDING`: 19
+- `NOT_APPLICABLE`: 2
 
 ## Council outcome alignment breakdown
 
 - `ALIGNED`: 0
 - `MISALIGNED`: 0
 - `NEUTRAL`: 0
-- `PENDING`: 0
-- `NOT_APPLICABLE`: 21
+- `PENDING`: 19
+- `NOT_APPLICABLE`: 2
 - `UNKNOWN`: 0
 
 ## Classification method breakdown (v4.13.13)
 
-- `NOT_CLASSIFIED_NO_TRIGGER_PRICE`: 21
+- `NOT_CLASSIFIED_NO_TRIGGER_PRICE`: 2
+- `NOT_CLASSIFIED_PENDING`: 19
 
 ## Calibration status
 
