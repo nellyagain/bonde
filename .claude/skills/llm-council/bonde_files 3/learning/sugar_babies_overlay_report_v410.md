@@ -1,4 +1,4 @@
-# Sugar Babies Overlay Report — 2026-05-24
+# Sugar Babies Overlay Report — 2026-05-25
 
 _v4.13.3 additive context overlay. This is monitoring only, not rule evidence._
 
