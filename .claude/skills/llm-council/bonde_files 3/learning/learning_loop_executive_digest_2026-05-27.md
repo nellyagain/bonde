@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-27
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-27 11:43 UTC_
+_Run timestamp: 2026-05-27 12:17 UTC_
 _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
@@ -13,7 +13,7 @@ _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
 7. **No rule-readiness item is ready.** Monitor candidates: none. Soft cautions: none — manual-review-only. (§RR)
 
-## 2. Changed since last run — 2026-05-27 11:22 UTC → 2026-05-27 11:43 UTC
+## 2. Changed since last run — 2026-05-27 11:43 UTC → 2026-05-27 12:17 UTC
 Changed since last run: same-run-date prior snapshot detected; comparison suppressed. Showing current status only.
 
 ### Current pipeline status
