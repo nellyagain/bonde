@@ -19,3 +19,4 @@ file_path,file_name,detected_date,candidate_score,included_or_excluded,exclude_r
 /content/drive/MyDrive/bonde_learning/_inbox/daily_decision_log_2026-05-22.csv,daily_decision_log_2026-05-22.csv,2026-05-22,137,INCLUDED,,20,29,20.0,20,V5_9_EXPLICIT,True,True,0,1,0.0,1.0,0,
 /content/bonde_repo/.claude/skills/llm-council/bonde_files 3/current/daily_decision_log_2026-05-23.csv,daily_decision_log_2026-05-23.csv,2026-05-23,143,EXCLUDED,EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-05-23.csv,23,48,,0,NOT_LOADED,,,0,3,,,0,
 /content/drive/MyDrive/bonde_learning/_inbox/daily_decision_log_2026-05-23.csv,daily_decision_log_2026-05-23.csv,2026-05-23,143,INCLUDED,,23,48,23.0,23,V5_9_EXPLICIT,True,True,0,3,0.0,3.0,0,
+/content/drive/MyDrive/bonde_learning/_inbox/daily_decision_log_2026-05-27.csv,daily_decision_log_2026-05-27.csv,2026-05-27,170,INCLUDED,,173,48,173.0,173,V5_9_EXPLICIT,True,True,0,12,0.0,12.0,0,
