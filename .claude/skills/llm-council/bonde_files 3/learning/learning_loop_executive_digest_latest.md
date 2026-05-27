@@ -1,38 +1,40 @@
 # Bonde Learning Loop Executive Digest — 2026-05-27
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-27 07:36 UTC_
+_Run timestamp: 2026-05-27 10:50 UTC_
 _Notebook: v4.13.74 (digest surfaces entry-source classification)_
 
 ## 1. Today's required action
-1. **No rule changes.** (§9 hypothesis tracker / verdict gates — all monitoring-only, no SUPPORTED verdicts)
-2. **Wait for SLINGSHOT future bars.** Earliest T+5 maturity: **2026-05-22**. (§13)
-3. **Watch A1/A2 zero-TRADE issue.** Confirm whether A1 is intentionally rare or unreachable and whether clean A1/A2 rows are over-routed. (§6)
-4. **Track KK confirmation.** H_KK_CONFIRMATION is now pre-registered and measurement-only; do not hard-gate Bonde rows from KK yet. (§9)
+1. **No automatic rule changes.** Any READY/SUPPORTED item from the rule-readiness monitor still requires manual review before patching. (§9 hypothesis tracker / verdict gates)
+2. **Review first SLINGSHOT OK-evaluable cohort under H_SLINGSHOT_TARGET_BASIS; no rule change yet.** OK_EVALUABLE rows: **189**; rows ≥5 future bars: **428**; unique full-plan+price ticker-date rows: **245**. (§13)
+3. **A1 remains absent; TRADE path is now alive.** Monitor whether A1 is intentionally rare or unreachable. Post-V5.9.19 TRADE rows: **9**; A1 rows: **0**; A2 rows: **13**. (§6)
+4. **Track KK confirmation.** H_KK_CONFIRMATION is alive, low sample (n=48), measurement-only; do not hard-gate Bonde rows from KK yet. (§9)
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
+7. **No rule-readiness item is ready.** Monitor candidates: none. Soft cautions: none — manual-review-only. (§RR)
 
-## 2. Changed since last run — 2026-05-25 09:34 UTC → 2026-05-27 07:36 UTC
-- Prior digest date: **2026-05-25**
-- Current digest date: **2026-05-27**
-- Comparison window: **2026-05-25 → 2026-05-27**
+## 2. Changed since last run — 2026-05-27 07:36 UTC → 2026-05-27 10:50 UTC
+Changed since last run: prior metrics unavailable; showing current status only.
 
-### Pipeline changes
-- SLINGSHOT decision-log target/R:R backfilled inside the learning loop: **229** rows.
-- Tiny-geometry hygiene audit added / active: **39** rows flagged.
-- Dedup diagnostics active: **534** raw full-plan+price rows → **245** unique ticker-date rows.
-- Backfill source attribution simplified to `slingshot_backfill_source` enum.
-- KK confirmation research layer added: `H_KK_CONFIRMATION` computes cohorts in the learning loop without changing upstream signals.
+### Current pipeline status
+- SLINGSHOT decision-log target/R:R backfilled rows: **229**.
+- Tiny-geometry hygiene flagged rows: **39**.
+- Dedup diagnostics: **534** raw full-plan+price rows → **245** unique ticker-date rows.
+- SLINGSHOT current state: **OK_EVALUABLE rows = 189** (non-zero; H_SLINGSHOT_TARGET_BASIS measurement live). Rows ≥5 future bars: 428.
 
-### Data changes
-- No new hypothesis verdicts crossed a rule-change threshold.
-- No Day-1 shape verdicts crossed threshold.
-- Realized P&L remains sample-immature: `n_with_realized_r` = **2**.
+### Current trading-state
+- Post-V5.9.19 TRADE rows: **9**; A1: **0**; A2: **13**. TRADE path is alive.
+- KK confirmation: alive, sample n=48, measurement-only.
+- KK funnel audit (`kk_gate_funnel_latest.*`): not present.
+- PAUSE reconciliation: main tracker = **WATCHING_NOT_RULE_EVIDENCE**; diagnostic = **REJECTED / NOT_CONFIRMED**.
+- Realized P&L: `n_with_realized_r` = **2** (threshold 30).
+
+### Rule-readiness state
+- No READY/SUPPORTED, no candidates, no soft cautions.
 
 ### Open follow-ups carried forward
 - ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
 - Float-precision drift in tiny-geometry flags across sources: known, low materiality; use tolerance-aware comparisons.
-- SLINGSHOT `OK_EVALUABLE` rows remain 0 until future bars mature.
 
 ## 3. Operational status
 - Master decision-log rows: **1,098**
@@ -211,6 +213,17 @@ These gates are binding review criteria. A rule patch should not ship unless its
 | H_SLINGSHOT_TARGET_BASIS       | Measure SLINGSHOT_PRIMARY full-plan unique ticker-date rows for R:R>=2.0 and later T+5 expectancy after evaluability gates pass.                                     | RISK_ON_HIGH     | 534 raw full-plan+price rows; 245 unique full-plan+price ticker-date rows; 94 unique OK_EVALUABLE ticker-date rows.   | unique_ok_evaluable_ticker_date_rows >= 30 and at least 10 OOS rows after 2026-05-22.                                                                | Starts 2026-05-22                               | When unique OK_EVALUABLE ticker-date rows reach n>=30.                                                                | >=40% of SLINGSHOT_PRIMARY full-plan unique ticker-date rows clear V5.9 R:R floor >= 2.0.                              | R:R>=2.0 pass rate >=40% and T+5 expectancy is not worse than ACTIVE_BURST baseline.                                                                         | R:R>=2.0 pass rate <30% or T+5 expectancy materially underperforms ACTIVE_BURST.                     | R:R pass rate is 30–40% or expectancy is positive but under-sampled.                                                                                     | Keep SLINGSHOT measurement path live; consider later context/ranking overlay only after 100+ unique OK_EVALUABLE rows.                | Do not promote SLINGSHOT; review target-basis and detection criteria.               |
 | H_SUGAR_BABIES_CONTEXT_OVERLAY | Compare Sugar Baby=True vs False rows by mature T+5, then require OOS and family-level confirmation before any ranking-context boost.                                | RISK_ON_HIGH     | Sugar Baby=True candidates show 0.93% avg T+5 versus -1.04% for non-Sugar Baby candidates (evaluated n=2188 vs 1251). | OOS >= 100 evaluated Sugar=True and >= 100 Sugar=False rows, plus at least two setup families with n>=30.                                            | Next mature weekly cohorts after current digest | When OOS rows and family spread requirements are met.                                                                 | Sugar=True retains >= +1.0% avg T+5 spread over Sugar=False without worsening win-rate materially.                     | OOS avg spread >= +1.0% and at least two families have non-negative confirmation.                                                                            | OOS spread < +0.25% or driven by one family only.                                                    | OOS spread +0.25% to +1.0% or family split is mixed.                                                                                                     | Draft Sugar Babies ranking_context_score proposal; cannot override R:R, DTE, hard rejects, failed EP, dilution/offering, or bad data. | Keep Sugar Babies as monitoring-only context.                                       |
 | H_REALIZED_PNL_CORRELATION     | Compare actual broker realized R/P&L against system setup/action/final-status slices once n_with_realized_r >= 30.                                                   | RISK_ON_HIGH     | 2 realized-R rows; threshold not met.                                                                                 | n_with_realized_r >= 30 total, then >=10 per major setup/action slice before slice-level claims.                                                     | Broker-export rows as they arrive               | When realized-R count reaches n>=30.                                                                                  | Layer 5 realized-R selection should outperform raw WATCH/COUNCIL forward-return expectancy on comparable setup slices. | Realized R is positive overall and aligns with the strongest forward-return slices.                                                                          | Realized R is negative despite positive forward-return slices, implying execution/selection failure. | Positive P&L but too concentrated in one trade or mismatch between broker rows and system rows.                                                          | Use realized-R weighting in weekly system review; do not change signal rules solely from P&L.                                         | Prioritize execution/selection review before signal-rule changes.                   |
+
+### PAUSE reconciliation (v4.14.06)
+- Main tracker status: **WATCHING_NOT_RULE_EVIDENCE**.
+- PAUSE diagnostic status: **REJECTED / NOT_CONFIRMED**.
+- Interpretation: PAUSE B/C inversion remains tracked in the broad hypothesis table, but current PAUSE diagnostic evidence does not confirm a rule-change-ready inversion.
+
+### KK summary (v4.14.06)
+- KK confirmation: alive, low sample (n=48), measurement-only.
+- KK Monster / Extension: not proven; no mature rows or required columns missing.
+- No KK hard gate or ranking change authorized.
+- KK funnel audit (`kk_gate_funnel_latest.*`): not present this run.
 
 ### KK confirmation study
 Research-only: tests whether Bonde anticipation rows with KK leadership-quality confirmation outperform Bonde anticipation rows without KK confirmation. This does not alter trading labels, ranking, R:R, or hard gates.
@@ -459,10 +472,7 @@ Compact executive view. Full coverage/verdict tables remain in the Day-1 audit C
 | P2         | SLINGSHOT hygiene verification                        | Before first OK_EVALUABLE rows mature, review tiny-geometry flags, duplicate ticker-date rows, and backfill-source attribution in `slingshot_hygiene_diagnostics_latest.md`.                                                                             |
 
 ### Resolved since last run
-| priority   | item                          | why                                                                                                                              |
-|:-----------|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| P1         | Confirm zero-TRADE root cause | Post-2026-05-15 rows have zero TRADE rows (n=195). Confirm whether this is intended strictness or over-routing to COUNCIL/WATCH. |
-
+- None auto-detected.
 - Persistent queue files: `investigation_queue_latest.csv`, `investigation_queue_history_latest.csv`
 
 ## 17. Open caveats / next actions
