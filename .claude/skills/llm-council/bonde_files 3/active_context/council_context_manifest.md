@@ -29,6 +29,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 ## Learning/reference files
 
 - `actionability_performance_summary_v410.csv` — LOADED
+- `active_burst_gate6_observational_watchlist_2026-05-27.md` — LOADED
 - `active_burst_gate6_observational_watchlist_latest.md` — LOADED
 - `active_burst_gate6_observational_watchlist_v41329.csv` — LOADED
 - `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
@@ -45,6 +46,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `decision_log_corpus_reconciliation_summary_latest.csv` — LOADED
 - `decision_log_discovery_audit_latest.csv` — LOADED
 - `decision_log_discovery_audit_latest.md` — LOADED
+- `hypothesis_tracker_2026-05-27.md` — LOADED
 - `hypothesis_tracker_latest.md` — LOADED
 - `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
