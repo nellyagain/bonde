@@ -3,30 +3,33 @@
 Monitoring only. No trading rules, tiers, gates, or precedence rules were changed.
 
 ## Source
-- Source frame: `skill_pack_candidate_outcomes`
-- Input rows: 5285
-- SLINGSHOT signal rows: 977
-- Active `setup_family=SLINGSHOT` rows: 774
-- Precedence-absorbed SLINGSHOT signal rows: 203
+- Source frame: `decision_outcomes`
+- Input rows: 888
+- SLINGSHOT signal rows: 170
+- Active `setup_family=SLINGSHOT` rows: 170
+- Precedence-absorbed SLINGSHOT signal rows: 0
+
+## Missing core columns
+- `slingshot_flag`
 
 ## Gate-observation counts
-- Range-break true: 396 / 977
-- Contraction quality ≥ 50: 441 / 977
-- Volume ratio ≥ 1.2x: 380 / 977
-- `custom_rs_rating` ≥ 70: 630 / 977
-- R:R ≥ 2: 317 / 977
-- > 8% above 21EMA: 300 / 977
-- Resolved outcomes available: 0 / 977
+- Range-break true: 45 / 170
+- Contraction quality ≥ 50: 62 / 170
+- Volume ratio ≥ 1.2x: 0 / 170
+- `custom_rs_rating` ≥ 70: 0 / 170
+- R:R ≥ 2: 52 / 170
+- > 8% above 21EMA: 0 / 170
+- Resolved outcomes available: 0 / 170
 
 ## Metric sources
 - `sg_contraction_quality`: `slingshot_contraction_quality`
-- `sg_volume_ratio`: `vol_ratio`
-- `sg_custom_rs_rating`: `custom_rs_rating`
-- `sg_quarterly_rs_score`: `quarterly_rs_score`
-- `sg_distance_21ema_pct`: `distance_from_21ema_pct`
-- `sg_distance_200sma_pct`: `computed_from_close_sma_200`
-- `sg_risk_pct`: `risk_pct`
-- `sg_today_pct`: `today_pct`
+- `sg_volume_ratio`: `missing`
+- `sg_custom_rs_rating`: `missing`
+- `sg_quarterly_rs_score`: `missing`
+- `sg_distance_21ema_pct`: `missing`
+- `sg_distance_200sma_pct`: `missing`
+- `sg_risk_pct`: `missing`
+- `sg_today_pct`: `day1_move_pct`
 - `sg_rr_value`: `planned_rr`
 - `sg_range_break`: `slingshot_range_break_flag`
 - `sg_ret_5d_pct`: `ret_5d_close_pct`
@@ -35,76 +38,62 @@ Monitoring only. No trading rules, tiers, gates, or precedence rules were change
 - `sg_mae_5d_r`: `missing`
 
 ## Row-level diagnostic sample
-| ticker   | signal_date   | setup_family   | sg_range_break   |   sg_contraction_quality |   sg_volume_ratio |   sg_custom_rs_rating |   sg_distance_21ema_pct |   sg_risk_pct |   sg_rr_value | sg_outcome_resolved   |   sg_realized_r |
-|:---------|:--------------|:---------------|:-----------------|-------------------------:|------------------:|----------------------:|------------------------:|--------------:|--------------:|:----------------------|----------------:|
-| UDR      | 2026-05-20    | SLINGSHOT      | True             |                  75.8082 |          0.709406 |                    27 |                3.04948  |        1.951  |      1.14864  | False                 |             nan |
-| NLCP     | 2026-05-26    | SLINGSHOT      | True             |                  75.6705 |          4.1058   |                    39 |                4.76783  |        7.5364 |      2        | False                 |             nan |
-| MRK      | 2026-05-19    | SLINGSHOT      | True             |                  75.6409 |          0.561273 |                    67 |                0.819765 |        2.5804 |      0.70707  | False                 |             nan |
-| WKC      | 2026-05-14    | SLINGSHOT      | True             |                  75.3165 |          0.962545 |                    41 |                6.52633  |      nan      |    nan        | False                 |             nan |
-| CDP      | 2026-05-21    | SLINGSHOT      | True             |                  74.5696 |          1.33224  |                    46 |                1.75993  |        3.478  |      0.575217 | False                 |             nan |
-| SHEN     | 2026-05-19    | SLINGSHOT      | True             |                  73.5563 |          1.02562  |                    81 |                3.08042  |        2.3678 |      2.22278  | False                 |             nan |
-| EPR      | 2026-05-26    | SLINGSHOT      | True             |                  71.881  |          0.708931 |                    42 |                2.88983  |        1.3304 |      1.16456  | False                 |             nan |
-| DTE      | 2026-05-22    | SLINGSHOT      | True             |                  71.8431 |          0.581559 |                    36 |                0.944113 |        1.3061 |      1.65263  | False                 |             nan |
-| TENX     | 2026-05-21    | SLINGSHOT      | True             |                  71.4525 |          0.795033 |                    83 |               -1.18026  |        6.902  |      1.18182  | False                 |             nan |
-| AVA      | 2026-05-22    | SLINGSHOT      | True             |                  70.9952 |          0.65771  |                    35 |                1.26276  |        1.6555 |      1.34783  | False                 |             nan |
-| WBD      | 2026-05-20    | SLINGSHOT      | True             |                  70.9894 |          0.801557 |                    91 |                0.897394 |        1.3484 |      0.702697 | False                 |             nan |
-| WBD      | 2026-05-20    | EP9M           | True             |                  70.9894 |          0.801557 |                    91 |                0.897394 |        1.3484 |      0.702697 | False                 |             nan |
-| IFS      | 2026-05-19    | SLINGSHOT      | True             |                  70.9804 |          1.60272  |                    58 |                2.11166  |        4.0291 |      0.644563 | False                 |             nan |
-| GTY      | 2026-05-20    | SLINGSHOT      | True             |                  70.7307 |          1.22781  |                    53 |                1.70789  |        2.9447 |      0.412055 | False                 |             nan |
-| STRA     | 2026-05-18    | SLINGSHOT      | True             |                  70.6048 |          0.838977 |                    31 |                2.23565  |        4.3761 |      1.10112  | False                 |             nan |
-| CYTK     | 2026-05-20    | SLINGSHOT      | True             |                  69.9326 |          0.911393 |                    89 |                8.6242   |        3.5642 |      1.97163  | False                 |             nan |
-| CSX      | 2026-05-14    | SLINGSHOT      | True             |                  69.6711 |          1.21252  |                    72 |                3.48956  |      nan      |    nan        | False                 |             nan |
-| CSX      | 2026-05-14    | EP9M           | True             |                  69.6711 |          1.21252  |                    72 |                3.48956  |      nan      |    nan        | False                 |             nan |
-| H        | 2026-05-20    | SLINGSHOT      | True             |                  69.6637 |          0.886654 |                    59 |                4.42163  |        6.0897 |      0.75127  | False                 |             nan |
-| SEPN     | 2026-05-14    | SLINGSHOT      | True             |                  69.5089 |          1.80142  |                    89 |               13.951    |      nan      |    nan        | False                 |             nan |
-| URI      | 2026-05-14    | SLINGSHOT      | True             |                  69.2132 |          0.651686 |                    69 |                6.61549  |      nan      |    nan        | False                 |             nan |
-| SEZL     | 2026-05-26    | SLINGSHOT      | True             |                  69.0516 |          0.765214 |                    86 |               14.1437   |        6.6008 |      1.60544  | False                 |             nan |
-| NPKI     | 2026-05-26    | SLINGSHOT      | True             |                  68.937  |          1.00917  |                    82 |                3.83402  |        2.9156 |      1.12766  | False                 |             nan |
-| ROIV     | 2026-05-20    | EP_ACTIVE      | True             |                  68.6911 |          3.09721  |                    92 |               11.8329   |       10.4978 |      2        | False                 |             nan |
-| ROIV     | 2026-05-20    | SLINGSHOT      | True             |                  68.6911 |          3.09721  |                    92 |               11.8329   |       10.4978 |      2        | False                 |             nan |
-| ROIV     | 2026-05-20    | EP9M           | True             |                  68.6911 |          3.09721  |                    92 |               11.8329   |       10.4978 |      2        | False                 |             nan |
-| EVR      | 2026-05-21    | SLINGSHOT      | True             |                  68.5177 |          0.441011 |                    75 |                3.54889  |        3.8675 |      1.53169  | False                 |             nan |
-| PEN      | 2026-05-18    | SLINGSHOT      | True             |                  68.164  |          0.735292 |                    48 |                0.276773 |        1.0935 |      0.219572 | False                 |             nan |
-| PHVS     | 2026-05-13    | SLINGSHOT      | True             |                  68.0884 |          0.86167  |                    85 |               10.7527   |      nan      |    nan        | False                 |             nan |
-| MASI     | 2026-05-18    | SLINGSHOT      | True             |                  68.0289 |          1.28137  |                    51 |                0.264313 |        0.3241 |      0.482755 | False                 |             nan |
+| ticker   | signal_date   | setup_family   | primary_setup   | sg_range_break   |   sg_contraction_quality |   sg_volume_ratio |   sg_custom_rs_rating |   sg_distance_21ema_pct |   sg_risk_pct |   sg_rr_value | sg_outcome_resolved   |   sg_realized_r |
+|:---------|:--------------|:---------------|:----------------|:-----------------|-------------------------:|------------------:|----------------------:|------------------------:|--------------:|--------------:|:----------------------|----------------:|
+| NLCP     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  75.6705 |               nan |                   nan |                     nan |           nan |        2      | False                 |             nan |
+| EPR      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  71.881  |               nan |                   nan |                     nan |           nan |        1.1646 | False                 |             nan |
+| SEZL     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  69.0516 |               nan |                   nan |                     nan |           nan |        1.6054 | False                 |             nan |
+| NPKI     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  68.937  |               nan |                   nan |                     nan |           nan |        1.1277 | False                 |             nan |
+| TDAY     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  67.3307 |               nan |                   nan |                     nan |           nan |        2.2308 | False                 |             nan |
+| ARI      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  67.2741 |               nan |                   nan |                     nan |           nan |        1.6875 | False                 |             nan |
+| PRLB     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  66.8459 |               nan |                   nan |                     nan |           nan |        0.9672 | False                 |             nan |
+| SYBT     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  66.1851 |               nan |                   nan |                     nan |           nan |        1.5161 | False                 |             nan |
+| ESE      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  65.794  |               nan |                   nan |                     nan |           nan |        2.0361 | False                 |             nan |
+| RDNW     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  65.6649 |               nan |                   nan |                     nan |           nan |        3.3333 | False                 |             nan |
+| FBLA     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  65.3278 |               nan |                   nan |                     nan |           nan |        0.0986 | False                 |             nan |
+| SENEA    | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  64.8781 |               nan |                   nan |                     nan |           nan |        1.6435 | False                 |             nan |
+| ADAM     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  64.5808 |               nan |                   nan |                     nan |           nan |        0.8095 | False                 |             nan |
+| BANC     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  63.7656 |               nan |                   nan |                     nan |           nan |        1.6452 | False                 |             nan |
+| HCC      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  62.5886 |               nan |                   nan |                     nan |           nan |        2      | False                 |             nan |
+| TTI      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  62.3543 |               nan |                   nan |                     nan |           nan |        0.7833 | False                 |             nan |
+| SRRK     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  62.265  |               nan |                   nan |                     nan |           nan |        0.2859 | False                 |             nan |
+| HR       | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  61.6665 |               nan |                   nan |                     nan |           nan |        2.4167 | False                 |             nan |
+| NSC      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  61.5306 |               nan |                   nan |                     nan |           nan |        1.5898 | False                 |             nan |
+| STT      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  59.8642 |               nan |                   nan |                     nan |           nan |        0.3191 | False                 |             nan |
+| RSVR     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  57.7278 |               nan |                   nan |                     nan |           nan |        1.6207 | False                 |             nan |
+| AS       | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  57.415  |               nan |                   nan |                     nan |           nan |        1.2981 | False                 |             nan |
+| AMR      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  57.2667 |               nan |                   nan |                     nan |           nan |        0.3876 | False                 |             nan |
+| BKU      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  55.7154 |               nan |                   nan |                     nan |           nan |        1.3253 | False                 |             nan |
+| THR      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  55.3728 |               nan |                   nan |                     nan |           nan |        0.0337 | False                 |             nan |
+| SHLS     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  55.2547 |               nan |                   nan |                     nan |           nan |        0.5177 | False                 |             nan |
+| CECO     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  54.5901 |               nan |                   nan |                     nan |           nan |        0.1142 | False                 |             nan |
+| ROG      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  54.3926 |               nan |                   nan |                     nan |           nan |        0.8304 | False                 |             nan |
+| FTV      | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  54.2673 |               nan |                   nan |                     nan |           nan |        0.7749 | False                 |             nan |
+| MSGS     | 2026-05-26    | SLINGSHOT      | slingshot       | True             |                  52.0541 |               nan |                   nan |                     nan |           nan |        0.7027 | False                 |             nan |
 
 ## Bucket performance summary
 | metric              | bucket   |   n_rows |   n_resolved |   avg_realized_r |   win_rate |   avg_ret_5d_pct |   pct_range_break |   pct_rr_pass |   pct_vol_gate_pass |   pct_contraction_gate_pass |
 |:--------------------|:---------|---------:|-------------:|-----------------:|-----------:|-----------------:|------------------:|--------------:|--------------------:|----------------------------:|
-| contraction_quality | 30-40    |      154 |            0 |              nan |        nan |            -0.8  |              26   |          46.8 |                37   |                         0   |
-| contraction_quality | 40-50    |      207 |            0 |              nan |        nan |            -0.92 |              34.3 |          40.5 |                36.2 |                         0   |
-| contraction_quality | 50-60    |      265 |            0 |              nan |        nan |             0.43 |              49.1 |          34.6 |                42.6 |                       100   |
-| contraction_quality | <30      |      175 |            0 |              nan |        nan |            -1.34 |              29.1 |          49.6 |                44   |                         0   |
-| contraction_quality | >=60     |      176 |            0 |              nan |        nan |             0.2  |              59.1 |          31.6 |                33   |                       100   |
-| volume_ratio        | 0.8-1.0x |      170 |            0 |              nan |        nan |            -0.38 |              30.6 |          40.4 |                 0   |                        44.1 |
-| volume_ratio        | 1.0-1.2x |      105 |            0 |              nan |        nan |             0.78 |              29.5 |          45.5 |                 0   |                        39   |
-| volume_ratio        | <0.8x    |      322 |            0 |              nan |        nan |            -0.44 |              25.8 |          42.4 |                 0   |                        47.8 |
-| volume_ratio        | >=1.2x   |      380 |            0 |              nan |        nan |            -0.66 |              60.5 |          34.8 |               100   |                        45   |
-| distance_from_21ema | 3-5%     |      137 |            0 |              nan |        nan |            -1.49 |              34.3 |          33.3 |                27.7 |                        48.9 |
-| distance_from_21ema | 5-8%     |      138 |            0 |              nan |        nan |             0.46 |              47.8 |          42   |                47.1 |                        42.8 |
-| distance_from_21ema | 8-12%    |      120 |            0 |              nan |        nan |            -3.49 |              52.5 |          52.5 |                58.3 |                        48.3 |
-| distance_from_21ema | <=3%     |      402 |            0 |              nan |        nan |             1.22 |              21.6 |          37   |                16.9 |                        47.8 |
-| distance_from_21ema | >12%     |      180 |            0 |              nan |        nan |            -1.31 |              73.9 |          43.5 |                77.2 |                        36.1 |
-| risk_pct            | 3-5%     |      232 |            0 |              nan |        nan |             0.98 |              26.7 |          31.9 |                21.1 |                        47.4 |
-| risk_pct            | 5-8%     |      167 |            0 |              nan |        nan |            -0.26 |              34.7 |          40.7 |                48.5 |                        32.9 |
-| risk_pct            | 8-12%    |       94 |            0 |              nan |        nan |             6.97 |              52.1 |          40.4 |                66   |                        31.9 |
-| risk_pct            | <=3%     |      247 |            0 |              nan |        nan |             0.81 |              32.8 |          47   |                13.4 |                        59.1 |
-| risk_pct            | >12%     |       58 |            0 |              nan |        nan |             5.12 |              75.9 |          36.2 |                87.9 |                        48.3 |
-| risk_pct            | MISSING  |      179 |            0 |              nan |        nan |            -2.02 |              57   |         nan   |                58.1 |                        40.2 |
-| range_break         | FALSE    |      581 |            0 |              nan |        nan |             0.55 |               0   |          44.6 |                25.8 |                        35.6 |
-| range_break         | TRUE     |      396 |            0 |              nan |        nan |            -1.37 |             100   |          31.3 |                58.1 |                        59.1 |
-| custom_rs_rating    | 50-70    |      221 |            0 |              nan |        nan |             0.46 |              35.7 |          32.3 |                26.7 |                        52   |
-| custom_rs_rating    | 70-90    |      359 |            0 |              nan |        nan |            -0.92 |              42.6 |          42.5 |                42.6 |                        40.7 |
-| custom_rs_rating    | <50      |      124 |            0 |              nan |        nan |             0.55 |              32.3 |          27.9 |                13.7 |                        49.2 |
-| custom_rs_rating    | >=90     |      271 |            0 |              nan |        nan |            -1.14 |              45   |          49.1 |                55   |                        43.2 |
-| custom_rs_rating    | MISSING  |        2 |            0 |              nan |        nan |             5.76 |             100   |           0   |               100   |                       100   |
-| rr_pass             | FALSE    |      481 |            0 |              nan |        nan |             2.47 |              42   |           0   |                37.4 |                        51.1 |
-| rr_pass             | MISSING  |      179 |            0 |              nan |        nan |            -2.02 |              57   |         nan   |                58.1 |                        40.2 |
-| rr_pass             | TRUE     |      317 |            0 |              nan |        nan |            -0.24 |              29   |         100   |                30.3 |                        38.8 |
-| vol_gate            | FALSE    |      597 |            0 |              nan |        nan |            -0.21 |              27.8 |          42.3 |                 0   |                        45.2 |
-| vol_gate            | TRUE     |      380 |            0 |              nan |        nan |            -0.66 |              60.5 |          34.8 |               100   |                        45   |
-| contraction_gate    | FALSE    |      536 |            0 |              nan |        nan |            -1.05 |              30.2 |          45.2 |                39   |                         0   |
-| contraction_gate    | TRUE     |      441 |            0 |              nan |        nan |             0.35 |              53.1 |          33.3 |                38.8 |                       100   |
+| contraction_quality | 30-40    |       17 |            0 |              nan |        nan |           nan    |              11.8 |          47.1 |                 nan |                         0   |
+| contraction_quality | 40-50    |       24 |            0 |              nan |        nan |           nan    |              33.3 |          41.7 |                 nan |                         0   |
+| contraction_quality | 50-60    |       35 |            0 |              nan |        nan |           nan    |              37.1 |          31.4 |                 nan |                       100   |
+| contraction_quality | <30      |       26 |            0 |              nan |        nan |           nan    |              11.5 |          53.8 |                 nan |                         0   |
+| contraction_quality | >=60     |       27 |            0 |              nan |        nan |           nan    |              70.4 |          33.3 |                 nan |                       100   |
+| contraction_quality | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |             nan   |         nan   |                 nan |                       nan   |
+| volume_ratio        | MISSING  |      170 |            0 |              nan |        nan |            -2.44 |              34.9 |          40.3 |                 nan |                        48.1 |
+| distance_from_21ema | MISSING  |      170 |            0 |              nan |        nan |            -2.44 |              34.9 |          40.3 |                 nan |                        48.1 |
+| risk_pct            | MISSING  |      170 |            0 |              nan |        nan |            -2.44 |              34.9 |          40.3 |                 nan |                        48.1 |
+| range_break         | FALSE    |       84 |            0 |              nan |        nan |           nan    |               0   |          42.9 |                 nan |                        35.7 |
+| range_break         | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |             nan   |         nan   |                 nan |                       nan   |
+| range_break         | TRUE     |       45 |            0 |              nan |        nan |           nan    |             100   |          35.6 |                 nan |                        71.1 |
+| custom_rs_rating    | MISSING  |      170 |            0 |              nan |        nan |            -2.44 |              34.9 |          40.3 |                 nan |                        48.1 |
+| rr_pass             | FALSE    |       77 |            0 |              nan |        nan |           nan    |              37.7 |           0   |                 nan |                        54.5 |
+| rr_pass             | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |             nan   |         nan   |                 nan |                       nan   |
+| rr_pass             | TRUE     |       52 |            0 |              nan |        nan |           nan    |              30.8 |         100   |                 nan |                        38.5 |
+| vol_gate            | MISSING  |      170 |            0 |              nan |        nan |            -2.44 |              34.9 |          40.3 |                 nan |                        48.1 |
+| contraction_gate    | FALSE    |       67 |            0 |              nan |        nan |           nan    |              19.4 |          47.8 |                 nan |                         0   |
+| contraction_gate    | MISSING  |       41 |            0 |              nan |        nan |            -2.44 |             nan   |         nan   |                 nan |                       nan   |
+| contraction_gate    | TRUE     |       62 |            0 |              nan |        nan |           nan    |              51.6 |          32.3 |                 nan |                       100   |
 
 ## Interpretation discipline
 - Do not relax SLINGSHOT gates from this report alone.
