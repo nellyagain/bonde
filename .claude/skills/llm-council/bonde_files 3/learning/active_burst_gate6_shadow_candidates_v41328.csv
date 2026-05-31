@@ -1,1 +1,2 @@
 shadow_hypothesis_id,shadow_label,signal_date,date,ticker,setup_family,primary_setup,action_label,final_trade_status,trigger_price,invalidation_price,ret_5d_close_pct,decision_reason
+H_ACTIVE_BURST_GATE6_SOFTEN,GATE6_ONLY_REJECT_REVIEW,2026-04-27,2026-04-27,PENG,ACTIVE_BURST,lowfloat,D,REJECT,,,11.531849834077068,LF+MB 2-stack but Sales -6 negative; range 99 extended; vol 2.06x weakest of multi-stack LFs; Q2 reported 4/1 already in stock; Barclays downgrade to Equal Weight 4/22. Reject per anti-extension and contraction discipline.
