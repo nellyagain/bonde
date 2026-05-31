@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-05-31
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-05-31 03:47 UTC_
+_Run timestamp: 2026-05-31 04:10 UTC_
 _Notebook: v4.14.11 — digest reconciliation + rule-readiness schema/zip/GitHub sync/source-selection hotfixes_
 
 ## 1. Today's required action
@@ -11,13 +11,11 @@ _Notebook: v4.14.11 — digest reconciliation + rule-readiness schema/zip/GitHub
 4. **Track KK confirmation.** H_KK_CONFIRMATION is alive, low sample (n=60), measurement-only; do not hard-gate Bonde rows from KK yet. (§9)
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **2**. (§15)
-7. **No rule-readiness item is ready.** Monitor candidates: H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER. Soft cautions: H_ACTIVE_BURST_MB_EXIT — manual-review-only. (§RR)
-   _Rule-readiness source: rule_readiness_monitor_latest.csv; ID column: candidate_rule_id; monitor rows: 3; non-observe rows: 3._
+7. **No rule-readiness item is ready.** Monitor candidates: H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER. Soft cautions: H_ACTIVE_BURST_MB_EXIT, H_PAUSE_REPEAT_STALE — manual-review-only. (§RR)
+   _Rule-readiness source: RULE_READINESS_MONITOR_V14_DF; ID column: candidate_rule_id; monitor rows: 17; non-observe rows: 4._
 
-## 2. Changed since last run — 2026-05-27 15:00 UTC → 2026-05-31 03:47 UTC
-- Prior digest date: **2026-05-27**
-- Current digest date: **2026-05-31**
-- Comparison window: **2026-05-27 → 2026-05-31**
+## 2. Changed since last run — 2026-05-31 03:47 UTC → 2026-05-31 04:10 UTC
+Changed since last run: same-run-date prior snapshot detected; comparison suppressed. Showing current status only.
 
 ### Current pipeline status
 - SLINGSHOT decision-log target/R:R backfilled rows: **289**.
@@ -33,17 +31,7 @@ _Notebook: v4.14.11 — digest reconciliation + rule-readiness schema/zip/GitHub
 - Realized P&L: `n_with_realized_r` = **2** (threshold 30).
 
 ### Rule-readiness state
-- No READY/SUPPORTED items. Candidates (2): H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER. Soft cautions (1): H_ACTIVE_BURST_MB_EXIT. Candidate/manual-review-only — no rule authorization.
-
-### Deltas vs prior run
-- SLINGSHOT OK_EVALUABLE rows: **207** (prior 189, Δ +18).
-- SLINGSHOT rows ≥5 future bars: **882** (prior 475, Δ +407).
-- Post-V5.9.19 TRADE rows: **9** (prior 9, Δ +0).
-- A1 rows: **0** (prior 0, Δ +0).
-- A2 rows: **14** (prior 13, Δ +1).
-- Rule-readiness READY/SUPPORTED ids: **0** (prior 0).
-- Rule-readiness CANDIDATE ids: **2** (prior 0); added: H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER.
-- Rule-readiness SOFT_CAUTION ids: **1** (prior 0); added: H_ACTIVE_BURST_MB_EXIT.
+- No READY/SUPPORTED items. Candidates (2): H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER. Soft cautions (2): H_ACTIVE_BURST_MB_EXIT, H_PAUSE_REPEAT_STALE. Candidate/manual-review-only — no rule authorization.
 
 ### Open follow-ups carried forward
 - ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
@@ -72,9 +60,9 @@ _Notebook: v4.14.11 — digest reconciliation + rule-readiness schema/zip/GitHub
 | TRADE                |      9 |
 
 ### Corpus reconciliation
-- Candidate decision-log files discovered: **22**
+- Candidate decision-log files discovered: **23**
 - Included decision-log files: **16**
-- Excluded decision-log files: **6** (6 duplicate/lower-score files)
+- Excluded decision-log files: **7** (7 duplicate/lower-score files)
 - Raw included rows → normalized rows → master rows: **1,323 → 1,298 → 1,274**
 - Rows removed by final master de-duplication: **24**
 - EP9M setup-family rows raw included → master: **0 → 0**
@@ -87,7 +75,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
 3. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable.
 4. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 2 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
-5. Corpus reconciliation is now active: 6 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
+5. Corpus reconciliation is now active: 7 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 6. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
 ## 5. Key findings from current data
@@ -161,7 +149,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 |:---------------|:--------------------------|:-------------------|-------:|-------:|----------:|------------------:|
 | NOT_EVALUABLE  | NOT_EVALUABLE             | NOT_EVALUABLE      |      0 |      1 |         0 |                 1 |
 
-- Latest reachability audit source: `/content/bonde_repo/bonde_screener_cache/council_queues/council_reachability_audit_2026-05-22.csv`
+- Latest reachability audit source: `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/council_reachability_audit_latest.csv`
 - Top Council demotion reasons from latest audit:
 | demotion_reason                                                                      |   rows |
 |:-------------------------------------------------------------------------------------|-------:|
@@ -615,3 +603,45 @@ Rows immature / no-data: 367
 - Join failures (NO_MATCH): 1267
 - Rows missing trigger_price: 810
 - Rows missing invalidation_price: 803
+
+## Rule-Readiness Summary
+
+_Report date: 2026-05-31_  
+_Evidence run_date: 2026-05-27_  
+_Evidence freshness: WARNING — 3 business days behind report; monitor may not have advanced (WARNING if > 1)_  
+_Source: GLOBAL:RULE_READINESS_MONITOR_V14_DF_  
+_Monitor rows: 17_
+
+Rule-Readiness is diagnostic only. It does not change trading rules, position sizing, the actionability skill, the council skill, or the dashboard.
+
+SOURCE_MISSING and REQUIRED_COLUMNS_MISSING rows are tracked for transparency but do not count as independent evidence windows.
+
+A rule should not be changed until the relevant candidate reaches RULE_REVIEW_READY and is manually reviewed.
+
+### Ready for Rule Review
+
+_None yet._
+
+### Candidate Hypotheses
+
+| candidate_rule_id | rule_module | setup_family | spread_t5 | trimmed_spread_t5 | n_smaller_bucket | independent_windows_observed | recommended_action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| H_EP_ACTIVE_FADE_RISK | MB_EXIT | EP_ACTIVE_vs_ACTIVE_BURST | 4.1222 | 5.0465 | 43 | 2 | ADD_TO_DIGEST |
+| H_MB_EXIT_DAY3_FILTER | MB_EXIT | ALL_APPLICABLE | 10.6210 | 9.9641 | 35 | 2 | ADD_TO_DIGEST |
+
+### Soft Cautions
+
+| candidate_rule_id | rule_module | n_smaller_bucket | spread_t5 | recommended_action |
+| --- | --- | --- | --- | --- |
+| H_ACTIVE_BURST_MB_EXIT | MB_EXIT | 24 | 11.8326 | MANUAL_REVIEW_ONLY |
+| H_PAUSE_REPEAT_STALE | PAUSE | 24 | 1.7675 | MANUAL_REVIEW_ONLY |
+
+### Source / Evidence Gaps
+
+| candidate_rule_id | rule_module | data_quality_warning | independent_windows_observed |
+| --- | --- | --- | --- |
+| H_REGIME_AGGRESSIVE_SUPPORTS_TAKE | REGIME | SOURCE_MISSING | 0 |
+| H_REGIME_DEFENSIVE_FILTERS_TAKE | REGIME | SOURCE_MISSING | 0 |
+| H_SLINGSHOT_VOLUME_BASIS_VALUE | SLINGSHOT | REQUIRED_COLUMNS_MISSING:ep9m_vol_ratio_50|vol_ratio_50|rel_vol_50 | 0 |
+| H_KK_MONSTER_VALUE | KK_OVERLAY | REQUIRED_COLUMNS_MISSING:no_mature_kk_rows | 0 |
+| H_KK_EXTENSION_RISK | KK_OVERLAY | REQUIRED_COLUMNS_MISSING:no_mature_kk_rows | 0 |
