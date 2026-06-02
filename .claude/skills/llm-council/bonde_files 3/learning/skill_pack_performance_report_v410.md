@@ -1,122 +1,76 @@
-# Skill-Pack Performance Report — 2026-05-31
+# Skill-Pack Performance Report — 2026-06-02
 
 _v4.11 Session 2 patch. Outcome evaluation + slice-based performance summaries on skill-pack candidates and tickers. Cohort-aware confidence labels (Cell 20). No rule-change recommendations; no learned-pattern refresh._
 
 ## Summary
 
-- Candidate-level rows evaluated: **5,935**
-- Ticker-level rows evaluated: **5,216**
-- Reviewed (joined to decision log): **1,175**
-- Unreviewed: **4,041**
-- Signal date range: **2026-04-24** → **2026-05-29**
-- Latest cohort_end (ISO Sunday of latest signal_date): **2026-05-31**
-- Cohort age (days since cohort_end): **0**
+- Candidate-level rows evaluated: **0**
+- Ticker-level rows evaluated: **0**
+- Reviewed (joined to decision log): **0**
+- Unreviewed: **0**
+- Signal date range: **(none)** → **(none)**
+- Latest cohort_end (ISO Sunday of latest signal_date): **(none)**
+- Cohort age (days since cohort_end): **nan**
 - Cohort maturity: t5=False · t10=False · t20=False
 
 ### Outcome status (ticker-level)
 
-- EVALUATED_FULL: **2**
-- EVALUATED_PARTIAL: **4901**
-- PENDING_NO_FUTURE_BARS: **313**
+- EVALUATED_FULL: **0**
+- EVALUATED_PARTIAL: **0**
+- PENDING_NO_FUTURE_BARS: **0**
 - NO_PRICE_DATA: **0**
 
 ## A. Reviewed vs unreviewed (ticker-level)
 
 _Reviewed = decision-log-matched on `(ticker, signal_date)`. Strict join, no pack_date fallback (Session 1 design)._
 
-| decision_log_matched   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   n_with_trigger_price |   win_rate_5d_all |   avg_ret_5d_all |   win_rate_5d_trig |   avg_ret_5d_trig |
-|:-----------------------|---------:|------------------:|:------------|-----------------:|:----------------|-----------------------:|------------------:|-----------------:|-------------------:|------------------:|
-| False                  |     4041 |                 0 | False       |              nan | PARTIAL_OUTCOME |                      0 |               nan |              nan |                nan |               nan |
-| True                   |     1175 |                 0 | False       |              nan | PARTIAL_OUTCOME |                    396 |               nan |              nan |                nan |               nan |
+_No rows._
 
 ## B. Setup-family performance (candidate-level)
 
 _All observed setup_family values from the V5.4+ scanner are included; no whitelist filter applied here. The decision-log workflow's whitelist is intentionally separate._
 
-| setup_family   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   n_evaluable_20d | confidence_20d   |   win_rate_20d_all |   avg_ret_20d_all |
-|:---------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|------------------:|:-----------------|-------------------:|------------------:|
-| EP9M           |     2791 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| ACTIVE_BURST   |      940 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| SLINGSHOT      |      838 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| PAUSE          |      555 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_ACTIVE      |      320 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_SPIKE       |      251 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| DELAYED_EP     |       95 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| ANTICIPATION   |       80 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| PRE_BURST      |       49 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| DIAGNOSTICS    |       16 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
+_No rows._
 
 ## C. Source-type performance (ticker-level)
 
-| source_type   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |
-|:--------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|
-| CANDIDATE     |     2662 |                 0 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| EP9M_ONLY     |     2550 |                 0 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| REFLEXIVE     |        4 |                 7 | True        |                3 | LOW_SAMPLE      |             33.33 |           -10.65 |
+_No rows._
 
 ## D. EP_SPIKE / EP_ACTIVE / ACTIVE_BURST cohort slices (candidate-level)
 
 _Slice comparison, not paired head-to-head (per Q2 design decision). Use these confidence labels — and `n_with_trigger_price` — when interpreting differences._
 
-| setup_family   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   n_evaluable_20d | confidence_20d   |   win_rate_20d_all |   avg_ret_20d_all |
-|:---------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|------------------:|:-----------------|-------------------:|------------------:|
-| ACTIVE_BURST   |      940 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_ACTIVE      |      320 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_SPIKE       |      251 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
+_No rows._
 
 ## E. EP_SPIKE by origin_family (candidate-level)
 
 _Which precursor family produced this EP_SPIKE row?_
 
-| origin_family   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |
-|:----------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|
-| EP_ACTIVE       |      110 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| ACTIVE_BURST    |       88 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| EP9M            |       44 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| SLINGSHOT       |        9 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+_No rows._
 
 ## F. EP9M-only ticker performance (ticker-level)
 
 _Only rows where `source_type == "EP9M_ONLY"` (i.e. the ticker has only EP9M setup family in the skill pack and is not Reflexive/Thin Tape)._
 
-| primary_setup   | extended_run_flag   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   avg_mfe_5d_all |   avg_mae_5d_all |
-|:----------------|:--------------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|-----------------:|-----------------:|
-| EP9M            | False               |     2306 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
-| EP9M            | True                |      244 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+_No rows._
 
 ## G. extended_run_flag performance (ticker-level)
 
-| extended_run_flag   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   avg_mfe_5d_all |   avg_mae_5d_all |
-|:--------------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|-----------------:|-----------------:|
-| False               |     4248 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
-| True                |      968 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+_No rows._
 
 ## H. bag_holder_flag performance (ticker-level)
 
-| bag_holder_flag   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   avg_mfe_5d_all |   avg_mae_5d_all |
-|:------------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|-----------------:|-----------------:|
-| False             |     4759 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
-| True              |      457 |                 0 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+_No rows._
 
 ## I. catalyst_grade performance (ticker-level, matched only)
 
 _Filtered to rows that joined the decision log; catalyst_grade is a decision-log field._
 
-| catalyst_grade   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d     |   win_rate_5d_all |   avg_ret_5d_all |
-|:-----------------|---------:|------------------:|:------------|-----------------:|:------------------|------------------:|-----------------:|
-| UNKNOWN          |      638 |                 0 | False       |              nan | PARTIAL_OUTCOME   |             nan   |            nan   |
-| C                |      276 |                 7 | True        |              268 | ACTIONABLE_SAMPLE |              40.3 |              0.1 |
-| D                |      179 |                 0 | False       |              nan | PARTIAL_OUTCOME   |             nan   |            nan   |
-| B                |       54 |                 0 | False       |              nan | PARTIAL_OUTCOME   |             nan   |            nan   |
-| A                |       26 |                 0 | False       |              nan | PARTIAL_OUTCOME   |             nan   |            nan   |
-| UNGRADED         |        2 |                 7 | True        |                0 | PARTIAL_OUTCOME   |             nan   |            nan   |
+_No rows._
 
 ## J. Observations
 
-- Reviewed vs unreviewed comparison present but at least one cohort is not ACTIONABLE_SAMPLE (reviewed: PARTIAL_OUTCOME, unreviewed: PARTIAL_OUTCOME). Insufficient evidence; monitor only.
-- bag_holder_flag impact: at least one cohort not ACTIONABLE_SAMPLE; monitor only / immature cohort.
-- extended_run_flag impact: at least one cohort not ACTIONABLE_SAMPLE; monitor only / immature cohort.
-- EP_SPIKE vs ACTIVE_BURST: at least one cohort not ACTIONABLE_SAMPLE; monitor only.
+- No mature, ACTIONABLE_SAMPLE cohort observations available this run.
 
 ## Join Diagnostics
 
@@ -124,18 +78,18 @@ _v4.12 patch — diagnostics only. Strict `(ticker, signal_date)` join is preser
 
 **Decision-log schema:**
 
-- decision_log_rows_loaded: **1202**
-- decision_log_date_semantics: **MIXED_V5_9_AND_LEGACY**
+- decision_log_rows_loaded: **820**
+- decision_log_date_semantics: **EXPLICIT_V5_9**
 - has explicit `signal_date` column: **True**
 - has explicit `review_date` column: **True**
 
 **Join outcomes (decision-log perspective):**
 
-- decision_log_rows_matched_on_signal_date: **1175**
-- decision_log_rows_unmatched: **27**
-- unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **20**
-- unmatched_due_to_ticker_absent (ticker not in any skill pack): **7**
-- candidate_rows_with_same_ticker_but_different_date: **3304**
+- decision_log_rows_matched_on_signal_date: **0**
+- decision_log_rows_unmatched: **820**
+- unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **0**
+- unmatched_due_to_ticker_absent (ticker not in any skill pack): **820**
+- candidate_rows_with_same_ticker_but_different_date: **0**
 - decision rows with pack_date match but no signal_date match: **0**
 
 Pack-date matches are diagnostic only and are not used for attribution.
