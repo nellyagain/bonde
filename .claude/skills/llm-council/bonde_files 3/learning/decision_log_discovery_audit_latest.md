@@ -6,7 +6,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 
 | run_date   |   raw_candidate_files_discovered |   included_files |   excluded_files |   raw_rows_discovered_all_candidates |   raw_rows_included_files |   rows_after_schema_normalization_included |   master_decision_log_rows_after_dedup |   rows_removed_by_master_dedup |   excluded_duplicate_files |   included_raw_ep9m_setup_family_rows |   included_raw_ep9m_context_rows_any |   included_norm_ep9m_setup_family_rows |   included_norm_ep9m_context_rows_any |   master_ep9m_setup_family_rows |   master_ep9m_context_rows_any |
 |:-----------|---------------------------------:|-----------------:|-----------------:|-------------------------------------:|--------------------------:|-------------------------------------------:|---------------------------------------:|-------------------------------:|---------------------------:|--------------------------------------:|-------------------------------------:|---------------------------------------:|--------------------------------------:|--------------------------------:|-------------------------------:|
-| 2026-06-02 |                               23 |               17 |                6 |                                 2125 |                      1403 |                                       1378 |                                   1354 |                             24 |                          6 |                                     0 |                                  203 |                                      0 |                                   203 |                               0 |                            203 |
+| 2026-06-02 |                               24 |               17 |                7 |                                 2205 |                      1403 |                                       1378 |                                   1354 |                             24 |                          7 |                                     0 |                                  203 |                                      0 |                                   203 |                               0 |                            203 |
 
 ## Included decision-log files
 
@@ -40,6 +40,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 | daily_decision_log_2026-05-12.csv     | 2026-05-12      |              25 |               131 | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-05-12.csv |                            0 |                           0 |
 | daily_decision_log_2026-05-13 (2).csv | 2026-05-13      |              23 |               102 | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-05-13.csv |                            0 |                           1 |
 | daily_decision_log_2026-05-13.csv     | 2026-05-13      |              23 |               132 | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-05-13.csv |                            0 |                           1 |
+| daily_decision_log_2026-06-02.csv     | 2026-06-02      |              80 |               159 | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-06-02.csv |                            0 |                          11 |
 
 ## EP9M reconciliation
 
