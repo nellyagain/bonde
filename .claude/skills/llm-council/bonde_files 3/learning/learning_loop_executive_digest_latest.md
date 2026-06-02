@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-06-02
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-06-02 11:36 UTC_
+_Run timestamp: 2026-06-02 11:54 UTC_
 _Notebook: v4.14.18 — defensive Series fallbacks + source-health / Sugar bridge / Council join reporting hotfixes_
 
 ## 1. Today's required action
@@ -14,10 +14,8 @@ _Notebook: v4.14.18 — defensive Series fallbacks + source-health / Sugar bridg
 7. **No rule-readiness item is ready.** Monitor candidates: H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER. Soft cautions: H_ACTIVE_BURST_MB_EXIT — manual-review-only. (§RR)
    _Rule-readiness source: rule_readiness_monitor_latest.csv; ID column: candidate_rule_id; monitor rows: 3; non-observe rows: 3._
 
-## 2. Changed since last run — 2026-05-31 04:10 UTC → 2026-06-02 11:36 UTC
-- Prior digest date: **2026-05-31**
-- Current digest date: **2026-06-02**
-- Comparison window: **2026-05-31 → 2026-06-02**
+## 2. Changed since last run — 2026-06-02 11:36 UTC → 2026-06-02 11:54 UTC
+Changed since last run: same-run-date prior snapshot detected; comparison suppressed. Showing current status only.
 
 ### Current pipeline status
 - SLINGSHOT decision-log target/R:R backfilled rows: **343**.
@@ -34,16 +32,6 @@ _Notebook: v4.14.18 — defensive Series fallbacks + source-health / Sugar bridg
 
 ### Rule-readiness state
 - No READY/SUPPORTED items. Candidates (2): H_EP_ACTIVE_FADE_RISK, H_MB_EXIT_DAY3_FILTER. Soft cautions (1): H_ACTIVE_BURST_MB_EXIT. Candidate/manual-review-only — no rule authorization.
-
-### Deltas vs prior run
-- SLINGSHOT OK_EVALUABLE rows: **219** (prior 207, Δ +12).
-- SLINGSHOT rows ≥5 future bars: **953** (prior 882, Δ +71).
-- Post-V5.9.19 TRADE rows: **9** (prior 9, Δ +0).
-- A1 rows: **0** (prior 0, Δ +0).
-- A2 rows: **14** (prior 14, Δ +0).
-- Rule-readiness READY/SUPPORTED ids: **0** (prior 0).
-- Rule-readiness CANDIDATE ids: **2** (prior 2).
-- Rule-readiness SOFT_CAUTION ids: **1** (prior 2); removed: H_PAUSE_REPEAT_STALE.
 
 ### Open follow-ups carried forward
 - ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
@@ -72,9 +60,9 @@ _Notebook: v4.14.18 — defensive Series fallbacks + source-health / Sugar bridg
 | TRADE                |      9 |
 
 ### Corpus reconciliation
-- Candidate decision-log files discovered: **23**
+- Candidate decision-log files discovered: **24**
 - Included decision-log files: **17**
-- Excluded decision-log files: **6** (6 duplicate/lower-score files)
+- Excluded decision-log files: **7** (7 duplicate/lower-score files)
 - Raw included rows → normalized rows → master rows: **1,403 → 1,378 → 1,354**
 - Rows removed by final master de-duplication: **24**
 - EP9M setup-family rows raw included → master: **0 → 0**
@@ -87,7 +75,7 @@ Current loop status: **operationally healthy, evidence still immature**. This di
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
 3. A1/A2 executable-signal health needs direct tracking: A1 has zero post-V5.9.19 rows. Confirm whether A1 is intentionally rare or unreachable.
 4. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 2 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
-5. Corpus reconciliation is now active: 6 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
+5. Corpus reconciliation is now active: 7 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 6. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
 
 ## 5. Key findings from current data
