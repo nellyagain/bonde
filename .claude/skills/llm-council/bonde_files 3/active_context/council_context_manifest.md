@@ -1,7 +1,7 @@
 # Council Context Manifest
 
 Generated: 2026-06-02
-Packet date: 2026-05-27
+Packet date: 2026-06-02
 Target folder: `bonde_files 3/`
 
 Use this package as the current council context bundle. Do not scan stale root-level dated files as current context.
@@ -14,22 +14,25 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current daily packet
 
-- No current packet files copied.
+- `bonde_skill_pack_2026-05-15.csv` — LOADED
+- `council_queue_2026-06-02.csv` — LOADED
+- `daily_decision_log_2026-06-02.csv` — LOADED
 
 ## Active context files
 
 - `latest_candidate_context.md` — LOADED — candidate context
 - `latest_learning_context.md` — LOADED — learning context
+- `latest_market_context.md` — LOADED — market context
 - `latest_sugar_babies_context.md` — LOADED — Sugar Babies overlay context
 - `latest_sugar_babies_ticker_context.csv` — LOADED — Sugar Babies overlay context
 
 ## Learning/reference files
 
 - `actionability_performance_summary_v410.csv` — LOADED
-- `active_burst_gate6_observational_watchlist_2026-06-02.md` — LOADED
 - `active_burst_gate6_observational_watchlist_latest.md` — LOADED
 - `active_burst_gate6_observational_watchlist_v41329.csv` — LOADED
 - `active_burst_gate6_shadow_candidates_v41328.csv` — LOADED
+- `bonde_learned_patterns.md` — LOADED
 - `broker_export_normalization_audit_latest.md` — LOADED
 - `broker_export_normalized_trades_latest.csv` — LOADED
 - `catalyst_x_family_summary_v410.csv` — LOADED
