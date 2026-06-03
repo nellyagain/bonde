@@ -1,4 +1,4 @@
-# Sugar Babies Overlay Report — 2026-06-02
+# Sugar Babies Overlay Report — 2026-06-03
 
 _v4.13.3 additive context overlay. This is monitoring only, not rule evidence._
 
@@ -10,144 +10,23 @@ _v4.13.3 additive context overlay. This is monitoring only, not rule evidence._
 
 | metric | value |
 |---|---|
-| `sugar_babies_file_used` | /content/drive/MyDrive/bonde_screener_cache/sugar_babies/sugar_babies.csv |
-| `sugar_babies_source_rows` | 467 |
-| `sugar_babies_unique_tickers` | 467 |
-| `ticker_rows_loaded` | 5545 |
-| `ticker_rows_matched` | 3382 |
-| `candidate_rows_loaded` | 6320 |
-| `candidate_rows_matched` | 3819 |
-| `decision_rows_loaded` | 1354 |
-| `decision_rows_matched` | 523 |
-| `outputs_written` | /content/drive/MyDrive/bonde_screener_cache/learning_outputs/skill_pack_ticker_outcomes_sugar_enriched_v410.csv; /content/drive/MyDrive/bonde_screener_cache/learning_outputs/skill_pack_candidate_outcomes_sugar_enriched_v410.csv; /content/drive/MyDrive/bonde_screener_cache/learning_outputs/decision_outcomes_sugar_enriched_v410.csv |
+| `sugar_babies_file_used` | NONE |
+| `sugar_babies_source_rows` | 0 |
+| `sugar_babies_unique_tickers` | 0 |
+| `ticker_rows_loaded` | 0 |
+| `ticker_rows_matched` | 0 |
+| `candidate_rows_loaded` | 0 |
+| `candidate_rows_matched` | 0 |
+| `decision_rows_loaded` | 795 |
+| `decision_rows_matched` | 0 |
+| `outputs_written` | /content/drive/MyDrive/bonde_screener_cache/learning_outputs/decision_outcomes_sugar_enriched_v410.csv |
 
 - Search paths: `['/content/drive/MyDrive/bonde_screener_cache/sugar_babies', '/content/drive/MyDrive/bonde_screener_cache', '/content']`
-- Files found: `['/content/drive/MyDrive/bonde_screener_cache/sugar_babies/sugar_babies.csv']`
+- Files found: `[]`
 
 ## Summary
 
-- Summary rows: **75**
-
-- Max rows with T+1 data in any slice: **5210**
-
-- Max rows with T+3 data in any slice: **4890**
-
-- Max rows with T+5 data in any slice: **4264**
-
-- Max rows with T+10 data in any slice: **2793**
-
-- Max rows with T+20 data in any slice: **0**
-
-- Evidence use: **monitoring only; no rule changes.**
-
-## A. Sugar Baby vs non-Sugar Baby
-
-| row_level   | slice_name      | slice_value   |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:----------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| candidate   | sugar_baby_flag | True          |     3819 |                3552 |             0.596247 |               49.634  |                3310 |            1.41015   |               51.8731 |                2934 |            2.48505   |               52.6926 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_flag | True          |     3382 |                3180 |             0.545201 |               49.2767 |                2972 |            1.42871   |               52.1534 |                2638 |            2.54003   |               52.9947 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | sugar_baby_flag | False         |     2501 |                2307 |             0.198232 |               48.4179 |                2172 |            0.0719287 |               50.7366 |                1840 |            0.0320831 |               50.4891 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_flag | False         |     2163 |                2030 |             0.201457 |               48.67   |                1918 |            0.192353  |               51.4599 |                1626 |            0.197436  |               50.9225 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-
-## B. Sugar Baby recurrence buckets
-
-| row_level   | slice_name             | slice_value   |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:-----------------------|:--------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | sugar_baby_runs_bucket | 8+            |     2484 |                2349 |             0.593324 |               49.4253 |                2218 |             1.64731  |               53.156  |                1969 |             2.86181  |               53.8852 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 0             |     2163 |                2030 |             0.201457 |               48.67   |                1918 |             0.192353 |               51.4599 |                1626 |             0.197436 |               50.9225 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 4-7           |      355 |                 328 |             0.157105 |               49.0854 |                 298 |             0.71705  |               48.9933 |                 261 |             1.23669  |               49.0421 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 2-3           |      271 |                 252 |             0.968601 |               49.6032 |                 230 |             1.30193  |               50.8696 |                 204 |             2.6889   |               52.451  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | sugar_baby_runs_bucket | 1             |      272 |                 251 |             0.176904 |               47.8088 |                 226 |             0.350737 |               47.7876 |                 204 |             0.952866 |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-
-## C. Action-label × Sugar Baby
-
-| row_level   | slice_name                       | slice_value     |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:---------------------------------|:----------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | action_label__x__sugar_baby_flag | UNKNOWN | True  |     2891 |                2706 |            0.623345  |               50.0739 |                2499 |          1.56605     |               53.6214 |                2220 |             2.82002  |               55.1802 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | UNKNOWN | False |     1401 |                1336 |            0.44665   |               50.524  |                1225 |          0.610559    |               54.3673 |                1167 |             0.568213 |               52.6992 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | C | True        |      379 |                 373 |            0.0825556 |               44.504  |                 372 |          0.48291     |               43.5484 |                 341 |             0.302064 |               39.5894 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | C | False       |      326 |                 296 |           -0.430165  |               43.5811 |                 295 |         -0.863839    |               43.7288 |                 162 |            -1.4668   |               42.5926 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | B | False       |      305 |                 267 |           -0.163754  |               42.6966 |                 267 |          0.000726858 |               51.6854 |                 209 |             0.237235 |               51.6746 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | D | False       |      107 |                 107 |            0.105865  |               55.1402 |                 107 |         -0.670672    |               42.0561 |                  73 |            -1.77967  |               41.0959 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | D | True        |       39 |                  39 |            0.128699  |               46.1538 |                  39 |          0.675282    |               53.8462 |                  28 |             2.64396  |               46.4286 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | B | True        |       70 |                  59 |            0.247044  |               47.4576 |                  59 |          2.44545     |               45.7627 |                  46 |             5.9879   |               52.1739 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | A2 | False      |       22 |                  22 |           -1.15591   |               45.4545 |                  22 |         -2.5437      |               31.8182 |                  13 |            -2.28959  |               38.4615 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | A2 | True       |        2 |                   2 |           -1.57167   |                0      |                   2 |         -1.40232     |                0      |                   2 |             0.181217 |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | A1 | False      |        1 |                   1 |            1.43434   |              100      |                   1 |          3.0101      |              100      |                   1 |            -0.101009 |                0      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | B+_C1 | False   |        1 |                   1 |           -4.04797   |                0      |                   1 |          0.349824    |              100      |                   1 |             5.74712  |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | action_label__x__sugar_baby_flag | B+_C1 | True    |        1 |                   1 |           -0.278454  |                0      |                   1 |        -14.8973      |                0      |                   1 |           -12.6697   |                0      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-
-## D. Primary-setup × Sugar Baby
-
-| row_level   | slice_name                        | slice_value          |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:----------------------------------|:---------------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | primary_setup__x__sugar_baby_flag | EP9M | True          |     2693 |                2551 |           0.414454   |               48.922  |                2395 |            1.3279    |               52.0251 |                2138 |            2.39838   |               52.8064 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | ACTIVE_BURST | False |      642 |                 584 |           0.139213   |               47.774  |                 551 |           -0.0731629 |               44.2831 |                 476 |           -0.291566  |               42.2269 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | PAUSE | False        |      414 |                 394 |           0.148649   |               44.9239 |                 364 |           -0.0436981 |               51.0989 |                 321 |           -0.0663115 |               52.9595 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | ACTIVE_BURST | True  |      303 |                 268 |           0.69561    |               50.3731 |                 241 |            1.50495   |               49.7925 |                 205 |            3.49401   |               50.7317 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | SLINGSHOT | False    |      737 |                 694 |           0.243648   |               49.4236 |                 666 |            0.805475  |               59.1592 |                 532 |            1.3661    |               60.5263 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | EP_ACTIVE | False    |      131 |                 127 |           0.00800611 |               48.8189 |                 122 |           -1.38831   |               37.7049 |                 111 |           -1.55007   |               43.2432 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | EP_SPIKE | False     |       74 |                  74 |           0.521302   |               56.7568 |                  71 |           -0.345532  |               49.2958 |                  65 |           -1.49201   |               43.0769 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | EP_SPIKE | True      |       63 |                  59 |           1.36596    |               47.4576 |                  55 |           -0.352693  |               45.4545 |                  54 |           -0.646435  |               42.5926 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | PAUSE | True         |       92 |                  86 |           0.360275   |               43.0233 |                  79 |            1.07811   |               49.3671 |                  70 |            1.90537   |               58.5714 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | DELAYED_EP | False   |       77 |                  74 |           0.702299   |               56.7568 |                  67 |            1.18376   |               58.209  |                  54 |            1.43552   |               55.5556 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | EP_ACTIVE | True     |       51 |                  50 |           3.09872    |               64      |                  45 |            4.80281   |               51.1111 |                  40 |            3.52652   |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | PRE_BURST | False    |       44 |                  43 |           0.0133445  |               44.186  |                  41 |           -0.487735  |               46.3415 |                  37 |           -1.42716   |               35.1351 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | SLINGSHOT | True     |      147 |                 136 |           1.52287    |               54.4118 |                 131 |            3.09604   |               63.3588 |                 106 |            5.58097   |               64.1509 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | ANTICIPATION | False |       44 |                  40 |           0.196505   |               60      |                  36 |            0.647132  |               66.6667 |                  30 |           -0.0445272 |               53.3333 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | DELAYED_EP | True    |       23 |                  21 |           0.915104   |               42.8571 |                  19 |            0.107628  |               47.3684 |                  18 |            0.166694  |               44.4444 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | PRE_BURST | True     |        6 |                   5 |          -0.714841   |               40      |                   4 |           -0.794806  |               50      |                   4 |           -1.8571    |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | primary_setup__x__sugar_baby_flag | ANTICIPATION | True  |        4 |                   4 |           0.194353   |               50      |                   3 |            5.58084   |              100      |                   3 |            9.97179   |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-
-## E. Setup-family × Sugar Baby
-
-| row_level   | slice_name                       | slice_value          |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:---------------------------------|:---------------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| candidate   | setup_family__x__sugar_baby_flag | EP9M | True          |     2951 |                2780 |            0.496984  |               49.3165 |                2602 |            1.41463   |               52.1138 |                2318 |            2.46741   |               52.8041 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | ACTIVE_BURST | False |      717 |                 654 |            0.0709743 |               47.8593 |                 615 |           -0.325561  |               43.7398 |                 532 |           -0.456562  |               42.2932 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | PAUSE | False        |      462 |                 402 |            0.145921  |               44.7761 |                 370 |           -0.0382726 |               51.6216 |                 324 |           -0.0641099 |               53.3951 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | EP_ACTIVE | False    |      233 |                 221 |           -0.196607  |               48.8688 |                 214 |           -1.0186    |               38.3178 |                 189 |           -1.71834   |               43.3862 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | ACTIVE_BURST | True  |      322 |                 286 |            0.794864  |               51.3986 |                 258 |            1.67941   |               50      |                 218 |            3.80197   |               51.3761 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | SLINGSHOT | False    |      746 |                 702 |            0.247655  |               49.4302 |                 673 |            0.777551  |               59.1382 |                 536 |            1.36428   |               60.4478 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | EP_SPIKE | True      |      141 |                 133 |            0.963151  |               48.1203 |                 122 |           -0.356248  |               45.9016 |                 120 |           -1.20152   |               42.5    | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | EP_SPIKE | False     |      118 |                 118 |            1.41178   |               61.0169 |                 114 |           -0.09104   |               54.386  |                 102 |           -1.04081   |               46.0784 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | EP_ACTIVE | True     |      105 |                  99 |            1.40105   |               56.5657 |                  90 |            1.36366   |               43.3333 |                  75 |            2.37133   |               49.3333 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | PAUSE | True         |      120 |                  88 |            0.211245  |               43.1818 |                  81 |            0.653991  |               49.3827 |                  72 |            1.27936   |               56.9444 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | ANTICIPATION | False |       84 |                  76 |            0.0537497 |               38.1579 |                  66 |            0.268539  |               53.0303 |                  55 |           -0.0937274 |               49.0909 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | DELAYED_EP | False   |       77 |                  74 |            0.702299  |               56.7568 |                  67 |            1.18376   |               58.209  |                  54 |            1.43552   |               55.5556 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | PRE_BURST | False    |       45 |                  44 |            0.0249478 |               45.4545 |                  42 |           -0.502566  |               45.2381 |                  38 |           -1.35762   |               36.8421 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | SLINGSHOT | True     |      147 |                 136 |            1.52287   |               54.4118 |                 131 |            3.09604   |               63.3588 |                 106 |            5.58097   |               64.1509 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | DELAYED_EP | True    |       23 |                  21 |            0.915104  |               42.8571 |                  19 |            0.107628  |               47.3684 |                  18 |            0.166694  |               44.4444 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | DIAGNOSTICS | False  |       19 |                  16 |           -0.118897  |               37.5    |                  11 |           -0.0228375 |               63.6364 |                  10 |            0.159586  |               70      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | PRE_BURST | True     |        6 |                   5 |           -0.714841  |               40      |                   4 |           -0.794806  |               50      |                   4 |           -1.8571    |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| candidate   | setup_family__x__sugar_baby_flag | ANTICIPATION | True  |        4 |                   4 |            0.194353  |               50      |                   3 |            5.58084   |              100      |                   3 |            9.97179   |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-
-## F. B+ blocker × Sugar Baby
-
-| row_level   | slice_name                             | slice_value           |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:---------------------------------------|:----------------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | NOT_BPLUS | True      |     3373 |                3171 |             0.550171 |               49.322  |                2963 |             1.45117  |               52.3118 |                2629 |             2.56407  |               53.1    | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | NOT_BPLUS | False     |     2148 |                2015 |             0.205346 |               48.6849 |                1903 |             0.208205 |               51.5502 |                1611 |             0.203542 |               51.0242 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | C1 | False            |        7 |                   7 |            -0.192447 |               42.8571 |                   7 |            -2.05379  |               57.1429 |                   7 |            -1.83841  |               42.8571 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | BPLUS_UNKNOWN | False |        5 |                   5 |            -0.984624 |               40      |                   5 |            -3.16698  |                0      |                   5 |            -2.83395  |               20      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | C1 | True             |        6 |                   6 |            -1.17854  |               33.3333 |                   6 |            -6.78039  |                0      |                   6 |            -4.95357  |               16.6667 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | C3 | False            |        3 |                   3 |             0.484846 |               66.6667 |                   3 |             0.976459 |               66.6667 |                   3 |             6.7212   |               66.6667 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | BPLUS_UNKNOWN | True  |        1 |                   1 |             4.38024  |              100      |                   1 |            -0.931961 |                0      |                   1 |            -5.68499  |                0      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | bplus_blocker_type__x__sugar_baby_flag | C3 | True             |        2 |                   2 |            -4.08172  |                0      |                   2 |            -6.04436  |                0      |                   2 |            -2.46951  |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-
-## G. Council-verdict × Sugar Baby
-
-| row_level   | slice_name                          | slice_value             |   n_rows |   rows_with_t1_eval |   avg_ret_t1_partial |   win_rate_t1_partial |   rows_with_t3_eval |   avg_ret_t3_partial |   win_rate_t3_partial |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
-|:------------|:------------------------------------|:------------------------|---------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| ticker      | council_verdict__x__sugar_baby_flag | NOT_COUNCIL | True      |     3367 |                3165 |             0.537848 |               49.2891 |                2957 |             1.42672  |               52.2827 |                2623 |             2.52741  |               53.0309 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | NOT_COUNCIL | False     |     2125 |                1992 |             0.212294 |               48.745  |                1880 |             0.217758 |               51.7021 |                1588 |             0.194761 |               51.0076 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | PENDING_COUNCIL | False |       19 |                  19 |            -0.915033 |               42.1053 |                  19 |            -2.25813  |               26.3158 |                  19 |            -1.58228  |               31.5789 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | DEFER | False           |       13 |                  13 |             0.192814 |               53.8462 |                  13 |             0.894992 |               53.8462 |                  13 |             1.15769  |               53.8462 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | PENDING_COUNCIL | True  |        7 |                   7 |            -1.2922   |               28.5714 |                   7 |            -4.19482  |                0      |                   7 |            -1.87064  |               42.8571 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | CANCEL | False          |        5 |                   5 |             0.347165 |               40      |                   5 |            -0.942599 |               60      |                   5 |             6.19422  |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | CANCEL | True           |        4 |                   4 |             0.689148 |               50      |                   4 |             2.21449  |               50      |                   4 |             7.4587   |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | DEFER | True            |        4 |                   4 |             9.43438  |               75      |                   4 |            11.9501   |               50      |                   4 |            13.6193   |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ticker      | council_verdict__x__sugar_baby_flag | PROMOTE | False         |        1 |                   1 |            -0.788912 |                0      |                   1 |            -4.47048  |                0      |                   1 |            -4.20751  |                0      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+No Sugar Babies overlay rows available yet. Confirm `sugar_babies.csv` is visible to Colab and that outcome files exist.
 
 ## Reading rules
 
