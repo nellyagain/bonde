@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Council — ADEA / UCTT / ICHR (Day-2 SLINGSHOT)</title>
+<style>
+  :root{
+    --bg:#ffffff;--ink:#1c2430;--muted:#5d6b7a;--line:#e4e9ef;--soft:#f6f8fa;
+    --promote:#1a7f4b;--defer:#b9791b;--cancel:#b4382f;
+    --accent:#2f5fb0;--chip:#eef3fb;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#eef1f4;margin:0;line-height:1.55;}
+  .wrap{max-width:920px;margin:0 auto;padding:32px 22px 64px;}
+  header.top{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px;}
+  .kicker{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  h1{font-size:23px;margin:6px 0 4px;}
+  .meta{color:var(--muted);font-size:13px;}
+  .q{background:var(--soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:6px;margin-top:16px;font-size:14.5px;}
+  section{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:18px;}
+  h2{font-size:17px;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  h3{font-size:14px;margin:18px 0 6px;color:var(--accent);}
+  .verdicts{display:grid;grid-template-columns:1fr;gap:12px;}
+  .vcard{border:1px solid var(--line);border-radius:11px;padding:14px 16px;}
+  .vhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .tkr{font-weight:700;font-size:16px;}
+  .badge{font-size:11.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:20px;color:#fff;text-transform:uppercase;}
+  .b-promote{background:var(--promote);} .b-defer{background:var(--defer);} .b-cancel{background:var(--cancel);}
+  .conf{font-size:12px;color:var(--muted);}
+  .vbody{font-size:13.5px;margin-top:8px;color:#33404e;}
+  .tag{display:inline-block;background:var(--chip);color:var(--accent);font-size:11px;font-weight:600;
+    padding:2px 8px;border-radius:5px;margin:2px 4px 2px 0;}
+  table{width:100%;border-collapse:collapse;font-size:12.7px;margin-top:4px;}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--soft);font-weight:600;color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;}
+  .st-load{color:var(--promote);font-weight:600;} .st-miss{color:var(--muted);}
+  .disclaimer{background:#fff7e9;border:1px solid #f0d9a8;border-radius:8px;padding:11px 14px;font-size:12.7px;color:#7a5a13;margin:12px 0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .path{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;}
+  .path .nm{font-weight:700;font-size:12.5px;color:var(--accent);margin-bottom:4px;}
+  .conv{background:var(--soft);border-radius:10px;padding:12px 15px;font-size:13.5px;margin-bottom:10px;}
+  details{border:1px solid var(--line);border-radius:9px;margin-bottom:9px;background:var(--bg);}
+  summary{cursor:pointer;padding:11px 15px;font-weight:600;font-size:13.5px;list-style:none;}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"▸ ";color:var(--accent);}
+  details[open] summary::before{content:"▾ ";}
+  .det-body{padding:2px 16px 14px;font-size:13.3px;color:#33404e;}
+  .heat{background:#f3f8f4;border:1px solid #cfe6d8;border-radius:8px;padding:12px 15px;font-size:13.3px;}
+  .reach{background:#f4f6fb;border:1px solid #d6e0f0;border-radius:8px;padding:6px 4px;}
+  .one{background:var(--ink);color:#fff;border-radius:12px;padding:18px 22px;font-size:15px;}
+  .one b{color:#ffd98a;}
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:10px;}
+  code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:12px;}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">LLM Council · V1.3.4 · Bonde Day-2 Disposition</div>
+  <h1>ADEA · UCTT · ICHR — SLINGSHOT Day-2 Review</h1>
+  <div class="meta">Run &amp; review date 2026-06-03 (Wed) · signal 2026-06-02 · actionable session Thu 2026-06-04 (no weekend gap)</div>
+  <div class="q"><b>Question:</b> Three semicap/momentum <b>SLINGSHOT</b> Day-2 candidates routed to COUNCIL with structure-gate or R:R-floor blockers — Layer-5 disposition (promote / defer / cancel). <code>tier=TAKE</code> is a focus tier, <b>not</b> trade authorization.</div>
+</header>
+
+<section>
+  <h2>Chairman Verdict</h2>
+  <div class="verdicts">
+    <div class="vcard">
+      <div class="vhead"><span class="tkr">ADEA</span><span class="badge b-defer">Defer</span><span class="conf">confidence: medium · playbook-only</span></div>
+      <div class="vbody">Cleanest of the three — A2, R:R 2.45 <b>PASS</b>, lowest extension (+56%), DTE clear. But the promote-condition (contraction ≥50) is <b>computed on Thursday's close, after the Day-2 entry window</b>, so it cannot be confirmed on a buy-stop fill; 1.81x Day-1 volume is weak thrust. Keep on Day-2 alert; re-qualify only on a bar showing <b>tightening</b> contraction with volume expansion. No order Thursday.
+        <div style="margin-top:7px"><span class="tag">A2 / NOT_BPLUS</span><span class="tag">R:R 2.45 PASS</span><span class="tag">contraction 49.39 &lt; 50</span><span class="tag">+56% &gt; 200SMA</span></div>
+      </div>
+    </div>
+    <div class="vcard">
+      <div class="vhead"><span class="tkr">UCTT</span><span class="badge b-cancel">Cancel</span><span class="conf">confidence: high · playbook-only</span></div>
+      <div class="vbody"><b>Severe extension without reset</b> (+99.8% above 200SMA, beyond the SPIR +75% line that the book cancelled) plus a slingshot that never mechanically confirmed (<code>range_break=FALSE</code>, contraction 40.72). Relabeling it to a "momentum breakout" to authorize it is the <b>forbidden extension loophole</b>. Strong R:R 3.20 does not rescue a no-reset chase into a fresh 52wk-high with round-number 95 overhead. Current entry is dead; can return only after a multi-week reset.
+        <div style="margin-top:7px"><span class="tag">A2 / NOT_BPLUS</span><span class="tag">R:R 3.20 PASS</span><span class="tag">slingshot NOT confirmed</span><span class="tag">+99.8% &gt; 200SMA</span></div>
+      </div>
+    </div>
+    <div class="vcard">
+      <div class="vhead"><span class="tkr">ICHR</span><span class="badge b-cancel">Cancel</span><span class="conf">confidence: high · playbook-only</span></div>
+      <div class="vbody">R:R <b>1.60 FAILS</b> the 2.0 floor on a wide 8.12% stop. The only path to 2.0R is tightening the stop on an <b>unprinted</b> Day-2 bar (needs an inside bar AND trigger &gt;76.63 in sequence) — a hope, not an executable order. Weakest Day-1 close (73% of range) and most extended (+115.8%). Degrade to plain B watch at best.
+        <div style="margin-top:7px"><span class="tag">B+ / C1</span><span class="tag">R:R 1.60 FAIL</span><span class="tag">stop-tighten rescue</span><span class="tag">+115.8% &gt; 200SMA</span></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:0">All verdicts <b>playbook-only</b> — the SLINGSHOT setup family has zero resolved outcomes in the corpus. <code>final_trade_status</code> inferred as COUNCIL for all three (no live decision log). The Chairman weighted the hard-rule/structure and executable-reality paths above the upside case, because the UCTT upside case rests on relabeling around a hard rule.</p>
+</section>
+
+<section>
+  <h2>Outcome / Base-Rate Context</h2>
+  <p style="font-size:13.5px;margin-top:0">Outcome data exists but is <b>immature</b>. The SLINGSHOT family has <b>zero resolved outcomes</b> across the Bonde corpus. Prior SLINGSHOT rows were nearly all R:R-floor fails routed DEFER/CANCEL: <b>SPIR</b> (cancelled 4×, citing "+75% above 200SMA is severe extension"), <b>CLSK</b> (CANCEL, quality-gate fail), <b>CGCT</b> (CANCEL, degenerate geometry), <b>IFS</b> / <b>LLY</b> (DEFER). Self-calibration: <b>INSUFFICIENT_DATA (0/30 resolved). No reliability percentage reported.</b> Outcome data is an overlay, not a loophole — the severe-extension-without-reset hard rule cannot be overridden by it.</p>
+</section>
+
+<section>
+  <h2>Context Files Loaded</h2>
+  <table>
+    <tr><th>Role</th><th>Path</th><th>Status</th></tr>
+    <tr><td>project_instructions</td><td>/home/user/bonde/CLAUDE.md</td><td class="st-load">LOADED</td></tr>
+    <tr><td>candidate_data</td><td>inline council request (3 screener rows)</td><td class="st-load">LOADED</td></tr>
+    <tr><td>council_queue (live)</td><td>—</td><td class="st-miss">MISSING_OPTIONAL — supplied inline</td></tr>
+    <tr><td>daily_decision_log</td><td>—</td><td class="st-miss">MISSING_OPTIONAL — final_trade_status inferred (=COUNCIL)</td></tr>
+    <tr><td>bonde_skill_pack</td><td>—</td><td class="st-miss">MISSING_OPTIONAL</td></tr>
+    <tr><td>actionability_skill</td><td>—</td><td class="st-miss">MISSING_OPTIONAL — operating from packet + embedded V5.9.x rules</td></tr>
+    <tr><td>prior_council_outcomes</td><td>bonde_screener_cache/council_queues/council_outcomes_2026-05-*.csv</td><td class="st-load">LOADED</td></tr>
+    <tr><td>prior_calibration</td><td>…/council_self_calibration_summary_2026-05-22.csv</td><td class="st-load">LOADED</td></tr>
+    <tr><td>handoff_folder</td><td>bonde_screener_cache/council_queues/</td><td class="st-load">LOADED (writable)</td></tr>
+  </table>
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:0"><b>V5.9.19 semantics applied:</b> <code>final_trade_status</code> is the executable field (inferred COUNCIL here); <code>tier=TAKE</code> was not treated as authorization.</p>
+</section>
+
+<section>
+  <h2>Council self-calibration status</h2>
+  <p style="font-size:13.5px;margin:0">Self-calibration: <b>INSUFFICIENT_DATA</b>. Resolved disagreements: 0/30. <b>No reliability percentage reported.</b> Calibration is context only and does not change verdicts.</p>
+</section>
+
+<section>
+  <h2>A1/A2 Reachability Audit</h2>
+  <div class="reach">
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>A1_REACHABLE</td><td><b>NOT_EVALUABLE</b> — no A1 rows; no isolated routing harness; no positive controls run</td></tr>
+    <tr><td>A2_EXECUTABLE_REACHABLE</td><td><b>NOT_EVALUABLE</b> — both A2s routed to COUNCIL on documented blockers, so they don't test a clean A2 → TRADE path</td></tr>
+    <tr><td>ZERO_TRADE_CAUSE</td><td><b>INTENTIONAL_STRICTNESS</b> — zero TRADE explained by per-row documented blockers, not a routing defect (audit_basis = ACTUAL_CORPUS)</td></tr>
+    <tr><td>Counts</td><td>n_A1=0 · n_A2=2 · n_TRADE=0 · n_A2→COUNCIL=2 · n_B+=1</td></tr>
+    <tr><td>Top demotion reasons</td><td>structure_gate (ADEA contraction&lt;50; UCTT range_break=FALSE+contraction&lt;50) · rr_floor_fail (ICHR 1.60&lt;2.0, wide stop)</td></tr>
+  </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:0">This is <b>not</b> a threshold-relaxation recommendation. The V5.9.43 structure gates are documented and working as intended; no implementation bug is suspected from this corpus.</p>
+</section>
+
+<section>
+  <h2>Reasoning Paths Considered</h2>
+  <div class="disclaimer">These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration.</div>
+
+  <h3>Convergence of Reasoning Paths</h3>
+  <div class="conv">On the two extended semicap names, the reasoning paths converged from different routes — the <b>First Principles</b> path (contraction and the R:R floor are one gate; the slingshot's defining feature is absent), the <b>Contrarian</b> path (severe extension without reset = the SPIR disqualifier), the <b>Outsider</b> path (zero resolved wins shifts the burden onto "promote"), and the <b>Executor</b> path (the ICHR rescue is "a hope, not an order"). On <b>ADEA</b>, every path except the Expansionist arrived at DEFER.</div>
+
+  <h3>Divergence of Reasoning Paths — the UCTT clash</h3>
+  <div class="conv">The <b>Expansionist</b> and <b>Executor</b> paths argued PROMOTE by <b>relabeling</b> UCTT from a failed slingshot to a clean momentum breakout into a fresh 52wk-high ("the slingshot-FALSE flag is a taxonomy problem, not a trade problem"). The <b>Contrarian</b> and <b>First Principles</b> paths rejected this: the screener routed it <i>as a slingshot</i>, <code>range_break=FALSE</code> means the defining reset never happened, and at +99.8% it is more extended than the SPIR row cancelled at +75% — a hard rule that relabeling cannot bypass.</div>
+
+  <h3>Blind Spots the Reasoning Paths Caught</h3>
+  <div class="conv">(1) <b>contraction_quality is computed on Thursday's close — after the Day-2 entry window</b>, so ADEA's "promote if it firms ≥50" is un-actionable on a buy-stop; this demotes ADEA from conditional-promote to a clean DEFER. (2) Relabeling UCTT to dodge the severe-extension hard rule is <b>exactly the forbidden loophole</b>, and full-sizing the most-extended name inverts the risk ranking. (3) The whole slate is long, extended, correlated semicap/momentum with zero resolved edge — the correct validation unit is one small probe, not three promotes.</div>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="path"><div class="nm">The Contrarian</div>ADEA defer · UCTT cancel · ICHR cancel. Pullback-rescue trap on ADEA; UCTT/ICHR are severely-extended chases leaning on threshold-flip or stop-tightening rescues.</div>
+    <div class="path"><div class="nm">The First Principles Thinker</div>contraction_quality and the R:R floor are the same gate viewed twice. Real question: do any contain a slingshot at all? Largely no. ADEA defer · UCTT cancel · ICHR cancel.</div>
+    <div class="path"><div class="nm">The Expansionist</div>ADEA defer (lean promote) · UCTT <b>promote</b> the MB breakout (the "real prize") · ICHR defer. Honest cap: extension is real on ICHR.</div>
+    <div class="path"><div class="nm">The Outsider</div>Promote nothing. Zero resolved wins is the whole story; grade-C "sector momentum" at +100–116% is circular. ICHR cancel · UCTT defer-lean-cancel · ADEA defer.</div>
+    <div class="path"><div class="nm">The Executor</div>ADEA defer (contraction unverifiable intraday) · UCTT promote-as-MB · ICHR cancel (rescue is an unprinted-bar hope). Only one semicap order would be live.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Portfolio Heat</h2>
+  <div class="heat"><b>No promoted exposure</b> — zero PROMOTE verdicts, total proposed R = 0. Had UCTT and ICHR been promoted they are <b>direct same-sector exposure</b> (both semicap supply-chain) — one concentrated semicap bet, not two independent positions, to be sized as a single theme. ADEA (IP licensing, aged-earnings catalyst) is the only non-correlated name and the only diversifying add, but it is DEFER. Whole-slate read: every candidate is long and extended (+56% / +99.8% / +115.8% above 200SMA) in a risk-on tape — a correlated long-momentum posture. Exact account-risk sizing was unavailable; heat is qualitative. Thursday has no weekend gap, but no orders are placed, so no GTC/DAY exposure is carried.</div>
+</section>
+
+<section>
+  <h2>The One Thing to Do First</h2>
+  <div class="one">Thursday at the open, <b>place nothing</b> on these three. Set a single Day-2 alert on <b>ADEA</b> for a <i>tightening</i> contraction bar (narrowing range, not widening) on above-average volume that holds &gt;28.49 and follows through &gt;30.67 — and if it ever fires, treat it as the <b>first deliberate small paper-probe</b> to generate the SLINGSHOT family's first resolved outcome. Drop UCTT and ICHR from the active screen pending a genuine multi-week reset.</div>
+</section>
+
+<section>
+  <h2>Advisor Responses</h2>
+  <details><summary>The Contrarian</summary><div class="det-body">
+    <p><b>ADEA — DEFER (medium, playbook-only).</b> Cleanest of the three, but "promote if contraction confirms ≥50" is the pullback-rescue trap: authorizing on a single threshold flip of a soft metric. Aged grade-C catalyst is thin; +56% already in SPIR-cancel territory; 1.81x thrust unconvincing. Defer; re-test on confirmed contraction <b>and</b> volume expansion.</p>
+    <p><b>UCTT — CANCEL (high).</b> Not a slingshot — range_break FALSE, contraction 40.72. Taking the MB breakout now relabels a momentum chase as a council promote. +99.8% is severe extension without reset — the exact SPIR disqualifier. Cancel.</p>
+    <p><b>ICHR — CANCEL (high).</b> R:R 1.60 FAILS the floor; only path to 2.0 is tightening the stop on a Day-2 pullback — textbook R:R rescue, reject. Weakest close, most extended.</p>
+  </div></details>
+  <details><summary>The First Principles Thinker</summary><div class="det-body">
+    <p>A slingshot captures a stock that exploded, paused to coil tight, then releases. contraction_quality measures whether the coil exists; the R:R floor measures whether it's tight enough to pay — the <b>same gate viewed twice</b>. When both fail, the defining feature is absent. Real question: do any contain a slingshot at all? Largely no.</p>
+    <p><b>ICHR — CANCEL (0.65).</b> The coil paid out before you arrived at +116%. <b>UCTT — CANCEL (0.7).</b> Momentum chase at +99.8%, wrong setup family. <b>ADEA — DEFER (0.55).</b> The only genuine near-miss; promotable only if Day-2 confirms on a <i>tightening</i> basis.</p>
+  </div></details>
+  <details><summary>The Expansionist</summary><div class="det-body">
+    <p><b>ADEA — DEFER, lean promote (0.6).</b> The single blocker is 0.61 of a point; cleanest setup; least stretched, most room before the rubber band snaps.</p>
+    <p><b>UCTT — PROMOTE the MB breakout (0.55).</b> The real prize: 3.20R clean momentum breakout into a fresh 52wk high, leading semicap theme, new-high = zero overhead except round-number 95. The "slingshot FALSE" blocker is a taxonomy problem, not a trade problem.</p>
+    <p><b>ICHR — DEFER (0.45).</b> 3.10x vol + confirmed structure screaming; tighten inval toward ~72 to flip R:R over 2.0. Honest cap: +115.8% is genuinely extended. UCTT+ICHR are one semicap bet.</p>
+  </div></details>
+  <details><summary>The Outsider</summary><div class="det-body">
+    <p>Promote nothing. The setup type has <b>zero resolved wins on record</b> — that's the whole story, and the system itself refused to auto-approve all three. Grade-C, confidence-40 "sector momentum" is a label for "the stock already went up." Buying 100–116% above baseline <i>because</i> of momentum is circular.</p>
+    <p><b>ICHR — cancel (high)</b> (fails the floor, wide stop, weak close). <b>UCTT — defer-leaning-cancel (medium)</b> (two flags failed; correlated with ICHR). <b>ADEA — defer (medium)</b> (0.61 miss on an unvalidated metric; stale catalyst). Let the pattern earn one paper win first.</p>
+  </div></details>
+  <details><summary>The Executor</summary><div class="det-body">
+    <p><b>ADEA — DEFER (medium).</b> Closed 30.65, dead on trigger, modest 1.81x. Cannot verify contraction ≥50 intraday — it's a daily-close computation, unknowable until Thursday's close, after the entry window. If forced: buy-stop 30.70 HALF size, stop 28.49, second half gated on close.</p>
+    <p><b>UCTT — PROMOTE as MB breakout (medium).</b> range_break FALSE; it's momentum, R:R 3.20 clean. Buy-stop 90.55, stop 86.25, full size; watch 95.</p>
+    <p><b>ICHR — CANCEL (high).</b> R:R 1.60 fails. The rescue needs an inside bar AND trigger &gt;76.63 in sequence — you cannot tighten a stop on an unprinted bar. A hope, not an order. Only UCTT would be live → no double-trigger.</p>
+  </div></details>
+</section>
+
+<section>
+  <h2>Peer Review Highlights</h2>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:0">Anonymization map revealed: A = Expansionist · B = Outsider · C = Contrarian · D = Executor · E = First Principles.</p>
+  <details><summary>Reviewer 1</summary><div class="det-body">Strongest: E (contraction and the R:R floor are the same gate). Biggest blind spot: A (waves off slingshot-FALSE as "taxonomy," smuggling a different setup past the guardrails). Base-rate: B uses "zero wins → burden on promote" best. All missed: a deliberate small paper-probe; promoting UCTT relabeled would corrupt the slingshot track record.</div></details>
+  <details><summary>Reviewer 2</summary><div class="det-body">Strongest: D (executable orders; contraction is a daily-close metric; ICHR rescue is sequential and un-actionable). Biggest blind spot: A (trades an unvalidated family at +99.8%, ignores SPIR). All missed: correlation sizing — ADEA is the only diversifying add.</div></details>
+  <details><summary>Reviewer 3</summary><div class="det-body">Strongest: D (the "unprinted bar" sequencing insight). UCTT clash: C and E are right — CANCEL. Relabeling an A2-slingshot-route candidate as a momentum breakout to authorize it <b>violates</b> screener intent. All missed: a portfolio extension/correlation cap; validation unit is one small position.</div></details>
+  <details><summary>Reviewer 4</summary><div class="det-body">Strongest: D. Biggest blind spot: A (promotes UCTT at +99.8% right after the book cancelled SPIR at +75%). ADEA conditional-promote does <b>not</b> survive: contraction is close-computed after the entry window, making the 49.39-vs-50 debate moot on a fill. Also: 1.81x volume is weak conviction.</div></details>
+  <details><summary>Reviewer 5</summary><div class="det-body">Strongest: C (applies SLINGSHOT/extension logic most consistently; names UCTT a SPIR disqualifier). Biggest blind spot: D (full-sizes the most-extended name while cancelling ICHR; the relabel is the loophole). Hard rule: relabeling does <b>not</b> bypass severe extension. All missed: ADEA at +56% also deserves an explicit extension check; whether the whole family belongs on the screen.</div></details>
+</section>
+
+<footer>
+  Generated by the LLM Council (V1.3.4) · 2026-06-03 · counciled: ADEA / UCTT / ICHR Day-2 SLINGSHOT batch.<br>
+  Six artifacts written (report · transcript · outcomes · disagreements · self-calibration · reachability audit). All verdicts playbook-only; SLINGSHOT family has zero resolved outcomes.
+</footer>
+
+</div>
+</body>
+</html>
