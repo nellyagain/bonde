@@ -5,11 +5,11 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Evaluability stage funnel
 | evaluability_stage                |   rows |
 |:----------------------------------|-------:|
-| ENTRY_STOP_NO_TARGET              |   1033 |
+| ENTRY_STOP_NO_TARGET              |   1073 |
 | MISSING_ENTRY                     |    221 |
+| FULL_PLAN_WAITING_FOR_FUTURE_BARS |    204 |
 | FULL_PLAN_NO_PRICE_DATA           |    199 |
 | OK_EVALUABLE                      |    145 |
-| FULL_PLAN_WAITING_FOR_FUTURE_BARS |    139 |
 | FULL_PLAN_NEVER_TRIGGERED_5D      |     23 |
 
 ## Decision-log target/R:R backfill
@@ -22,7 +22,7 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 | source_scope_resolved   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:------------------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
 | SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |   1074 |          952 |         952 |           226 |               947 |               374 |                   808 |            237 |                                         0 |                                  11 |
-| DECISION_LOG            | SLINGSHOT_PRIMARY               |    392 |          350 |         350 |           224 |               348 |               392 |                   333 |            262 |                                       348 |                                   8 |
+| DECISION_LOG            | SLINGSHOT_PRIMARY               |    497 |          455 |         455 |           289 |               450 |               497 |                   333 |            262 |                                       348 |                                   8 |
 | SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |    235 |          235 |         235 |            54 |               222 |                95 |                   151 |             56 |                                         0 |                                   8 |
 | SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     57 |            0 |           0 |             0 |                 0 |                17 |                    57 |              0 |                                         0 |                                  16 |
 | DECISION_LOG            | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      2 |            2 |           2 |             2 |                 2 |                 2 |                     1 |              1 |                                         1 |                                  10 |
@@ -30,7 +30,7 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Setup family × SLINGSHOT scope
 | setup_family   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:---------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
-| SLINGSHOT      | SLINGSHOT_PRIMARY               |   1459 |         1295 |        1295 |           450 |              1290 |               764 |                  1137 |            498 |                                       348 |                                11   |
+| SLINGSHOT      | SLINGSHOT_PRIMARY               |   1564 |         1400 |        1400 |           515 |              1392 |               869 |                  1137 |            498 |                                       348 |                                10   |
 | ACTIVE_BURST   | SLINGSHOT_OVERLAY               |    106 |          106 |         106 |            24 |               100 |                40 |                    69 |             27 |                                         0 |                                 8   |
 | EP9M           | SLINGSHOT_OVERLAY               |     65 |           65 |          65 |            21 |                65 |                23 |                    41 |             13 |                                         0 |                                 8   |
 | ACTIVE_BURST   | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     28 |            0 |           0 |             0 |                 0 |                10 |                    28 |              0 |                                         0 |                                16   |
@@ -48,6 +48,7 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Signal-date summary
 | signal_date_parsed   | source_scope_resolved   |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:---------------------|:------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
+| 2026-06-04           | DECISION_LOG            |    105 |          105 |         105 |            65 |               102 |               105 |                     0 |              0 |                                         0 |                                   1 |
 | 2026-06-03           | SLINGSHOT_DIAGNOSTIC    |     55 |           55 |          55 |            54 |                54 |                 0 |                     0 |              0 |                                         0 |                                   2 |
 | 2026-06-02           | SLINGSHOT_DIAGNOSTIC    |    161 |          161 |         161 |           154 |               154 |                12 |                     0 |              0 |                                         0 |                                   3 |
 | 2026-06-02           | DECISION_LOG            |      6 |            6 |           6 |             6 |                 6 |                 6 |                     0 |              0 |                                         6 |                                   3 |
@@ -75,7 +76,7 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Price-data reason
 | price_data_reason                       |   rows |
 |:----------------------------------------|-------:|
-| PRICE_DATA_OK                           |    880 |
+| PRICE_DATA_OK                           |    985 |
 | PRICE_JOIN_MISS                         |    668 |
 | TOO_RECENT_FOR_5D_OR_PRICE_JOIN_PENDING |    212 |
 
@@ -83,7 +84,7 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 | future_bar_reason   |   rows |
 |:--------------------|-------:|
 | HAS_5D_FUTURE_BARS  |   1350 |
-| TOO_RECENT_FOR_5D   |    358 |
+| TOO_RECENT_FOR_5D   |    463 |
 | PRICE_JOIN_MISS     |     52 |
 
 ## Interpretation
