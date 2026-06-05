@@ -1,5 +1,5 @@
 setup_family,slingshot_scope_resolved,rows,with_entry,with_stop,with_target,with_planned_rr,with_price_data,with_5d_future_bars,ok_evaluable,decision_log_backfilled_from_diagnostic,median_business_days_since_signal
-SLINGSHOT,SLINGSHOT_PRIMARY,1459,1295,1295,450,1290,764,1137,498,348,11.0
+SLINGSHOT,SLINGSHOT_PRIMARY,1564,1400,1400,515,1392,869,1137,498,348,10.0
 ACTIVE_BURST,SLINGSHOT_OVERLAY,106,106,106,24,100,40,69,27,0,8.0
 EP9M,SLINGSHOT_OVERLAY,65,65,65,21,65,23,41,13,0,8.0
 ACTIVE_BURST,SLINGSHOT_OVERLAY_OR_DIAGNOSTIC,28,0,0,0,0,10,28,0,0,16.0
