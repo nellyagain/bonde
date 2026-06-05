@@ -5,12 +5,12 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 ## Summary
 | metric                          |   value |
 |:--------------------------------|--------:|
-| diagnostic_rows                 |    1760 |
-| rows_with_entry                 |    1539 |
-| rows_with_stop                  |    1539 |
-| rows_with_target                |     506 |
-| rows_with_planned_rr            |    1519 |
-| rows_with_price_data            |     880 |
+| diagnostic_rows                 |    1865 |
+| rows_with_entry                 |    1644 |
+| rows_with_stop                  |    1644 |
+| rows_with_target                |     571 |
+| rows_with_planned_rr            |    1621 |
+| rows_with_price_data            |     985 |
 | rows_with_enough_future_bars_5d |    1350 |
 | rows_triggered_5d               |    1232 |
 | rows_stopped_5d                 |     644 |
@@ -21,16 +21,16 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 |:-------------------------|-------:|
 | NO_PRICE_DATA            |    747 |
 | OK_EVALUABLE             |    556 |
+| INSUFFICIENT_FUTURE_BARS |    241 |
 | MISSING_ENTRY            |    221 |
-| INSUFFICIENT_FUTURE_BARS |    139 |
 | NEVER_TRIGGERED          |     77 |
-| MISSING_TARGET           |     20 |
+| MISSING_TARGET           |     23 |
 
 ## Source scope
 | source_scope         |   rows |
 |:---------------------|-------:|
 | SLINGSHOT_DIAGNOSTIC |   1366 |
-| DECISION_LOG         |    394 |
+| DECISION_LOG         |    499 |
 
 ## Entry-source classification (v4.13.73)
 
@@ -38,7 +38,7 @@ Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_S
 
 | _ss_entry_source             |   rows |
 |:-----------------------------|-------:|
-| CAPTURED_AT_TRIGGER          |   1539 |
+| CAPTURED_AT_TRIGGER          |   1644 |
 | BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
 | MISSING_ENTRY_UNRECOVERABLE  |     43 |
 
@@ -46,7 +46,7 @@ Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_S
 
 | pack_version      | _ss_entry_source             |   rows |
 |:------------------|:-----------------------------|-------:|
-| (no_pack_version) | CAPTURED_AT_TRIGGER          |    352 |
+| (no_pack_version) | CAPTURED_AT_TRIGGER          |    457 |
 | (no_pack_version) | MISSING_ENTRY_UNRECOVERABLE  |     42 |
 | v28.12-pack1      | CAPTURED_AT_TRIGGER          |    889 |
 | v28.12-pack1      | MISSING_ENTRY_UNRECOVERABLE  |      1 |
@@ -56,17 +56,17 @@ Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_S
 ## Field coverage
 | field                 |   populated_or_true |   rows |   coverage_pct |
 |:----------------------|--------------------:|-------:|---------------:|
-| entry_price           |                1539 |   1760 |           87.4 |
-| stop_price            |                1539 |   1760 |           87.4 |
-| target_price          |                 506 |   1760 |           28.8 |
-| planned_rr            |                1519 |   1760 |           86.3 |
-| risk_pct              |                1536 |   1760 |           87.3 |
-| has_price_data        |                 880 |   1760 |           50   |
-| available_future_bars |                1760 |   1760 |          100   |
-| trigger_hit_5d        |                1422 |   1760 |           80.8 |
-| stop_hit_5d           |                1422 |   1760 |           80.8 |
-| mfe_r                 |                   0 |   1760 |            0   |
-| mae_r                 |                   0 |   1760 |            0   |
+| entry_price           |                1644 |   1865 |           88.2 |
+| stop_price            |                1644 |   1865 |           88.2 |
+| target_price          |                 571 |   1865 |           30.6 |
+| planned_rr            |                1621 |   1865 |           86.9 |
+| risk_pct              |                1536 |   1865 |           82.4 |
+| has_price_data        |                 985 |   1865 |           52.8 |
+| available_future_bars |                1865 |   1865 |          100   |
+| trigger_hit_5d        |                1422 |   1865 |           76.2 |
+| stop_hit_5d           |                1422 |   1865 |           76.2 |
+| mfe_r                 |                   0 |   1865 |            0   |
+| mae_r                 |                   0 |   1865 |            0   |
 
 ## Sample rows
 | _ss_source_scope     | ticker   | signal_date   | setup_family   | primary_setup   |   entry_price |   stop_price |   target_price |   planned_rr | has_price_data   |   available_future_bars | trigger_hit_5d   | primary_missing_reason   | missing_reasons                                                    |
