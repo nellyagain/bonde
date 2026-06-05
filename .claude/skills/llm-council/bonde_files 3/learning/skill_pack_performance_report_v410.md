@@ -124,7 +124,7 @@ _v4.12 patch — diagnostics only. Strict `(ticker, signal_date)` join is preser
 
 **Decision-log schema:**
 
-- decision_log_rows_loaded: **1308**
+- decision_log_rows_loaded: **1434**
 - decision_log_date_semantics: **MIXED_V5_9_AND_LEGACY**
 - has explicit `signal_date` column: **True**
 - has explicit `review_date` column: **True**
@@ -132,9 +132,9 @@ _v4.12 patch — diagnostics only. Strict `(ticker, signal_date)` join is preser
 **Join outcomes (decision-log perspective):**
 
 - decision_log_rows_matched_on_signal_date: **1281**
-- decision_log_rows_unmatched: **27**
-- unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **21**
-- unmatched_due_to_ticker_absent (ticker not in any skill pack): **6**
+- decision_log_rows_unmatched: **153**
+- unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **117**
+- unmatched_due_to_ticker_absent (ticker not in any skill pack): **36**
 - candidate_rows_with_same_ticker_but_different_date: **3975**
 - decision rows with pack_date match but no signal_date match: **0**
 
