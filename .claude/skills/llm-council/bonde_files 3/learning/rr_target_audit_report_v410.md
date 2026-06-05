@@ -1,4 +1,4 @@
-# R:R Target Realism Audit — 2026-06-03
+# R:R Target Realism Audit — 2026-06-05
 
 *v4.13.7 — V5.9 target regex fix on top of v4.13.6 baseline (regex disambiguation only; audit logic unchanged).*
 
@@ -13,7 +13,7 @@ This is a measurement-only report. It does not change trading rules, action labe
 ## 2. Maturity Status
 
 - Rows audited: **58**
-- Pending insufficient data: **4** (6.9%)
+- Pending insufficient data: **3** (5.2%)
 
 ## 3. Summary
 
@@ -23,7 +23,7 @@ This is a measurement-only report. It does not change trading rules, action labe
 - A1 rows: 1
 - A2 rows: **30**
 - B+ rows (C1/C2/C3): **19**
-- Rows eligible for triggered-only views: **36**
+- Rows eligible for triggered-only views: **37**
 
 - Rows with V5.9 target parsed: **46**
 - Rows with no V5.9 target tag (pre-V5.8.9 or other): 12
@@ -45,8 +45,8 @@ This is a measurement-only report. It does not change trading rules, action labe
 
 | action_label   | view           |   n_rows |   n_with_5d_data |   avg_computed_planned_rr |   avg_effective_rr |   avg_actual_entry_rr |   avg_max_r_5d |   avg_mfe_5d_r |   avg_mae_5d_r |   median_max_r_5d |   expectancy_proxy_r |   pct_rr_overstated_resistance |   pct_rr_overstated_200sma |   pct_hit_1r_5d |   pct_hit_2r_5d |   pct_hit_target_5d |   pct_hit_effective_target_5d |   pct_failed_before_1r |   pct_major_rr_degradation |
 |:---------------|:---------------|---------:|-----------------:|--------------------------:|-------------------:|----------------------:|---------------:|---------------:|---------------:|------------------:|---------------------:|-------------------------------:|---------------------------:|----------------:|----------------:|--------------------:|------------------------------:|-----------------------:|---------------------------:|
-| A2             | ALL            |       30 |               27 |                      2.33 |               2.23 |                  2.48 |           1.63 |           1.63 |           0.34 |              0.47 |                 1.29 |                            100 |                        100 |           38.89 |           11.11 |                   0 |                             0 |                  55.56 |                          0 |
-| A2             | TRIGGERED_ONLY |       19 |               18 |                      2.48 |               2.33 |                  2.48 |           1.63 |           1.63 |           0.34 |              0.47 |                 1.29 |                            100 |                        100 |           38.89 |           11.11 |                   0 |                             0 |                  55.56 |                          0 |
+| A2             | ALL            |       30 |               28 |                      2.33 |               2.23 |                  2.48 |           1.57 |           1.57 |           0.41 |              0.48 |                 1.16 |                            100 |                        100 |           36.84 |           10.53 |                   0 |                             0 |                  57.89 |                          0 |
+| A2             | TRIGGERED_ONLY |       21 |               19 |                      2.48 |               2.33 |                  2.48 |           1.57 |           1.57 |           0.41 |              0.48 |                 1.16 |                            100 |                        100 |           36.84 |           10.53 |                   0 |                             0 |                  57.89 |                          0 |
 | A2             | NOT_TRIGGERED  |        8 |                8 |                      2.04 |               2.04 |                nan    |         nan    |         nan    |         nan    |            nan    |               nan    |                            nan |                        nan |          nan    |          nan    |                 nan |                           nan |                 nan    |                        nan |
 
 > **View arithmetic note:** ALL ≥ TRIGGERED_ONLY + NOT_TRIGGERED. Rows where `triggered_flag` is unresolved (NaN — typically `PENDING_INSUFFICIENT_DATA` before the 5d window matures) appear in ALL but in neither subset. The difference equals the count of trigger-pending rows.
@@ -66,14 +66,14 @@ This is a measurement-only report. It does not change trading rules, action labe
 | SETUP_FAMILY | setup_family | DELAYED_EP     |       10 |               10 |                      2.18 |               2.18 |                  2.18 |           2.59 |           2.59 |          -0.4  |              0.75 |                 2.99 |                            nan |                        nan |           50    |           12.5  |                0    |                          0    |                  50    |                          0 |
 | SETUP_FAMILY | setup_family | EP_ACTIVE      |       17 |               17 |                      1.76 |               1.6  |                  1.86 |           0.46 |           0.46 |           1.24 |              0.36 |                -0.78 |                             50 |                         50 |           10    |            0    |               11.11 |                         11.11 |                  90    |                          0 |
 | SETUP_FAMILY | setup_family | MOMENTUM_BURST |        1 |                1 |                    nan    |             nan    |                nan    |         nan    |         nan    |         nan    |            nan    |               nan    |                            nan |                        nan |          nan    |          nan    |              nan    |                        nan    |                 nan    |                        nan |
-| SETUP_FAMILY | setup_family | SLINGSHOT      |       12 |                8 |                      1.93 |               1.93 |                  2.19 |           0.92 |           0.92 |           1.06 |              0.81 |                -0.15 |                            nan |                        nan |           42.86 |            0    |                0    |                          0    |                  42.86 |                          0 |
+| SETUP_FAMILY | setup_family | SLINGSHOT      |       12 |                9 |                      1.93 |               1.93 |                  2.19 |           0.87 |           0.87 |           1.14 |              0.67 |                -0.28 |                            nan |                        nan |           37.5  |            0    |                0    |                          0    |                  50    |                          0 |
 | SETUP_FAMILY | setup_family | UNKNOWN        |        1 |                1 |                      3.3  |               1.64 |                nan    |         nan    |         nan    |         nan    |            nan    |               nan    |                            100 |                        100 |          nan    |          nan    |              nan    |                        nan    |                 nan    |                        nan |
 
 ## 6. Resistance Audit (by nearest_resistance_type)
 
 | view                    | group_col               | group_value   |   n_rows |   n_with_5d_data |   avg_computed_planned_rr |   avg_effective_rr |   avg_actual_entry_rr |   avg_max_r_5d |   avg_mfe_5d_r |   avg_mae_5d_r |   median_max_r_5d |   expectancy_proxy_r |   pct_rr_overstated_resistance |   pct_rr_overstated_200sma |   pct_hit_1r_5d |   pct_hit_2r_5d |   pct_hit_target_5d |   pct_hit_effective_target_5d |   pct_failed_before_1r |   pct_major_rr_degradation |
 |:------------------------|:------------------------|:--------------|---------:|-----------------:|--------------------------:|-------------------:|----------------------:|---------------:|---------------:|---------------:|------------------:|---------------------:|-------------------------------:|---------------------------:|----------------:|----------------:|--------------------:|------------------------------:|-----------------------:|---------------------------:|
-| NEAREST_RESISTANCE_TYPE | nearest_resistance_type | NONE          |       55 |               51 |                      1.95 |               1.95 |                  2.08 |           1.21 |           1.21 |           0.74 |              0.42 |                 0.47 |                         nan    |                     nan    |           32.35 |            8.82 |                 6.9 |                           6.9 |                  61.76 |                          0 |
+| NEAREST_RESISTANCE_TYPE | nearest_resistance_type | NONE          |       55 |               52 |                      1.95 |               1.95 |                  2.08 |           1.19 |           1.19 |           0.77 |              0.45 |                 0.42 |                         nan    |                     nan    |           31.43 |            8.57 |                 6.9 |                           6.9 |                  62.86 |                          0 |
 | NEAREST_RESISTANCE_TYPE | nearest_resistance_type | SMA200        |        3 |                3 |                      2.76 |               1.43 |                  2.5  |           0.39 |           0.39 |           0.86 |              0.39 |                -0.48 |                          66.67 |                      66.67 |            0    |            0    |                 0   |                           0   |                 100    |                          0 |
 
 ## 7. Top Warning Rows (computed_planned_rr ≥ 2.0 but effective or actual < 2.0)
