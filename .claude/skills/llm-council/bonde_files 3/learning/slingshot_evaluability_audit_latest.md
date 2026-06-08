@@ -1,101 +1,87 @@
-# SLINGSHOT Evaluability Audit — 2026-06-05
+# SLINGSHOT Evaluability Audit — 2026-06-08
 
 Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permission logic changed.
 
 ## Summary
 | metric                          |   value |
 |:--------------------------------|--------:|
-| diagnostic_rows                 |    1865 |
-| rows_with_entry                 |    1644 |
-| rows_with_stop                  |    1644 |
-| rows_with_target                |     571 |
-| rows_with_planned_rr            |    1621 |
-| rows_with_price_data            |     985 |
-| rows_with_enough_future_bars_5d |    1350 |
-| rows_triggered_5d               |    1232 |
-| rows_stopped_5d                 |     644 |
-| rows_ok_evaluable               |     556 |
+| diagnostic_rows                 |     293 |
+| rows_with_entry                 |     215 |
+| rows_with_stop                  |     215 |
+| rows_with_target                |     135 |
+| rows_with_planned_rr            |     209 |
+| rows_with_price_data            |     293 |
+| rows_with_enough_future_bars_5d |      83 |
+| rows_triggered_5d               |     177 |
+| rows_stopped_5d                 |      37 |
+| rows_ok_evaluable               |       5 |
 
 ## Top missing reasons
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
-| NO_PRICE_DATA            |    747 |
-| OK_EVALUABLE             |    556 |
-| INSUFFICIENT_FUTURE_BARS |    241 |
-| MISSING_ENTRY            |    221 |
-| NEVER_TRIGGERED          |     77 |
-| MISSING_TARGET           |     23 |
+| INSUFFICIENT_FUTURE_BARS |    204 |
+| MISSING_ENTRY            |     78 |
+| MISSING_TARGET           |      6 |
+| OK_EVALUABLE             |      5 |
 
 ## Source scope
 | source_scope         |   rows |
 |:---------------------|-------:|
-| SLINGSHOT_DIAGNOSTIC |   1366 |
-| DECISION_LOG         |    499 |
+| DECISION_LOG         |    147 |
+| SLINGSHOT_DIAGNOSTIC |    146 |
 
 ## Entry-source classification (v4.13.73)
 
 Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_SLINGSHOT_TARGET_BASIS official verdict. `BACKFILLED_FROM_SIGNAL_CLOSE` rows are robustness-panel only.
 
-| _ss_entry_source             |   rows |
-|:-----------------------------|-------:|
-| CAPTURED_AT_TRIGGER          |   1644 |
-| BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
-| MISSING_ENTRY_UNRECOVERABLE  |     43 |
-
-### Entry-source x pack_version cross-tab
-
-| pack_version      | _ss_entry_source             |   rows |
-|:------------------|:-----------------------------|-------:|
-| (no_pack_version) | CAPTURED_AT_TRIGGER          |    457 |
-| (no_pack_version) | MISSING_ENTRY_UNRECOVERABLE  |     42 |
-| v28.12-pack1      | CAPTURED_AT_TRIGGER          |    889 |
-| v28.12-pack1      | MISSING_ENTRY_UNRECOVERABLE  |      1 |
-| v28.16-pack1      | CAPTURED_AT_TRIGGER          |    298 |
-| v28.9-pack1       | BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
+| _ss_entry_source            |   rows |
+|:----------------------------|-------:|
+| CAPTURED_AT_TRIGGER         |    215 |
+| MISSING_ENTRY_UNRECOVERABLE |     78 |
 
 ## Field coverage
 | field                 |   populated_or_true |   rows |   coverage_pct |
 |:----------------------|--------------------:|-------:|---------------:|
-| entry_price           |                1644 |   1865 |           88.2 |
-| stop_price            |                1644 |   1865 |           88.2 |
-| target_price          |                 571 |   1865 |           30.6 |
-| planned_rr            |                1621 |   1865 |           86.9 |
-| risk_pct              |                1536 |   1865 |           82.4 |
-| has_price_data        |                 985 |   1865 |           52.8 |
-| available_future_bars |                1865 |   1865 |          100   |
-| trigger_hit_5d        |                1422 |   1865 |           76.2 |
-| stop_hit_5d           |                1422 |   1865 |           76.2 |
-| mfe_r                 |                   0 |   1865 |            0   |
-| mae_r                 |                   0 |   1865 |            0   |
+| entry_price           |                 215 |    293 |           73.4 |
+| stop_price            |                 215 |    293 |           73.4 |
+| target_price          |                 135 |    293 |           46.1 |
+| planned_rr            |                 209 |    293 |           71.3 |
+| risk_pct              |                   0 |    293 |            0   |
+| has_price_data        |                 293 |    293 |          100   |
+| available_future_bars |                 293 |    293 |          100   |
+| trigger_hit_5d        |                 215 |    293 |           73.4 |
+| stop_hit_5d           |                 215 |    293 |           73.4 |
+| mfe_r                 |                   0 |    293 |            0   |
+| mae_r                 |                   0 |    293 |            0   |
 
 ## Sample rows
-| _ss_source_scope     | ticker   | signal_date   | setup_family   | primary_setup   |   entry_price |   stop_price |   target_price |   planned_rr | has_price_data   |   available_future_bars | trigger_hit_5d   | primary_missing_reason   | missing_reasons                                                    |
-|:---------------------|:---------|:--------------|:---------------|:----------------|--------------:|-------------:|---------------:|-------------:|:-----------------|------------------------:|:-----------------|:-------------------------|:-------------------------------------------------------------------|
-| SLINGSHOT_DIAGNOSTIC | OUST     | 2026-05-13    | EP_SPIKE       |                 |           nan |          nan |            nan |          nan | False            |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR|NO_PRICE_DATA |
-| SLINGSHOT_DIAGNOSTIC | KC       | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | CGEH     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | False            |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR|NO_PRICE_DATA |
-| SLINGSHOT_DIAGNOSTIC | NBIS     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | WBTN     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | INTT     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | SILC     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | AOSL     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | ETOR     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | FN       | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | LUMN     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | CRNC     | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | False            |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR|NO_PRICE_DATA |
-| SLINGSHOT_DIAGNOSTIC | AVT      | 2026-05-13    | ACTIVE_BURST   |                 |           nan |          nan |            nan |          nan | True             |                      15 | True             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | VNET     | 2026-05-13    | EP_SPIKE       |                 |           nan |          nan |            nan |          nan | False            |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR|NO_PRICE_DATA |
-| SLINGSHOT_DIAGNOSTIC | OUST     | 2026-05-13    | EP_SPIKE       |                 |           nan |          nan |            nan |          nan | False            |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR|NO_PRICE_DATA |
-| SLINGSHOT_DIAGNOSTIC | NBIS     | 2026-05-13    | EP_ACTIVE      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | VEON     | 2026-05-13    | EP_ACTIVE      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | SRRK     | 2026-05-13    | DELAYED_EP     |                 |           nan |          nan |            nan |          nan | True             |                      15 | True             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | PHVS     | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | VEON     | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | LION     | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | TYRA     | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | TAL      | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | MS       | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
-| SLINGSHOT_DIAGNOSTIC | SRRK     | 2026-05-13    | SLINGSHOT      |                 |           nan |          nan |            nan |          nan | True             |                      15 | True             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR               |
+| _ss_source_scope     | ticker   | signal_date   | setup_family   | primary_setup   |   entry_price |   stop_price |   target_price |   planned_rr | has_price_data   |   available_future_bars | trigger_hit_5d   | primary_missing_reason   | missing_reasons                                      |
+|:---------------------|:---------|:--------------|:---------------|:----------------|--------------:|-------------:|---------------:|-------------:|:-----------------|------------------------:|:-----------------|:-------------------------|:-----------------------------------------------------|
+| SLINGSHOT_DIAGNOSTIC | ACHC     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | AGX      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | ALAB     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | AOSL     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | ARM      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | ATI      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | AVT      | 2026-05-13    | SLINGSHOT      | slingshot       |          86.5 |        83.26 |             95 |      2.62346 | True             |                      17 | True             | OK_EVALUABLE             | OK_EVALUABLE                                         |
+| SLINGSHOT_DIAGNOSTIC | CHD      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | CORZ     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | CW       | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | DY       | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | ETON     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | ETOR     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | FN       | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | GVA      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | HLX      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | INTT     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | IONS     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | KC       | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | LFST     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | LION     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | LLYVA    | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | LUMN     | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | LYV      | 2026-05-13    | SLINGSHOT      | slingshot       |         nan   |       nan    |            nan |    nan       | True             |                      17 | <NA>             | MISSING_ENTRY            | MISSING_ENTRY|MISSING_STOP|MISSING_TARGET|MISSING_RR |
+| SLINGSHOT_DIAGNOSTIC | MRVL     | 2026-05-13    | SLINGSHOT      | slingshot       |         178.5 |       168.91 |            195 |      1.72054 | True             |                      17 | True             | OK_EVALUABLE             | OK_EVALUABLE                                         |
 
 ## Interpretation
 - `MISSING_ENTRY`, `MISSING_STOP`, `MISSING_TARGET`, and `MISSING_RR` are upstream/field-mapping issues, not SLINGSHOT expectancy evidence.
