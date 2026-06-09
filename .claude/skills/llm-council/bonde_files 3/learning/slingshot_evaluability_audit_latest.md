@@ -12,18 +12,18 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 | rows_with_planned_rr            |    1921 |
 | rows_with_price_data            |    1156 |
 | rows_with_enough_future_bars_5d |    1663 |
-| rows_triggered_5d               |    1560 |
-| rows_stopped_5d                 |     820 |
-| rows_ok_evaluable               |     672 |
+| rows_triggered_5d               |    1577 |
+| rows_stopped_5d                 |     842 |
+| rows_ok_evaluable               |     675 |
 
 ## Top missing reasons
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
 | NO_PRICE_DATA            |    784 |
-| OK_EVALUABLE             |    672 |
+| OK_EVALUABLE             |    675 |
 | INSUFFICIENT_FUTURE_BARS |    368 |
 | MISSING_ENTRY            |    183 |
-| NEVER_TRIGGERED          |     97 |
+| NEVER_TRIGGERED          |     94 |
 | MISSING_TARGET           |     40 |
 
 ## Source scope
