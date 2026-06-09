@@ -10,9 +10,9 @@
 ## Outcome class breakdown
 
 - `WINNER`: 0
-- `LOSER`: 4
+- `LOSER`: 5
 - `AMBIGUOUS`: 3
-- `NEVER_TRIGGERED`: 3
+- `NEVER_TRIGGERED`: 2
 - `PENDING`: 14
 - `NOT_APPLICABLE`: 1
 
