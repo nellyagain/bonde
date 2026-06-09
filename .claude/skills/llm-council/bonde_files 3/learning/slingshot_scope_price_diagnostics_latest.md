@@ -8,9 +8,9 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 | ENTRY_STOP_NO_TARGET              |   1054 |
 | FULL_PLAN_WAITING_FOR_FUTURE_BARS |    367 |
 | FULL_PLAN_NO_PRICE_DATA           |    236 |
-| OK_EVALUABLE                      |    212 |
+| OK_EVALUABLE                      |    215 |
 | MISSING_ENTRY                     |    183 |
-| FULL_PLAN_NEVER_TRIGGERED_5D      |     92 |
+| FULL_PLAN_NEVER_TRIGGERED_5D      |     89 |
 
 ## Decision-log target/R:R backfill
 - Total DECISION_LOG rows enriched inside the learning loop: **1056**
@@ -21,17 +21,17 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Source scope × SLINGSHOT scope
 | source_scope_resolved   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:------------------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |   1287 |         1164 |        1164 |           430 |              1151 |               512 |                  1028 |            286 |                                         0 |                                  12 |
-| DECISION_LOG            | SLINGSHOT_PRIMARY               |    531 |          528 |         528 |           398 |               523 |               531 |                   351 |            314 |                                       527 |                                   9 |
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |    268 |          268 |         268 |            78 |               246 |               112 |                   226 |             71 |                                         0 |                                  10 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |   1287 |         1164 |        1164 |           430 |              1151 |               512 |                  1028 |            287 |                                         0 |                                  12 |
+| DECISION_LOG            | SLINGSHOT_PRIMARY               |    531 |          528 |         528 |           398 |               523 |               531 |                   351 |            315 |                                       527 |                                   9 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |    268 |          268 |         268 |            78 |               246 |               112 |                   226 |             72 |                                         0 |                                  10 |
 | SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     57 |            0 |           0 |             0 |                 0 |                 0 |                    57 |              0 |                                         0 |                                  18 |
 | DECISION_LOG            | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      1 |            1 |           1 |             1 |                 1 |                 1 |                     1 |              1 |                                         1 |                                   5 |
 
 ## Setup family × SLINGSHOT scope
 | setup_family   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:---------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
-| SLINGSHOT      | SLINGSHOT_PRIMARY               |   1807 |         1681 |        1681 |           827 |              1668 |              1041 |                  1372 |            599 |                                       527 |                                10   |
-| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |    115 |          115 |         115 |            33 |               109 |                45 |                   103 |             31 |                                         0 |                                10   |
+| SLINGSHOT      | SLINGSHOT_PRIMARY               |   1807 |         1681 |        1681 |           827 |              1668 |              1041 |                  1372 |            601 |                                       527 |                                10   |
+| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |    115 |          115 |         115 |            33 |               109 |                45 |                   103 |             32 |                                         0 |                                10   |
 | EP9M           | SLINGSHOT_OVERLAY               |     77 |           77 |          77 |            32 |                76 |                34 |                    62 |             20 |                                         0 |                                 9   |
 | EP_SPIKE       | SLINGSHOT_OVERLAY               |     29 |           29 |          29 |             3 |                17 |                 4 |                    19 |              2 |                                         0 |                                 6   |
 | ACTIVE_BURST   | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     28 |            0 |           0 |             0 |                 0 |                 0 |                    28 |              0 |                                         0 |                                18   |
@@ -54,8 +54,8 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 | 2026-06-04           | SLINGSHOT_DIAGNOSTIC    |    119 |          119 |         119 |           114 |               114 |               119 |                     0 |              0 |                                         0 |                                   3 |
 | 2026-06-04           | DECISION_LOG            |    105 |          105 |         105 |           101 |               102 |               105 |                     0 |              0 |                                       104 |                                   3 |
 | 2026-06-03           | SLINGSHOT_DIAGNOSTIC    |     71 |           71 |          71 |            69 |                69 |                 0 |                     0 |              0 |                                         0 |                                   4 |
-| 2026-06-02           | SLINGSHOT_DIAGNOSTIC    |    161 |          161 |         161 |           154 |               154 |                12 |                   161 |              8 |                                         0 |                                   5 |
-| 2026-06-02           | DECISION_LOG            |      6 |            6 |           6 |             6 |                 6 |                 6 |                     6 |              4 |                                         6 |                                   5 |
+| 2026-06-02           | SLINGSHOT_DIAGNOSTIC    |    161 |          161 |         161 |           154 |               154 |                12 |                   161 |             10 |                                         0 |                                   5 |
+| 2026-06-02           | DECISION_LOG            |      6 |            6 |           6 |             6 |                 6 |                 6 |                     6 |              5 |                                         6 |                                   5 |
 | 2026-06-01           | SLINGSHOT_DIAGNOSTIC    |     82 |           82 |          82 |            72 |                72 |                74 |                    82 |             56 |                                         0 |                                   6 |
 | 2026-06-01           | DECISION_LOG            |     54 |           54 |          54 |            52 |                52 |                54 |                    54 |             51 |                                        54 |                                   6 |
 | 2026-05-29           | SLINGSHOT_DIAGNOSTIC    |     52 |           52 |          52 |             0 |                52 |                 0 |                    52 |              0 |                                         0 |                                   7 |
