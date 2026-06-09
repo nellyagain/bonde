@@ -1,4 +1,4 @@
-# Decision-Log Corpus Reconciliation Audit — 2026-06-08
+# Decision-Log Corpus Reconciliation Audit — 2026-06-09
 
 Purpose: explain decision-log row-count changes and EP9M coverage across discovery → de-duplication → normalization → master log.
 
@@ -6,7 +6,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 
 | run_date   |   raw_candidate_files_discovered |   included_files |   excluded_files |   raw_rows_discovered_all_candidates |   raw_rows_included_files |   rows_after_schema_normalization_included |   master_decision_log_rows_after_dedup |   rows_removed_by_master_dedup |   excluded_duplicate_files |   included_raw_ep9m_setup_family_rows |   included_raw_ep9m_context_rows_any |   included_norm_ep9m_setup_family_rows |   included_norm_ep9m_context_rows_any |   master_ep9m_setup_family_rows |   master_ep9m_context_rows_any |
 |:-----------|---------------------------------:|-----------------:|-----------------:|-------------------------------------:|--------------------------:|-------------------------------------------:|---------------------------------------:|-------------------------------:|---------------------------:|--------------------------------------:|-------------------------------------:|---------------------------------------:|--------------------------------------:|--------------------------------:|-------------------------------:|
-| 2026-06-08 |                               26 |               18 |                8 |                                 2396 |                      1609 |                                       1609 |                                   1585 |                             24 |                          0 |                                     0 |                                  213 |                                      0 |                                   213 |                               0 |                            213 |
+| 2026-06-09 |                               27 |               18 |                9 |                                 2515 |                      1609 |                                       1609 |                                   1585 |                             24 |                          0 |                                     0 |                                  213 |                                      0 |                                   213 |                               0 |                            213 |
 
 ## Included decision-log files
 
@@ -43,6 +43,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 | daily_decision_log_2026-05-12.csv     | 2026-05-12      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY |              22 |               134 |                            0 |                           0 |
 | daily_decision_log_2026-05-13 (2).csv | 2026-05-13      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY |              23 |               102 |                            0 |                           1 |
 | daily_decision_log_2026-05-13.csv     | 2026-05-13      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY |              62 |               144 |                            0 |                           6 |
+| daily_decision_log_2026-06-08.csv     | 2026-06-08      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY |             119 |               170 |                            0 |                           4 |
 
 ## EP9M reconciliation
 
