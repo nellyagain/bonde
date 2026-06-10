@@ -1,7 +1,7 @@
 # Council Context Manifest
 
 Generated: 2026-06-10
-Packet date: 2026-06-08
+Packet date: 2026-06-10
 Target folder: `bonde_files 3/`
 
 Use this package as the current council context bundle. Do not scan stale root-level dated files as current context.
@@ -16,7 +16,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 - `bonde_skill_pack_2026-05-15.csv` — LOADED
 - `council_queue_2026-06-08.csv` — LOADED
-- `daily_decision_log_2026-06-05.csv` — LOADED
+- `daily_decision_log_2026-06-10.csv` — LOADED
 
 ## Active context files
 
