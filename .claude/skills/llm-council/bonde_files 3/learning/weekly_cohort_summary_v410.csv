@@ -1,4 +1,9 @@
 cohort_week,cohort_week_end,cohort_age_days,setup_family,n_rows,n_triggered,pct_triggered,mature_t5,n_evaluable_5d_all,n_evaluable_5d_trig,n_evaluable_5d,avg_ret_5d_all,win_rate_5d_all,avg_ret_5d_trig,win_rate_5d_trig,mature_t10,n_evaluable_10d_all,n_evaluable_10d_trig,n_evaluable_10d,avg_ret_10d_all,win_rate_10d_all,avg_ret_10d_trig,win_rate_10d_trig,mature_t20,n_evaluable_20d_all,n_evaluable_20d_trig,n_evaluable_20d,avg_ret_20d_all,win_rate_20d_all,avg_ret_20d_trig,win_rate_20d_trig
+2026-W24,2026-06-14,-4,ACTIVE_BURST,7,7,100.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
+2026-W24,2026-06-14,-4,DELAYED_EP,4,4,100.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
+2026-W24,2026-06-14,-4,EP_ACTIVE,3,3,100.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
+2026-W24,2026-06-14,-4,PAUSE,5,5,100.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
+2026-W24,2026-06-14,-4,SLINGSHOT,116,89,76.72413793103449,False,,,,,,,,False,,,,,,,,False,,,,,,,
 2026-W23,2026-06-07,3,ACTIVE_BURST,21,21,100.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
 2026-W23,2026-06-07,3,ANTICIPATION,1,0,0.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
 2026-W23,2026-06-07,3,DELAYED_EP,10,7,70.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
@@ -6,7 +11,7 @@ cohort_week,cohort_week_end,cohort_age_days,setup_family,n_rows,n_triggered,pct_
 2026-W23,2026-06-07,3,MOMENTUM_PAUSE,2,2,100.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
 2026-W23,2026-06-07,3,PAUSE,22,19,86.36363636363636,False,,,,,,,,False,,,,,,,,False,,,,,,,
 2026-W23,2026-06-07,3,PRE_BURST,2,0,0.0,False,,,,,,,,False,,,,,,,,False,,,,,,,
-2026-W23,2026-06-07,3,SLINGSHOT,164,149,90.85365853658537,False,,,,,,,,False,,,,,,,,False,,,,,,,
+2026-W23,2026-06-07,3,SLINGSHOT,164,152,92.6829268292683,False,,,,,,,,False,,,,,,,,False,,,,,,,
 2026-W22,2026-05-31,10,ACTIVE_BURST,58,51,87.93103448275862,True,58.0,51.0,51.0,-2.9249050371142626,37.93103448275862,-1.7266630726576133,43.13725490196079,False,,,,,,,,False,,,,,,,
 2026-W22,2026-05-31,10,ANTICIPATION,7,5,71.42857142857143,True,7.0,5.0,5.0,-0.7815226752742014,42.857142857142854,0.0967684151243553,60.0,False,,,,,,,,False,,,,,,,
 2026-W22,2026-05-31,10,DELAYED_EP,17,14,82.35294117647058,True,17.0,14.0,14.0,0.9496365383798924,41.17647058823529,2.1795720920930024,50.0,False,,,,,,,,False,,,,,,,
