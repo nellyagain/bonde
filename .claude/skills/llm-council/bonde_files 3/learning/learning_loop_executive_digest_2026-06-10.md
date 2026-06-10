@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-06-10
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-06-10 09:33 UTC_
+_Run timestamp: 2026-06-10 12:29 UTC_
 _Notebook: v4.14.23 — CANONICAL_CORPUS_SOURCE_HEALTH_FIX (corpus-integrity/source-health/provenance; non-trading)_
 
 ## 1. Today's required action
@@ -14,10 +14,8 @@ _Notebook: v4.14.23 — CANONICAL_CORPUS_SOURCE_HEALTH_FIX (corpus-integrity/sou
 7. **Rule-readiness item(s) require manual review before any patch.** Ready: H_EP_ACTIVE_FADE_RISK. Candidates: H_MB_EXIT_DAY3_FILTER. Soft cautions: H_ACTIVE_BURST_MB_EXIT. (§RR)
    _Rule-readiness source: rule_readiness_monitor_latest.csv; ID column: candidate_rule_id; monitor rows: 3; non-observe rows: 3._
 
-## 2. Changed since last run — 2026-06-09 23:52 UTC → 2026-06-10 09:33 UTC
-- Prior digest date: **2026-06-09**
-- Current digest date: **2026-06-10**
-- Comparison window: **2026-06-09 → 2026-06-10**
+## 2. Changed since last run — 2026-06-10 09:33 UTC → 2026-06-10 12:29 UTC
+Changed since last run: same-run-date prior snapshot detected; comparison suppressed. Showing current status only.
 
 ### Current pipeline status
 - SLINGSHOT decision-log target/R:R backfilled rows: **453**.
@@ -34,16 +32,6 @@ _Notebook: v4.14.23 — CANONICAL_CORPUS_SOURCE_HEALTH_FIX (corpus-integrity/sou
 
 ### Rule-readiness state
 - **1** READY/SUPPORTED item(s) — manual review required: H_EP_ACTIVE_FADE_RISK. Candidates: 1. Soft cautions: 1.
-
-### Deltas vs prior run
-- SLINGSHOT OK_EVALUABLE rows: **675** (prior 675, Δ +0).
-- SLINGSHOT rows ≥5 future bars: **1,663** (prior 1,663, Δ +0).
-- Post-V5.9.19 TRADE rows: **9** (prior 11, Δ -2).
-- A1 rows: **0** (prior 0, Δ +0).
-- A2 rows: **15** (prior 17, Δ -2).
-- Rule-readiness READY/SUPPORTED ids: **1** (prior 1).
-- Rule-readiness CANDIDATE ids: **1** (prior 2); removed: H_ACTIVE_BURST_MB_EXIT.
-- Rule-readiness SOFT_CAUTION ids: **1** (prior 0); added: H_ACTIVE_BURST_MB_EXIT.
 
 ### Open follow-ups carried forward
 - ACLX 4-row diagnostic appearance: visible in dedup diagnostics; not a trading-rule issue.
