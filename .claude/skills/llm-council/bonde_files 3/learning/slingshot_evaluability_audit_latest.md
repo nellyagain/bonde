@@ -1,36 +1,36 @@
-# SLINGSHOT Evaluability Audit — 2026-06-09
+# SLINGSHOT Evaluability Audit — 2026-06-10
 
 Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permission logic changed.
 
 ## Summary
 | metric                          |   value |
 |:--------------------------------|--------:|
-| diagnostic_rows                 |    2144 |
-| rows_with_entry                 |    1961 |
-| rows_with_stop                  |    1961 |
-| rows_with_target                |     907 |
-| rows_with_planned_rr            |    1921 |
-| rows_with_price_data            |    1156 |
+| diagnostic_rows                 |    2202 |
+| rows_with_entry                 |    2019 |
+| rows_with_stop                  |    2019 |
+| rows_with_target                |     951 |
+| rows_with_planned_rr            |    1965 |
+| rows_with_price_data            |    1004 |
 | rows_with_enough_future_bars_5d |    1663 |
-| rows_triggered_5d               |    1577 |
-| rows_stopped_5d                 |     842 |
+| rows_triggered_5d               |    1528 |
+| rows_stopped_5d                 |     816 |
 | rows_ok_evaluable               |     675 |
 
 ## Top missing reasons
 | primary_missing_reason   |   rows |
 |:-------------------------|-------:|
-| NO_PRICE_DATA            |    784 |
+| NO_PRICE_DATA            |    980 |
 | OK_EVALUABLE             |    675 |
-| INSUFFICIENT_FUTURE_BARS |    368 |
+| INSUFFICIENT_FUTURE_BARS |    216 |
 | MISSING_ENTRY            |    183 |
 | NEVER_TRIGGERED          |     94 |
-| MISSING_TARGET           |     40 |
+| MISSING_TARGET           |     54 |
 
 ## Source scope
 | source_scope         |   rows |
 |:---------------------|-------:|
-| SLINGSHOT_DIAGNOSTIC |   1612 |
-| DECISION_LOG         |    532 |
+| SLINGSHOT_DIAGNOSTIC |   1745 |
+| DECISION_LOG         |    457 |
 
 ## Entry-source classification (v4.13.73)
 
@@ -38,7 +38,7 @@ Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_S
 
 | _ss_entry_source             |   rows |
 |:-----------------------------|-------:|
-| CAPTURED_AT_TRIGGER          |   1961 |
+| CAPTURED_AT_TRIGGER          |   2019 |
 | BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
 | MISSING_ENTRY_UNRECOVERABLE  |      5 |
 
@@ -46,29 +46,29 @@ Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_S
 
 | pack_version      | _ss_entry_source             |   rows |
 |:------------------|:-----------------------------|-------:|
-| (no_pack_version) | CAPTURED_AT_TRIGGER          |    529 |
+| (no_pack_version) | CAPTURED_AT_TRIGGER          |    454 |
 | (no_pack_version) | MISSING_ENTRY_UNRECOVERABLE  |      3 |
 | v28.12-pack1      | CAPTURED_AT_TRIGGER          |    889 |
 | v28.12-pack1      | MISSING_ENTRY_UNRECOVERABLE  |      1 |
 | v28.16-pack1      | CAPTURED_AT_TRIGGER          |    298 |
-| v28.19-pack1      | CAPTURED_AT_TRIGGER          |    245 |
+| v28.19-pack1      | CAPTURED_AT_TRIGGER          |    378 |
 | v28.19-pack1      | MISSING_ENTRY_UNRECOVERABLE  |      1 |
 | v28.9-pack1       | BACKFILLED_FROM_SIGNAL_CLOSE |    178 |
 
 ## Field coverage
 | field                 |   populated_or_true |   rows |   coverage_pct |
 |:----------------------|--------------------:|-------:|---------------:|
-| entry_price           |                1961 |   2144 |           91.5 |
-| stop_price            |                1961 |   2144 |           91.5 |
-| target_price          |                 907 |   2144 |           42.3 |
-| planned_rr            |                1921 |   2144 |           89.6 |
-| risk_pct              |                1960 |   2144 |           91.4 |
-| has_price_data        |                1156 |   2144 |           53.9 |
-| available_future_bars |                2144 |   2144 |          100   |
-| trigger_hit_5d        |                1838 |   2144 |           85.7 |
-| stop_hit_5d           |                1838 |   2144 |           85.7 |
-| mfe_r                 |                   0 |   2144 |            0   |
-| mae_r                 |                   0 |   2144 |            0   |
+| entry_price           |                2019 |   2202 |           91.7 |
+| stop_price            |                2019 |   2202 |           91.7 |
+| target_price          |                 951 |   2202 |           43.2 |
+| planned_rr            |                1965 |   2202 |           89.2 |
+| risk_pct              |                2018 |   2202 |           91.6 |
+| has_price_data        |                1004 |   2202 |           45.6 |
+| available_future_bars |                2202 |   2202 |          100   |
+| trigger_hit_5d        |                1763 |   2202 |           80.1 |
+| stop_hit_5d           |                1763 |   2202 |           80.1 |
+| mfe_r                 |                   0 |   2202 |            0   |
+| mae_r                 |                   0 |   2202 |            0   |
 
 ## Sample rows
 | _ss_source_scope     | ticker   | signal_date   | setup_family   | primary_setup   |   entry_price |   stop_price |   target_price |   planned_rr | has_price_data   |   available_future_bars | trigger_hit_5d   | primary_missing_reason   | missing_reasons                                                    |
