@@ -6,8 +6,8 @@ _v4.11 Session 2 patch. Outcome evaluation + slice-based performance summaries o
 
 - Candidate-level rows evaluated: **8,305**
 - Ticker-level rows evaluated: **7,240**
-- Reviewed (joined to decision log): **1,370**
-- Unreviewed: **5,870**
+- Reviewed (joined to decision log): **1,505**
+- Unreviewed: **5,735**
 - Signal date range: **2026-04-24** → **2026-06-09**
 - Latest cohort_end (ISO Sunday of latest signal_date): **2026-06-14**
 - Cohort age (days since cohort_end): **-4**
@@ -15,9 +15,9 @@ _v4.11 Session 2 patch. Outcome evaluation + slice-based performance summaries o
 
 ### Outcome status (ticker-level)
 
-- EVALUATED_FULL: **1782**
-- EVALUATED_PARTIAL: **5231**
-- PENDING_NO_FUTURE_BARS: **225**
+- EVALUATED_FULL: **1954**
+- EVALUATED_PARTIAL: **5284**
+- PENDING_NO_FUTURE_BARS: **0**
 - NO_PRICE_DATA: **2**
 
 ## A. Reviewed vs unreviewed (ticker-level)
@@ -26,8 +26,8 @@ _Reviewed = decision-log-matched on `(ticker, signal_date)`. Strict join, no pac
 
 | decision_log_matched   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   n_with_trigger_price |   win_rate_5d_all |   avg_ret_5d_all |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:-----------------------|---------:|------------------:|:------------|-----------------:|:----------------|-----------------------:|------------------:|-----------------:|-------------------:|------------------:|
-| False                  |     5870 |                -4 | False       |              nan | PARTIAL_OUTCOME |                      0 |               nan |              nan |                nan |               nan |
-| True                   |     1370 |                 3 | False       |              nan | PARTIAL_OUTCOME |                    531 |               nan |              nan |                nan |               nan |
+| False                  |     5735 |                -4 | False       |              nan | PARTIAL_OUTCOME |                      0 |               nan |              nan |                nan |               nan |
+| True                   |     1505 |                -4 | False       |              nan | PARTIAL_OUTCOME |                    649 |               nan |              nan |                nan |               nan |
 
 ## B. Setup-family performance (candidate-level)
 
@@ -104,8 +104,8 @@ _Filtered to rows that joined the decision log; catalyst_grade is a decision-log
 
 | catalyst_grade   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d     |   win_rate_5d_all |   avg_ret_5d_all |
 |:-----------------|---------:|------------------:|:------------|-----------------:|:------------------|------------------:|-----------------:|
-| UNKNOWN          |      703 |                 3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
-| C                |      416 |                 3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
+| UNKNOWN          |      836 |                -4 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
+| C                |      418 |                -4 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
 | D                |      177 |                10 | True        |              177 | ACTIONABLE_SAMPLE |             44.07 |             0.75 |
 | B                |       54 |                10 | True        |               54 | ACTIONABLE_SAMPLE |             42.59 |            -0.51 |
 | A                |       18 |                10 | True        |               18 | BUILDING_SAMPLE   |             27.78 |            -2.99 |
@@ -124,18 +124,18 @@ _v4.12 patch — diagnostics only. Strict `(ticker, signal_date)` join is preser
 
 **Decision-log schema:**
 
-- decision_log_rows_loaded: **1394**
+- decision_log_rows_loaded: **1529**
 - decision_log_date_semantics: **MIXED_V5_9_AND_LEGACY**
 - has explicit `signal_date` column: **True**
 - has explicit `review_date` column: **True**
 
 **Join outcomes (decision-log perspective):**
 
-- decision_log_rows_matched_on_signal_date: **1370**
+- decision_log_rows_matched_on_signal_date: **1505**
 - decision_log_rows_unmatched: **24**
 - unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **17**
 - unmatched_due_to_ticker_absent (ticker not in any skill pack): **7**
-- candidate_rows_with_same_ticker_but_different_date: **4739**
+- candidate_rows_with_same_ticker_but_different_date: **4842**
 - decision rows with pack_date match but no signal_date match: **0**
 
 Pack-date matches are diagnostic only and are not used for attribution.
