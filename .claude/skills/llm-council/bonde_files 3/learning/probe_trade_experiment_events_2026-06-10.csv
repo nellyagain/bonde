@@ -3,3 +3,4 @@ run_ts_utc,run_date,probe_experiment_status,probe_rows_today,probe_eligible_watc
 2026-06-10T12:29:50.704973+00:00,2026-06-10,ACTIVE,0,0,0,0,0.0,,0.0,0.0,ACTIVE,False,True,30,READY,True,True,True,True,True,v4.14.22
 2026-06-10T13:33:54.507814+00:00,2026-06-10,ACTIVE,0,0,0,0,0.0,,0.0,0.0,ACTIVE,False,True,30,READY,True,True,True,True,True,v4.14.22
 2026-06-10T14:39:14.698237+00:00,2026-06-10,ACTIVE,0,0,0,0,0.0,,0.0,0.0,ACTIVE,False,True,30,READY,True,True,True,True,True,v4.14.22
+2026-06-10T17:00:56.541656+00:00,2026-06-10,ACTIVE,0,0,0,0,0.0,,0.0,0.0,ACTIVE,False,True,30,READY,True,True,True,True,True,v4.14.22
