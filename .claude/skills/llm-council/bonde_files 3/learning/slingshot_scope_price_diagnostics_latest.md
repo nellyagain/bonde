@@ -5,38 +5,38 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Evaluability stage funnel
 | evaluability_stage                |   rows |
 |:----------------------------------|-------:|
-| ENTRY_STOP_NO_TARGET              |   1077 |
-| FULL_PLAN_WAITING_FOR_FUTURE_BARS |    440 |
-| FULL_PLAN_NO_PRICE_DATA           |    314 |
+| ENTRY_STOP_NO_TARGET              |   1078 |
+| FULL_PLAN_WAITING_FOR_FUTURE_BARS |    478 |
+| FULL_PLAN_NO_PRICE_DATA           |    292 |
 | OK_EVALUABLE                      |    215 |
-| MISSING_ENTRY                     |    183 |
+| MISSING_ENTRY                     |    184 |
 | FULL_PLAN_NEVER_TRIGGERED_5D      |     89 |
 
 ## Decision-log target/R:R backfill
-- Total DECISION_LOG rows enriched inside the learning loop: **1138**
-- From same-date SLINGSHOT_DIAGNOSTIC rows: **569**
-- From same-date universe plan rows: **569**
+- Total DECISION_LOG rows enriched inside the learning loop: **1172**
+- From same-date SLINGSHOT_DIAGNOSTIC rows: **586**
+- From same-date universe plan rows: **586**
 - This is measurement-only enrichment. It does not change actionability skill output, final_trade_status, action_label, ranking, council routing, or trade permission.
 
 ## Source scope × SLINGSHOT scope
 | source_scope_resolved   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:------------------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |   1407 |         1284 |        1284 |           540 |              1261 |               555 |                  1086 |            287 |                                         0 |                                  11 |
-| DECISION_LOG            | SLINGSHOT_PRIMARY               |    572 |          569 |         569 |           430 |               555 |               572 |                   351 |            315 |                                       568 |                                  10 |
-| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |    281 |          281 |         281 |            87 |               255 |               121 |                   239 |             72 |                                         0 |                                  11 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_PRIMARY               |   1407 |         1284 |        1284 |           540 |              1261 |               577 |                  1086 |            287 |                                         0 |                                  11 |
+| DECISION_LOG            | SLINGSHOT_PRIMARY               |    590 |          586 |         586 |           446 |               571 |               590 |                   351 |            315 |                                       585 |                                   7 |
+| SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY               |    281 |          281 |         281 |            87 |               255 |               133 |                   239 |             72 |                                         0 |                                  11 |
 | SLINGSHOT_DIAGNOSTIC    | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     57 |            0 |           0 |             0 |                 0 |                 0 |                    57 |              0 |                                         0 |                                  19 |
 | DECISION_LOG            | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |      1 |            1 |           1 |             1 |                 1 |                 1 |                     1 |              1 |                                         1 |                                   6 |
 
 ## Setup family × SLINGSHOT scope
 | setup_family   | slingshot_scope_resolved        |   rows |   with_entry |   with_stop |   with_target |   with_planned_rr |   with_price_data |   with_5d_future_bars |   ok_evaluable |   decision_log_backfilled_from_diagnostic |   median_business_days_since_signal |
 |:---------------|:--------------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
-| SLINGSHOT      | SLINGSHOT_PRIMARY               |   1966 |         1840 |        1840 |           968 |              1809 |              1125 |                  1430 |            601 |                                       568 |                                11   |
-| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |    120 |          120 |         120 |            36 |               112 |                50 |                   108 |             32 |                                         0 |                                11   |
+| SLINGSHOT      | SLINGSHOT_PRIMARY               |   1984 |         1857 |        1857 |           984 |              1825 |              1161 |                  1430 |            601 |                                       585 |                                11   |
+| ACTIVE_BURST   | SLINGSHOT_OVERLAY               |    120 |          120 |         120 |            36 |               112 |                52 |                   108 |             32 |                                         0 |                                11   |
 | EP9M           | SLINGSHOT_OVERLAY               |     78 |           78 |          78 |            33 |                77 |                33 |                    66 |             20 |                                         0 |                                10   |
-| EP_SPIKE       | SLINGSHOT_OVERLAY               |     31 |           31 |          31 |             3 |                17 |                 4 |                    19 |              2 |                                         0 |                                 7   |
+| EP_SPIKE       | SLINGSHOT_OVERLAY               |     31 |           31 |          31 |             3 |                17 |                14 |                    19 |              2 |                                         0 |                                 7   |
 | ACTIVE_BURST   | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     28 |            0 |           0 |             0 |                 0 |                 0 |                    28 |              0 |                                         0 |                                19   |
 | EP_ACTIVE      | SLINGSHOT_OVERLAY               |     25 |           25 |          25 |             5 |                23 |                18 |                    24 |              8 |                                         0 |                                11   |
-| EP_SPIKE       | SLINGSHOT_PRIMARY               |     13 |           13 |          13 |             2 |                 7 |                 2 |                     7 |              1 |                                         0 |                                 6   |
+| EP_SPIKE       | SLINGSHOT_PRIMARY               |     13 |           13 |          13 |             2 |                 7 |                 6 |                     7 |              1 |                                         0 |                                 6   |
 | PAUSE          | SLINGSHOT_OVERLAY               |     13 |           13 |          13 |             4 |                12 |                 8 |                    11 |              6 |                                         0 |                                 8   |
 | EP_SPIKE       | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     13 |            0 |           0 |             0 |                 0 |                 0 |                    13 |              0 |                                         0 |                                19   |
 | EP9M           | SLINGSHOT_OVERLAY_OR_DIAGNOSTIC |     11 |            0 |           0 |             0 |                 0 |                 0 |                    11 |              0 |                                         0 |                                19   |
@@ -50,7 +50,8 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 |:---------------------|:------------------------|-------:|-------------:|------------:|--------------:|------------------:|------------------:|----------------------:|---------------:|------------------------------------------:|------------------------------------:|
 | 2026-06-09           | SLINGSHOT_DIAGNOSTIC    |    133 |          133 |         133 |           119 |               119 |               129 |                     0 |              0 |                                         0 |                                   1 |
 | 2026-06-09           | DECISION_LOG            |    116 |          116 |         116 |           107 |               107 |               116 |                     0 |              0 |                                       116 |                                   1 |
-| 2026-06-08           | SLINGSHOT_DIAGNOSTIC    |     34 |           33 |          33 |            22 |                22 |                 0 |                     0 |              0 |                                         0 |                                   2 |
+| 2026-06-08           | SLINGSHOT_DIAGNOSTIC    |     34 |           33 |          33 |            22 |                22 |                34 |                     0 |              0 |                                         0 |                                   2 |
+| 2026-06-08           | DECISION_LOG            |     18 |           17 |          17 |            16 |                16 |                18 |                     0 |              0 |                                        17 |                                   2 |
 | 2026-06-05           | SLINGSHOT_DIAGNOSTIC    |     77 |           77 |          77 |            77 |                77 |                 0 |                     0 |              0 |                                         0 |                                   3 |
 | 2026-06-04           | SLINGSHOT_DIAGNOSTIC    |    119 |          119 |         119 |           114 |               114 |               119 |                     0 |              0 |                                         0 |                                   4 |
 | 2026-06-04           | DECISION_LOG            |    105 |          105 |         105 |           101 |               102 |               105 |                     0 |              0 |                                       104 |                                   4 |
@@ -80,15 +81,15 @@ Measurement-only. No SLINGSHOT rule, gate, label, ranking, status, or trade-perm
 ## Price-data reason
 | price_data_reason                       |   rows |
 |:----------------------------------------|-------:|
-| PRICE_DATA_OK                           |   1249 |
+| PRICE_DATA_OK                           |   1301 |
 | PRICE_JOIN_MISS                         |    954 |
-| TOO_RECENT_FOR_5D_OR_PRICE_JOIN_PENDING |    115 |
+| TOO_RECENT_FOR_5D_OR_PRICE_JOIN_PENDING |     81 |
 
 ## Future-bar reason
 | future_bar_reason   |   rows |
 |:--------------------|-------:|
 | HAS_5D_FUTURE_BARS  |   1734 |
-| TOO_RECENT_FOR_5D   |    584 |
+| TOO_RECENT_FOR_5D   |    602 |
 
 ## Interpretation
 - `MISSING_ENTRY` rows remain an upstream/scope issue; they should be split into primary-vs-overlay/context before judging SLINGSHOT expectancy.
