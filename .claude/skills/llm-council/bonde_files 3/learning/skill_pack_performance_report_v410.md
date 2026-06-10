@@ -15,9 +15,9 @@ _v4.11 Session 2 patch. Outcome evaluation + slice-based performance summaries o
 
 ### Outcome status (ticker-level)
 
-- EVALUATED_FULL: **1719**
-- EVALUATED_PARTIAL: **5177**
-- PENDING_NO_FUTURE_BARS: **342**
+- EVALUATED_FULL: **1782**
+- EVALUATED_PARTIAL: **5231**
+- PENDING_NO_FUTURE_BARS: **225**
 - NO_PRICE_DATA: **2**
 
 ## A. Reviewed vs unreviewed (ticker-level)
