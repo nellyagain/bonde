@@ -1,7 +1,7 @@
 # Bonde Learning Loop Executive Digest — 2026-06-11
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-06-11 01:17 UTC_
+_Run timestamp: 2026-06-11 02:18 UTC_
 _Notebook: v4.14.28 — PATCH_A_DIGEST_INSIGHT (A1-funnel ingestion; prior-business-date delta fallback; TRADE-row identity audit; reporting-only/non-trading)_
 
 ## 1. Today's required action
@@ -14,7 +14,7 @@ _Notebook: v4.14.28 — PATCH_A_DIGEST_INSIGHT (A1-funnel ingestion; prior-busin
 7. **Primary rule-review item: H_EP_ACTIVE_FADE_RISK. Manual review required before any rule change.** No rule change has been auto-applied. Ready: H_EP_ACTIVE_FADE_RISK. Candidates: H_ACTIVE_BURST_MB_EXIT, H_MB_EXIT_DAY3_FILTER. Soft cautions: none. (§RR)
    _Rule-readiness source: rule_readiness_monitor_latest.csv; ID column: candidate_rule_id; monitor rows: 3; non-observe rows: 3._
 
-## 2. Changed since last run — 2026-06-11 00:16 UTC → 2026-06-11 01:17 UTC
+## 2. Changed since last run — 2026-06-11 01:17 UTC → 2026-06-11 02:18 UTC
 - Prior digest date: **2026-06-10**
 - Current digest date: **2026-06-11**
 - Comparison window: **2026-06-10 → 2026-06-11**
