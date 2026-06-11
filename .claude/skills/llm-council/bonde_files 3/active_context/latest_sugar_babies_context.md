@@ -13,9 +13,9 @@ Use Sugar Babies as an advisory context overlay only. It may raise review priori
 | Level | Sugar Baby | n_rows | T+5 evaluable | avg T+5 | win rate T+5 |
 |---|---:|---:|---:|---:|---:|
 | candidate | True | 5052 | 4031 | 0.84% | 47.90% |
-| candidate | False | 3253 | 2610 | -0.64% | 47.85% |
+| candidate | False | 3253 | 2594 | -0.65% | 47.69% |
 | ticker | True | 4419 | 3602 | 0.95% | 48.31% |
-| ticker | False | 2821 | 2296 | -0.52% | 47.91% |
+| ticker | False | 2821 | 2287 | -0.52% | 47.84% |
 
 Interpretation: if Sugar Baby cohorts outperform non-Sugar cohorts, treat that as recurrence/attention context. It is not trade permission.
 
@@ -23,7 +23,7 @@ Interpretation: if Sugar Baby cohorts outperform non-Sugar cohorts, treat that a
 
 | slice_value   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| 0             |     2821 |                2296 |            -0.515129 |               47.9094 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 0             |     2821 |                2287 |            -0.517679 |               47.8356 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | 1             |      311 |                 278 |            -0.245518 |               43.8849 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | 2-3           |      269 |                 226 |             0.312613 |               48.6726 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | 4-7           |      397 |                 328 |            -0.240511 |               46.0366 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
