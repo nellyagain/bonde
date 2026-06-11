@@ -6,6 +6,6 @@ rows_with_target,1074
 rows_with_planned_rr,2088
 rows_with_price_data,1301
 rows_with_enough_future_bars_5d,1734
-rows_triggered_5d,1751
-rows_stopped_5d,875
+rows_triggered_5d,1747
+rows_stopped_5d,872
 rows_ok_evaluable,675
