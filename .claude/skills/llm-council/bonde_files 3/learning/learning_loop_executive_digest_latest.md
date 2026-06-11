@@ -1,23 +1,24 @@
 # Bonde Learning Loop Executive Digest — 2026-06-11
 
 _Primary review artifact. Use the underlying CSVs only when a specific number needs audit._
-_Run timestamp: 2026-06-11 00:16 UTC_
+_Run timestamp: 2026-06-11 01:17 UTC_
 _Notebook: v4.14.28 — PATCH_A_DIGEST_INSIGHT (A1-funnel ingestion; prior-business-date delta fallback; TRADE-row identity audit; reporting-only/non-trading)_
 
 ## 1. Today's required action
 1. **No automatic rule changes.** Any READY/SUPPORTED item from the rule-readiness monitor still requires manual review before patching. (§9 hypothesis tracker / verdict gates)
 2. **Review first SLINGSHOT OK-evaluable cohort under H_SLINGSHOT_TARGET_BASIS; no rule change yet.** OK_EVALUABLE rows: **675**; rows ≥5 future bars: **1,734**; unique full-plan+price ticker-date rows: **451**. (§13)
-3. **A1 remains absent; TRADE path is now alive.** Monitor whether A1 is intentionally rare or unreachable. Post-V5.9.19 TRADE rows: **10**; A1 rows: **0**; A2 rows: **17**. (§6)
+3. **A1 absence is resolved by the A2-floor audit: V5.9.46 has no distinct mechanical A1 gate. A2 is the mechanical top tier.** A1 is not a mechanical rule problem — monitor A2-floor execution quality and realized outcomes, not A1 reachability. PASS_A2_FLOOR rows: **13**; Post-V5.9.19 TRADE rows: **10**; A1 rows: **0**; A2 rows: **17**. (§6)
 4. **Track KK confirmation.** H_KK_CONFIRMATION is alive, low sample (n=107), measurement-only; do not hard-gate Bonde rows from KK yet. (§9)
 5. **Track Sugar Babies OOS.** Current signal is context-only / overlay-not-rule-evidence. (§14)
 6. **Check realized P&L once `n_with_realized_r >= 30`.** Current n = **1**. (§15)
-7. **Rule-readiness item(s) require manual review before any patch.** Ready: H_EP_ACTIVE_FADE_RISK. Candidates: H_ACTIVE_BURST_MB_EXIT, H_MB_EXIT_DAY3_FILTER. Soft cautions: none. (§RR)
+7. **Primary rule-review item: H_EP_ACTIVE_FADE_RISK. Manual review required before any rule change.** No rule change has been auto-applied. Ready: H_EP_ACTIVE_FADE_RISK. Candidates: H_ACTIVE_BURST_MB_EXIT, H_MB_EXIT_DAY3_FILTER. Soft cautions: none. (§RR)
    _Rule-readiness source: rule_readiness_monitor_latest.csv; ID column: candidate_rule_id; monitor rows: 3; non-observe rows: 3._
 
-## 2. Changed since last run — 2026-06-10 17:00 UTC → 2026-06-11 00:16 UTC
+## 2. Changed since last run — 2026-06-11 00:16 UTC → 2026-06-11 01:17 UTC
 - Prior digest date: **2026-06-10**
 - Current digest date: **2026-06-11**
 - Comparison window: **2026-06-10 → 2026-06-11**
+- Note: same-day rerun detected; compared against the most recent prior-business-date snapshot.
 
 ### Current pipeline status
 - SLINGSHOT decision-log target/R:R backfilled rows: **586**.
@@ -86,7 +87,7 @@ _Notebook: v4.14.28 — PATCH_A_DIGEST_INSIGHT (A1-funnel ingestion; prior-busin
 Current loop status: **operationally healthy, evidence still immature**. This digest is monitoring context, not rule-change permission.
 1. Sugar Baby=True candidates show 0.20% avg T+5 versus -0.65% for non-Sugar Baby candidates (evaluated n=4317 vs 2733). This is currently the stronger candidate for a future ranking overlay than EP9M, but still needs out-of-sample/weekly validation.
 2. Action-label inversion is the highest-priority systemic investigation: at least one lower-quality label is outperforming a higher-quality label within the same setup family.
-3. A1 has zero post-V5.9.19 rows — RESOLVED by the v4.14.27 A2-floor reachability audit (as of 2026-06-10): A1 has no distinct mechanical gate in V5.9.46; 13 row(s) pass every mechanical gate and are withheld from A1 only by discretionary promotion. A1 emptiness is expected, not a bug.
+3. A1 has zero post-V5.9.19 rows — RESOLVED by the v4.14.27 A2-floor reachability audit (as of 2026-06-11): A1 has no distinct mechanical gate in V5.9.46; 13 row(s) pass every mechanical gate and are withheld from A1 only by discretionary promotion. A1 emptiness is expected, not a bug.
 4. Realized P&L attribution is live but sample-immature: 2 closed realized rows and 1 with realized R. Use it as plumbing proof only until n_with_realized_r >= 30; do not use it for calibration yet.
 5. Corpus reconciliation is now active: 11 decision-log file(s) excluded and 24 row(s) removed by final de-duplication. Check the audit before comparing this digest to prior row counts.
 6. No rule changes are authorized from this digest. Use it to prioritize investigations and council context only.
@@ -153,7 +154,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 | POST_V5_9_19   | A2             | TRADE                | SLINGSHOT      |        4 |
 | LATEST_SESSION | A2             | TRADE                | SLINGSHOT      |        1 |
 
-### A2-floor reachability funnel (v4.14.27 audit, as of 2026-06-10)
+### A2-floor reachability funnel (v4.14.27 audit, as of 2026-06-11)
 | gate                          |   rows_entering |   rows_passing |   rows_failed |   rows_not_reconstructable |
 |:------------------------------|----------------:|---------------:|--------------:|---------------------------:|
 | G00_start_rows                |            1688 |           1688 |             0 |                          0 |
@@ -181,7 +182,7 @@ Purpose: check whether the actionability layer is producing true executable cand
 
 - Conclusion: **13** row(s) pass every mechanical gate (PASS_A2_FLOOR). A1 has no distinct mechanical gate in V5.9.46 — A1/A2 share the gate stack — so A1 emptiness is expected, not a bug. Row-level detail: `a1_near_misses_latest.csv`.
 ### Current interpretation
-- A1 has zero post-V5.9.19 rows — RESOLVED by the v4.14.27 A2-floor reachability audit (as of 2026-06-10): A1 has no distinct mechanical gate in V5.9.46; 13 row(s) pass every mechanical gate and are withheld from A1 only by discretionary promotion. A1 emptiness is expected, not a bug.
+- A1 has zero post-V5.9.19 rows — RESOLVED by the v4.14.27 A2-floor reachability audit (as of 2026-06-11): A1 has no distinct mechanical gate in V5.9.46; 13 row(s) pass every mechanical gate and are withheld from A1 only by discretionary promotion. A1 emptiness is expected, not a bug.
 ### Council A1/A2 reachability audit
 - Source: `council_reachability_audit_*.csv` from the Council skill. Diagnostic only; does not change labels or trading rules.
 | A1_REACHABLE   | A2_EXECUTABLE_REACHABLE   | ZERO_TRADE_CAUSE    |   n_A1 |   n_A2 |   n_TRADE |   n_A2_to_COUNCIL |
