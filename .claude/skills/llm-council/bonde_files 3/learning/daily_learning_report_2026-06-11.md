@@ -5,8 +5,8 @@ _v4.10 daily report. For evidence-grade rule-change conversations, use the weekl
 ## Scope
 
 - Rows in master decision log: 1,688
-- Rows with evaluated / partial outcomes: 1,682
-- Rows pending future bars or missing data: 6
+- Rows with evaluated / partial outcomes: 1,685
+- Rows pending future bars or missing data: 3
 
 ## Reading this report
 
@@ -34,10 +34,10 @@ _Whitelisted setup families only. Workflow/source classifications (EXCLUSION, DI
 |:---------------|---------:|-----------------:|------------------:|:------------------|:-----------------|----------------:|------------------:|-------------------:|-----------------:|------------------:|
 | SLINGSHOT      |      590 |              349 |                 0 | ACTIONABLE_SAMPLE | IMMATURE_20D     |           89.32 |             45.56 |              49.06 |            -0.32 |              0.04 |
 | ACTIVE_BURST   |      215 |              174 |                93 | ACTIONABLE_SAMPLE | MATURE_20D       |           93.49 |             37.36 |              39.38 |            -1.53 |             -0.99 |
-| PAUSE          |      199 |              146 |                45 | ACTIONABLE_SAMPLE | MATURE_20D       |           83.42 |             47.95 |              55.08 |             0.37 |              1.02 |
+| PAUSE          |      199 |              147 |                45 | ACTIONABLE_SAMPLE | MATURE_20D       |           83.42 |             48.3  |              55.46 |             0.37 |              1.01 |
 | EP_ACTIVE      |       96 |               84 |                36 | ACTIONABLE_SAMPLE | MATURE_20D       |           85.42 |             41.67 |              48.57 |            -0.73 |              0.54 |
 | DELAYED_EP     |       65 |               55 |                11 | ACTIONABLE_SAMPLE | IMMATURE_20D     |           87.69 |             47.27 |              51.06 |            -0.24 |              0.22 |
-| ANTICIPATION   |       19 |               17 |                 4 | BUILDING_SAMPLE   | IMMATURE_20D     |           84.21 |             47.06 |              57.14 |            -0.25 |              0.13 |
+| ANTICIPATION   |       19 |               18 |                 4 | BUILDING_SAMPLE   | IMMATURE_20D     |           84.21 |             44.44 |              53.33 |            -0.27 |              0.09 |
 | EP_SPIKE       |       11 |                7 |                 0 | LOW_SAMPLE        | IMMATURE_20D     |           90.91 |             14.29 |              16.67 |            -7.33 |             -5.06 |
 | PRE_BURST      |       11 |               10 |                 0 | BUILDING_SAMPLE   | IMMATURE_20D     |           18.18 |             40    |             100    |            -1.37 |              3.27 |
 | MOMENTUM_PAUSE |        2 |                2 |                 0 | LOW_SAMPLE        | IMMATURE_20D     |          100    |            100    |             100    |             0.17 |              0.17 |
@@ -48,7 +48,7 @@ _For audit only. These are not setup families and should not be used to evaluate
 
 | source_bucket   |   n_rows |   n_evaluable_5d | confidence_5d     |   win_rate_5d_all |   avg_ret_5d_all |
 |:----------------|---------:|-----------------:|:------------------|------------------:|-----------------:|
-| UNKNOWN         |      480 |              475 | ACTIONABLE_SAMPLE |             42.11 |             0.15 |
+| UNKNOWN         |      480 |              476 | ACTIONABLE_SAMPLE |             42.23 |             0.15 |
 
 ## Actionability Summary
 
@@ -60,7 +60,7 @@ _For audit only. These are not setup families and should not be used to evaluate
 | ACTIVE_BURST   | REJECT          | D              | REJECT               |       81 |               73 | ACTIONABLE_SAMPLE |           98.77 |             35.62 |              36.11 |            -2.7  |             -2.5  |
 | ACTIVE_BURST   | WATCH_ONLY      | B              | WATCH                |       76 |               46 | ACTIONABLE_SAMPLE |           96.05 |             43.48 |              44.19 |             0.58 |              0.84 |
 | DELAYED_EP     | WATCH_ONLY      | B              | WATCH                |       48 |               39 | ACTIONABLE_SAMPLE |           85.42 |             41.03 |              43.75 |            -1.41 |             -1.27 |
-| PAUSE          | WATCH_ONLY      | C              | WATCH                |       46 |               41 | ACTIONABLE_SAMPLE |           78.26 |             48.78 |              58.06 |             0.45 |              1.61 |
+| PAUSE          | WATCH_ONLY      | C              | WATCH                |       46 |               42 | ACTIONABLE_SAMPLE |           78.26 |             50    |              59.38 |             0.44 |              1.56 |
 | ACTIVE_BURST   | WATCH_ONLY      | C              | WATCH                |       43 |               40 | ACTIONABLE_SAMPLE |           90.7  |             35    |              38.89 |            -2.7  |             -1.37 |
 | EP_ACTIVE      | WATCH_ONLY      | B              | WATCH                |       38 |               31 | ACTIONABLE_SAMPLE |           89.47 |             51.61 |              59.26 |             3.05 |              4.3  |
 | EP_ACTIVE      | WATCH_ONLY      | C              | WATCH                |       21 |               18 | BUILDING_SAMPLE   |           95.24 |             55.56 |              58.82 |            -0.38 |             -0.14 |
@@ -70,7 +70,7 @@ _For audit only. These are not setup families and should not be used to evaluate
 | ACTIVE_BURST   | WATCH_ONLY      | B              | COUNCIL              |       10 |               10 | BUILDING_SAMPLE   |           60    |             30    |              33.33 |             0.48 |              3.68 |
 | DELAYED_EP     | WATCH_ONLY      | C              | WATCH                |        8 |                8 | LOW_SAMPLE        |           87.5  |             50    |              57.14 |             1.73 |              3.21 |
 | PRE_BURST      | WATCH_ONLY      | B              | WATCH                |        8 |                7 | LOW_SAMPLE        |           25    |             57.14 |             100    |             0.3  |              3.27 |
-| ANTICIPATION   | WATCH_ONLY      | C              | WATCH                |        8 |                7 | LOW_SAMPLE        |           87.5  |             42.86 |              50    |            -0.72 |             -0.35 |
+| ANTICIPATION   | WATCH_ONLY      | C              | WATCH                |        8 |                8 | LOW_SAMPLE        |           87.5  |             37.5  |              42.86 |            -0.7  |             -0.37 |
 | EP_ACTIVE      | ACTIONABLE      | A2             | COUNCIL              |        7 |                7 | LOW_SAMPLE        |           71.43 |             28.57 |              20    |            -4.24 |             -5.17 |
 | EP_SPIKE       | WATCH_ONLY      | B              | WATCH                |        7 |                3 | LOW_SAMPLE        |          100    |              0    |               0    |           -10.13 |            -10.13 |
 | PAUSE          | REJECT          | D              | REJECT               |        6 |                3 | LOW_SAMPLE        |          100    |             33.33 |              33.33 |            -3.7  |             -3.7  |
@@ -87,7 +87,7 @@ _Stratifies catalyst grade by setup family to prevent Simpson's-paradox readings
 | ACTIVE_BURST   | UNKNOWN          |       74 |               67 | ACTIONABLE_SAMPLE |           91.89 |              42.62 |             -2.66 |
 | ACTIVE_BURST   | C                |       56 |               46 | ACTIONABLE_SAMPLE |           98.21 |              35.56 |              0.39 |
 | SLINGSHOT      |                  |       48 |               30 | ACTIONABLE_SAMPLE |           93.75 |              29.63 |             -2.04 |
-| PAUSE          | C                |       43 |               39 | ACTIONABLE_SAMPLE |           88.37 |              55.88 |              1.04 |
+| PAUSE          | C                |       43 |               40 | ACTIONABLE_SAMPLE |           88.37 |              57.14 |              1.02 |
 | PAUSE          |                  |       39 |               12 | BUILDING_SAMPLE   |           87.18 |              71.43 |              0.81 |
 | EP_ACTIVE      | UNKNOWN          |       37 |               31 | ACTIONABLE_SAMPLE |           91.89 |              39.29 |             -2.77 |
 | ACTIVE_BURST   | D                |       36 |               36 | ACTIONABLE_SAMPLE |          100    |              36.11 |             -1.44 |
@@ -101,7 +101,7 @@ _Stratifies catalyst grade by setup family to prevent Simpson's-paradox readings
 | EP_ACTIVE      |                  |        9 |                3 | LOW_SAMPLE        |           77.78 |               0    |            -16.14 |
 | PRE_BURST      | UNKNOWN          |        9 |                9 | LOW_SAMPLE        |           22.22 |             100    |              3.27 |
 | DELAYED_EP     | C                |        9 |                9 | LOW_SAMPLE        |           66.67 |              83.33 |              5.09 |
-| ANTICIPATION   | UNKNOWN          |        9 |                8 | LOW_SAMPLE        |           88.89 |              57.14 |              0.44 |
+| ANTICIPATION   | UNKNOWN          |        9 |                9 | LOW_SAMPLE        |           88.89 |              50    |              0.32 |
 | DELAYED_EP     |                  |        8 |                3 | LOW_SAMPLE        |           87.5  |               0    |             -3.3  |
 | EP_SPIKE       | UNKNOWN          |        7 |                7 | LOW_SAMPLE        |           85.71 |              16.67 |             -5.06 |
 | SLINGSHOT      | B                |        6 |                6 | LOW_SAMPLE        |          100    |              66.67 |              1.78 |
@@ -150,8 +150,8 @@ _Kept for backward compatibility. The catalyst × setup-family table above is th
 
 | catalyst_grade   | summary_type   |   n_rows |   n_evaluable_1d |   n_evaluable_3d |   n_evaluable_5d |   n_evaluable_10d |   n_evaluable_20d | confidence_5d     | confidence_20d   |   n_triggered |   n_no_trigger_set |   pct_triggered |   avg_ret_1d_all |   median_ret_1d_all |   win_rate_1d_all |   avg_ret_1d_trig |   median_ret_1d_trig |   win_rate_1d_trig |   avg_ret_3d_all |   median_ret_3d_all |   win_rate_3d_all |   avg_ret_3d_trig |   median_ret_3d_trig |   win_rate_3d_trig |   avg_ret_5d_all |   median_ret_5d_all |   win_rate_5d_all |   avg_ret_5d_trig |   median_ret_5d_trig |   win_rate_5d_trig |   avg_ret_10d_all |   median_ret_10d_all |   win_rate_10d_all |   avg_ret_10d_trig |   median_ret_10d_trig |   win_rate_10d_trig |   avg_ret_20d_all |   median_ret_20d_all |   win_rate_20d_all |   avg_ret_20d_trig |   median_ret_20d_trig |   win_rate_20d_trig |   trigger_hit_5d_pct |   pre_burst_triggered_5d_pct |
 |:-----------------|:---------------|---------:|-----------------:|-----------------:|-----------------:|------------------:|------------------:|:------------------|:-----------------|--------------:|-------------------:|----------------:|-----------------:|--------------------:|------------------:|------------------:|---------------------:|-------------------:|-----------------:|--------------------:|------------------:|------------------:|---------------------:|-------------------:|-----------------:|--------------------:|------------------:|------------------:|---------------------:|-------------------:|------------------:|---------------------:|-------------------:|-------------------:|----------------------:|--------------------:|------------------:|---------------------:|-------------------:|-------------------:|----------------------:|--------------------:|---------------------:|-----------------------------:|
-| UNKNOWN          | catalyst_grade |      854 |              707 |              706 |              694 |               497 |               178 | ACTIONABLE_SAMPLE | MATURE_20D       |           747 |                396 |           87.47 |            -0.2  |               -0.1  |             43.28 |              0.03 |                -0.02 |              46.57 |            -0.08 |               -0.1  |             47.45 |              0.34 |                 0.05 |              51.12 |            -0.64 |               -0.42 |             44.38 |             -0.12 |                -0.1  |              48.21 |             -2.3  |                -0.67 |              44.87 |              -1.62 |                 -0.18 |               47.14 |              3.43 |                 1.53 |              59.55 |               4.31 |                  1.82 |               61.39 |                78.17 |                          100 |
-| C                | catalyst_grade |      430 |              425 |              424 |              308 |               279 |               271 | ACTIONABLE_SAMPLE | MATURE_20D       |           408 |                282 |           94.88 |            -1.36 |               -0.23 |             44    |             -1.24 |                -0.14 |              46.4  |            -0.06 |                0.05 |             51.18 |              0.15 |                 0.18 |              53.73 |             0.32 |               -1.26 |             42.21 |              0.4  |                -1.33 |              42.57 |              0.75 |                -0.95 |              43.01 |               0.8  |                 -0.94 |               43.48 |              5.33 |                 0.38 |              53.87 |               5.35 |                  0.39 |               53.73 |                85.14 |                          nan |
+| UNKNOWN          | catalyst_grade |      854 |              709 |              708 |              696 |               498 |               178 | ACTIONABLE_SAMPLE | MATURE_20D       |           747 |                396 |           87.47 |            -0.2  |               -0.1  |             43.3  |              0.03 |                -0    |              46.58 |            -0.08 |               -0.09 |             47.46 |              0.34 |                 0.05 |              51.11 |            -0.64 |               -0.42 |             44.4  |             -0.12 |                -0.1  |              48.21 |             -2.3  |                -0.64 |              44.78 |              -1.62 |                 -0.18 |               47.03 |              3.43 |                 1.53 |              59.55 |               4.31 |                  1.82 |               61.39 |                78.17 |                          100 |
+| C                | catalyst_grade |      430 |              426 |              425 |              309 |               280 |               271 | ACTIONABLE_SAMPLE | MATURE_20D       |           408 |                282 |           94.88 |            -1.36 |               -0.24 |             43.9  |             -1.24 |                -0.16 |              46.29 |            -0.06 |                0.06 |             51.29 |              0.15 |                 0.21 |              53.85 |             0.32 |               -1.26 |             42.39 |              0.4  |                -1.26 |              42.76 |              0.75 |                -0.94 |              43.21 |               0.8  |                 -0.92 |               43.68 |              5.33 |                 0.38 |              53.87 |               5.35 |                  0.39 |               53.73 |                85.14 |                          nan |
 | D                | catalyst_grade |      177 |              177 |              177 |              177 |               176 |               169 | ACTIONABLE_SAMPLE | MATURE_20D       |           176 |                176 |           99.44 |             2.16 |                1.3  |             63.28 |              2.18 |                 1.31 |              63.64 |             1.44 |                0.28 |             52.54 |              1.46 |                 0.29 |              52.84 |             0.75 |               -0.88 |             44.07 |              0.76 |                -0.81 |              44.32 |             -1.77 |                -2.17 |              39.2  |              -1.77 |                 -2.17 |               39.43 |              8.48 |                 0.51 |              50.89 |               8.48 |                  0.51 |               50.89 |                 0    |                          nan |
 |                  | catalyst_grade |      141 |              141 |               55 |               55 |                 2 |                 0 | ACTIONABLE_SAMPLE | IMMATURE_20D     |           128 |                 88 |           90.78 |             0.44 |                0.24 |             60.28 |              0.58 |                 0.53 |              62.5  |            -0.13 |               -0.08 |             45.45 |              0.87 |                 0.09 |              55.81 |            -2.51 |               -1.92 |             30.91 |             -1.74 |                -1.72 |              39.53 |              0.99 |                 0.99 |             100    |               0.99 |                  0.99 |              100    |            nan    |               nan    |             nan    |             nan    |                nan    |              nan    |                77.36 |                          nan |
 | B                | catalyst_grade |       61 |               61 |               60 |               60 |                59 |                24 | ACTIONABLE_SAMPLE | IMMATURE_20D     |            48 |                 21 |           78.69 |            -1.26 |               -0.11 |             47.54 |             -0.44 |                 0.48 |              60.42 |            -0.65 |               -0.84 |             43.33 |              0.66 |                 0.68 |              55.32 |            -0.23 |               -0.58 |             45    |              1.51 |                 0.78 |              55.32 |             -0.73 |                -1.02 |              45.76 |               0.98 |                  0.13 |               52.17 |              1.32 |                -0.76 |              50    |               1.99 |                 -1.91 |               47.06 |                70    |                          nan |
@@ -180,46 +180,46 @@ Four-test hypothesis evaluation framework. Tests refuse to produce a verdict bel
 Monitoring-only diagnostic. No SLINGSHOT gate or tier logic changed.
 
 - Source frame: `skill_pack_candidate_outcomes`
-- SLINGSHOT rows: 1745
-- Active family rows: 1394
-- Precedence-absorbed rows: 351
+- SLINGSHOT rows: 1795
+- Active family rows: 1437
+- Precedence-absorbed rows: 358
 - Row diagnostics CSV: `slingshot_diagnostics_rows_v41314.csv`
 - Bucket summary CSV: `slingshot_bucket_performance_v41314.csv`
 - Standalone report: `slingshot_diagnostics_report_v41314.md`
 
 | metric              | bucket   |   n_rows |   n_resolved |   avg_realized_r |   win_rate |
 |:--------------------|:---------|---------:|-------------:|-----------------:|-----------:|
-| contraction_quality | 30-40    |      241 |            0 |              nan |        nan |
-| contraction_quality | 40-50    |      367 |            0 |              nan |        nan |
-| contraction_quality | 50-60    |      495 |            0 |              nan |        nan |
-| contraction_quality | <30      |      265 |            0 |              nan |        nan |
-| contraction_quality | >=60     |      377 |            0 |              nan |        nan |
-| volume_ratio        | 0.8-1.0x |      329 |            0 |              nan |        nan |
-| volume_ratio        | 1.0-1.2x |      227 |            0 |              nan |        nan |
-| volume_ratio        | <0.8x    |      505 |            0 |              nan |        nan |
-| volume_ratio        | >=1.2x   |      684 |            0 |              nan |        nan |
-| distance_from_21ema | 3-5%     |      277 |            0 |              nan |        nan |
-| distance_from_21ema | 5-8%     |      244 |            0 |              nan |        nan |
-| distance_from_21ema | 8-12%    |      189 |            0 |              nan |        nan |
-| distance_from_21ema | <=3%     |      759 |            0 |              nan |        nan |
-| distance_from_21ema | >12%     |      276 |            0 |              nan |        nan |
-| risk_pct            | 3-5%     |      440 |            0 |              nan |        nan |
-| risk_pct            | 5-8%     |      300 |            0 |              nan |        nan |
-| risk_pct            | 8-12%    |      158 |            0 |              nan |        nan |
-| risk_pct            | <=3%     |      540 |            0 |              nan |        nan |
-| risk_pct            | >12%     |      127 |            0 |              nan |        nan |
+| contraction_quality | 30-40    |      247 |            0 |              nan |        nan |
+| contraction_quality | 40-50    |      378 |            0 |              nan |        nan |
+| contraction_quality | 50-60    |      514 |            0 |              nan |        nan |
+| contraction_quality | <30      |      268 |            0 |              nan |        nan |
+| contraction_quality | >=60     |      388 |            0 |              nan |        nan |
+| volume_ratio        | 0.8-1.0x |      338 |            0 |              nan |        nan |
+| volume_ratio        | 1.0-1.2x |      236 |            0 |              nan |        nan |
+| volume_ratio        | <0.8x    |      518 |            0 |              nan |        nan |
+| volume_ratio        | >=1.2x   |      703 |            0 |              nan |        nan |
+| distance_from_21ema | 3-5%     |      287 |            0 |              nan |        nan |
+| distance_from_21ema | 5-8%     |      250 |            0 |              nan |        nan |
+| distance_from_21ema | 8-12%    |      192 |            0 |              nan |        nan |
+| distance_from_21ema | <=3%     |      786 |            0 |              nan |        nan |
+| distance_from_21ema | >12%     |      280 |            0 |              nan |        nan |
+| risk_pct            | 3-5%     |      452 |            0 |              nan |        nan |
+| risk_pct            | 5-8%     |      311 |            0 |              nan |        nan |
+| risk_pct            | 8-12%    |      159 |            0 |              nan |        nan |
+| risk_pct            | <=3%     |      563 |            0 |              nan |        nan |
+| risk_pct            | >12%     |      130 |            0 |              nan |        nan |
 | risk_pct            | MISSING  |      180 |            0 |              nan |        nan |
-| range_break         | FALSE    |      926 |            0 |              nan |        nan |
-| range_break         | TRUE     |      819 |            0 |              nan |        nan |
-| custom_rs_rating    | 50-70    |      406 |            0 |              nan |        nan |
-| custom_rs_rating    | 70-90    |      620 |            0 |              nan |        nan |
-| custom_rs_rating    | <50      |      273 |            0 |              nan |        nan |
-| custom_rs_rating    | >=90     |      439 |            0 |              nan |        nan |
+| range_break         | FALSE    |      943 |            0 |              nan |        nan |
+| range_break         | TRUE     |      852 |            0 |              nan |        nan |
+| custom_rs_rating    | 50-70    |      414 |            0 |              nan |        nan |
+| custom_rs_rating    | 70-90    |      638 |            0 |              nan |        nan |
+| custom_rs_rating    | <50      |      288 |            0 |              nan |        nan |
+| custom_rs_rating    | >=90     |      448 |            0 |              nan |        nan |
 | custom_rs_rating    | MISSING  |        7 |            0 |              nan |        nan |
-| rr_pass             | FALSE    |      995 |            0 |              nan |        nan |
-| rr_pass             | MISSING  |      229 |            0 |              nan |        nan |
-| rr_pass             | TRUE     |      521 |            0 |              nan |        nan |
-| vol_gate            | FALSE    |     1061 |            0 |              nan |        nan |
-| vol_gate            | TRUE     |      684 |            0 |              nan |        nan |
-| contraction_gate    | FALSE    |      873 |            0 |              nan |        nan |
-| contraction_gate    | TRUE     |      872 |            0 |              nan |        nan |
+| rr_pass             | FALSE    |     1030 |            0 |              nan |        nan |
+| rr_pass             | MISSING  |      232 |            0 |              nan |        nan |
+| rr_pass             | TRUE     |      533 |            0 |              nan |        nan |
+| vol_gate            | FALSE    |     1092 |            0 |              nan |        nan |
+| vol_gate            | TRUE     |      703 |            0 |              nan |        nan |
+| contraction_gate    | FALSE    |      893 |            0 |              nan |        nan |
+| contraction_gate    | TRUE     |      902 |            0 |              nan |        nan |
