@@ -1,4 +1,4 @@
-# SLINGSHOT Evaluability Audit — 2026-06-10
+# SLINGSHOT Evaluability Audit — 2026-06-11
 
 Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permission logic changed.
 
@@ -12,8 +12,8 @@ Measurement-only audit. No SLINGSHOT rule, gate, ranking, status, or trade-permi
 | rows_with_planned_rr            |    2088 |
 | rows_with_price_data            |    1301 |
 | rows_with_enough_future_bars_5d |    1734 |
-| rows_triggered_5d               |    1748 |
-| rows_stopped_5d                 |     848 |
+| rows_triggered_5d               |    1751 |
+| rows_stopped_5d                 |     875 |
 | rows_ok_evaluable               |     675 |
 
 ## Top missing reasons
@@ -65,8 +65,8 @@ Only `CAPTURED_AT_TRIGGER` rows pass `ok_evaluable` and are eligible for the H_S
 | risk_pct              |                2151 |   2336 |           92.1 |
 | has_price_data        |                1301 |   2336 |           55.7 |
 | available_future_bars |                2336 |   2336 |          100   |
-| trigger_hit_5d        |                2012 |   2336 |           86.1 |
-| stop_hit_5d           |                2012 |   2336 |           86.1 |
+| trigger_hit_5d        |                2013 |   2336 |           86.2 |
+| stop_hit_5d           |                2013 |   2336 |           86.2 |
 | mfe_r                 |                   0 |   2336 |            0   |
 | mae_r                 |                   0 |   2336 |            0   |
 
