@@ -1,6 +1,6 @@
 # Active Sugar Babies Context
 
-Generated: 2026-06-11
+Generated: 2026-06-12
 Source: `sugar_babies_overlay_summary_v410.csv` / `sugar_babies_overlay_report_v410.md`
 Status: SUGAR_BABIES_COUNCIL_CONTEXT_MONITORING_ONLY
 
@@ -12,10 +12,10 @@ Use Sugar Babies as an advisory context overlay only. It may raise review priori
 
 | Level | Sugar Baby | n_rows | T+5 evaluable | avg T+5 | win rate T+5 |
 |---|---:|---:|---:|---:|---:|
-| candidate | True | 5216 | 4031 | 0.84% | 47.90% |
-| candidate | False | 3348 | 2610 | -0.64% | 47.85% |
-| ticker | True | 4578 | 3602 | 0.95% | 48.31% |
-| ticker | False | 2909 | 2296 | -0.52% | 47.91% |
+| candidate | True | 5447 | 4622 | 0.23% | 47.19% |
+| candidate | False | 3565 | 2946 | -0.45% | 50.31% |
+| ticker | True | 4778 | 4068 | 0.55% | 48.08% |
+| ticker | False | 3101 | 2582 | -0.33% | 50.46% |
 
 Interpretation: if Sugar Baby cohorts outperform non-Sugar cohorts, treat that as recurrence/attention context. It is not trade permission.
 
@@ -23,27 +23,27 @@ Interpretation: if Sugar Baby cohorts outperform non-Sugar cohorts, treat that a
 
 | slice_value   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:--------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| 0             |     2909 |                2296 |            -0.515129 |               47.9094 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| 1             |      307 |                 270 |            -0.131547 |               44.4444 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| 2-3           |      291 |                 234 |             0.162026 |               47.8632 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| 4-7           |      395 |                 323 |            -0.228546 |               46.13   | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| 8+            |     3585 |                2775 |             1.25651  |               48.973  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 0             |     3101 |                2582 |           -0.332872  |               50.4648 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 1             |      319 |                 281 |           -0.325964  |               43.7722 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 2-3           |      312 |                 263 |            0.14177   |               48.289  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 4-7           |      364 |                 323 |            0.0759785 |               48.2972 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| 8+            |     3783 |                3201 |            0.706889  |               48.4224 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 
 ## Setup-family interactions where Sugar Baby = True
 
 | setup_family   |   n_rows |   rows_with_t5_eval |   avg_ret_t5_partial |   win_rate_t5_partial | partial_label                          |
 |:---------------|---------:|--------------------:|---------------------:|----------------------:|:---------------------------------------|
-| EP9M           |     4104 |                3115 |             1.04297  |               48.8604 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ACTIVE_BURST   |      387 |                 352 |            -0.216974 |               41.1932 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| SLINGSHOT      |      221 |                 174 |             2.6      |               54.023  | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| EP_SPIKE       |      167 |                 149 |            -1.99994  |               36.2416 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| EP_ACTIVE      |      126 |                 110 |             0.331516 |               43.6364 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| PAUSE          |      167 |                  98 |             0.17925  |               52.0408 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| DELAYED_EP     |       26 |                  23 |            -0.879836 |               43.4783 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP9M           |     4270 |                3628 |             0.351269 |               47.7674 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ACTIVE_BURST   |      403 |                 367 |            -0.834448 |               40.0545 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| SLINGSHOT      |      254 |                 206 |             1.57158  |               54.3689 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP_SPIKE       |      169 |                 150 |            -2.03051  |               36      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| EP_ACTIVE      |      128 |                 118 |             0.247806 |               43.2203 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| PAUSE          |      171 |                 116 |             0.203789 |               54.3103 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| DELAYED_EP     |       33 |                  23 |            -0.879836 |               43.4783 | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| ANTICIPATION   |       11 |                   7 |             4.53285  |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 | PRE_BURST      |        7 |                   6 |            -1.74923  |               50      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| ANTICIPATION   |       10 |                   4 |             7.72868  |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
-| DIAGNOSTICS    |        1 |                   0 |           nan        |              nan      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
+| DIAGNOSTICS    |        1 |                   1 |             0.191814 |              100      | SUGAR_BABIES_OVERLAY_NOT_RULE_EVIDENCE |
 
 
 ## Council use rules
