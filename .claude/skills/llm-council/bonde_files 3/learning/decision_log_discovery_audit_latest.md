@@ -1,4 +1,4 @@
-# Decision-Log Corpus Reconciliation Audit — 2026-06-12
+# Decision-Log Corpus Reconciliation Audit — 2026-06-14
 
 Purpose: explain decision-log row-count changes and EP9M coverage across discovery → de-duplication → normalization → master log.
 
@@ -6,7 +6,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 
 | run_date   |   raw_candidate_files_discovered |   included_files |   excluded_files |   raw_rows_discovered_all_candidates |   raw_rows_included_files |   rows_after_schema_normalization_included |   master_decision_log_rows_after_dedup |   rows_removed_by_master_dedup |   excluded_duplicate_files |   included_raw_ep9m_setup_family_rows |   included_raw_ep9m_context_rows_any |   included_norm_ep9m_setup_family_rows |   included_norm_ep9m_context_rows_any |   master_ep9m_setup_family_rows |   master_ep9m_context_rows_any |
 |:-----------|---------------------------------:|-----------------:|-----------------:|-------------------------------------:|--------------------------:|-------------------------------------------:|---------------------------------------:|-------------------------------:|---------------------------:|--------------------------------------:|-------------------------------------:|---------------------------------------:|--------------------------------------:|--------------------------------:|-------------------------------:|
-| 2026-06-12 |                               30 |               19 |               11 |                                 2777 |                      1712 |                                       1712 |                                   1688 |                             24 |                          2 |                                     0 |                                  223 |                                      0 |                                   223 |                               0 |                            223 |
+| 2026-06-14 |                               31 |               20 |               11 |                                 2899 |                      1834 |                                       1834 |                                   1810 |                             24 |                          2 |                                     0 |                                  229 |                                      0 |                                   229 |                               0 |                            229 |
 
 ## Included decision-log files
 
@@ -31,6 +31,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 | daily_decision_log_2026-06-05.csv     | 2026-06-05      | CANONICAL     |                   | False           |             126 |                               126 |                       126 | V5_9_EXPLICIT    |                            0 |                             0 |
 | daily_decision_log_2026-06-08.csv     | 2026-06-08      | CANONICAL     |                   | False           |              87 |                                87 |                        87 | V5_9_EXPLICIT    |                            0 |                             0 |
 | daily_decision_log_2026-06-10.csv     | 2026-06-10      | CANONICAL     |                   | False           |             135 |                               135 |                       135 | V5_9_EXPLICIT    |                            0 |                             0 |
+| daily_decision_log_2026-06-13.csv     | 2026-06-13      | CANONICAL     |                   | False           |             122 |                               122 |                       122 | V5_9_EXPLICIT    |                            0 |                             0 |
 
 ## Excluded decision-log files
 
@@ -51,7 +52,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 ## EP9M reconciliation
 
 - No `setup_family=EP9M` rows were present in the included decision-log corpus for this run. If prior digests showed EP9M rows, compare the excluded-files table and discovery scope.
-- EP9M context rows any-token: raw included=223, normalized included=223, master=223.
+- EP9M context rows any-token: raw included=229, normalized included=229, master=229.
 
 ## Full audit CSV
 - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/decision_log_discovery_audit_latest.csv`
