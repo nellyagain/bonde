@@ -4,19 +4,19 @@ Monitoring only. No trading rules, tiers, gates, or precedence rules were change
 
 ## Source
 - Source frame: `skill_pack_candidate_outcomes`
-- Input rows: 9800
-- SLINGSHOT signal rows: 2188
-- Active `setup_family=SLINGSHOT` rows: 1751
-- Precedence-absorbed SLINGSHOT signal rows: 437
+- Input rows: 10068
+- SLINGSHOT signal rows: 2216
+- Active `setup_family=SLINGSHOT` rows: 1769
+- Precedence-absorbed SLINGSHOT signal rows: 447
 
 ## Gate-observation counts
-- Range-break true: 1057 / 2188
-- Contraction quality ≥ 50: 1095 / 2188
-- Volume ratio ≥ 1.2x: 845 / 2188
-- `custom_rs_rating` ≥ 70: 1397 / 2188
-- R:R ≥ 2: 662 / 2188
-- > 8% above 21EMA: 588 / 2188
-- Resolved outcomes available: 0 / 2188
+- Range-break true: 1079 / 2216
+- Contraction quality ≥ 50: 1111 / 2216
+- Volume ratio ≥ 1.2x: 860 / 2216
+- `custom_rs_rating` ≥ 70: 1423 / 2216
+- R:R ≥ 2: 664 / 2216
+- > 8% above 21EMA: 599 / 2216
+- Resolved outcomes available: 0 / 2216
 
 ## Metric sources
 - `sg_contraction_quality`: `slingshot_contraction_quality`
@@ -71,40 +71,40 @@ Monitoring only. No trading rules, tiers, gates, or precedence rules were change
 ## Bucket performance summary
 | metric              | bucket   |   n_rows |   n_resolved |   avg_realized_r |   win_rate |   avg_ret_5d_pct |   pct_range_break |   pct_rr_pass |   pct_vol_gate_pass |   pct_contraction_gate_pass |
 |:--------------------|:---------|---------:|-------------:|-----------------:|-----------:|-----------------:|------------------:|--------------:|--------------------:|----------------------------:|
-| contraction_quality | 30-40    |      310 |            0 |              nan |        nan |             1.97 |              29.4 |          44.5 |                35.5 |                         0   |
-| contraction_quality | 40-50    |      470 |            0 |              nan |        nan |             0.44 |              41.3 |          37.9 |                37.4 |                         0   |
-| contraction_quality | 50-60    |      627 |            0 |              nan |        nan |             0.91 |              54.7 |          27.9 |                38.3 |                       100   |
-| contraction_quality | <30      |      313 |            0 |              nan |        nan |            -0.44 |              28.4 |          50.8 |                44.1 |                         0   |
-| contraction_quality | >=60     |      468 |            0 |              nan |        nan |            -0.41 |              72.6 |          21.4 |                38.7 |                       100   |
-| volume_ratio        | 0.8-1.0x |      434 |            0 |              nan |        nan |             1.49 |              41   |          35.2 |                 0   |                        49.8 |
-| volume_ratio        | 1.0-1.2x |      293 |            0 |              nan |        nan |             2.04 |              43.3 |          36.8 |                 0   |                        51.5 |
-| volume_ratio        | <0.8x    |      616 |            0 |              nan |        nan |             0.83 |              34.7 |          40.5 |                 0   |                        49.8 |
-| volume_ratio        | >=1.2x   |      845 |            0 |              nan |        nan |            -0.82 |              63.7 |          27   |               100   |                        49.8 |
-| distance_from_21ema | 3-5%     |      367 |            0 |              nan |        nan |             0.6  |              49   |          30.7 |                30.8 |                        55.6 |
-| distance_from_21ema | 5-8%     |      334 |            0 |              nan |        nan |             0.48 |              53.9 |          32.1 |                44.9 |                        54.2 |
-| distance_from_21ema | 8-12%    |      238 |            0 |              nan |        nan |            -0.6  |              60.9 |          32.1 |                55.5 |                        45.4 |
-| distance_from_21ema | <=3%     |      899 |            0 |              nan |        nan |             1.1  |              31.5 |          36.6 |                19   |                        50.9 |
-| distance_from_21ema | >12%     |      350 |            0 |              nan |        nan |            -0.69 |              76.9 |          34.5 |                79.7 |                        41.1 |
-| risk_pct            | 3-5%     |      546 |            0 |              nan |        nan |             1.29 |              39.4 |          29.3 |                23.3 |                        51.3 |
-| risk_pct            | 5-8%     |      434 |            0 |              nan |        nan |             1.4  |              48.4 |          30.9 |                47.2 |                        45.2 |
-| risk_pct            | 8-12%    |      219 |            0 |              nan |        nan |            -0.71 |              55.7 |          30.6 |                65.3 |                        45.7 |
-| risk_pct            | <=3%     |      641 |            0 |              nan |        nan |             0.87 |              45.9 |          43.4 |                18.4 |                        58   |
-| risk_pct            | >12%     |      168 |            0 |              nan |        nan |            -1.33 |              67.3 |          25.9 |                88.1 |                        44.6 |
+| contraction_quality | 30-40    |      315 |            0 |              nan |        nan |             1.94 |              29.5 |          44   |                35.9 |                         0   |
+| contraction_quality | 40-50    |      477 |            0 |              nan |        nan |             0.36 |              41.9 |          37.7 |                37.7 |                         0   |
+| contraction_quality | 50-60    |      640 |            0 |              nan |        nan |             0.75 |              55.3 |          27.6 |                38.6 |                       100   |
+| contraction_quality | <30      |      313 |            0 |              nan |        nan |            -0.38 |              28.4 |          50.8 |                44.1 |                         0   |
+| contraction_quality | >=60     |      471 |            0 |              nan |        nan |            -0.54 |              72.8 |          21.2 |                38.6 |                       100   |
+| volume_ratio        | 0.8-1.0x |      437 |            0 |              nan |        nan |             1.37 |              41   |          35.2 |                 0   |                        49.4 |
+| volume_ratio        | 1.0-1.2x |      299 |            0 |              nan |        nan |             1.87 |              44.1 |          36   |                 0   |                        52.5 |
+| volume_ratio        | <0.8x    |      620 |            0 |              nan |        nan |             0.71 |              34.8 |          40.3 |                 0   |                        49.8 |
+| volume_ratio        | >=1.2x   |      860 |            0 |              nan |        nan |            -0.84 |              64.2 |          26.8 |               100   |                        49.9 |
+| distance_from_21ema | 3-5%     |      372 |            0 |              nan |        nan |             0.43 |              49.5 |          30.6 |                31.2 |                        55.6 |
+| distance_from_21ema | 5-8%     |      335 |            0 |              nan |        nan |             0.43 |              54   |          32   |                44.8 |                        54   |
+| distance_from_21ema | 8-12%    |      241 |            0 |              nan |        nan |            -0.69 |              61.4 |          31.6 |                55.6 |                        45.2 |
+| distance_from_21ema | <=3%     |      910 |            0 |              nan |        nan |             1    |              31.8 |          36.2 |                19.1 |                        51.1 |
+| distance_from_21ema | >12%     |      358 |            0 |              nan |        nan |            -0.7  |              77.4 |          34.5 |                79.9 |                        41.6 |
+| risk_pct            | 3-5%     |      549 |            0 |              nan |        nan |             1.18 |              39.3 |          29.2 |                23.3 |                        51.5 |
+| risk_pct            | 5-8%     |      441 |            0 |              nan |        nan |             1.21 |              49.2 |          30.6 |                47.4 |                        45.1 |
+| risk_pct            | 8-12%    |      227 |            0 |              nan |        nan |            -0.76 |              55.5 |          30.4 |                65.2 |                        44.5 |
+| risk_pct            | <=3%     |      646 |            0 |              nan |        nan |             0.76 |              46.3 |          43.1 |                18.4 |                        58.2 |
+| risk_pct            | >12%     |      173 |            0 |              nan |        nan |            -1.31 |              68.2 |          25.9 |                87.9 |                        46.2 |
 | risk_pct            | MISSING  |      180 |            0 |              nan |        nan |            -2.01 |              57.2 |         nan   |                57.8 |                        40   |
-| range_break         | FALSE    |     1131 |            0 |              nan |        nan |             0.89 |               0   |          43.9 |                27.1 |                        36.4 |
-| range_break         | TRUE     |     1057 |            0 |              nan |        nan |            -0.01 |             100   |          22.6 |                50.9 |                        64.6 |
-| custom_rs_rating    | 50-70    |      462 |            0 |              nan |        nan |             1.37 |              46.3 |          31.6 |                24.2 |                        58.2 |
-| custom_rs_rating    | 70-90    |      803 |            0 |              nan |        nan |             0.74 |              49.7 |          35.3 |                40.8 |                        48.2 |
-| custom_rs_rating    | <50      |      320 |            0 |              nan |        nan |             0.89 |              42.5 |          27.3 |                22.2 |                        50.6 |
-| custom_rs_rating    | >=90     |      594 |            0 |              nan |        nan |            -1.05 |              50.7 |          38.6 |                55.2 |                        45.6 |
+| range_break         | FALSE    |     1137 |            0 |              nan |        nan |             0.89 |               0   |          43.7 |                27.1 |                        36.4 |
+| range_break         | TRUE     |     1079 |            0 |              nan |        nan |            -0.18 |             100   |          22.3 |                51.2 |                        64.6 |
+| custom_rs_rating    | 50-70    |      463 |            0 |              nan |        nan |             1.27 |              46.4 |          31.5 |                24.2 |                        58.1 |
+| custom_rs_rating    | 70-90    |      817 |            0 |              nan |        nan |             0.63 |              49.9 |          35   |                40.6 |                        48.5 |
+| custom_rs_rating    | <50      |      321 |            0 |              nan |        nan |             0.72 |              42.7 |          27.2 |                22.1 |                        50.8 |
+| custom_rs_rating    | >=90     |      606 |            0 |              nan |        nan |            -1.05 |              51.5 |          38.2 |                55.9 |                        45.7 |
 | custom_rs_rating    | MISSING  |        9 |            0 |              nan |        nan |             2.2  |              77.8 |          37.5 |                66.7 |                        66.7 |
-| rr_pass             | FALSE    |     1277 |            0 |              nan |        nan |             0.54 |              53.7 |           0   |                38.8 |                        57.5 |
-| rr_pass             | MISSING  |      249 |            0 |              nan |        nan |            -1.84 |              68.7 |         nan   |                67.1 |                        45.8 |
-| rr_pass             | TRUE     |      662 |            0 |              nan |        nan |             1.35 |              30.2 |         100   |                27.6 |                        37.3 |
-| vol_gate            | FALSE    |     1343 |            0 |              nan |        nan |             1.29 |              38.6 |          38   |                 0   |                        50.2 |
-| vol_gate            | TRUE     |      845 |            0 |              nan |        nan |            -0.82 |              63.7 |          27   |               100   |                        49.8 |
-| contraction_gate    | FALSE    |     1093 |            0 |              nan |        nan |             0.6  |              34.2 |          43.3 |                38.8 |                         0   |
-| contraction_gate    | TRUE     |     1095 |            0 |              nan |        nan |             0.34 |              62.4 |          25.2 |                38.4 |                       100   |
+| rr_pass             | FALSE    |     1295 |            0 |              nan |        nan |             0.44 |              54   |           0   |                38.8 |                        57.5 |
+| rr_pass             | MISSING  |      257 |            0 |              nan |        nan |            -1.95 |              69.6 |         nan   |                67.7 |                        46.3 |
+| rr_pass             | TRUE     |      664 |            0 |              nan |        nan |             1.29 |              30.3 |         100   |                27.7 |                        37.2 |
+| vol_gate            | FALSE    |     1356 |            0 |              nan |        nan |             1.17 |              38.9 |          37.7 |                 0   |                        50.3 |
+| vol_gate            | TRUE     |      860 |            0 |              nan |        nan |            -0.84 |              64.2 |          26.8 |               100   |                        49.9 |
+| contraction_gate    | FALSE    |     1105 |            0 |              nan |        nan |             0.58 |              34.6 |          43.1 |                39   |                         0   |
+| contraction_gate    | TRUE     |     1111 |            0 |              nan |        nan |             0.19 |              62.7 |          24.9 |                38.6 |                       100   |
 
 ## Interpretation discipline
 - Do not relax SLINGSHOT gates from this report alone.
