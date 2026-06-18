@@ -1,4 +1,4 @@
-# Decision-Log Corpus Reconciliation Audit — 2026-06-17
+# Decision-Log Corpus Reconciliation Audit — 2026-06-18
 
 Purpose: explain decision-log row-count changes and EP9M coverage across discovery → de-duplication → normalization → master log.
 
@@ -6,7 +6,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 
 | run_date   |   raw_candidate_files_discovered |   included_files |   excluded_files |   raw_rows_discovered_all_candidates |   raw_rows_included_files |   rows_after_schema_normalization_included |   master_decision_log_rows_after_dedup |   rows_removed_by_master_dedup |   excluded_duplicate_files |   included_raw_ep9m_setup_family_rows |   included_raw_ep9m_context_rows_any |   included_norm_ep9m_setup_family_rows |   included_norm_ep9m_context_rows_any |   master_ep9m_setup_family_rows |   master_ep9m_context_rows_any |
 |:-----------|---------------------------------:|-----------------:|-----------------:|-------------------------------------:|--------------------------:|-------------------------------------------:|---------------------------------------:|-------------------------------:|---------------------------:|--------------------------------------:|-------------------------------------:|---------------------------------------:|--------------------------------------:|--------------------------------:|-------------------------------:|
-| 2026-06-17 |                               33 |               22 |               11 |                                 3043 |                      2022 |                                       2022 |                                   1998 |                             24 |                          2 |                                     0 |                                  236 |                                      0 |                                   236 |                               0 |                            236 |
+| 2026-06-18 |                               33 |               22 |               11 |                                 3049 |                      2022 |                                       2022 |                                   1998 |                             24 |                          2 |                                     0 |                                  236 |                                      0 |                                   236 |                               0 |                            236 |
 
 ## Included decision-log files
 
@@ -49,7 +49,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 | daily_decision_log_2026-05-13.csv                                     | 2026-05-13      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY                                                |              62 |               144 |                            0 |                           6 |
 | daily_decision_log_2026-06-10.BAD_MANIFEST_BACKUP_20260610T143106.csv | 2026-06-10      | CANONICAL     |                              | False           | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-06-10.csv |               8 |               100 |                            0 |                           0 |
 | daily_decision_log_2026-06-10.BAD_MANIFEST_BACKUP_20260610T145850.csv | 2026-06-10      | CANONICAL     |                              | False           | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-06-10.csv |             135 |               150 |                            0 |                           6 |
-| daily_decision_log_2026-06-16.csv                                     | 2026-06-16      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY                                                |              91 |               157 |                            0 |                           3 |
+| daily_decision_log_2026-06-17.csv                                     | 2026-06-17      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY                                                |              97 |               166 |                            0 |                           4 |
 
 ## EP9M reconciliation
 
