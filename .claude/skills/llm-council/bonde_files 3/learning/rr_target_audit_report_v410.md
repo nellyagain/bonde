@@ -1,4 +1,4 @@
-# R:R Target Realism Audit — 2026-06-17
+# R:R Target Realism Audit — 2026-06-18
 
 *v4.13.7 — V5.9 target regex fix on top of v4.13.6 baseline (regex disambiguation only; audit logic unchanged).*
 
