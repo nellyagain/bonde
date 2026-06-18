@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LLM Council — A2 Promotion Batch 2026-06-18</title>
+<style>
+  :root{--bg:#fff;--ink:#1d2330;--mut:#5b6573;--line:#e4e8ee;--accent:#2f6fed;--green:#127a4b;--amber:#9a6700;--red:#a31515;--chip:#f4f6fa;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f7f9fc;margin:0;line-height:1.5}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 22px 80px}
+  h1{font-size:25px;margin:0 0 4px}
+  h2{font-size:18px;margin:30px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h3{font-size:15px;margin:18px 0 7px}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:18px 20px;margin:14px 0;box-shadow:0 1px 2px rgba(20,30,60,.04)}
+  .verdict-box{background:linear-gradient(180deg,#fbfdff,#f3f7ff);border:1px solid #d3e0fb}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+  th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--chip);font-weight:600;font-size:12px;letter-spacing:.02em;color:#3a4350}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:.02em}
+  .promote{background:#e3f6ec;color:var(--green)}
+  .defer{background:#fbf2dc;color:var(--amber)}
+  .cancel{background:#fbe3e3;color:var(--red)}
+  .mono{font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:11.5px;color:var(--mut);margin:0 4px 4px 0}
+  details{border:1px solid var(--line);border-radius:9px;margin:9px 0;background:#fff}
+  summary{cursor:pointer;padding:11px 14px;font-weight:600;font-size:14px}
+  details[open]{padding-bottom:6px}
+  .adv{padding:2px 16px 12px;color:#2c3340;font-size:13.5px;white-space:pre-wrap}
+  .disc{background:#fff7e6;border:1px solid #f0dcae;border-radius:8px;padding:10px 13px;font-size:12.5px;color:#6b5a23;margin:10px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+  .kpi{font-size:12.5px;color:var(--mut)}
+  .kpi b{color:var(--ink)}
+  code{background:var(--chip);padding:1px 5px;border-radius:5px;font-size:12px}
+  .foot{color:var(--mut);font-size:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:12px}
+  .ok{color:var(--green);font-weight:600}.warn{color:var(--amber);font-weight:600}.bad{color:var(--red);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LLM Council — A2 Promotion-Review Batch</h1>
+<div class="sub">Signal 2026-06-17 · Decision session 2026-06-18 (Thu) · 6 candidates: ABEO, DNOW, HOV, KRNT, TENB, XERS · Question per ticker: <em>take now at committed trigger (half-size)</em> vs <em>require a Day-2 hold above trigger first</em>. Every A2 routes to COUNCIL by design (A2 never auto-trades).</div>
+
+<div class="card verdict-box">
+  <h2 style="margin-top:4px;border:none">Chairman Verdict — 1 PROMOTE · 5 DEFER · 0 CANCEL</h2>
+  <table>
+    <tr><th>Ticker</th><th>Family</th><th>Verdict</th><th>Conf.</th><th>One-line</th></tr>
+    <tr><td><b>KRNT</b></td><td>DELAYED_EP</td><td><span class="pill promote">PROMOTE</span></td><td>medium</td><td>Only one already above trigger (16.66 vs 16.43) on +4.32% / 3.24x DEP-vol PASS, +14% over a rising 200SMA. Half-size, controlled pullback to 16.43 — <b>do not chase</b> above 16.66.</td></tr>
+    <tr><td><b>ABEO</b></td><td>PAUSE</td><td><span class="pill defer">DEFER</span></td><td>medium</td><td>Un-triggered (5.65&lt;5.80); flat Day-1 on 2.05x vol reads as absorption. Require trigger + Day-2 hold.</td></tr>
+    <tr><td><b>DNOW</b></td><td>PAUSE</td><td><span class="pill defer">DEFER</span></td><td>medium</td><td>Below 200SMA, needs +4.7% & a reclaim on 1.09x vol. Structure intact → defer, not cancel.</td></tr>
+    <tr><td><b>HOV</b></td><td>PAUSE</td><td><span class="pill defer">DEFER</span></td><td>medium</td><td>R:R floor-pinned 2.01, ~12% stop, bottom-quartile down-day close. "Promote-on-confirmation" = Day-2 hold.</td></tr>
+    <tr><td><b>TENB</b></td><td>PAUSE</td><td><span class="pill defer">DEFER</span></td><td>medium</td><td>0.65x volume = no participation; needs +5.5% to trigger. Require a volume-backed break.</td></tr>
+    <tr><td><b>XERS</b></td><td>PAUSE</td><td><span class="pill defer">DEFER</span></td><td>medium</td><td>Best paper R:R 4.95 but below 200SMA, flat, 0.90x vol — floor-illusion until the reclaim fires.</td></tr>
+  </table>
+  <p class="kpi" style="margin:6px 2px 0"><b>The one thing to do first:</b> Place a <b>DAY</b> buy-limit on <b>KRNT at 16.43</b> (half-size, stop 14.02). If it never pulls back, let it go — do not chase the 16.66 candle. Everything else stays a watch with buy-stops armed only on a volume-confirmed trigger break.</p>
+</div>
+
+<h2>Context Files Loaded</h2>
+<table>
+  <tr><th>Role</th><th>Path</th><th>Status</th></tr>
+  <tr><td>council_context_manifest</td><td><code>bonde_files 3/active_context/council_context_manifest.md</code></td><td class="ok">LOADED</td></tr>
+  <tr><td>daily_decision_log (prior pack)</td><td><code>bonde_files 3/current/daily_decision_log_2026-06-17.csv</code></td><td class="ok">LOADED</td></tr>
+  <tr><td>council_queue (current)</td><td><code>bonde_files 3/current/council_queue_2026-06-17.csv</code></td><td class="warn">LOADED — header-only (candidate set supplied inline by user A2 pack)</td></tr>
+  <tr><td>candidate context</td><td><code>bonde_files 3/active_context/latest_candidate_context.md</code></td><td class="ok">LOADED</td></tr>
+  <tr><td>learning context</td><td><code>bonde_files 3/active_context/latest_learning_context.md</code></td><td class="ok">LOADED — null-pattern (no ACTIVE learned patterns)</td></tr>
+  <tr><td>market context</td><td><code>bonde_files 3/active_context/latest_market_context.md</code></td><td class="ok">LOADED — advisory</td></tr>
+  <tr><td>setup-family base rates</td><td><code>bonde_files 3/learning/setup_family_performance_summary_v410.csv</code></td><td class="ok">LOADED</td></tr>
+  <tr><td>resolved disagreements</td><td><code>bonde_files 3/learning/council_disagreements_resolved.csv</code></td><td class="ok">LOADED — 24 resolved (calibration input)</td></tr>
+  <tr><td>actionability skill (full package)</td><td><code>bonde_files/bonde_stockbee_actionability/SKILL.md</code></td><td class="warn">PRESENT — verdicts use embedded V5.9.x playbook rules + the supplied A2 pack, not a re-run of the skill</td></tr>
+</table>
+<p class="kpi">Decision-field semantics (V5.9.19): the supplied pack is an A2 routing layer; <code>final_trade_status</code> for all six is effectively <b>COUNCIL</b>. <code>tier=UNKNOWN/WATCH</code> is dashboard context only and is not trade authorization. KRNT carries <code>tier=WATCH</code> yet is the promote — focus tier did not drive the verdict; the trigger/volume confirmation did.</p>
+
+<h2>Council self-calibration status</h2>
+<div class="card">
+  <p><b>INSUFFICIENT_DATA.</b> Resolved disagreements: <b>24/30</b>. <b>No reliability percentage reported.</b></p>
+  <p class="kpi">Resolved by verdict: DEFER n=15, CANCEL n=9, PROMOTE n=0 (CANCEL/PROMOTE and every per-family slice below the 10-row gate). Directional caveat only, used as context and <b>not</b> applied to any verdict: the immature history shows several DEFER/CANCEL calls on momentum names (CLSK, IFS, LLY, ARM, TTMI, ALAB) that later printed winners the council missed — while A2 defers ADEA/AAP and the UCTT cancel were vindicated. Per the playbook, outcome data is an overlay, not a loophole; it cannot authorize entry before a trigger fires.</p>
+</div>
+
+<h2>A1/A2 Reachability Audit</h2>
+<div class="card">
+  <div class="grid2">
+    <div class="kpi"><b>A1_REACHABLE:</b> <span class="warn">NOT_EVALUABLE</span> — no A1 rows in corpus, no isolated routing harness.</div>
+    <div class="kpi"><b>A2_EXECUTABLE_REACHABLE:</b> <span class="ok">TRUE</span> — proven in prior actual corpus (2026-06-09: NYT 2.21R, FOX 2.92R both routed A2→TRADE); council promotion path live this run (KRNT).</div>
+    <div class="kpi"><b>ZERO_TRADE_CAUSE:</b> <span class="warn">INTENTIONAL_STRICTNESS</span> — every A2 routes to COUNCIL by design ("A2 never auto-trades"); council is the executable gate, not a routing defect.</div>
+    <div class="kpi"><b>Counts:</b> n_A1=0 · n_A2=6 · n_TRADE=0 (pre-council) · n_A2→COUNCIL=6 · audit_basis=ACTUAL_CORPUS.</div>
+  </div>
+  <p class="kpi" style="margin-top:8px"><b>Top demotion reasons:</b> no Day-1 trigger confirmation (5/6); R:R floor-pinned (HOV). This is intentional design behavior — <b>not</b> an implementation/routing investigation.</p>
+</div>
+
+<h2>Outcome / Base-Rate Context</h2>
+<div class="card">
+  <p class="kpi">Outcome data available: <b>yes, but immature/directional</b>. Setup-family base rates (v4.10):</p>
+  <table>
+    <tr><th>Family</th><th>n</th><th>20d maturity</th><th>Trigger-hit 5d</th><th>Win-rate 5d (trig)</th></tr>
+    <tr><td>PAUSE (ABEO/DNOW/HOV/TENB/XERS)</td><td>292</td><td>MATURE_20D</td><td>53.2%</td><td>~53%</td></tr>
+    <tr><td>DELAYED_EP (KRNT)</td><td>77</td><td class="warn">IMMATURE_20D</td><td>78.4%</td><td>~52% @5d, stronger +1d/+3d</td></tr>
+  </table>
+  <p class="kpi">B+ blocker base rate: N/A (all rows are A2 / NOT_BPLUS). Prior council promote/defer/cancel outcomes on these exact names: none. <b>KRNT verdict is evidence-backed on the in-hand confirmation but the DEP 20d cohort is immature; the five DEFERs are playbook-only.</b></p>
+  <p class="kpi"><b>Market (advisory):</b> Nasdaq Bull regime, but SMA50 <span class="bad">+11.29% "Extremely Extended"</span>, EMA21 +3.70% "Extended". A fresh breakout into an extended tape is a higher-risk buy point (whipsaw odds rise) — this is broad <b>risk-appetite read-through, not direct sector linkage</b>, and it justifies KRNT's half-size and patience on the rest.</p>
+</div>
+
+<h2>Reasoning Paths Considered</h2>
+<div class="disc"><b>These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration.</b> Five reasoning paths were generated in one process; four paths reaching one conclusion is one model exploring it four times, not four independent verdicts.</div>
+
+<h3>Reasoning Path Convergence</h3>
+<p style="font-size:13.5px">The First-Principles and Outsider paths arrived at the same diagnosis by different routes — First-Principles by reframing ("which candidate already converted hypothesis→evidence?") and the Outsider by plain inspection ("a watchlist dressed as a buy list: 5 of 6 haven't actually triggered"). The Contrarian path reached the same place via the volume tell (five names lack participation; KRNT alone has 3.24x). The Executor path confirmed it operationally: only KRNT yields a fillable order today. All paths independently landed on <b>KRNT as the single clean promote</b>.</p>
+
+<h3>Reasoning Path Divergence</h3>
+<p style="font-size:13.5px">The <b>Expansionist</b> path argued to promote ABEO, DNOW and XERS <em>now</em> too, on the opportunity-cost reading that the council's own history shows over-deferral leaving momentum winners on the table. The other four paths rejected this: promoting un-triggered names converts "half-size at trigger" into "anticipate the trigger" — a different, worse bet — and leans on an immature (n&lt;30) sample to bypass the trigger requirement itself. Separately the paths split on <b>CANCEL vs DEFER</b> for DNOW/HOV/TENB/XERS (the Contrarian and Outsider reached for CANCEL on the weakest names; First-Principles/Executor held DEFER).</p>
+
+<h3>Blind Spots the Reasoning Paths Caught</h3>
+<ul style="font-size:13.5px">
+  <li><b>"Promote-on-confirmation" = "Defer".</b> The Executor's HOV buy-stop at 126.10 only fills if Day-2 strength appears — operationally identical to "require Day-2 hold." The promote/defer labels collapsed; the disagreement was semantic.</li>
+  <li><b>The KRNT chase.</b> KRNT closed 16.66, <em>above</em> its 16.43 trigger. A buy-limit "at trigger" is really a pullback order that may never fill; the only live entry could be a chase at/above 16.66. Resolution: a DAY pullback limit at 16.43, and explicitly <b>no chase</b> if unfilled.</li>
+  <li><b>CANCEL is a category error here.</b> For an un-triggered A2 with valid trigger+invalidation+R:R, nothing has been rejected yet — the trigger hasn't spoken. The principled default is DEFER-until-trigger; CANCEL is reserved for broken structure (invalidation hit, R:R gone, level decisively lost). None of the five qualify, so all five are DEFER.</li>
+  <li><b>Day-2-hold on a Thursday re-introduces the weekend gap.</b> Requiring confirmation pushes entry toward Friday 6-19 — the very gap the deferral was meant to avoid. Handled with DAY orders / cancel-before-weekend, no naked buy-stops carried over the weekend.</li>
+  <li><b>Breakout into an Extremely-Extended SMA50 tape</b> is the highest-risk buy point — even the unanimous KRNT promote is sized at half for this reason.</li>
+</ul>
+
+<h2>Chairman Synthesis</h2>
+<div class="card">
+<p style="font-size:13.5px">The Chairman weighted the First-Principles/Outsider "has it confirmed?" frame and the Contrarian volume tell against the Expansionist opportunity-cost argument, and sided against broad promotion. The Expansionist is right that this council has historically over-deferred momentum — but that signal is immature (24/30 resolved, no reliability % earned) and, decisively, <b>outcome data is an overlay, not a loophole</b>: it cannot license buying a breakout that has not broken out. Five of six are un-triggered hypotheses; the honest answer to "take now vs require Day-2 hold" for them is <b>require the hold</b>.</p>
+<p style="font-size:13.5px"><b>KRNT — PROMOTE, half-size, confidence medium, evidence-backed (DEP cohort immature).</b> It is the one name that already converted: closed 16.66 above the 16.43 trigger on a +4.32% day, DEP volume gate 3.24x PASS, CIR 66.5, +14% above a rising 200SMA, with a well-reasoned invalidation at the 14.02 DEP consolidation floor. Confidence is held at medium (not high) because the entry is already +4.32% extended with a ~15% stop and the index tape is extremely extended. Entry discipline: DAY buy-limit 16.43 (controlled pullback), stop 14.02, half-size; do not chase materially above 16.66; cancel before the weekend if unfilled.</p>
+<p style="font-size:13.5px"><b>ABEO / DNOW / HOV / TENB / XERS — DEFER (Day-2 alerts), playbook-only.</b> All five are A2 with valid levels but no Day-1 confirmation. DNOW and XERS additionally sit below the 200SMA (reclaims that have not reclaimed); HOV is R:R-floor-pinned at 2.01 with a ~12% stop; TENB printed 0.65x volume. None has broken structure, so each is DEFER-until-trigger, not CANCEL. This is an actionability/council disagreement (actionability labeled A2; council requires confirmation) on all five.</p>
+</div>
+
+<h2>Portfolio Heat</h2>
+<div class="card">
+  <p class="kpi">Single promoted name (KRNT), half-size — <b>aggregate heat: LOW</b>. Exact account-risk $ unavailable; using qualitative labels.</p>
+  <ul class="kpi">
+    <li><b>Risk per promoted ticker:</b> KRNT ~15% stop (16.43→14.02) at half-size ≈ ~0.5R of the standard unit. One position.</li>
+    <li><b>Total proposed R if it fills:</b> ~0.5R. No second order to aggregate.</li>
+    <li><b>Sector / correlation:</b> none direct — nothing else promoted. KRNT (Kornit Digital, industrial/textile digital printing) carries only broad risk-appetite read-through to the extended tape, not a direct-sector gate.</li>
+    <li><b>Order dependency:</b> none (single position).</li>
+    <li><b>Weekend guardrail:</b> decision day is Thursday 6-18; use DAY orders / cancel-before-close. Do not leave the KRNT limit (or any armed Day-2 buy-stop) resting naked into Friday 6-19 / the weekend.</li>
+    <li><b>Basket invalidation:</b> KRNT close below 14.02.</li>
+  </ul>
+</div>
+
+<h2>Advisor Responses (full)</h2>
+<details><summary>The Contrarian</summary><div class="adv">ABEO — DEFER (med). Not triggered (5.65 vs 5.80); 2.05x vol on a stock that didn't move is distribution-flavored, not accumulation. Require Day-2 hold above 5.80.
+DNOW — CANCEL (high). Below 200SMA, needs +4.7% AND a reclaim, 1.09x vol = nothing; CIR 30.8 weak. Two conditional events stacked.
+HOV — DEFER (high). R:R floor-pinned 2.01 with ~12% stop is the textbook R:R-floor name the council historically MISSED — but un-triggered and -0.14% today; the 12% stop is the fatal flaw. Defer for Day-2, don't cancel.
+KRNT — PROMOTE half-size (med-high). Only one above trigger (16.66), DEP vol 3.24x PASS, CIR 66.5, +4.32%. DELAYED_EP trigger-hit 78% beats PAUSE. 15% stop is the wound; the single name with real evidence.
+TENB — CANCEL (high). 0.65x volume = no participation into an Extremely Extended tape.
+XERS — DEFER (med). Best R:R 4.95 is seductive bait; below 200SMA, flat, 0.90x vol. Require reclaim + Day-2.
+Cross-cut: Day-2 entries land Friday → weekend gap into an Extremely Extended SMA50 tape; the "safe" deferrals aren't free. Five of six lack real volume — thin batch.</div></details>
+
+<details><summary>The First Principles Thinker</summary><div class="adv">Reframe: "take at trigger vs require Day-2 hold" is about who pays for confirmation. The trigger (a buy-stop above price) is the breakout firing — entering "at trigger" already buys confirmation implicitly; "require Day-2 hold" demands break PLUS a day of survival. The real axis: has the candidate converted hypothesis→evidence, or not? Five of six are still hypotheses (not triggered); only KRNT broke and held a day above trigger. In an Extremely Extended tape, fresh unconfirmed breaks are where whipsaw lives — so the default for un-triggered names is "let the market pay for confirmation."
+ABEO DEFER (0.55) · DNOW CANCEL/DEFER (0.6) · HOV DEFER (0.55) · KRNT PROMOTE half now, evidence-backed (0.75) · TENB DEFER (0.6) · XERS DEFER, R:R is floor-illusion (0.55).
+Bottom line: don't ask "take now vs Day-2" six times — ask "which already confirmed?" Only KRNT. Make the other five earn it via the trigger itself.</div></details>
+
+<details><summary>The Expansionist</summary><div class="adv">Hard-risk rules intact; none of these breaks an inval/R:R floor, so the only real risk here is timidity.
+KRNT — PROMOTE NOW, half-size, HIGH. Biggest mistake-to-defer: DEP 78% trigger-hit, already above trigger on +4.32%, 3.24x vol, +14% above a rising 200SMA. The ARM/ALAB pattern screaming back.
+XERS — PROMOTE NOW, MED-HIGH. Best R:R 4.95; the reclaim/below-200SMA profile the council serially deferred into winners (IFS, TTMI). At ~5R, one runner pays for four stops.
+DNOW — PROMOTE NOW, MED. 3.17R reclaim, CLSK-shaped; risk-on tape, take the committed trigger.
+ABEO — PROMOTE NOW, MED (playbook-only on CIR). 2.05x-volume coil under trigger is a cheap option; size respects the 53% PAUSE coin-flip.
+TENB — DEFER. 0.65x volume; honest defer (UCTT-class), not timidity.
+HOV — DEFER. 2.01R barely clears floor, CIR 23.7.
+Biggest money left on the table: KRNT and XERS.</div></details>
+
+<details><summary>The Outsider</summary><div class="adv">These "trigger" prices are mostly ABOVE where the stock closed — the breakout hasn't happened yet for 5 of 6. Two want to buy a stock BELOW its 200-day, "reclaiming." One already closed above its trigger on a big up-day.
+ABEO — DEFER. Heavy volume going nowhere = absorbing supply at resistance. Wait for the close above 5.80.
+DNOW — CANCEL. Below trigger AND below 200-day, closed near the low, volume barely normal. "3.17:1" is fiction until it reclaims.
+HOV — CANCEL. Closed near the low on a down day; stop ~12% away; weakest R:R 2.01. Worst structure.
+KRNT — PROMOTE. The only one that actually triggered — closed 16.66, strong close, +4.3% on 3.24x vol, well above its 200-day. Buy half now.
+TENB — DEFER. 0.65x volume — nobody showed up.
+XERS — DEFER, leaning cancel. Best R:R but the setup isn't ready.
+What's off: five of six haven't triggered — a watchlist dressed as a buy list. DNOW/XERS ask you to anticipate strength rather than buy it.</div></details>
+
+<details><summary>The Executor</summary><div class="adv">Session 2026-06-18 (Thu). Half-size all; wide stops justified.
+KRNT — PROMOTE, conf 0.75. Only one triggered. Buy-limit 16.43 (pullback-to-trigger), half-size, stop 14.02, DAY only, cancel at close. If it never pulls back, you miss it — fine. No GTC into weekend.
+HOV — PROMOTE on confirmation, conf 0.55. Buy-stop 126.10, half-size, stop 110.96 (~12%), DAY Thursday only, cancel EOD; re-place Friday if needed.
+ABEO — DEFER, conf 0.45. Closed below trigger; flat on 2.05x vol = distribution. Buy-stop 5.82 arms only if it moves; expect no fill.
+TENB — DEFER, conf 0.40. 0.65x vol; no-volume breakout = no entry. No order Thursday.
+DNOW — DEFER, conf 0.35. Below 200SMA, needs +4.7%, flat vol. No clean entry.
+XERS — CANCEL, conf 0.30. Below 200SMA, 0.90x vol; best paper R:R but below trend = a trap. No order.
+Net: one live order (KRNT limit), one armed confirmation (HOV stop). Everything else waits for the tape.</div></details>
+
+<h2>Peer Review Highlights</h2>
+<details><summary>What the reviewers converged on</summary><div class="adv">• Strongest paths: the First-Principles "hypothesis→evidence converted" frame and the Outsider "watchlist dressed as a buy list," with the Executor cited for operational precision (literal orders, DAY-only to kill weekend GTC risk).
+• Biggest blind spot: the Expansionist's multi-promote — promoting four un-triggered names converts "half-size at trigger" into "anticipate the trigger"; "one runner pays for four stops" assumes independence a single risk-on, extended-tape day does not offer.
+• Base-rate misuse: every reviewer flagged the Expansionist for overfitting the immature (n&lt;30) "missed winners" history — using outcome data as a loophole to bypass the trigger requirement, an "overlay not loophole" violation. The Contrarian was cited for using the same history correctly (HOV defer-not-cancel preserves optionality without front-running).
+• What ALL five missed: (a) "Promote-on-confirmation" (HOV buy-stop) is operationally identical to "require Day-2 hold" — the labels collapse; (b) the KRNT chase — closed 16.66 above the 16.43 trigger, so a limit-at-trigger may never fill and the only live entry could be a chase; nobody sizes the ~15% single-name stop in portfolio terms; (c) requiring a Day-2 hold on a Thursday pushes entry to Friday and re-introduces the weekend gap; (d) a breakout into an Extremely-Extended SMA50 tape is the highest-risk buy point — half-size is mechanical, not regime-justified, in most responses. All four points are resolved in the Chairman Synthesis and Portfolio Heat above.</div></details>
+
+<div class="foot">
+Generated 2026-06-18 · LLM Council (llm-council V1.3.4) · Bonde A2 promotion-review batch · 6 candidates · 5 reasoning paths + anonymized peer review + chairman synthesis.<br/>
+Artifacts: council-report-20260618-a2batch.html · council-transcript-20260618-a2batch.md · council_outcomes_2026-06-18.csv · council_disagreements_2026-06-18.csv · council_self_calibration_summary_2026-06-18.csv · council_reachability_audit_2026-06-18.csv
+</div>
+
+</div>
+</body>
+</html>
