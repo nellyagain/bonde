@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM Council — A2 SLINGSHOT batch 2026-06-19</title>
+<style>
+  :root{--bg:#fff;--ink:#1c2024;--mut:#5b6470;--line:#e4e7eb;--accent:#2f6f4f;--cancel:#b4231f;--defer:#b6791f;--promote:#1f7a4d;--card:#f7f9fa;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);margin:0;line-height:1.5;}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 24px 80px;}
+  h1{font-size:24px;margin:0 0 4px;}
+  h2{font-size:18px;margin:34px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line);}
+  h3{font-size:15px;margin:20px 0 6px;}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:18px;}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:15px;}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;padding:2px 8px;border-radius:20px;color:#fff;text-transform:uppercase;}
+  .p-cancel{background:var(--cancel)} .p-defer{background:var(--defer)} .p-promote{background:var(--promote)}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin-top:8px;}
+  th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;}
+  th{background:var(--card);font-weight:600;}
+  .num{text-align:right;font-variant-numeric:tabular-nums;}
+  .verdict-box{border-left:4px solid var(--accent);background:var(--card);padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;}
+  .disclaim{font-size:12px;color:var(--mut);font-style:italic;background:#fbf7ee;border:1px dashed #e3d5a8;padding:8px 12px;border-radius:6px;margin:10px 0;}
+  details{border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px;}
+  summary{cursor:pointer;font-weight:600;padding:12px 0;}
+  details[open]{padding-bottom:12px;}
+  .adv{font-size:14px;white-space:pre-wrap;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13px;}
+  .col h4{margin:0 0 6px;font-size:13px;}
+  code{background:#eef1f3;padding:1px 5px;border-radius:4px;font-size:12px;}
+  .foot{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:14px;}
+  .warn{color:var(--cancel);font-weight:600;}
+  ul{margin:6px 0;padding-left:20px;}
+  li{margin:3px 0;}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LLM Council Verdict — A2 SLINGSHOT batch</h1>
+<div class="sub">Signal date 2026-06-18 (Thu close) · Review date 2026-06-19 (Fri, <strong>Juneteenth — market closed</strong>) · Next session Mon 2026-06-22 · 15 candidates · Bonde V5.9.x</div>
+
+<div class="q">
+<strong>Question:</strong> Should any of these 15 A2 "SLINGSHOT" breakout candidates be promoted to executable trades?
+MYRG, ALTG, ANDE, APGE, AS, CGEM, GCMG, INSW, MPLX, MTSI, NPK, PSMT, ROK, SPXC, STTK — all routed via <code>TRIGGER_1_A2</code> (every A2 routes to council). Decide PROMOTE / DEFER / CANCEL per ticker.
+<br><br>
+<strong>Structural fact that frames everything:</strong> all 15 closed <em>below</em> their buy-stop trigger (un-triggered), and the next tradable session is a 3-day Juneteenth + weekend gap away. Nothing can fill today.
+</div>
+
+<h2>Context Files Loaded</h2>
+<table>
+<tr><th>Role</th><th>Path</th><th>Status</th><th>Notes</th></tr>
+<tr><td>council_queue (this batch)</td><td>pasted A2 SLINGSHOT pack 2026-06-18</td><td>LOADED</td><td>15 rows, full pack columns incl. trigger/stop/target/R:R/ext/vol</td></tr>
+<tr><td>prior council outcomes</td><td>bonde_screener_cache/council_queues/council_outcomes_2026-06-18.csv</td><td>LOADED</td><td>KRNT precedent: only already-above-trigger A2 was PROMOTEd; un-triggered A2s DEFERred</td></tr>
+<tr><td>prior SLINGSHOT outcomes</td><td>council_outcomes_2026-05-20 / 2026-06-03 / 2026-05-15</td><td>LOADED</td><td>SPIR/UCTT/ICHR extension + R:R-floor cancels; zero resolved SLINGSHOT outcomes</td></tr>
+<tr><td>self-calibration</td><td>council_self_calibration_summary_2026-06-18.csv</td><td>LOADED</td><td>INSUFFICIENT_DATA (24/30 resolved)</td></tr>
+<tr><td>reachability audit (prior)</td><td>council_reachability_audit_2026-06-18.csv</td><td>LOADED</td><td>A2→TRADE proven reachable (2026-06-09 NYT/FOX TRADE)</td></tr>
+<tr><td>repo project instructions</td><td>/home/user/bonde/CLAUDE.md</td><td>LOADED</td><td>artifact push workflow</td></tr>
+<tr><td>actionability SKILL.md</td><td>bonde_files/playbook/...</td><td>MISSING_OPTIONAL</td><td>operating from candidate packet + embedded playbook rules, not a fully auditable skill package</td></tr>
+<tr><td>daily_decision_log (final_trade_status)</td><td>—</td><td>MISSING_OPTIONAL</td><td><code>final_trade_status</code> not present in pack → using legacy action-label fallback (all rows action_label=A2)</td></tr>
+</table>
+
+<h2>Council self-calibration status</h2>
+<p><strong>Self-calibration: INSUFFICIENT_DATA.</strong> Resolved disagreements: 24/30. <strong>No reliability percentage reported.</strong> Calibration is context only and does not change verdicts. Directional caveat from history only (not a verdict input): several DEFER/CANCEL calls on momentum names later printed winners, while A2 defers/cancels (ADEA, UCTT) were vindicated.</p>
+
+<h2>A1/A2 Reachability Audit</h2>
+<div class="verdict-box">
+<ul>
+<li><strong>A1_REACHABLE:</strong> NOT_EVALUABLE — no A1 rows in corpus; no isolated routing harness available.</li>
+<li><strong>A2_EXECUTABLE_REACHABLE:</strong> TRUE — proven by actual corpus (2026-06-09 NYT 2.21R, FOX 2.92R both <code>final_trade_status=TRADE</code>; KRNT promoted-to-executable 2026-06-18).</li>
+<li><strong>ZERO_TRADE_CAUSE:</strong> INSUFFICIENT_CLEAN_ROWS — zero promotes this batch because <em>every one of the 15 closed below its trigger</em>. No name is above-trigger / cleanly executable. This is not a routing bug; A2→executable is reachable and was exercised last batch.</li>
+<li><strong>Counts:</strong> n_A1=0 · n_A2=15 · n_TRADE=0 (pre-council; nothing triggered) · n_A2→COUNCIL=15 (by design, Trigger 1).</li>
+<li><strong>Top demotion reasons:</strong> no_trigger_confirmation (15/15 un-triggered); severe_extension (MTSI +76.8%); liquidity_uninvestable (ALTG $1.9M ADV); rr_floor_pinned (GCMG/INSW/MPLX).</li>
+</ul>
+<em>audit_basis = ACTUAL_CORPUS.</em> This is <strong>not</strong> a threshold-change recommendation — reachability is healthy; the batch simply has not triggered.
+</div>
+
+<h2>Outcome / Base-Rate Context</h2>
+<p><strong>Outcome data unavailable for the SLINGSHOT family — verdict is playbook-only and should be logged for future calibration.</strong> The SLINGSHOT setup family has <strong>zero resolved outcomes</strong> in the learning loop; the one resolved cousin (SPIR) took a loss. Documented SLINGSHOT cancel precedents: SPIR cancelled at +75% above 200SMA, UCTT +99.8%, ICHR +115.8% (severe extension without reset = hard rule), plus multiple R:R-floor-fail cancels. No +1D/+5D expectancy or trigger-hit base rate exists for this family.</p>
+
+<h2>The Verdict — per ticker</h2>
+<div class="disclaim">No same-day PROMOTE is issued. Precedent (KRNT, 2026-06-18) is that PROMOTE requires a name to be <em>already above its trigger</em>. All 15 here are un-triggered, so the executable verdicts collapse to DEFER (watch with intent / Day-2 trigger alert) or CANCEL (remove from screen). "PROMOTE-on-trigger" is a conditional, not a verdict.</div>
+<table>
+<tr><th>Ticker</th><th>Ext vs 200SMA</th><th>R:R</th><th>Catalyst</th><th class="num">Vol / Rng%</th><th>Verdict</th><th>Why</th></tr>
+<tr><td><strong>ANDE</strong></td><td class="num">+20.1%</td><td class="num">5.33</td><td>B (ag, $90 PT, Q4 beat)</td><td class="num">1.99x / 86%</td><td><span class="pill p-defer">Defer</span></td><td>Top-priority Day-2 alert. Best R:R + real catalyst + thrust. Trade only on volume-confirmed trigger break.</td></tr>
+<tr><td><strong>NPK</strong></td><td class="num">+8.6%</td><td class="num">3.54</td><td>B (defense backlog &gt; mkt cap)</td><td class="num">2.13x / 99%</td><td><span class="pill p-defer">Defer</span></td><td>Top-priority alert. Lowest extension, closed on highs. Watch fill quality (thinner name) on the buy-stop-limit.</td></tr>
+<tr><td><strong>ROK</strong></td><td class="num">+20.5%</td><td class="num">3.43</td><td>B ($1B buyback, raised guide)</td><td class="num">1.58x / 77%</td><td><span class="pill p-defer">Defer</span></td><td>Priority alert. Liquid large-cap, clean catalyst. Confirm trigger on ≥1.2x volume.</td></tr>
+<tr><td><strong>MYRG</strong></td><td class="num warn">+66.0%</td><td class="num">2.57</td><td>C — not researched</td><td class="num">1.83x / 82%</td><td><span class="pill p-defer">Defer</span></td><td>Most-extended deferrable; sits just under the +75% cancel band. Re-check extension Monday — flips to CANCEL if it stretches further. Research catalyst first.</td></tr>
+<tr><td><strong>SPXC</strong></td><td class="num">+16.3%</td><td class="num">3.40</td><td>C — not researched</td><td class="num">1.25x / 72%</td><td><span class="pill p-defer">Defer</span></td><td>Soft Day-1 volume (1.25x) and mid-range close; demand a volume-backed break.</td></tr>
+<tr><td><strong>AS</strong></td><td class="num">+4.0%</td><td class="num">3.27</td><td>C — not researched</td><td class="num warn">1.02x / 95%</td><td><span class="pill p-defer">Defer</span></td><td>No participation — 1.02x volume is not thrust. Strong close but needs a real volume break to matter.</td></tr>
+<tr><td><strong>GCMG</strong></td><td class="num">+7.0%</td><td class="num warn">2.07</td><td>C — not researched</td><td class="num">2.18x / 94%</td><td><span class="pill p-defer">Defer</span></td><td>R:R floor-pinned at 2.07; any gap-up fill busts the floor. Half-size if it ever qualifies; cap the limit.</td></tr>
+<tr><td><strong>INSW</strong></td><td class="num">+35.6%</td><td class="num warn">2.11</td><td>C — not researched</td><td class="num">1.69x / 99%</td><td><span class="pill p-defer">Defer</span></td><td>Floor-pinned 2.11 + moderately extended. Closed on highs but no margin for a gap entry.</td></tr>
+<tr><td><strong>MPLX</strong></td><td class="num">+4.6%</td><td class="num warn">2.14</td><td>C — not researched</td><td class="num">1.53x / 97%</td><td><span class="pill p-defer">Defer</span></td><td>Floor-pinned 2.14; tiny +1.66% Day-1 move (low-vol MLP) — slingshot thrust marginal.</td></tr>
+<tr><td><strong>PSMT</strong></td><td class="num">+29.9%</td><td class="num">2.47</td><td>C — not researched</td><td class="num">1.57x / 90%</td><td><span class="pill p-defer">Defer</span></td><td><strong>DTE ~14d</strong> — pre-earnings tactical (C2-like). If it triggers, plan to exit before the print or skip. Half-size.</td></tr>
+<tr><td><strong>APGE</strong></td><td class="num">+30.3%</td><td class="num">2.42</td><td>C — not researched (biotech)</td><td class="num">2.03x / 82%</td><td><span class="pill p-defer">Defer</span></td><td>Unresearched biotech (fixable data gap). Research the catalyst/event calendar before arming; binary-event risk.</td></tr>
+<tr><td><strong>MTSI</strong></td><td class="num warn">+76.8%</td><td class="num">2.48</td><td>C — not researched</td><td class="num">1.65x / 80%</td><td><span class="pill p-cancel">Cancel</span></td><td><strong>Severe extension hard rule</strong> — +76.8% exceeds the SPIR (+75%) cancel precedent, no reset. Remove from screen.</td></tr>
+<tr><td><strong>ALTG</strong></td><td class="num">+22.1%</td><td class="num">2.78</td><td>C — not researched</td><td class="num warn">1.23x / 65%</td><td><span class="pill p-cancel">Cancel</span></td><td><strong>Liquidity uninvestable</strong> — $1.9M ADV; cannot enter or exit cleanly. Weak 1.23x volume / 65% close too.</td></tr>
+<tr><td><strong>CGEM</strong></td><td class="num">+31.6%</td><td class="num">2.43</td><td>C — not researched (biotech)</td><td class="num warn">3.11x / 57%</td><td><span class="pill p-cancel">Cancel</span></td><td>3.11x volume but closed only 57% of range = absorption / failed thrust, not a slingshot. Unresearched biotech, extended. Remove.</td></tr>
+<tr><td><strong>STTK</strong></td><td class="num">+19.8%</td><td class="num">3.04</td><td>C — not researched (biotech)</td><td class="num warn">1.66x / 63%</td><td><span class="pill p-cancel">Cancel</span></td><td>~$5 unresearched biotech, weak 63% close. Noise-tier quality/liquidity. Remove.</td></tr>
+</table>
+<p style="font-size:13px;color:var(--mut);"><strong>Tally:</strong> PROMOTE 0 · DEFER 11 · CANCEL 4.</p>
+
+<h2>Chairman Synthesis</h2>
+<div class="verdict-box">
+<p><strong>PROMOTE none today. The honest deliverable is a Monday trigger-and-confirm protocol, not a basket of trades.</strong> Every candidate is un-triggered into a 3-day holiday+weekend gap, so the per-ticker R:R figures are end-of-day projections, not fill-able prices — a Monday gap-up would fill above trigger and silently break them. The Chairman weighted the First-Principles reframe (a slingshot is defined by the thrust through its range; none has thrust → this is a watchlist) and the Contrarian/Outsider discipline (KRNT precedent: PROMOTE requires being above trigger) above the Expansionist/Executor "promote-on-trigger" framing — which the peer round correctly relabeled as DEFER-pending-trigger.</p>
+<p><strong>On the extension rule</strong> the Chairman sided with the calibrated reviewers over the two advisors who hard-cancelled the whole +30-36% cluster: the documented hard-cancel band is ≥+75% (SPIR/UCTT/ICHR). So <strong>MTSI (+76.8%) is a clean CANCEL</strong>; <strong>MYRG (+66%) is a DEFER</strong> with an explicit Monday extension re-check rather than a manufactured cancel. The remaining CANCELs rest on independent hard reasons — ALTG (uninvestable liquidity), CGEM/STTK (failed-thrust / noise-tier biotech). APGE stays DEFER because "unresearched" is a fixable data gap (LLY precedent), not a structural break.</p>
+<p><strong>Verdicts are playbook-only</strong> (SLINGSHOT family has zero resolved outcomes). The catalyst-backed trio — <strong>ANDE, NPK, ROK</strong> — are the front of Monday's queue as DEFER/watch-with-intent, but only on a volume-confirmed trigger break, never by lowering entry to rescue R:R. Confidence: medium.</p>
+</div>
+
+<h2>Portfolio Heat</h2>
+<p><strong>No promoted exposure</strong> (0 PROMOTE verdicts). Exact account-risk sizing was unavailable, so the following is qualitative and forward-looking for Monday.</p>
+<div class="verdict-box">
+<p><strong>Conditional basket warning (the blind spot the peer round caught):</strong> the only condition under which ANDE, NPK and ROK all fill is a broadly strong Monday open. They are not direct sector peers (ANDE = agriculture, NPK = defense/housewares, ROK = industrial automation), so this is <em>broad risk-appetite read-through, not direct sector correlation</em> — but on a risk-on gap they fill together, which means a simultaneous triple-trigger is closer to <strong>one correlated risk-on bet than three independent setups</strong>.</p>
+<ul>
+<li><strong>Cap concurrent SLINGSHOT promotes</strong> Monday (suggest max 2 of the trio, or reduce per-name size if a third fires) — especially given the family is unvalidated (zero resolved outcomes).</li>
+<li><strong>Order dependency:</strong> if 2+ trigger near-simultaneously on the open gap, the later fills should be down-sized, not added at full risk.</li>
+<li><strong>Basket invalidator:</strong> a weak/red Monday tape that gaps names <em>through</em> their triggers (fill far above stop) cancels the setups — that is a gap, not a slingshot.</li>
+</ul>
+</div>
+
+<h2>Execution Guardrail — Friday/holiday gap</h2>
+<div class="verdict-box">
+<p><span class="warn">Do NOT leave GTC buy-stops sitting over the Juneteenth + weekend gap.</span> A GTC buy-stop can fill on a Monday gap-up far above trigger, destroying R:R — fatal for the floor-pinned names (GCMG 2.07, INSW 2.11, MPLX 2.14).</p>
+<p><strong>Monday 2026-06-22 protocol:</strong> place nothing now. Pre-open, arm <strong>DAY buy-stop-LIMIT</strong> orders (stop = trigger, limit ≈ trigger + 0.3–0.5%) on the DEFER-priority names so a runaway gap simply does not fill. Require close/hold above trigger on ≥1.2x volume. Re-arm each morning until triggered or the setup ages out. Re-check extension on MYRG; abort any name below its invalidation.</p>
+</div>
+
+<h2>Reasoning Paths Considered</h2>
+<div class="disclaim">These are not independent votes. Convergence is useful as a reasoning check, not as statistical corroboration. Five perspectives generated in one process is one model exploring an idea from five framings, not five independent verdicts.</div>
+
+<h3>Reasoning Path Convergence</h3>
+<p>The Contrarian, First-Principles and Outsider paths each arrived at "promote nothing today" by different routes — the Contrarian via gap-fill risk turning EOD R:R into fiction, First-Principles via the definition of a slingshot (no thrust = no setup), the Outsider via "you can't trade a closed market on un-triggered names." All paths independently isolated the same short list of quality names (ANDE, NPK, ROK) and the same disqualifiers (MTSI extension, ALTG liquidity). The Executor and Contrarian paths converged on the order-mechanics danger of leaving buy-stops over the gap.</p>
+
+<h3>Reasoning Path Divergence</h3>
+<p>The sharp split: the Expansionist and Executor paths issued "PROMOTE-on-trigger" for ANDE/NPK/ROK (and the Executor added MYRG/SPXC), arguing the catalyst + structure justifies arming capital now. The Contrarian, First-Principles and Outsider paths rejected same-day PROMOTE because nothing has triggered and the KRNT precedent requires being above trigger. A second divergence: the Contrarian and First-Principles paths hard-cancelled the entire +30-36% extension cluster; the calibrated peer review judged that an over-application of a rule whose precedent band is ≥+75%.</p>
+
+<h3>Blind Spots the Reasoning Paths Caught</h3>
+<ul>
+<li><strong>Order duration:</strong> the Executor path caught that a GTC buy-stop over the 3-day gap is the real risk the strategy advisors missed.</li>
+<li><strong>Extension miscalibration:</strong> peer review caught that hard-cancelling +30-36% names conflates moderate extension with the ≥+75% hard-rule band.</li>
+<li><strong>Basket correlation:</strong> peer review caught that the Monday gap-up which triggers ANDE/NPK/ROK is itself the correlation event — simultaneous fills are least independent exactly when they happen.</li>
+<li><strong>Unvalidated family:</strong> reviewers flagged that SLINGSHOT's zero-resolved-outcome record argues for smaller size / paper-tracking, a prior none of the advisors weighted.</li>
+</ul>
+
+<h2>Advisor detail</h2>
+<details><summary>The Contrarian (full response)</summary><div class="adv">All 15 are UN-TRIGGERED buy-stops firing into a 3-day Juneteenth+weekend gap. A buy-stop above Thursday's close means you only fill on a GAP-UP or fast spike — the worst entry, chasing into a hole with your stop already underneath. The R:R numbers are EOD fictions. PROMOTE today is incoherent; no fill is possible.
+
+HARD-CANCEL severe extension (SPIR/UCTT/ICHR rule): MTSI +76.8% and MYRG +66% ARE the SPIR (+75%) precedent — CANCEL high. Extension cluster INSW +35.6%, CGEM +31.6%, APGE +30.3%, PSMT +29.9% → CANCEL/strong-DEFER; APGE/CGEM unresearched biotech = binary long-weekend gap risk.
+
+R:R-floor traps GCMG 2.07, INSW 2.11, MPLX 2.14 — "Day-2 pullback rescue" in waiting; one tick of gap and they're sub-2.0 → DEFER.
+
+Liquidity trap: ALTG ($1.9M ADV) → CANCEL high.
+
+No-participation: AS vol 1.02x, MPLX +1.66% move = drift not breakouts → DEFER.
+
+Least-bad: ANDE, NPK, ROK (real catalysts) — but DEFER as Day-2 alerts requiring a Monday trigger-break ON VOLUME, exactly like the 06-18 batch treated un-triggered A2s. KRNT got promoted last time because it was ALREADY above trigger — none here is. Net: PROMOTE zero. Playbook-only, log for calibration.</div></details>
+
+<details><summary>The First Principles Thinker (full response)</summary><div class="adv">The frame is wrong. You can't buy today (Juneteenth) and zero names triggered — every close is below its buy-stop. PROMOTE/DEFER/CANCEL is a false trichotomy. A slingshot is defined by the thrust through the range on expansion, and not one has thrust. What you hold is a watchlist; the only real decision is: what is my Monday trigger-and-confirm protocol, and which names are disqualified before they ever fire?
+
+CANCEL now (HARD extension rule fires): MYRG +66%, MTSI +76.8% (SPIR/UCTT/ICHR precedent). INSW +35.6%, CGEM +31.6% (57% range = no thrust), APGE +30.3%, PSMT +29.9% in the danger zone. ALTG ($1.9M ADV) uninvestable → CANCEL high.
+
+Everything else is DEFER-pending-trigger — the only honest verdict for an un-triggered setup. ANDE (5.33, +20%), NPK (3.54, B-thesis), ROK (3.43, B-thesis): watch with intent; trade only on a clean volume-confirmed break; never lower entry to rescue R:R. AS/MPLX/GCMG light volume → demand a volume-confirmed break.
+
+Monday protocol (the actual answer): act only on a trigger break on expanding volume; re-cancel any name whose 3-day gap opens it through trigger; never lower the stop; recheck extension — anything still >25% extended stays dead.</div></details>
+
+<details><summary>The Expansionist (full response)</summary><div class="adv">Playbook-only (SLINGSHOT zero resolved outcomes). Two names have catalysts a mechanical screen can't price, and both still have room:
+
+NPK — PROMOTE on trigger, high. Sole-source defense ammo backlog $1.75B exceeding market cap — the whole enterprise is arguably underpriced vs contracted revenue. ext +8.6% = zero extension risk. R:R 3.54, vol 2.13x, closed 99% of range. Front of the queue.
+
+ANDE — PROMOTE on trigger, high. Best R:R 5.33. Benchmark $90 PT, Q4 beat, ag/China tailwind, vol 1.99x, rng 86%, ext +20%. Near ATH on a fundamental re-rate is the slingshot thesis working.
+
+ROK — PROMOTE on trigger, med-high. $1B buyback + raised FY26 + $525 PT, ext +20.5%, R:R 3.43, clean 1.58x thrust. Lowest-drama way to express risk-on.
+
+Queue order NPK > ANDE > ROK. Fourth slot: MYRG (R:R 2.57, vol 1.83x) best of the un-researched C-names, but DEFER pending a catalyst read.
+
+Quick dismissals: MTSI HARD CANCEL (+76.8%, SPIR-class). APGE/CGEM/STTK biotech and INSW/MPLX/AS/GCMG/PSMT/ALTG = mechanical R:R passes, no differentiated upside → DEFER. ALTG's $1.9M liquidity caps the prize. Concentrate Monday capital on NPK and ANDE.</div></details>
+
+<details><summary>The Outsider (full response)</summary><div class="adv">Three things jump out as hard to justify.
+
+First, timing. We're making 15 buy decisions on a closed market, on stocks where not one has reached its buy price, and nothing executes for three days. "Decide now, maybe buy Monday if it rises" is fine as a queue, but calling it a trade decision overstates it. These are conditional reminders, not trades.
+
+Second, "no catalyst researched" on 11 of 15 is a red flag. It doesn't say no catalyst exists — it says nobody looked. Buying a breakout without knowing why it moved is the trap. Homework undone → defer, not promote.
+
+Third, the numbers contradict the story. The pattern has never produced a single scored win and the one example lost — a 0-for-1 record asking for 15 more bets. Several names sit 30-77% above long-run average (MYRG +66%, MTSI +77%, INSW +36%) = chasing. Tiny names (ALTG, STTK, CGEM) are noise where one order moves price.
+
+Leans: ROK PROMOTE 60% (buyback, raised outlook, closed strong). ANDE PROMOTE 55% (best R:R, real catalyst, big volume, not absurdly stretched). NPK DEFER 50% (striking backlog but closed at high on a thin name — verify). MYRG/MTSI/INSW/APGE/PSMT/SPXC/AS/GCMG/MPLX DEFER 65% (do the homework first). ALTG/CGEM/STTK CANCEL 70% (thin/cheap/no catalyst = noise). The batch was over-promoted by the system.</div></details>
+
+<details><summary>The Executor (full response)</summary><div class="adv">Playbook-only — SLINGSHOT has zero resolved outcomes, so this is mechanics and R:R math.
+
+Order type first. Nothing fills today (Juneteenth + weekend, 3-day gap to Mon 6/22). Do NOT leave GTC buy-stops over that gap — a Monday gap-up fills you far above trigger and wrecks R:R. Protocol: place nothing now. Monday pre-open, arm DAY buy-stop-limits (stop = trigger, limit = trigger + ~0.3-0.5% cap) so a runaway gap doesn't fill. Re-arm each morning until triggered or aged out. The limit cap protects the thin-margin names.
+
+Cut the un-executable noise: CANCEL biotech APGE/CGEM/STTK (binary/earnings gap risk makes a buy-stop-limit meaningless; STTK also ~$5 low quality). CANCEL GCMG (2.07)/INSW (2.11)/MPLX (2.14) — R:R sits on the 2.0 floor; any gap-up pushes them under. CANCEL ALTG ($1.9M ADV uninvestable).
+
+PROMOTE-on-trigger (cleanest mechanics, close tight under trigger, real volume, R:R with cushion): ANDE (5.33, B-catalyst), NPK (3.54, rng 99%, B-catalyst), ROK (3.43, B-catalyst, liquid), MYRG (2.57, ext +66% stretched but clears, med), SPXC (3.40, soft 1.25x vol, med).
+
+DEFER (promote only on Day-2 confirm ≥1.2x vol): AS (vol 1.02x no participation), MTSI (+77% over-extended), PSMT (DTE ~14d — exit before earnings or skip).</div></details>
+
+<details><summary>Peer review highlights</summary><div class="adv">• Strongest response: split between the Executor path (only one to operationalize the gap-risk order mechanics — DAY buy-stop-limits, no GTC over the gap) and the Contrarian/First-Principles paths (cleanest discipline on "promote nothing un-triggered").
+
+• Biggest blind spot: the Expansionist path — "concentrate Monday capital on NPK+ANDE" treats an unvalidated, zero-resolved-outcome family as a working strategy and ignores that nothing has triggered.
+
+• Rule calibration: reviewers judged the hard "severe extension without reset" rule applies at the ≥+75% band (SPIR/UCTT/ICHR). MTSI +76.8% = correct CANCEL; MYRG +66% should be DEFER, not a manufactured cancel; the +30-36% cluster is moderate extension → DEFER, not hard-cancel.
+
+• Verdict-schema point: for un-triggered names, "PROMOTE-on-trigger" collapses to DEFER-pending-trigger (KRNT precedent: PROMOTE requires being above trigger).
+
+• What all five missed: basket/portfolio heat — ANDE/NPK/ROK fill together only on a risk-on Monday gap, so a triple-trigger is one correlated bet, not three; and the SLINGSHOT family's unvalidated record argues for reduced size / paper-tracking.</div></details>
+
+<h2>The One Thing to Do First</h2>
+<div class="verdict-box"><strong>Build the Monday 2026-06-22 trigger sheet for ANDE, NPK, ROK (and watch MYRG): arm DAY buy-stop-LIMIT orders pre-open (limit ≈ trigger + 0.4%), require a close/hold above trigger on ≥1.2x volume, and cap the basket at two concurrent SLINGSHOT fills.</strong> Do not place anything over the holiday/weekend gap.</div>
+
+<div class="foot">
+Council run 2026-06-19 · 15 A2 SLINGSHOT candidates (signal 2026-06-18) · 5 advisors + 5 peer reviews + chairman synthesis · Verdicts playbook-only (SLINGSHOT family zero resolved outcomes) · Tally: PROMOTE 0 / DEFER 11 / CANCEL 4.
+</div>
+
+</div>
+</body>
+</html>
