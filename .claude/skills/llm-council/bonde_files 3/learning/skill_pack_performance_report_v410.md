@@ -1,24 +1,24 @@
-# Skill-Pack Performance Report — 2026-06-18
+# Skill-Pack Performance Report — 2026-06-23
 
 _v4.11 Session 2 patch. Outcome evaluation + slice-based performance summaries on skill-pack candidates and tickers. Cohort-aware confidence labels (Cell 20). No rule-change recommendations; no learned-pattern refresh._
 
 ## Summary
 
-- Candidate-level rows evaluated: **10,068**
-- Ticker-level rows evaluated: **8,865**
-- Reviewed (joined to decision log): **1,902**
-- Unreviewed: **6,963**
-- Signal date range: **2026-04-24** → **2026-06-17**
-- Latest cohort_end (ISO Sunday of latest signal_date): **2026-06-21**
-- Cohort age (days since cohort_end): **-3**
+- Candidate-level rows evaluated: **10,910**
+- Ticker-level rows evaluated: **9,627**
+- Reviewed (joined to decision log): **1,980**
+- Unreviewed: **7,647**
+- Signal date range: **2026-04-24** → **2026-06-22**
+- Latest cohort_end (ISO Sunday of latest signal_date): **2026-06-28**
+- Cohort age (days since cohort_end): **-5**
 - Cohort maturity: t5=False · t10=False · t20=False
 
 ### Outcome status (ticker-level)
 
-- EVALUATED_FULL: **3326**
-- EVALUATED_PARTIAL: **5285**
-- PENDING_NO_FUTURE_BARS: **250**
-- NO_PRICE_DATA: **4**
+- EVALUATED_FULL: **4045**
+- EVALUATED_PARTIAL: **5268**
+- PENDING_NO_FUTURE_BARS: **306**
+- NO_PRICE_DATA: **8**
 
 ## A. Reviewed vs unreviewed (ticker-level)
 
@@ -26,8 +26,8 @@ _Reviewed = decision-log-matched on `(ticker, signal_date)`. Strict join, no pac
 
 | decision_log_matched   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   n_with_trigger_price |   win_rate_5d_all |   avg_ret_5d_all |   win_rate_5d_trig |   avg_ret_5d_trig |
 |:-----------------------|---------:|------------------:|:------------|-----------------:|:----------------|-----------------------:|------------------:|-----------------:|-------------------:|------------------:|
-| False                  |     6963 |                -3 | False       |              nan | PARTIAL_OUTCOME |                      0 |               nan |              nan |                nan |               nan |
-| True                   |     1902 |                -3 | False       |              nan | PARTIAL_OUTCOME |                    789 |               nan |              nan |                nan |               nan |
+| False                  |     7647 |                -5 | False       |              nan | PARTIAL_OUTCOME |                      0 |               nan |              nan |                nan |               nan |
+| True                   |     1980 |                -5 | False       |              nan | PARTIAL_OUTCOME |                    832 |               nan |              nan |                nan |               nan |
 
 ## B. Setup-family performance (candidate-level)
 
@@ -35,24 +35,24 @@ _All observed setup_family values from the V5.4+ scanner are included; no whitel
 
 | setup_family   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d     |   win_rate_5d_all |   avg_ret_5d_all |   n_evaluable_20d | confidence_20d   |   win_rate_20d_all |   avg_ret_20d_all |
 |:---------------|---------:|------------------:|:------------|-----------------:|:------------------|------------------:|-----------------:|------------------:|:-----------------|-------------------:|------------------:|
-| EP9M           |     4829 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| SLINGSHOT      |     1769 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| ACTIVE_BURST   |     1370 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| PAUSE          |      934 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_ACTIVE      |      429 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_SPIKE       |      328 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| DELAYED_EP     |      162 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| ANTICIPATION   |      150 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| PRE_BURST      |       71 |                -3 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
-| DIAGNOSTICS    |       26 |                11 | True        |               26 | ACTIONABLE_SAMPLE |             88.46 |             0.25 |               nan | IMMATURE_20D     |                nan |               nan |
+| EP9M           |     5237 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| SLINGSHOT      |     1955 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| ACTIVE_BURST   |     1506 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| PAUSE          |      983 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| EP_ACTIVE      |      463 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| EP_SPIKE       |      339 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| DELAYED_EP     |      173 |                 2 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| ANTICIPATION   |      155 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| PRE_BURST      |       73 |                 2 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |               nan | IMMATURE_20D     |                nan |               nan |
+| DIAGNOSTICS    |       26 |                16 | True        |               26 | ACTIONABLE_SAMPLE |             88.46 |             0.25 |               nan | IMMATURE_20D     |                nan |               nan |
 
 ## C. Source-type performance (ticker-level)
 
 | source_type   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |
 |:--------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|
-| CANDIDATE     |     4470 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| EP9M_ONLY     |     4385 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| REFLEXIVE     |       10 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| CANDIDATE     |     4858 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| EP9M_ONLY     |     4758 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| REFLEXIVE     |       11 |                 2 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
 
 ## D. EP_SPIKE / EP_ACTIVE / ACTIVE_BURST cohort slices (candidate-level)
 
@@ -60,9 +60,9 @@ _Slice comparison, not paired head-to-head (per Q2 design decision). Use these c
 
 | setup_family   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   n_evaluable_20d | confidence_20d   |   win_rate_20d_all |   avg_ret_20d_all |
 |:---------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|------------------:|:-----------------|-------------------:|------------------:|
-| ACTIVE_BURST   |     1370 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_ACTIVE      |      429 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
-| EP_SPIKE       |      328 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
+| ACTIVE_BURST   |     1506 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
+| EP_ACTIVE      |      463 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
+| EP_SPIKE       |      339 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |               nan | IMMATURE_20D     |                nan |               nan |
 
 ## E. EP_SPIKE by origin_family (candidate-level)
 
@@ -70,10 +70,10 @@ _Which precursor family produced this EP_SPIKE row?_
 
 | origin_family   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |
 |:----------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|
-| EP_ACTIVE       |      136 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| ACTIVE_BURST    |      110 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| EP9M            |       58 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
-| SLINGSHOT       |       24 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| EP_ACTIVE       |      141 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| ACTIVE_BURST    |      115 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| EP9M            |       59 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
+| SLINGSHOT       |       24 |                 2 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |
 
 ## F. EP9M-only ticker performance (ticker-level)
 
@@ -81,35 +81,35 @@ _Only rows where `source_type == "EP9M_ONLY"` (i.e. the ticker has only EP9M set
 
 | primary_setup   | extended_run_flag   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   avg_mfe_5d_all |   avg_mae_5d_all |
 |:----------------|:--------------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|-----------------:|-----------------:|
-| EP9M            | False               |     4031 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
-| EP9M            | True                |      354 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+| EP9M            | False               |     4392 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+| EP9M            | True                |      366 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
 
 ## G. extended_run_flag performance (ticker-level)
 
 | extended_run_flag   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   avg_mfe_5d_all |   avg_mae_5d_all |
 |:--------------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|-----------------:|-----------------:|
-| False               |     7436 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
-| True                |     1429 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+| False               |     8123 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+| True                |     1504 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
 
 ## H. bag_holder_flag performance (ticker-level)
 
 | bag_holder_flag   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |   avg_mfe_5d_all |   avg_mae_5d_all |
 |:------------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|-----------------:|-----------------:|
-| False             |     8221 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
-| True              |      644 |                -3 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+| False             |     8938 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
+| True              |      689 |                -5 | False       |              nan | PARTIAL_OUTCOME |               nan |              nan |              nan |              nan |
 
 ## I. catalyst_grade performance (ticker-level, matched only)
 
 _Filtered to rows that joined the decision log; catalyst_grade is a decision-log field._
 
-| catalyst_grade   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d   |   win_rate_5d_all |   avg_ret_5d_all |
-|:-----------------|---------:|------------------:|:------------|-----------------:|:----------------|------------------:|-----------------:|
-| UNKNOWN          |      864 |                -3 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| C                |      697 |                -3 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| D                |      180 |                -3 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| UNGRADED         |       88 |                 4 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| B                |       55 |                 4 | False       |              nan | PARTIAL_OUTCOME |            nan    |           nan    |
-| A                |       18 |                18 | True        |               18 | BUILDING_SAMPLE |             27.78 |            -2.99 |
+| catalyst_grade   |   n_rows |   cohort_age_days | mature_t5   |   n_evaluable_5d | confidence_5d     |   win_rate_5d_all |   avg_ret_5d_all |
+|:-----------------|---------:|------------------:|:------------|-----------------:|:------------------|------------------:|-----------------:|
+| UNKNOWN          |      873 |                 2 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
+| C                |      763 |                -5 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
+| D                |      180 |                 2 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
+| UNGRADED         |       88 |                 9 | True        |               87 | ACTIONABLE_SAMPLE |             77.01 |             2.73 |
+| B                |       58 |                 2 | False       |              nan | PARTIAL_OUTCOME   |            nan    |           nan    |
+| A                |       18 |                23 | True        |               18 | BUILDING_SAMPLE   |             27.78 |            -2.99 |
 
 ## J. Observations
 
@@ -124,18 +124,18 @@ _v4.12 patch — diagnostics only. Strict `(ticker, signal_date)` join is preser
 
 **Decision-log schema:**
 
-- decision_log_rows_loaded: **1926**
+- decision_log_rows_loaded: **2004**
 - decision_log_date_semantics: **MIXED_V5_9_AND_LEGACY**
 - has explicit `signal_date` column: **True**
 - has explicit `review_date` column: **True**
 
 **Join outcomes (decision-log perspective):**
 
-- decision_log_rows_matched_on_signal_date: **1902**
+- decision_log_rows_matched_on_signal_date: **1980**
 - decision_log_rows_unmatched: **24**
-- unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **17**
-- unmatched_due_to_ticker_absent (ticker not in any skill pack): **7**
-- candidate_rows_with_same_ticker_but_different_date: **6351**
+- unmatched_due_to_date_mismatch (ticker is in skill pack, date differs): **20**
+- unmatched_due_to_ticker_absent (ticker not in any skill pack): **4**
+- candidate_rows_with_same_ticker_but_different_date: **6942**
 - decision rows with pack_date match but no signal_date match: **0**
 
 Pack-date matches are diagnostic only and are not used for attribution.
