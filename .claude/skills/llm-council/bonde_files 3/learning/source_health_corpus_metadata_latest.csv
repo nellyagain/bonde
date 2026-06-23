@@ -1,2 +1,2 @@
 run_date,master_decision_log_rows_after_dedup,included_files,excluded_files,included_canonical_files,included_repo_fallback_files,council_bundle_excluded_files,sample_excluded_files,undated_excluded_files,repo_fallback_used_as_canonical_dates,signal_date_min,signal_date_max,distinct_signal_dates
-2026-06-18,1998,22,11,22,0,9,0,0,0,2026-04-24,2026-06-16,24
+2026-06-23,2076,24,11,24,0,9,0,0,0,2026-04-24,2026-06-22,26
