@@ -1,2 +1,2 @@
 run_date,raw_candidate_files_discovered,included_files,excluded_files,raw_rows_discovered_all_candidates,raw_rows_included_files,rows_after_schema_normalization_included,master_decision_log_rows_after_dedup,rows_removed_by_master_dedup,excluded_duplicate_files,included_raw_ep9m_setup_family_rows,included_raw_ep9m_context_rows_any,included_norm_ep9m_setup_family_rows,included_norm_ep9m_context_rows_any,master_ep9m_setup_family_rows,master_ep9m_context_rows_any
-2026-06-18,33,22,11,3049,2022,2022,1998,24,2,0,236,0,236,0,236
+2026-06-23,35,24,11,3127,2100,2100,2076,24,2,0,237,0,237,0,237
