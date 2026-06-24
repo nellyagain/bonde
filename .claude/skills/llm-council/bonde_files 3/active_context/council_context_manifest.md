@@ -1,6 +1,6 @@
 # Council Context Manifest
 
-Generated: 2026-06-23
+Generated: 2026-06-24
 Packet date: 2026-06-23
 Target folder: `bonde_files 3/`
 
@@ -14,7 +14,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 
 ## Current daily packet
 
-- `bonde_skill_pack_2026-05-15.csv` — LOADED
+- `bonde_skill_pack_2026-06-23.csv` — LOADED
 - `council_queue_2026-06-23.csv` — LOADED
 - `daily_decision_log_2026-06-23.csv` — LOADED
 
@@ -23,6 +23,7 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `latest_candidate_context.md` — LOADED — candidate context
 - `latest_learning_context.md` — LOADED — learning context
 - `latest_market_context.md` — LOADED — market context
+- `latest_regime_context.md` — LOADED — regime context
 - `latest_sugar_babies_context.md` — LOADED — Sugar Babies overlay context
 - `latest_sugar_babies_ticker_context.csv` — LOADED — Sugar Babies overlay context
 
@@ -37,8 +38,8 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `broker_export_normalized_trades_latest.csv` — LOADED
 - `catalyst_x_family_summary_v410.csv` — LOADED
 - `council_disagreements_resolved.csv` — LOADED
-- `council_resolver_report_2026-06-23.md` — LOADED
-- `daily_learning_report_2026-06-23.md` — LOADED
+- `council_resolver_report_2026-06-24.md` — LOADED
+- `daily_learning_report_2026-06-24.md` — LOADED
 - `day1_shape_coverage_v413.csv` — LOADED
 - `day1_shape_verdicts_v413.csv` — LOADED
 - `decision_log_corpus_reconciliation_history.csv` — LOADED
@@ -48,10 +49,10 @@ Use this package as the current council context bundle. Do not scan stale root-l
 - `hypothesis_tracker_latest.md` — LOADED
 - `hypothesis_tracker_summary_v41328.csv` — LOADED
 - `latest_sugar_babies_ticker_context.csv` — LOADED
-- `learning_loop_executive_digest_2026-06-23.md` — LOADED
+- `learning_loop_executive_digest_2026-06-24.md` — LOADED
 - `learning_loop_executive_digest_latest.md` — LOADED
-- `probe_trade_experiment_events_2026-06-23.csv` — LOADED
-- `probe_trade_experiment_summary_2026-06-23.csv` — LOADED
+- `probe_trade_experiment_events_2026-06-24.csv` — LOADED
+- `probe_trade_experiment_summary_2026-06-24.csv` — LOADED
 - `probe_trade_learning_loop_readiness_latest.json` — LOADED
 - `realized_pnl_attribution_latest.md` — LOADED
 - `realized_pnl_attribution_summary_latest.csv` — LOADED
