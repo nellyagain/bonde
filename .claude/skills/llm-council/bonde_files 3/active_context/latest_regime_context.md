@@ -1,6 +1,6 @@
 # Active Regime Context
 
-Generated: 2026-06-24
+Generated: 2026-06-25
 Source: `bonde_regime_report_2026-06-23.md`
 Status: AUTO_GENERATED_FROM_REGIME_REPORT
 Instruction: Advisory regime facts only. Do not override candidate-level `final_trade_status` or hard rejects.
