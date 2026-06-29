@@ -1,4 +1,4 @@
-# Decision-Log Corpus Reconciliation Audit — 2026-06-26
+# Decision-Log Corpus Reconciliation Audit — 2026-06-29
 
 Purpose: explain decision-log row-count changes and EP9M coverage across discovery → de-duplication → normalization → master log.
 
@@ -6,7 +6,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 
 | run_date   |   raw_candidate_files_discovered |   included_files |   excluded_files |   raw_rows_discovered_all_candidates |   raw_rows_included_files |   rows_after_schema_normalization_included |   master_decision_log_rows_after_dedup |   rows_removed_by_master_dedup |   excluded_duplicate_files |   included_raw_ep9m_setup_family_rows |   included_raw_ep9m_context_rows_any |   included_norm_ep9m_setup_family_rows |   included_norm_ep9m_context_rows_any |   master_ep9m_setup_family_rows |   master_ep9m_context_rows_any |
 |:-----------|---------------------------------:|-----------------:|-----------------:|-------------------------------------:|--------------------------:|-------------------------------------------:|---------------------------------------:|-------------------------------:|---------------------------:|--------------------------------------:|-------------------------------------:|---------------------------------------:|--------------------------------------:|--------------------------------:|-------------------------------:|
-| 2026-06-26 |                               38 |               26 |               12 |                                 3576 |                      2500 |                                       2500 |                                   2476 |                             24 |                          3 |                                     0 |                                  260 |                                      0 |                                   260 |                               0 |                            260 |
+| 2026-06-29 |                               39 |               27 |               12 |                                 3864 |                      2810 |                                       2810 |                                   2786 |                             24 |                          3 |                                     0 |                                  289 |                                      0 |                                   289 |                               0 |                            289 |
 
 ## Included decision-log files
 
@@ -38,6 +38,7 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 | daily_decision_log_2026-06-23 (1).csv | 2026-06-23      | CANONICAL     |                   | False           |             184 |                               184 |                       184 | V5_9_EXPLICIT    |                            0 |                             0 |
 | daily_decision_log_2026-06-25.csv     | 2026-06-25      | CANONICAL     |                   | False           |             128 |                               128 |                       128 | V5_9_EXPLICIT    |                            0 |                             0 |
 | daily_decision_log_2026-06-26.csv     | 2026-06-26      | CANONICAL     |                   | False           |             106 |                               106 |                       106 | V5_9_EXPLICIT    |                            0 |                             0 |
+| daily_decision_log_2026-06-28.csv     | 2026-06-28      | CANONICAL     |                   | False           |             310 |                               310 |                       310 | V5_9_EXPLICIT    |                            0 |                             0 |
 
 ## Excluded decision-log files
 
@@ -54,12 +55,12 @@ Purpose: explain decision-log row-count changes and EP9M coverage across discove
 | daily_decision_log_2026-06-10.BAD_MANIFEST_BACKUP_20260610T143106.csv | 2026-06-10      | CANONICAL     |                              | False           | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-06-10.csv     |               8 |               100 |                            0 |                           0 |
 | daily_decision_log_2026-06-10.BAD_MANIFEST_BACKUP_20260610T145850.csv | 2026-06-10      | CANONICAL     |                              | False           | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-06-10.csv     |             135 |               150 |                            0 |                           6 |
 | daily_decision_log_2026-06-23.csv                                     | 2026-06-23      | CANONICAL     |                              | False           | EXCLUDED_DATE_DUPLICATE_LOWER_SCORE; kept=daily_decision_log_2026-06-23 (1).csv |              18 |               132 |                            0 |                           1 |
-| daily_decision_log_2026-06-25.csv                                     | 2026-06-25      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY                                                    |             128 |               170 |                            0 |                           5 |
+| daily_decision_log_2026-06-26.csv                                     | 2026-06-26      | REPO_FALLBACK | COUNCIL_BUNDLE_CONTAMINATION | True            | EXCLUDED_COUNCIL_BUNDLE_COPY                                                    |             106 |               170 |                            0 |                           6 |
 
 ## EP9M reconciliation
 
 - No `setup_family=EP9M` rows were present in the included decision-log corpus for this run. If prior digests showed EP9M rows, compare the excluded-files table and discovery scope.
-- EP9M context rows any-token: raw included=260, normalized included=260, master=260.
+- EP9M context rows any-token: raw included=289, normalized included=289, master=289.
 
 ## Full audit CSV
 - `/content/drive/MyDrive/bonde_screener_cache/learning_outputs/decision_log_discovery_audit_latest.csv`
